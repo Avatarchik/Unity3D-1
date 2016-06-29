@@ -1,0 +1,24 @@
+Scene 
+	- Main
+		UI(유저 정보, 설정 버튼, 상점 버튼, 별자리 도감버튼, 화면전환 버튼,행성 이름)
+		Function(우주선 오브젝트(탐사 Scene 전환), Player(Ai), 자원채집, 행성회전, Pinch) 
+	
+	- neighbor
+		UI(퀘스트 표시, 행성 이름, 행성 좌표, 행성 삭제)
+		Function(행성 배열 및 loop,
+				 행성 선택 시 부드럽게 해당 행성 Main Scene으로 전환(화면중앙에 배치되는 행성만 전환 가능)
+		
+	- WorldMap
+		
+	
+	- Explore_Ready
+	
+	- Explore
+	
+	- Space
+	
+	- Shop
+	
+	- Settings
+	
+	
