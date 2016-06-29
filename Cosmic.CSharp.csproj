@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\02.Scripts\GameManager.cs" />
+    <Compile Include="Assets\02.Scripts\PlanetManager.cs" />
     <Compile Include="Assets\02.Scripts\csGizmoView.cs" />
     <Compile Include="Assets\02.Scripts\csRaycast.cs" />
     <Compile Include="Assets\06.Res\Cosmos\Scripts\GravityAttractor.cs" />
