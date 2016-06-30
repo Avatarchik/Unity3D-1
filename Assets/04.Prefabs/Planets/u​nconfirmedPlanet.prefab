@@ -27,6 +27,7 @@ GameObject:
   - 4: {fileID: 455770}
   - 33: {fileID: 3366030}
   - 23: {fileID: 2339350}
+  - 135: {fileID: 13503504}
   m_Layer: 0
   m_Name: UFPBody_Ring
   m_TagString: Untagged
@@ -221,6 +222,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!135 &13503504
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166682}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 98.70518
+  m_Center: {x: -2.455719, y: -4.797352, z: 3.1799088}
 --- !u!198 &19852862
 ParticleSystem:
   m_ObjectHideFlags: 1
