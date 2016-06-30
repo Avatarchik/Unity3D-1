@@ -4,15 +4,15 @@ using System.Collections;
 public class PlanetManager : MonoBehaviour
 {
     public GameObject planet;
-    public float spawnTime = 2.0f;
-
+    public float spawnTime = 10.0f;
+    public GameObject player;
     float deltaSpawnTime = 0.0f;
-
+    
     int spawnCnt = 1;
     int maxSpawnCnt = 10;
 
     GameObject[] planetPool;
-    int poolSize = 10;
+    int poolSize = 20;
 
     void Start()
     {
@@ -38,9 +38,29 @@ public class PlanetManager : MonoBehaviour
             {
                 if (planetPool[i].activeSelf == true)
                     continue;
+                int planetRandom = Random.Range(1, 4);
+                Debug.Log(planetRandom);
+                Vector3 pcPosition = player.transform.localPosition;
+                Vector3 left = Vector3.left * 3.5f;
+                Vector3 right = Vector3.right * 3.5f;
+                Vector3 up = Vector3.up * 3.5f;
+                Vector3 down = Vector3.down * 3.5f;
+                int x = Random.Range(-5, 5);
 
-                int x = Random.Range(-20, 20);
-                planetPool[i].transform.position = new Vector3(x, 0.1f, 20.0f);
+                //planetPool[i].transform.position = new Vector3(x, pcPosition.y, pcPosition  .z + 12.5f);
+                if (planetRandom == 1)
+                    planetPool[i].transform.position = player.transform.position + player.transform.forward * 12.5f + left;
+
+                else if (planetRandom == 2)
+                    planetPool[i].transform.position = player.transform.position + player.transform.forward * 12.5f + right;
+
+                else if (planetRandom == 3)
+                    planetPool[i].transform.position = player.transform.position + player.transform.forward * 12.5f + up;
+
+                else if (planetRandom == 4)
+                    planetPool[i].transform.position = player.transform.position + player.transform.forward * 12.5f + down;
+
+
                 planetPool[i].SetActive(true);
 
                 planetPool[i].name = "Planet_" + spawnCnt;

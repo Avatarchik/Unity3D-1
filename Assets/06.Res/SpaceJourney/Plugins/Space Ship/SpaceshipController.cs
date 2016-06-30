@@ -153,9 +153,10 @@ public sealed class SpaceshipController : MonoBehaviour
 
 		m_idleCameraDistance = Mathf.Lerp(m_idleCameraDistance, idleCameraDistance, IdleCameraDistanceSmooth * Time.deltaTime);
 		float baseFrustumHeight = 2.0f * m_idleCameraDistance * Mathf.Tan(m_initialCameraFOV * 0.5f * Mathf.Deg2Rad);
-		m_camera.TargetCamera.fieldOfView = 2.0f * Mathf.Atan(baseFrustumHeight * 0.5f / Vector3.Distance(
-			CachedTransform.position, m_cachedCameraTransform.position)) * Mathf.Rad2Deg;
-	}
+        m_camera.TargetCamera.fieldOfView = 2.0f * Mathf.Atan(baseFrustumHeight * 0.5f / Vector3.Distance(
+            CachedTransform.position, m_cachedCameraTransform.position)) * Mathf.Rad2Deg;
+        //m_camera.TargetCamera.fieldOfView = 44.0f;
+    }
 
 	private void UpdateInput()
 	{
