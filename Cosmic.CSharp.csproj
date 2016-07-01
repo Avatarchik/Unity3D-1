@@ -61,6 +61,18 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Data.Sqlite">
+      <HintPath>Assets\Plugins\Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>Assets\Plugins\System.Data.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Cosmic.CSharp.Plugins.csproj">
@@ -71,6 +83,7 @@
   <ItemGroup>
     <Compile Include="Assets\02.Scripts\GameManager.cs" />
     <Compile Include="Assets\02.Scripts\PlanetManager.cs" />
+    <Compile Include="Assets\02.Scripts\SqliteEX.cs" />
     <Compile Include="Assets\02.Scripts\csCollisionCheck.cs" />
     <Compile Include="Assets\02.Scripts\csGizmoView.cs" />
     <Compile Include="Assets\02.Scripts\csRaycast.cs" />
