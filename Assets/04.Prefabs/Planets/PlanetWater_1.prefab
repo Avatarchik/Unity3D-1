@@ -77,7 +77,7 @@ GameObject:
   - 95: {fileID: 9598416}
   m_Layer: 0
   m_Name: PlanetWater_1
-  m_TagString: PlanetSpawn
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
