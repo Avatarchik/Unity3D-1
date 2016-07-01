@@ -1,13 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class PlanetManager : MonoBehaviour
 {
-    public GameObject planet;
+    //[SerializeField, Tooltip("Add Planet.")]
+    //public Planet m_planet = new Planet
+    //{
+    //    size = 1,
+
+    //};
+
+    //[System.Serializable]
+    //public struct Planet
+    //{
+    //    public int size;
+    //    static public GameObject[] planet;
+
+    //}
+
+    //public Testitem[] planetList;
+
+    public GameObject udp;
+    public GameObject[] planet;
+
     public float spawnTime = 10.0f;
     public GameObject player;
     float deltaSpawnTime = 0.0f;
-    
+
     int spawnCnt = 1;
     int maxSpawnCnt = 10;
 
@@ -17,9 +37,9 @@ public class PlanetManager : MonoBehaviour
     void Start()
     {
         planetPool = new GameObject[poolSize];
-        for(int i=0; i< poolSize; ++i)
+        for (int i = 0; i < poolSize; ++i)
         {
-            planetPool[i] = Instantiate(planet) as GameObject;
+            planetPool[i] = Instantiate(udp) as GameObject;
             planetPool[i].SetActive(false);
         }
     }
@@ -34,7 +54,7 @@ public class PlanetManager : MonoBehaviour
         if (deltaSpawnTime > spawnTime)
         {
             deltaSpawnTime = 0.0f;
-            for(int i = 0; i < poolSize; i++)
+            for (int i = 0; i < poolSize; i++)
             {
                 if (planetPool[i].activeSelf == true)
                     continue;
@@ -67,7 +87,14 @@ public class PlanetManager : MonoBehaviour
                 ++spawnCnt;
                 break;
             }
-            
+
         }
+    }
+
+    public void planetChange(Vector3 spawnPoint)
+    {
+        int rand = Random.Range(1, 9);
+        GameObject obj = Instantiate(planet[rand]);
+        obj.transform.position = spawnPoint;
     }
 }

@@ -95,7 +95,7 @@ GameObject:
   - 4: {fileID: 441100}
   - 95: {fileID: 9590800}
   m_Layer: 0
-  m_Name: Planet_1
+  m_Name: P1
   m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

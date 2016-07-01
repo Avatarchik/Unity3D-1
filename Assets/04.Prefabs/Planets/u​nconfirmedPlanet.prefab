@@ -27,7 +27,6 @@ GameObject:
   - 4: {fileID: 455770}
   - 33: {fileID: 3366030}
   - 23: {fileID: 2339350}
-  - 135: {fileID: 13503504}
   m_Layer: 0
   m_Name: UFPBody_Ring
   m_TagString: Untagged
@@ -62,6 +61,7 @@ GameObject:
   - 4: {fileID: 486158}
   - 95: {fileID: 9521546}
   - 54: {fileID: 5415784}
+  - 135: {fileID: 13537732}
   m_Layer: 0
   m_Name: "u\u200BnconfirmedPlanet"
   m_TagString: PlanetSpawn
@@ -222,12 +222,12 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!135 &13503504
+--- !u!135 &13537732
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166682}
+  m_GameObject: {fileID: 180886}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
