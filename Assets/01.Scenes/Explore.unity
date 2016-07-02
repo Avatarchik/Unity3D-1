@@ -30098,7 +30098,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1701546074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50aed41fdec228544af06e0665e3edd1, type: 3}
+  m_Script: {fileID: 11500000, guid: 30f41b3398f984b449a5d8a61158fb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pmObj: {fileID: 1946166167}
@@ -32667,15 +32667,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   udp: {fileID: 180886, guid: 3e3fdcc302a897b4f952420099b47123, type: 2}
   planet:
-  - {fileID: 173686, guid: e16dbe7d7ff09464997db97a775e3698, type: 2}
-  - {fileID: 128910, guid: b8c6a746f51bf0a4481960b99faf19ef, type: 2}
-  - {fileID: 177156, guid: 91535b722b5bd8240b46c075fffd3469, type: 2}
-  - {fileID: 190976, guid: e87d6c28282f9144fafcf6cdf5e83788, type: 2}
-  - {fileID: 183176, guid: afc79a930d7c5024d88cade1474c6eae, type: 2}
-  - {fileID: 138184, guid: 2097299250769bf48b47d5f710e89b31, type: 2}
-  - {fileID: 110874, guid: fc32b71b515de36418fe4c3c53eef4c2, type: 2}
-  - {fileID: 182434, guid: 6a5af67ef7d20934a907960e51c9c2dc, type: 2}
-  - {fileID: 158836, guid: 86f627a4520c67f47bf45222220d8b18, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   spawnTime: 5
   player: {fileID: 1701546074}
 --- !u!4 &1946166169
@@ -32813,7 +32813,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1974917997}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5b2ac6e1a637ba4ab8cb43e0c5c6481, type: 3}
+  m_Script: {fileID: 11500000, guid: 43c54e8c0694b014781e62d8762561d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1974918000
@@ -32903,7 +32903,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1989461711}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1974917999}
+        m_MethodName: explore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1989461711
