@@ -32,17 +32,4 @@ QualitySettings:
     asyncUploadTimeSlice: 2
     asyncUploadBufferSize: 4
     excludedTargetPlatforms: []
-  m_PerPlatformDefaultQuality:
-    Android: 0
-    BlackBerry: 0
-    FlashPlayer: 3
-    GLES Emulation: 3
-    PS3: 3
-    Standalone: 0
-    WP8: 0
-    Web: 0
-    WebGL: 0
-    Wii: 3
-    Windows Store Apps: 0
-    XBOX360: 3
-    iPhone: 0
+  m_PerPlatformDefaultQuality: {}
