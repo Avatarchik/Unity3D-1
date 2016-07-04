@@ -16542,7 +16542,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &1023659550 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 423346, guid: 892141ea4aa765345920b13c6dd4c826, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 1023659549}
 --- !u!1 &1031238726
 GameObject:
@@ -18146,7 +18146,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &1083250554 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 423346, guid: 892141ea4aa765345920b13c6dd4c826, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 1083250553}
 --- !u!1 &1110849947
 GameObject:
@@ -28082,7 +28082,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 33241d4f3beb5bd4daad8098dcd465f8, type: 2}
+  - {fileID: 2100000, guid: 28f26354b53457241b67d9b006169e63, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
