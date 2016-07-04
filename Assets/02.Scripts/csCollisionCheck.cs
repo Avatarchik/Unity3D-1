@@ -20,7 +20,7 @@ public class csCollisionCheck : MonoBehaviour {
         script.planetChange(spawnPoint);
 
         GameManager.Instance().exploreUi.SetActive(true);
-        Destroy(other.gameObject);
+        other.gameObject.SetActive(false);
         
         Time.timeScale = 0;
     }
