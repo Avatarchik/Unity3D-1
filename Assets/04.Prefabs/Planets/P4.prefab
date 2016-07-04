@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 431820}
   - 95: {fileID: 9563142}
   m_Layer: 0
-  m_Name: P4(Clone)
+  m_Name: P4
   m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
