@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public float runSpeed = 4;
 	public float rotSpeed = 10;
 	public float animSpeed = 1.5f;
-	bool running = false;
+	bool running = true;
 
 	private Vector3 movDir;
 	public Animator anim;
@@ -19,10 +19,10 @@ public class PlayerController : MonoBehaviour {
 	void Update () 
 	{
 		float speed = Input.GetAxis("Vertical");
-		Debug.Log (speed);
+		//Debug.Log (speed);
 		float turn = Input.GetAxis("Horizontal");
 
-		running = Input.GetKey (KeyCode.LeftShift);
+		//running = Input.GetKey (KeyCode.LeftShift);
 		anim.SetBool ("running", running);
 
 		movDir = new Vector3 (0, 0, Input.GetAxisRaw ("Vertical")).normalized;
