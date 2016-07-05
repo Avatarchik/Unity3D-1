@@ -12,7 +12,11 @@ public class GameManager : MonoBehaviour {
 
     //Singleton Variable 
     public GameObject exploreUi;
-    
+    public GameObject player;
+    public GameObject destination;
+    public GameObject navUi_des;
+    public GameObject navUi_player;
+
     void Start()
     {
         if (_instance == null)
