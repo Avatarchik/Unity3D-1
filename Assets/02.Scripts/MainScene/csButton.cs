@@ -31,6 +31,10 @@ public class csButton : MonoBehaviour {
     public void VisibleSetting()
     {
         GameObject.Find("Canvas").transform.FindChild("SettingPanal").gameObject.SetActive(true);
+        GameObject.Find("Canvas").transform.FindChild("DragZone").gameObject.SetActive(false);
+        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(true);
+        GameObject planet = GameObject.Find("death_planet");
+        planet.gameObject.layer = 2;
     }
 
 
@@ -38,11 +42,20 @@ public class csButton : MonoBehaviour {
     {
         Debug.Log("confirm");
         GameObject.Find("Canvas/SettingPanal").gameObject.SetActive(false);
+        GameObject.Find("Canvas").transform.FindChild("DragZone").gameObject.SetActive(true);
+        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(false);
+        GameObject planet = GameObject.Find("death_planet");
+        planet.gameObject.layer = 0;
+
     }
     public void Cancel()
     {
         Debug.Log("Cancel");
         GameObject.Find("Canvas/SettingPanal").gameObject.SetActive(false);
+        GameObject.Find("Canvas").transform.FindChild("DragZone").gameObject.SetActive(true);
+        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(false);
+        GameObject planet = GameObject.Find("death_planet");
+        planet.gameObject.layer = 0;
 
     }
 
