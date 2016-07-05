@@ -58,7 +58,7 @@ public class PlanetManager : MonoBehaviour
             {
                 if (planetPool[i].activeSelf == true)
                     continue;
-                int planetRandom = Random.Range(1, 9);
+                int planetRandom = Random.Range(1, 4);
                 Debug.Log(planetRandom);
                 Vector3 pcPosition = player.transform.localPosition;
                 Vector3 left = Vector3.left * 3.5f;
@@ -67,7 +67,7 @@ public class PlanetManager : MonoBehaviour
                 Vector3 down = Vector3.down * 3.5f;
                 int x = Random.Range(-5, 5);
 
-                //planetPool[i].transform.position = new Vector3(x, pcPosition.y, pcPosition  .z + 12.5f);
+                
                 if (planetRandom == 1)
                     planetPool[i].transform.position = player.transform.position + player.transform.forward * 12.5f + left;
 

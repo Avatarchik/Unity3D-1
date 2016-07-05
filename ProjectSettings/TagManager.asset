@@ -8,6 +8,10 @@ TagManager:
   - Stars
   - Planet
   - PlanetSpawn
+  - Ship
+  - Food
+  - Titanium
+  - Energy
   layers:
   - Default
   - TransparentFX
