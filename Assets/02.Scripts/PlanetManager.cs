@@ -23,19 +23,20 @@ public class PlanetManager : MonoBehaviour
 
     public GameObject udp;
     public GameObject[] planet;
-
+    private GameObject player;
     public float spawnTime = 10.0f;
-    public GameObject player;
+    
     float deltaSpawnTime = 0.0f;
 
     int spawnCnt = 1;
-    int maxSpawnCnt = 10;
+    int maxSpawnCnt = 20;
 
     GameObject[] planetPool;
     int poolSize = 20;
 
     void Start()
     {
+        
         planetPool = new GameObject[poolSize];
         for (int i = 0; i < poolSize; ++i)
         {
@@ -46,6 +47,7 @@ public class PlanetManager : MonoBehaviour
 
     void Update()
     {
+        player = GameManager.Instance().player;
         if (spawnCnt > maxSpawnCnt)
             return;
 
@@ -57,9 +59,18 @@ public class PlanetManager : MonoBehaviour
             for (int i = 0; i < poolSize; i++)
             {
                 if (planetPool[i].activeSelf == true)
+                {
+                    //충돌하지 않은 물음표 행성 10m 초과로 멀어지면 Active False 처리
+                    //Debug.Log("Distance of RandomPlanet" + Vector3.Distance(planetPool[i].transform.position, player.transform.position));
+                    if (Vector3.Distance(planetPool[i].transform.position, player.transform.position) > 10)
+                    {
+                        //Debug.Log("Planet Disable!");
+                        planetPool[i].SetActive(false);
+                    }
                     continue;
+                }
                 int planetRandom = Random.Range(1, 4);
-                Debug.Log(planetRandom);
+                //Debug.Log("[SpawnDirection]\n1: left , 2: Right, 3: up, 4: down" + "\t<b>" +planetRandom +"</b>");
                 Vector3 pcPosition = player.transform.localPosition;
                 Vector3 left = Vector3.left * 3.5f;
                 Vector3 right = Vector3.right * 3.5f;

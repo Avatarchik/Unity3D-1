@@ -9,11 +9,11 @@ public class DistanceCalc : MonoBehaviour {
     float calcResult;
 
 	void Start () {
-        calcResult = Vector3.Distance(point.transform.position, destination.transform.position);
-        Debug.Log(calcResult);
+        
     }
 	
 	void Update () {
-        
+        calcResult = Vector3.Distance(point.transform.position, destination.transform.position);
+        Debug.Log(calcResult);
     }
 }
