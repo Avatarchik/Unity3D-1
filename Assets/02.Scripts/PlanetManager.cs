@@ -24,12 +24,13 @@ public class PlanetManager : MonoBehaviour
     public GameObject udp;
     public GameObject[] planet;
     private GameObject player;
+    private GameObject spaceChecker;
     public float spawnTime = 10.0f;
     
     float deltaSpawnTime = 0.0f;
 
     int spawnCnt = 1;
-    int maxSpawnCnt = 20;
+    int maxSpawnCnt = 100;
 
     GameObject[] planetPool;
     int poolSize = 20;
@@ -48,6 +49,7 @@ public class PlanetManager : MonoBehaviour
     void Update()
     {
         player = GameManager.Instance().player;
+        spaceChecker = GameManager.Instance().spaceChecker;
         if (spawnCnt > maxSpawnCnt)
             return;
 
@@ -62,16 +64,19 @@ public class PlanetManager : MonoBehaviour
                 {
                     //충돌하지 않은 물음표 행성 10m 초과로 멀어지면 Active False 처리
                     //Debug.Log("Distance of RandomPlanet" + Vector3.Distance(planetPool[i].transform.position, player.transform.position));
-                    if (Vector3.Distance(planetPool[i].transform.position, player.transform.position) > 10)
+                    if (Vector3.Distance(planetPool[i].transform.position, player.transform.position) > 15)
                     {
-                        //Debug.Log("Planet Disable!");
+                        Debug.Log("Planet Disable!");
                         planetPool[i].SetActive(false);
                     }
                     continue;
                 }
+
+                //물음표 행성 랜덤 생성
+
                 int planetRandom = Random.Range(1, 4);
                 //Debug.Log("[SpawnDirection]\n1: left , 2: Right, 3: up, 4: down" + "\t<b>" +planetRandom +"</b>");
-                Vector3 pcPosition = player.transform.localPosition;
+                //Vector3 pcPosition = player.transform.localPosition;
                 Vector3 left = Vector3.left * 3.5f;
                 Vector3 right = Vector3.right * 3.5f;
                 Vector3 up = Vector3.up * 3.5f;
@@ -80,25 +85,100 @@ public class PlanetManager : MonoBehaviour
 
                 
                 if (planetRandom == 1)
-                    planetPool[i].transform.position = player.transform.position + player.transform.forward * 12.5f + left;
+                {
+                    spaceChecker.transform.position = player.transform.position + player.transform.forward * 10.0f + left;
+                    if (GameManager.Instance().spaceCollision == false)
+                    {
+                        Debug.Log("false!");
+                        planetPool[i].transform.position = player.transform.position + player.transform.forward * 10.0f + left;
+
+                        planetPool[i].SetActive(true);
+
+                        planetPool[i].name = "Planet_" + spawnCnt;
+                        ++spawnCnt;
+                        break;
+                    }
+                    else if (GameManager.Instance().spaceCollision == true)
+                    {
+                        Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
+                        GameManager.Instance().spaceCollision = false;
+                        Debug.Log("현재 상태:" +GameManager.Instance().spaceCollision);
+                        --i;
+                        break;
+                    }
+                }
 
                 else if (planetRandom == 2)
-                    planetPool[i].transform.position = player.transform.position + player.transform.forward * 12.5f + right;
+                {
+                    spaceChecker.transform.position = player.transform.position + player.transform.forward * 10.0f + right;
+                    if (GameManager.Instance().spaceCollision == false)
+                    {
+                        Debug.Log("false!");
+                        planetPool[i].transform.position = player.transform.position + player.transform.forward * 10.0f + right;
 
+                        planetPool[i].SetActive(true);
+
+                        planetPool[i].name = "Planet_" + spawnCnt;
+                        ++spawnCnt;
+                        break;
+                    }
+                    else if (GameManager.Instance().spaceCollision == true)
+                    {
+                        Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
+                        GameManager.Instance().spaceCollision = false;
+                        Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
+                        --i;
+                        break;
+                    }
+                }
                 else if (planetRandom == 3)
-                    planetPool[i].transform.position = player.transform.position + player.transform.forward * 12.5f + up;
+                {
+                    spaceChecker.transform.position = player.transform.position + player.transform.forward * 10.0f + up;
+                    if (GameManager.Instance().spaceCollision == false)
+                    {
+                        Debug.Log("false!");
+                        planetPool[i].transform.position = player.transform.position + player.transform.forward * 10.0f + up;
+
+                        planetPool[i].SetActive(true);
+
+                        planetPool[i].name = "Planet_" + spawnCnt;
+                        ++spawnCnt;
+                        break;
+                    }
+                    else if (GameManager.Instance().spaceCollision == true)
+                    {
+                        Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
+                        GameManager.Instance().spaceCollision = false;
+                        Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
+                        --i;
+                        break;
+                    }
+                }
 
                 else if (planetRandom == 4)
-                    planetPool[i].transform.position = player.transform.position + player.transform.forward * 12.5f + down;
+                {
+                    spaceChecker.transform.position = player.transform.position + player.transform.forward * 10.0f + down;
+                    if (GameManager.Instance().spaceCollision == false)
+                    {
+                        Debug.Log("false!");
+                        planetPool[i].transform.position = player.transform.position + player.transform.forward * 10.0f + down;
 
+                        planetPool[i].SetActive(true);
 
-                planetPool[i].SetActive(true);
-
-                planetPool[i].name = "Planet_" + spawnCnt;
-                ++spawnCnt;
-                break;
+                        planetPool[i].name = "Planet_" + spawnCnt;
+                        ++spawnCnt;
+                        break;
+                    }
+                    else if (GameManager.Instance().spaceCollision == true)
+                    {
+                        Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
+                        GameManager.Instance().spaceCollision = false;
+                        Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
+                        --i;
+                        break;
+                    }
+                }
             }
-
         }
     }
 
