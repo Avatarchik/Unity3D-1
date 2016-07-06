@@ -32,8 +32,8 @@ public class StarNavigation : MonoBehaviour {
         //목적지 네비게이션
         Vector3 pPoint = GameManager.Instance().player.transform.position;
         Vector3 dPoint = GameManager.Instance().destination.transform.position;
-        GameObject.Find("Ship").GetComponent<LineRenderer>().SetPosition(0, pPoint);        //플레이어 현재 위치
-        GameObject.Find("Ship").GetComponent<LineRenderer>().SetPosition(1, dPoint);        //목적지 위치
+        GameObject.Find("Nav").GetComponent<LineRenderer>().SetPosition(0, pPoint);        //플레이어 현재 위치
+        GameObject.Find("Nav").GetComponent<LineRenderer>().SetPosition(1, dPoint);        //목적지 위치
 
     }
 }
