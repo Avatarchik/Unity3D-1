@@ -11,11 +11,17 @@ public class GameManager : MonoBehaviour {
     }
 
     //Singleton Variable 
-    public GameObject exploreUi;
+    
+    //Common
     public GameObject player;
+
+    //Explore Scene
+    public GameObject spaceChecker;
+    public bool spaceCollision = false;
     public GameObject destination;
     public GameObject navUi_des;
     public GameObject navUi_player;
+    public GameObject exploreUi;
 
     void Start()
     {
