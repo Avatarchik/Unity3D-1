@@ -3,8 +3,7 @@ using System.Collections;
 
 public class PlanetCollisionCheck : MonoBehaviour {
 
-    public GameObject pmObj;
-    public Vector3 spawnPoint;
+    
     void  OnCollisionEnter (Collision collision)
     {
         Debug.Log("Planet_OnCollisionEnter");
@@ -14,19 +13,21 @@ public class PlanetCollisionCheck : MonoBehaviour {
     {
         
         Debug.Log("Planet_OnTriggerEnter");
+
         //충돌 행성 위치 저장
-        spawnPoint = other.gameObject.GetComponent<Transform>().position;
-        Debug.Log("SpawnPoint "+spawnPoint);
-        
-        //물음표 행성 교체
-        PlanetManager script = pmObj.GetComponent<PlanetManager>();
-        script.planetChange(spawnPoint);
+        GameManager.Instance().planetSpawnPoint = other.gameObject.GetComponent<Transform>().position;
 
         //탐사 UI 활성화
         GameManager.Instance().exploreUi.SetActive(true);
-        other.gameObject.SetActive(false);
-        
+
+        //게임 시간 정지
         Time.timeScale = 0;
+
+        //행성 생성(ButtonController.cs에 'explore()'로 이동)
+        
+        //물음표 행성 오브젝트 임시 저장
+        GameManager.Instance().tempPlanet = other.gameObject;
+        
     }
 
 }
