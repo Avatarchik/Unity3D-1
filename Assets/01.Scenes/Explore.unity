@@ -15892,8 +15892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50aed41fdec228544af06e0665e3edd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pmObj: {fileID: 1946166167}
-  spawnPoint: {x: 0, y: 0, z: 0}
 --- !u!1 &1803261748
 GameObject:
   m_ObjectHideFlags: 0
@@ -16453,6 +16451,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1701546074}
+  tempPlanet: {fileID: 0}
+  planetSpawnPoint: {x: 0, y: 0, z: 0}
   spaceChecker: {fileID: 379682752}
   spaceCollision: 0
   destination: {fileID: 125132091}
