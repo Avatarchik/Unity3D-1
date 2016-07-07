@@ -1,9 +1,19 @@
 ﻿using System;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public sealed class SpaceshipController : MonoBehaviour
 {
-	private const float IdleCameraDistanceSmooth = 0.85f;
+    
+    /// <summary>
+    /// 조이스틱 옵션 추가를 위한 변수 선언
+    /// 
+    /// </summary>
+    private Vector3 velocity;
+    /////////////////////////////////////////////////////
+    
+
+    private const float IdleCameraDistanceSmooth = 0.85f;
 	private static readonly Vector3[] RotationDirections = { Vector3.right, Vector3.up, Vector3.forward };
 	public Transform CachedTransform { get; private set; }
 
@@ -71,8 +81,15 @@ public sealed class SpaceshipController : MonoBehaviour
 			MovementThreshold = 75.0f,
 			Sensitivity = 1.0f,
 			SensitivityOnMaxSpeed = 0.85f
-		}
-	};
+		},
+        Joystick = new JoystickSettings
+        {
+            //Gibom 2016. 07. 07
+            //No Option - if you want config joystick. Find PlayerController_ui/MobileJoystick.  
+        }
+
+
+    };
 
 	private Vector2 m_lookAtPointOffset;
 
@@ -170,7 +187,8 @@ public sealed class SpaceshipController : MonoBehaviour
 			case InputMode.Keyboard:
 				currentRawInput.x = Input.GetAxis(m_input.Keyboard.InputNames.AxisX) * currentKeyboardSensitivity;
 				currentRawInput.y = Input.GetAxis(m_input.Keyboard.InputNames.AxisY) * currentKeyboardSensitivity;
-				break;
+                Debug.Log(currentRawInput.x+"\n"+currentRawInput.y);
+                break;
 
 			case InputMode.KeyboardAndMouse:
 				float currentMouseSensitivity = Mathf.Lerp(m_input.Mouse.Sensitivity,
@@ -196,8 +214,15 @@ public sealed class SpaceshipController : MonoBehaviour
 					currentRawInput.y = -Mathf.Clamp(horizontalOffsetFromCenter / (m_input.Mouse.ActiveArea.x -
 						m_input.Mouse.MovementThreshold), -1.0f, 1.0f) * currentMouseSensitivity;
 				}
+                break;
 
-				break;
+            case InputMode.Joystick:
+
+                currentRawInput.x = CrossPlatformInputManager.GetAxis("Vertical") * 1;
+                currentRawInput.y = CrossPlatformInputManager.GetAxis("Horizontal")* -1;
+                Debug.Log(currentRawInput.x + "\n" + currentRawInput.y);
+
+                break;
 		}
 
 		currentRawInput.z = Input.GetAxis(m_input.Keyboard.InputNames.AxisZ) * currentKeyboardSensitivity;
@@ -254,7 +279,8 @@ public sealed class SpaceshipController : MonoBehaviour
 	private enum InputMode
 	{
 		Keyboard,
-		KeyboardAndMouse
+		KeyboardAndMouse,
+        Joystick
 	}
 
 	[Serializable]
@@ -263,7 +289,8 @@ public sealed class SpaceshipController : MonoBehaviour
 		[Tooltip("Keyboard options.")] public KeyboardSettings Keyboard;
 		[Tooltip("Input mode.")] public InputMode Mode;
 		[Tooltip("Mouse options.")] public MouseSettings Mouse;
-		[Tooltip("How fast the input interpolates to the desired value. Higher = faster.")] public Vector4 Response;
+        [Tooltip("No Option - if you want config joystick. Find PlayerController_ui/MobileJoystick.")] public JoystickSettings Joystick;
+        [Tooltip("How fast the input interpolates to the desired value. Higher = faster.")] public Vector4 Response;
 	}
 
 	[Serializable]
@@ -291,8 +318,13 @@ public sealed class SpaceshipController : MonoBehaviour
 		[Tooltip("Mouse sensitivity when flying with a minimum speed.")] public float Sensitivity;
 		[Tooltip("Mouse sensitivity when flying with a maximum speed.")] public float SensitivityOnMaxSpeed;
 	}
+    [Serializable]
+    private struct JoystickSettings
+    {
+        //No Option - if you want config joystick. Find PlayerController_ui/MobileJoystick.
+    }
 
-	[Serializable]
+    [Serializable]
 	private struct SpaceshipSettings
 	{
 		[Tooltip("Defines how speed changes over time.")] public AnimationCurve AccelerationCurve;
