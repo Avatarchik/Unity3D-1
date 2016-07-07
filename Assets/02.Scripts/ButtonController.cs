@@ -32,7 +32,7 @@ public class ButtonController : MonoBehaviour {
 
     public void TransSceneToMap()
     {
-        //SceneManager.LoadScene("Map");
+        SceneManager.LoadScene("ManagePlanet");
         Debug.Log("scene trans to map");
     }
 
@@ -55,6 +55,7 @@ public class ButtonController : MonoBehaviour {
         GameObject planet = GameObject.Find("death_planet");
         planet.gameObject.layer = 0;
 
+        csScreenPointTouch.rDrag = true;
     }
 
     public void Cancel()
