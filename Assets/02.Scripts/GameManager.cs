@@ -11,11 +11,12 @@ public class GameManager : MonoBehaviour {
     }
 
     //Singleton Variable 
-    
-    //Common
-    public GameObject player;
+
 
     //Explore Scene
+    public GameObject player;
+    public GameObject tempPlanet;
+    public Vector3 planetSpawnPoint;
     public GameObject spaceChecker;
     public bool spaceCollision = false;
     public GameObject destination;
@@ -28,11 +29,4 @@ public class GameManager : MonoBehaviour {
         if (_instance == null)
             _instance = this;
     }
-    
-    //public GameObject exUiget()
-    //{
-    //    return exploreUi;
-    //}
-
-
 }

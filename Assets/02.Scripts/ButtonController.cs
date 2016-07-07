@@ -5,14 +5,35 @@ using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour {
 
+    
+
     public void explore()
     {
         Debug.Log("행성을 탐사합니다!");
+        //Vector3 spawnPoint = GameManager.Instance().planetSpawnPoint;
+
+        //충돌한 물음표 행성 비활성화
+        GameManager.Instance().tempPlanet.SetActive(false);
+
+        //행성 생성
+        Debug.Log("<b>SpawnPoint!!</b> " + GameManager.Instance().planetSpawnPoint);
+        PlanetManager script = GameObject.Find("PlanetManager").GetComponent<PlanetManager>();
+        script.planetChange(GameManager.Instance().planetSpawnPoint);
+
+        //탐사 UI 비활성화
+        GameManager.Instance().exploreUi.SetActive(false);
+
+        //Scene 전환 추가예정
     }
 
     public void pass()
     {
+        //게임 시간 초기화
         Time.timeScale = 1;
+
+        //행성 생성하지 않음
+        GameManager.Instance().tempPlanet.SetActive(false);
+        //탐사 UI 비활성화
         GameManager.Instance().exploreUi.SetActive(false);
     }
 
