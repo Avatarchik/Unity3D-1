@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     public GameObject destination;
     public GameObject navUi_des;
     public GameObject navUi_player;
+    public GameObject alertUi;
     public GameObject exploreUi;
 
     void Start()
