@@ -1355,7 +1355,7 @@ MonoBehaviour:
   - {fileID: 2080777765}
   - {fileID: 1339840349}
   - {fileID: 1712911457}
-  Planet: {fileID: 173686, guid: e16dbe7d7ff09464997db97a775e3698, type: 2}
+  Planet: {fileID: 169876, guid: 6fb164edffd2fe04cb275b91efe22ab7, type: 2}
 --- !u!4 &851619561
 Transform:
   m_ObjectHideFlags: 0
