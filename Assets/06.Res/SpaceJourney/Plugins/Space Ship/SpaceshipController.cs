@@ -220,7 +220,7 @@ public sealed class SpaceshipController : MonoBehaviour
 
                 currentRawInput.x = CrossPlatformInputManager.GetAxis("Vertical") * 1;
                 currentRawInput.y = CrossPlatformInputManager.GetAxis("Horizontal")* -1;
-                Debug.Log(currentRawInput.x + "\n" + currentRawInput.y);
+                //Debug.Log(currentRawInput.x + "\n" + currentRawInput.y);
 
                 break;
 		}

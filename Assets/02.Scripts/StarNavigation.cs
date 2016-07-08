@@ -52,7 +52,6 @@ public class StarNavigation : MonoBehaviour {
             //Time.timeScale = 0;
             //탐사 종료(행성 귀환) 추가예정
         }
-        
 
         //목적지 네비게이션
         Vector3 pPoint = GameManager.Instance().player.transform.position;

@@ -40,7 +40,8 @@ public class ButtonController : MonoBehaviour {
 
     public void TransSceneToShop()
     {
-        //SceneManager.LoadScene("asdf");
+        //SceneManager.LoadScene("shop");
+        
         Debug.Log("scene Trans to shop");
     }
 

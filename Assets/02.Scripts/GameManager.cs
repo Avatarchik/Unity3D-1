@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
 
     //Singleton Variable 
 
+    //Planet Management
+    
 
     //Explore Scene
     public GameObject player;
@@ -24,6 +26,8 @@ public class GameManager : MonoBehaviour {
     public GameObject navUi_player;
     public GameObject alertUi;
     public GameObject exploreUi;
+
+    
 
     void Start()
     {
