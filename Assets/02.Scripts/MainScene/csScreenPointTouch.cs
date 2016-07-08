@@ -3,9 +3,7 @@ using System.Collections;
 
 public class csScreenPointTouch : MonoBehaviour {
 
-    public LayerMask ignoreUI;
-
-    public static bool rDrag ;
+    bool rDrag ;
 
     void Start()
     {
@@ -32,10 +30,9 @@ public class csScreenPointTouch : MonoBehaviour {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
 
-                //if (Physics.Raycast(ray, out hit, ignoreUI))
-                    if (Physics.Raycast(ray, out hit))
-                    {
-                        if (hit.transform.tag.Equals("Finish"))
+                if (Physics.Raycast(ray, out hit))
+                {
+                    if(hit.transform.tag.Equals("Finish"))
                     {
                         Debug.Log("panal");
                     }
@@ -61,7 +58,6 @@ public class csScreenPointTouch : MonoBehaviour {
                 }
             }
         }
-        rDrag = false;
     }
 
 }

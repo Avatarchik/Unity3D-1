@@ -39,8 +39,7 @@ public class csDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     {
         Debug.Log("OnDragEnd");
 
-        csScreenPointTouch script = obj.GetComponent<csScreenPointTouch>();
-        script.dragTrue();
+        StartCoroutine("dragFalse");
     }
 
     IEnumerator dragFalse()
@@ -49,7 +48,7 @@ public class csDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         yield return new WaitForSeconds(0.5f);
         Debug.Log("2");
         csScreenPointTouch script = obj.GetComponent<csScreenPointTouch>();
-        script.dragTrue();
+        script.dragFalse();
     }
 
 }
