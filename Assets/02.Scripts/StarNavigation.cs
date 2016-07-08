@@ -45,13 +45,13 @@ public class StarNavigation : MonoBehaviour {
 
         else if (deltaFuelTime > maxFuel && engineActive == true)
         {
-            //GameManager.Instance().player.GetComponent<SpaceshipController>().
+            GameManager.Instance().player.GetComponent<SpaceshipController>().m_spaceship.SpeedRange -= new Vector2(17, 0);
+            GameManager.Instance().alertUi.SetActive(true);
             engineActive = false;
             Debug.Log("<b>연료 부족!</b>");
             //Time.timeScale = 0;
             //탐사 종료(행성 귀환) 추가예정
         }
-        
 
         //목적지 네비게이션
         Vector3 pPoint = GameManager.Instance().player.transform.position;

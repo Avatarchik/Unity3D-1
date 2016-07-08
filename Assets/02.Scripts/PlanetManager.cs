@@ -187,5 +187,6 @@ public class PlanetManager : MonoBehaviour
         int rand = Random.Range(1, 9);
         GameObject obj = Instantiate(planet[rand]);
         obj.transform.position = spawnPoint;
+        
     }
 }

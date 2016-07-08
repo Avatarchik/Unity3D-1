@@ -93,7 +93,7 @@ public sealed class SpaceshipController : MonoBehaviour
 
 	private Vector2 m_lookAtPointOffset;
 
-	[SerializeField, Tooltip("Spaceship options.")] private SpaceshipSettings m_spaceship = new SpaceshipSettings
+	[SerializeField, Tooltip("Spaceship options.")] public SpaceshipSettings m_spaceship = new SpaceshipSettings
 	{
 		AccelerationCurve = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f),
 		BankAngleSmooth = 2.5f,
@@ -220,7 +220,7 @@ public sealed class SpaceshipController : MonoBehaviour
 
                 currentRawInput.x = CrossPlatformInputManager.GetAxis("Vertical") * 1;
                 currentRawInput.y = CrossPlatformInputManager.GetAxis("Horizontal")* -1;
-                Debug.Log(currentRawInput.x + "\n" + currentRawInput.y);
+                //Debug.Log(currentRawInput.x + "\n" + currentRawInput.y);
 
                 break;
 		}
@@ -325,7 +325,7 @@ public sealed class SpaceshipController : MonoBehaviour
     }
 
     [Serializable]
-	private struct SpaceshipSettings
+	public struct SpaceshipSettings
 	{
 		[Tooltip("Defines how speed changes over time.")] public AnimationCurve AccelerationCurve;
 		[Tooltip("The spaceship's model.")] public Transform Avatar;
