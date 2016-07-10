@@ -39,7 +39,7 @@ public class csDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     {
         Debug.Log("OnDragEnd");
 
-        StartCoroutine("dragFalse");
+        script.dragFalse();
     }
 
     IEnumerator dragFalse()

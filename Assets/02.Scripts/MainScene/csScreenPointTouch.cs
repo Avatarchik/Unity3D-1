@@ -3,7 +3,9 @@ using System.Collections;
 
 public class csScreenPointTouch : MonoBehaviour {
 
-    bool rDrag ;
+    public LayerMask ignoreUI;
+
+    public static bool rDrag;
 
     void Start()
     {
@@ -58,6 +60,8 @@ public class csScreenPointTouch : MonoBehaviour {
                 }
             }
         }
+        rDrag = false;
+
     }
 
 }
