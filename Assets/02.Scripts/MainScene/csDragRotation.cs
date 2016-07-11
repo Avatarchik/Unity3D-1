@@ -38,8 +38,8 @@ public class csDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("OnDragEnd");
-
-        StartCoroutine("dragFalse");
+        csScreenPointTouch script = obj.GetComponent<csScreenPointTouch>();
+        script.dragFalse();
     }
 
     IEnumerator dragFalse()

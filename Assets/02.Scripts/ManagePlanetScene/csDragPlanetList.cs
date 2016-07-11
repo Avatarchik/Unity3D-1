@@ -24,7 +24,7 @@ public class csDragPlanetList : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         obj = GameObject.Find("RotatePath");
         script = obj.GetComponent<csRotatePath>();
         
-        StartCoroutine("callMakePlanet");
+        //StartCoroutine("callMakePlanet");
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -32,13 +32,21 @@ public class csDragPlanetList : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     }
     public void OnDrag(PointerEventData eventData)
     {
-        
+
+        //MovePlanet.Instance.SetDrag(eventData);
+        return;
+
+
+
+
+
         if (!moving)
         {
-            StartCoroutine("callMakePlanet");
+            if(eventData.delta.y < 0)
+                StartCoroutine("callMakePlanet");
+            
         }
-        //Debug.Log("OnDrag");
-
+        
     }
 
     public void OnEndDrag(PointerEventData eventData)

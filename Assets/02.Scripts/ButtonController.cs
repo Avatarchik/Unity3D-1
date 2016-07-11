@@ -77,6 +77,9 @@ public class ButtonController : MonoBehaviour {
         GameObject planet = GameObject.Find("death_planet");
         planet.gameObject.layer = 0;
 
+        csScreenPointTouch.rDrag = true;
+
+
     }
 
     public void Cancel()
@@ -87,6 +90,9 @@ public class ButtonController : MonoBehaviour {
         GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(false);
         GameObject planet = GameObject.Find("death_planet");
         planet.gameObject.layer = 0;
+
+        csScreenPointTouch.rDrag = true;
+
 
     }
 

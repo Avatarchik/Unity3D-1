@@ -185,8 +185,29 @@ public class PlanetManager : MonoBehaviour
     public void planetChange(Vector3 spawnPoint)
     {
         int rand = Random.Range(1, 9);
+        float tempDistance = 500;       // 별자리 거리 임시 값
+        int nearStar = 0;               // 가장 가까운 별자리 카운트 값 
+
+        // 행성 오브젝트 생성 및 배치 
         GameObject obj = Instantiate(planet[rand]);
         obj.transform.position = spawnPoint;
+        obj.name = rand + "" +"" + spawnPoint;
         
+        // 가까운 별자리 찾기
+        for(int i = 1; i <= 12; i++)
+        {
+            string starName = "Center_" + i;
+            float starDistance = Vector3.Distance(obj.transform.position, GameObject.Find(starName).transform.position);
+            
+            Debug.Log(starName+ "\t" + starDistance);
+            if(tempDistance > starDistance)
+            {
+                tempDistance = starDistance;
+                nearStar = i;
+            }
+        }
+        Debug.Log("제일 가까운 거리!" + tempDistance + "\t" + nearStar);
+        // 행성 이름 생성 <형용사(사이즈별)> + <행성 색깔> + <별자리이름> 조합
+
     }
 }

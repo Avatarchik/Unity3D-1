@@ -13,8 +13,11 @@ public class StarNavigation : MonoBehaviour {
     void Start()
     {
         fuelGauge = GameObject.Find("FuelGauge").GetComponent<Slider>();
-        maxFuel = 20;   // 우주선 업그레이드시 연료 값 변경되는 코드는 추가 예정
+        GameObject.Find("PlayerController_ui").SetActive(true);
+
+        maxFuel = 1000;   // 우주선 업그레이드시 연료 값 변경되는 코드는 추가 예정
         engineActive = true;
+        
     }
 	void Update () {
 
@@ -47,9 +50,12 @@ public class StarNavigation : MonoBehaviour {
         {
             GameManager.Instance().player.GetComponent<SpaceshipController>().m_spaceship.SpeedRange -= new Vector2(17, 0);
             GameManager.Instance().alertUi.SetActive(true);
+            GameObject.Find("PlayerController_ui").SetActive(false);
+            GameManager.Instance().alertUi.GetComponentInChildren<Image>().CrossFadeAlpha(-1,5.0f,false);
+
             engineActive = false;
             Debug.Log("<b>연료 부족!</b>");
-            //Time.timeScale = 0;
+            
             //탐사 종료(행성 귀환) 추가예정
         }
 

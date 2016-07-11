@@ -27,11 +27,10 @@ public class GameManager : MonoBehaviour {
     public GameObject alertUi;
     public GameObject exploreUi;
 
-    
-
     void Start()
     {
         if (_instance == null)
             _instance = this;
     }
+
 }
