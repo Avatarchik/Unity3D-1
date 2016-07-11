@@ -187,7 +187,7 @@ public sealed class SpaceshipController : MonoBehaviour
 			case InputMode.Keyboard:
 				currentRawInput.x = Input.GetAxis(m_input.Keyboard.InputNames.AxisX) * currentKeyboardSensitivity;
 				currentRawInput.y = Input.GetAxis(m_input.Keyboard.InputNames.AxisY) * currentKeyboardSensitivity;
-                Debug.Log(currentRawInput.x+"\n"+currentRawInput.y);
+                //Debug.Log(currentRawInput.x+"\n"+currentRawInput.y);
                 break;
 
 			case InputMode.KeyboardAndMouse:
@@ -218,8 +218,8 @@ public sealed class SpaceshipController : MonoBehaviour
 
             case InputMode.Joystick:
 
-                currentRawInput.x = CrossPlatformInputManager.GetAxis("Vertical") * 1;
-                currentRawInput.y = CrossPlatformInputManager.GetAxis("Horizontal")* -1;
+                currentRawInput.x = CrossPlatformInputManager.GetAxis("Vertical") * 0.6f;
+                currentRawInput.y = CrossPlatformInputManager.GetAxis("Horizontal")* -0.6f;
                 //Debug.Log(currentRawInput.x + "\n" + currentRawInput.y);
 
                 break;
