@@ -39,6 +39,8 @@ public class csDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     {
         Debug.Log("OnDragEnd");
 
+        csScreenPointTouch script = obj.GetComponent<csScreenPointTouch>();
+
         script.dragFalse();
     }
 

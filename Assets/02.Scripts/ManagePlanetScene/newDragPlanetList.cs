@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine;
-using System.Collections;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
@@ -11,12 +9,15 @@ public class newDragPlanetList : MonoBehaviour, IBeginDragHandler, IDragHandler,
     float deltaX;
 
     static bool moving = false;
-    //MovePlanet
+
+    csPlanetPanalSet script;
+
 
     void Start()
     {
         deltaX = 0;
-        
+        script = GameObject.Find("Manager/UIManager").GetComponent<csPlanetPanalSet>();
+
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -24,26 +25,33 @@ public class newDragPlanetList : MonoBehaviour, IBeginDragHandler, IDragHandler,
     }
     public void OnDrag(PointerEventData eventData)
     {
-        //MovePlanet.Instance.SetDrag(eventData);
-        //return;
-        //deltaX = eventData.delta.y;
-        //deltaX = eventData.scrollDelta.y;
-        //deltaX = eventData.useDragThreshold;
 
         deltaX = eventData.delta.y;
 
-        Debug.Log(deltaX);
         //if (Mathf.Abs(deltaX) < 10) return;
         if (!moving)
         {
-               StartCoroutine(dragFlase());
+            StartCoroutine(dragFlase());
+            script.setPanalNotVisible();
             if (deltaX > 0)
             {
+                csPlanetPanalSet.nowPlanetNum++;
+                if(csPlanetPanalSet.nowPlanetNum > csPlanetPanalSet.PlanetCount)
+                {
+                    csPlanetPanalSet.nowPlanetNum = 1;
+                }
+
                 MovePlanet.Instance.insertDrag();
                 MovePlanet.Instance.moveUp();
             }
             else if (deltaX < 0)
             {
+                csPlanetPanalSet.nowPlanetNum--;
+                if(csPlanetPanalSet.nowPlanetNum <= 0)
+                {
+                    csPlanetPanalSet.nowPlanetNum = csPlanetPanalSet.PlanetCount;
+                }
+
                 MovePlanet.Instance.insertDrag();
                 MovePlanet.Instance.moveDown();
 
@@ -63,6 +71,8 @@ public class newDragPlanetList : MonoBehaviour, IBeginDragHandler, IDragHandler,
         moving = true;
 
         yield return new WaitForSeconds(0.4f);
+        script.setPanalVisible();
+        script.ChangeText();
 
 
         moving = false;
