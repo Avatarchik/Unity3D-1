@@ -102,4 +102,33 @@ public class ButtonController : MonoBehaviour {
         Debug.Log("scene Trans to WorldMap");
     }
 
+
+    public void VisibleSettingInStar()
+    {
+        GameObject.Find("Canvas").transform.FindChild("SettingPanal").gameObject.SetActive(true);
+        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(true);
+    }
+
+
+    public void ConfirmInStar()
+    {
+        Debug.Log("confirm");
+        GameObject.Find("Canvas/SettingPanal").gameObject.SetActive(false);
+        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(false);
+
+
+
+    }
+
+    public void CancelInStar()
+    {
+        Debug.Log("Cancel");
+        GameObject.Find("Canvas/SettingPanal").gameObject.SetActive(false);
+        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(false);
+
+
+
+    }
+    
+
 }

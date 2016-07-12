@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: b85f311b1710f9649a0236d9b3718b71, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -449,7 +449,7 @@ GameObject:
   - 95: {fileID: 31475972}
   m_Layer: 0
   m_Name: astronaut
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -836,7 +836,7 @@ GameObject:
   - 95: {fileID: 50004626}
   m_Layer: 0
   m_Name: astronaut (1)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1378,7 +1378,7 @@ GameObject:
   - 95: {fileID: 90714286}
   m_Layer: 0
   m_Name: astronaut (1)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1592,9 +1592,10 @@ GameObject:
   - 33: {fileID: 117142158}
   - 23: {fileID: 117142157}
   - 114: {fileID: 1540259009}
+  - 135: {fileID: 117142159}
   m_Layer: 0
   m_Name: NewLargeBlue (10)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1634,6 +1635,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 117142156}
   m_Mesh: {fileID: 4300000, guid: 8054827bca9c4124f93efbcc603a5d8e, type: 3}
+--- !u!135 &117142159
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 117142156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 23.87356
+  m_Center: {x: 0.000034332286, y: 0.00012207033, z: -0.000012397766}
 --- !u!1 &118949997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2254,7 +2267,7 @@ GameObject:
   - 4: {fileID: 182569321}
   m_Layer: 0
   m_Name: Point002
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2311,9 +2324,10 @@ GameObject:
   - 33: {fileID: 186888756}
   - 23: {fileID: 186888755}
   - 114: {fileID: 698940551}
+  - 135: {fileID: 186888757}
   m_Layer: 0
   m_Name: NewLargeBlue (7)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2353,6 +2367,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 186888754}
   m_Mesh: {fileID: 4300000, guid: 8054827bca9c4124f93efbcc603a5d8e, type: 3}
+--- !u!135 &186888757
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 186888754}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 23.87356
+  m_Center: {x: 0.000026702895, y: 9.919177e-12, z: 0.000018119814}
 --- !u!1 &188446766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2540,9 +2566,10 @@ GameObject:
   - 33: {fileID: 194886269}
   - 23: {fileID: 194886268}
   - 114: {fileID: 1728456210}
+  - 135: {fileID: 194886270}
   m_Layer: 0
   m_Name: NewLargeBlue (5)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2582,6 +2609,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 194886267}
   m_Mesh: {fileID: 4300000, guid: 8054827bca9c4124f93efbcc603a5d8e, type: 3}
+--- !u!135 &194886270
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 194886267}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 23.873558
+  m_Center: {x: 0.000034332283, y: 9.741541e-12, z: 0.0000104904175}
 --- !u!1 &196092214
 GameObject:
   m_ObjectHideFlags: 0
@@ -3885,7 +3924,7 @@ GameObject:
   - 64: {fileID: 266979044}
   m_Layer: 0
   m_Name: PineTree (2)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3963,7 +4002,7 @@ GameObject:
   - 95: {fileID: 267566853}
   m_Layer: 0
   m_Name: astronaut (1)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4130,7 +4169,7 @@ GameObject:
   - 64: {fileID: 293292009}
   m_Layer: 0
   m_Name: PineTree
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4290,7 +4329,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 302741913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07363541, y: 7.4748735, z: -12.019893}
+  m_LocalPosition: {x: 4, y: 7, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
   m_Children: []
@@ -4521,7 +4560,7 @@ GameObject:
   - 23: {fileID: 309588927}
   m_Layer: 0
   m_Name: flag
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4616,7 +4655,7 @@ GameObject:
   - 64: {fileID: 315663509}
   m_Layer: 0
   m_Name: Ship_1_Mesh
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4965,7 +5004,7 @@ GameObject:
   - 4: {fileID: 335350617}
   m_Layer: 0
   m_Name: Point001
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5749,7 +5788,7 @@ GameObject:
   - 64: {fileID: 378009410}
   m_Layer: 0
   m_Name: PineTree (1)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6377,7 +6416,7 @@ GameObject:
   - 23: {fileID: 442911829}
   m_Layer: 0
   m_Name: door
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6558,7 +6597,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 448770891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.9263644, y: 1.4748733, z: -7.0198927}
+  m_LocalPosition: {x: 0, y: 2.5, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
   m_Children: []
@@ -7211,7 +7250,7 @@ GameObject:
   - 64: {fileID: 481615161}
   m_Layer: 0
   m_Name: PineTree
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7289,7 +7328,7 @@ GameObject:
   - 137: {fileID: 483429504}
   m_Layer: 0
   m_Name: astronaut
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8001,9 +8040,10 @@ GameObject:
   - 33: {fileID: 518567494}
   - 23: {fileID: 518567493}
   - 114: {fileID: 1513991433}
+  - 135: {fileID: 518567495}
   m_Layer: 0
   m_Name: NewLargeBlue (9)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8043,6 +8083,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 518567492}
   m_Mesh: {fileID: 4300000, guid: 8054827bca9c4124f93efbcc603a5d8e, type: 3}
+--- !u!135 &518567495
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 518567492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 23.87356
+  m_Center: {x: 0.000034332286, y: 0.00012207033, z: -0.000012397766}
 --- !u!1 &539644363
 GameObject:
   m_ObjectHideFlags: 0
@@ -8934,7 +8986,7 @@ GameObject:
   - 23: {fileID: 583867832}
   m_Layer: 0
   m_Name: post box
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9210,7 +9262,7 @@ GameObject:
   - 23: {fileID: 596557648}
   m_Layer: 0
   m_Name: post box
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9471,7 +9523,7 @@ GameObject:
   - 64: {fileID: 609924526}
   m_Layer: 0
   m_Name: PineTree (1)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10100,7 +10152,7 @@ GameObject:
   - 111: {fileID: 632938353}
   m_Layer: 0
   m_Name: post box (1)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11020,7 +11072,7 @@ GameObject:
   - 64: {fileID: 714747789}
   m_Layer: 0
   m_Name: PineTree (2)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12075,7 +12127,7 @@ GameObject:
   - 4: {fileID: 794393929}
   m_Layer: 0
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12700,7 +12752,7 @@ GameObject:
   - 23: {fileID: 843904572}
   m_Layer: 0
   m_Name: convert
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12809,18 +12861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9968c0188cb6064b89c7bd4a8a412f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pos:
-  - {fileID: 302741913}
-  - {fileID: 1764845031}
-  - {fileID: 1636190322}
-  - {fileID: 448770891}
-  - {fileID: 1464176776}
-  - {fileID: 2056144443}
-  - {fileID: 1536432852}
-  - {fileID: 2080777765}
-  - {fileID: 1339840349}
-  - {fileID: 1712911457}
-  Planet: {fileID: 169876, guid: 6fb164edffd2fe04cb275b91efe22ab7, type: 2}
+  Pos: []
+  Planet: {fileID: 0}
 --- !u!4 &851619561
 Transform:
   m_ObjectHideFlags: 0
@@ -13088,9 +13130,10 @@ GameObject:
   - 33: {fileID: 879587694}
   - 23: {fileID: 879587693}
   - 114: {fileID: 1804590925}
+  - 135: {fileID: 879587695}
   m_Layer: 0
   m_Name: NewLargeBlue (3)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13130,6 +13173,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 879587692}
   m_Mesh: {fileID: 4300000, guid: 8054827bca9c4124f93efbcc603a5d8e, type: 3}
+--- !u!135 &879587695
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 879587692}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 23.873558
+  m_Center: {x: 0.000034332283, y: 0.00012207033, z: -0.000012397765}
 --- !u!1 &882682701
 GameObject:
   m_ObjectHideFlags: 0
@@ -13249,7 +13304,7 @@ GameObject:
   - 111: {fileID: 887292466}
   m_Layer: 0
   m_Name: post box
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13301,7 +13356,7 @@ GameObject:
   - 64: {fileID: 890130090}
   m_Layer: 0
   m_Name: Ship_1_Mesh
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13485,7 +13540,7 @@ GameObject:
   - 23: {fileID: 902587656}
   m_Layer: 0
   m_Name: space_station3
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14039,7 +14094,7 @@ GameObject:
   - 111: {fileID: 943013581}
   m_Layer: 0
   m_Name: post box
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15077,23 +15132,11 @@ MonoBehaviour:
   - {fileID: 833404290}
   - {fileID: 1804590925}
   - {fileID: 365447319}
-  - {fileID: 1728456210}
-  - {fileID: 913733546}
-  - {fileID: 698940551}
-  - {fileID: 1458433093}
-  - {fileID: 1513991433}
-  - {fileID: 1540259009}
   orderdPoints:
   - {fileID: 1636190326}
   - {fileID: 1764845035}
   - {fileID: 448770895}
   - {fileID: 302741917}
-  - {fileID: 1464176780}
-  - {fileID: 1712911460}
-  - {fileID: 2056144446}
-  - {fileID: 1339840352}
-  - {fileID: 2080777768}
-  - {fileID: 1536432855}
   points: []
   moveTime: 0.5
   addTime: 1
@@ -15730,6 +15773,117 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1047727902}
   m_Mesh: {fileID: 4300000, guid: 1dcf24a9de89075429f3818b650e25d8, type: 3}
+--- !u!1 &1048618363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1048618364}
+  - 222: {fileID: 1048618367}
+  - 114: {fileID: 1048618366}
+  - 114: {fileID: 1048618365}
+  m_Layer: 5
+  m_Name: DeleteButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1048618364
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1048618363}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 2052674160}
+  m_Father: {fileID: 1354608910}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0.032471366, y: 0.038000003}
+  m_AnchorMax: {x: 0.56876516, y: 0.4292286}
+  m_AnchoredPosition: {x: 1, y: -1}
+  m_SizeDelta: {x: 13, y: 2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1048618365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1048618363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1048618366}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1048618366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1048618363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1048618367
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1048618363}
 --- !u!1 &1048948256
 GameObject:
   m_ObjectHideFlags: 0
@@ -15876,9 +16030,10 @@ GameObject:
   - 33: {fileID: 1058045331}
   - 23: {fileID: 1058045330}
   - 114: {fileID: 913733546}
+  - 135: {fileID: 1058045332}
   m_Layer: 0
   m_Name: NewLargeBlue (6)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15918,6 +16073,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1058045329}
   m_Mesh: {fileID: 4300000, guid: 8054827bca9c4124f93efbcc603a5d8e, type: 3}
+--- !u!135 &1058045332
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1058045329}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 23.87356
+  m_Center: {x: 0.000034332286, y: 0.00012207033, z: -0.000012397765}
 --- !u!1 &1058637839
 GameObject:
   m_ObjectHideFlags: 0
@@ -16107,7 +16274,7 @@ GameObject:
   - 64: {fileID: 1074610004}
   m_Layer: 0
   m_Name: PineTree
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16245,7 +16412,7 @@ GameObject:
   - 64: {fileID: 1078983220}
   m_Layer: 0
   m_Name: PineTree (1)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16440,7 +16607,7 @@ GameObject:
   - 23: {fileID: 1086568794}
   m_Layer: 0
   m_Name: space_station3
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17181,7 +17348,7 @@ GameObject:
   - 4: {fileID: 1127264479}
   m_Layer: 0
   m_Name: Armature
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17384,6 +17551,80 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1165885311}
   m_RootOrder: 0
+--- !u!1 &1152754550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1152754551}
+  - 222: {fileID: 1152754553}
+  - 114: {fileID: 1152754552}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1152754551
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1152754550}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1354608910}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 0.63571787}
+  m_AnchorMax: {x: 0.643, y: 1}
+  m_AnchoredPosition: {x: 0, y: -0.5}
+  m_SizeDelta: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1152754552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1152754550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "1\uBC88\uD589\uC131"
+--- !u!222 &1152754553
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1152754550}
 --- !u!1 &1154109894
 GameObject:
   m_ObjectHideFlags: 0
@@ -17397,7 +17638,7 @@ GameObject:
   - 64: {fileID: 1154109896}
   m_Layer: 0
   m_Name: Ship_1_Mesh (1)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17914,7 +18155,7 @@ GameObject:
   - 137: {fileID: 1175695409}
   m_Layer: 0
   m_Name: astronaut
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18672,7 +18913,7 @@ GameObject:
   - 111: {fileID: 1210938995}
   m_Layer: 0
   m_Name: post box (1)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18916,7 +19157,7 @@ GameObject:
   - 111: {fileID: 1225821410}
   m_Layer: 0
   m_Name: post box (1)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19635,7 +19876,7 @@ GameObject:
   - 111: {fileID: 1265655017}
   m_Layer: 0
   m_Name: post box
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19687,7 +19928,7 @@ GameObject:
   - 64: {fileID: 1265841761}
   m_Layer: 0
   m_Name: PineTree (2)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19880,7 +20121,7 @@ GameObject:
   - 23: {fileID: 1279589980}
   m_Layer: 0
   m_Name: flag
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20362,7 +20603,7 @@ GameObject:
   - 23: {fileID: 1309919735}
   m_Layer: 0
   m_Name: space_station3
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20966,7 +21207,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1339840349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.073635414, y: 11.474874, z: -2.0198927}
+  m_LocalPosition: {x: -4, y: 10, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
   m_Children: []
@@ -21112,7 +21353,7 @@ GameObject:
   - 95: {fileID: 1348241111}
   m_Layer: 0
   m_Name: astronaut
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21150,6 +21391,42 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1354608909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1354608910}
+  m_Layer: 5
+  m_Name: PlanetEx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1354608910
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1354608909}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1615285569}
+  - {fileID: 1152754551}
+  - {fileID: 1048618364}
+  m_Father: {fileID: 1932628602}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0.030653896, y: 0.4903889}
+  m_AnchorMax: {x: 0.7085337, y: 0.6431667}
+  m_AnchoredPosition: {x: 0.3499899, y: 1}
+  m_SizeDelta: {x: 1.2999897, y: 3}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1356149245
 GameObject:
   m_ObjectHideFlags: 0
@@ -21369,9 +21646,10 @@ GameObject:
   - 33: {fileID: 1375503506}
   - 23: {fileID: 1375503505}
   - 114: {fileID: 1458433093}
+  - 135: {fileID: 1375503507}
   m_Layer: 0
   m_Name: NewLargeBlue (8)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21411,6 +21689,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1375503504}
   m_Mesh: {fileID: 4300000, guid: 8054827bca9c4124f93efbcc603a5d8e, type: 3}
+--- !u!135 &1375503507
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1375503504}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 23.873558
+  m_Center: {x: 0.000034332286, y: 9.741541e-12, z: -0.000012397765}
 --- !u!1 &1376934267
 GameObject:
   m_ObjectHideFlags: 0
@@ -23031,7 +23321,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1464176776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07363541, y: -0.5251267, z: -12.019893}
+  m_LocalPosition: {x: 4, y: 1, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
   m_Children: []
@@ -23362,7 +23652,7 @@ GameObject:
   - 23: {fileID: 1478065386}
   m_Layer: 0
   m_Name: door
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23949,7 +24239,7 @@ Transform:
   m_GameObject: {fileID: 518567492}
   m_LocalRotation: {x: -0.55776995, y: 0.58098936, z: 0.2780702, w: 0.52347034}
   m_LocalPosition: {x: 34.58, y: -4.010229, z: 12.698103}
-  m_LocalScale: {x: 0.035000056, y: 0.035000004, z: 0.035000004}
+  m_LocalScale: {x: 0.035000056, y: 0.035000008, z: 0.035000008}
   m_LocalEulerAnglesHint: {x: -65.1027, y: -585.07227, z: 302.0075}
   m_Children:
   - {fileID: 172351369}
@@ -24303,7 +24593,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1536432852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07363541, y: 15.474874, z: -12.019893}
+  m_LocalPosition: {x: 4, y: 13, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
   m_Children: []
@@ -24360,7 +24650,7 @@ Transform:
   m_PrefabParentObject: {fileID: 430898, guid: f37c2fa3724dd5b4ba9af099225c2ba0, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 117142156}
-  m_LocalRotation: {x: -0.55776995, y: 0.58098936, z: 0.2780702, w: 0.52347034}
+  m_LocalRotation: {x: -0.5577699, y: 0.5809893, z: 0.27807018, w: 0.5234703}
   m_LocalPosition: {x: 34.58, y: -4.010229, z: 12.698103}
   m_LocalScale: {x: 0.035000056, y: 0.035000004, z: 0.035000004}
   m_LocalEulerAnglesHint: {x: -65.1027, y: -585.07227, z: 302.0075}
@@ -24504,7 +24794,7 @@ GameObject:
   - 23: {fileID: 1555518476}
   m_Layer: 0
   m_Name: convert
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24807,9 +25097,10 @@ GameObject:
   - 33: {fileID: 1566588468}
   - 23: {fileID: 1566588467}
   - 114: {fileID: 842433486}
+  - 135: {fileID: 1566588469}
   m_Layer: 0
   m_Name: NewLargeBlue (1)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24849,6 +25140,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1566588466}
   m_Mesh: {fileID: 4300000, guid: 8054827bca9c4124f93efbcc603a5d8e, type: 3}
+--- !u!135 &1566588469
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1566588466}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 23.87354
+  m_Center: {x: 0.000011444095, y: -6.536993e-13, z: 0.000018119808}
 --- !u!1 &1569562303
 GameObject:
   m_ObjectHideFlags: 0
@@ -25398,7 +25701,7 @@ GameObject:
   - 4: {fileID: 1607013161}
   m_Layer: 0
   m_Name: Point001
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25690,6 +25993,74 @@ Transform:
   - {fileID: 27260416}
   m_Father: {fileID: 196092215}
   m_RootOrder: 5
+--- !u!1 &1615285568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1615285569}
+  - 222: {fileID: 1615285571}
+  - 114: {fileID: 1615285570}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1615285569
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1615285568}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1354608910}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1615285570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1615285568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1615285571
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1615285568}
 --- !u!1 &1620212475
 GameObject:
   m_ObjectHideFlags: 0
@@ -25947,7 +26318,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1636190322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.073635414, y: 3.4748733, z: -2.0198927}
+  m_LocalPosition: {x: -2.8, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
   m_Children: []
@@ -26883,7 +27254,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1712911457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.9263644, y: 9.474874, z: -7.0198927}
+  m_LocalPosition: {x: 0, y: 8.5, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
   m_Children: []
@@ -27201,7 +27572,7 @@ GameObject:
   - 64: {fileID: 1728514690}
   m_Layer: 0
   m_Name: Ship_1_Mesh (1)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27414,9 +27785,10 @@ GameObject:
   - 33: {fileID: 1741265052}
   - 23: {fileID: 1741265051}
   - 114: {fileID: 365447319}
+  - 135: {fileID: 1741265053}
   m_Layer: 0
   m_Name: NewLargeBlue (4)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27456,6 +27828,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1741265050}
   m_Mesh: {fileID: 4300000, guid: 8054827bca9c4124f93efbcc603a5d8e, type: 3}
+--- !u!135 &1741265053
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1741265050}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 23.87356
+  m_Center: {x: 0.000034332283, y: 0.00012207033, z: 0.000018119812}
 --- !u!1 &1747842237
 GameObject:
   m_ObjectHideFlags: 0
@@ -27606,7 +27990,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1764845031}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.073636, y: 5.4748735, z: -7.0198927}
+  m_LocalPosition: {x: 0, y: 5.5, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
   m_Children: []
@@ -28092,6 +28476,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1791729471}
+  - 114: {fileID: 1791729472}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -28114,6 +28499,17 @@ Transform:
   - {fileID: 1840778841}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &1791729472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1791729470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32321fbe4597d464c80c143f07d47d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1795637361
 GameObject:
   m_ObjectHideFlags: 0
@@ -28695,9 +29091,10 @@ GameObject:
   - 33: {fileID: 1838416292}
   - 23: {fileID: 1838416291}
   - 114: {fileID: 833404290}
+  - 135: {fileID: 1838416293}
   m_Layer: 0
   m_Name: NewLargeBlue (2)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28737,6 +29134,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1838416290}
   m_Mesh: {fileID: 4300000, guid: 8054827bca9c4124f93efbcc603a5d8e, type: 3}
+--- !u!135 &1838416293
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1838416290}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 23.873558
+  m_Center: {x: 0.000034332283, y: 0.00012207033, z: 0.0000028610234}
 --- !u!1 &1838444821
 GameObject:
   m_ObjectHideFlags: 0
@@ -28810,6 +29219,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1840778841}
   - 114: {fileID: 1840778840}
+  - 114: {fileID: 1840778842}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -28841,6 +29251,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1791729471}
   m_RootOrder: 1
+--- !u!114 &1840778842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1840778839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57471136bc7e2ae448cad780fe24b1fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1846610076
 GameObject:
   m_ObjectHideFlags: 0
@@ -30070,6 +30491,7 @@ RectTransform:
   m_Children:
   - {fileID: 1470603394}
   - {fileID: 204593911}
+  - {fileID: 1354608910}
   m_Father: {fileID: 494333530}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -30437,7 +30859,7 @@ GameObject:
   - 64: {fileID: 1960010666}
   m_Layer: 0
   m_Name: Ship_1_Mesh
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30964,7 +31386,7 @@ GameObject:
   - 95: {fileID: 2005648156}
   m_Layer: 0
   m_Name: astronaut
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31558,6 +31980,80 @@ Transform:
   - {fileID: 1130994966}
   m_Father: {fileID: 996697390}
   m_RootOrder: 0
+--- !u!1 &2052674159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 2052674160}
+  - 222: {fileID: 2052674162}
+  - 114: {fileID: 2052674161}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2052674160
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2052674159}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1048618364}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2052674161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2052674159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Delete
+--- !u!222 &2052674162
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2052674159}
 --- !u!1 &2053452704
 GameObject:
   m_ObjectHideFlags: 0
@@ -31652,7 +32148,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2056144443}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.073636, y: -2.5251267, z: -7.0198927}
+  m_LocalPosition: {x: 0, y: -1, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
   m_Children: []
@@ -32171,7 +32667,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2080777765}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.073636, y: 13.474874, z: -7.0198927}
+  m_LocalPosition: {x: 0, y: 11.5, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
   m_Children: []
@@ -32826,7 +33322,7 @@ GameObject:
   - 4: {fileID: 2128268063}
   m_Layer: 0
   m_Name: Point002
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33065,7 +33561,7 @@ GameObject:
   - 64: {fileID: 2137146650}
   m_Layer: 0
   m_Name: Ship_1_Mesh (1)
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
