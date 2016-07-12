@@ -15,7 +15,7 @@ public class StarNavigation : MonoBehaviour {
         fuelGauge = GameObject.Find("FuelGauge").GetComponent<Slider>();
         GameObject.Find("PlayerController_ui").SetActive(true);
 
-        maxFuel = 1000;   // 우주선 업그레이드시 연료 값 변경되는 코드는 추가 예정
+        maxFuel = 3;   // 우주선 업그레이드시 연료 값 변경되는 코드는 추가 예정
         engineActive = true;
         
     }
