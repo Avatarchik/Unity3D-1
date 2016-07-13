@@ -11,8 +11,10 @@ public class csInjection : MonoBehaviour {
 
 
     int minimum;
-    int maximun;
+    static int maximun;
     int nowE;
+
+    static int userE;
 
     
     void Start()
@@ -30,6 +32,13 @@ public class csInjection : MonoBehaviour {
 
     }
 
+    public void getE(int data)
+    {
+        userE = data;
+        Debug.Log("injec" + userE);
+    }
+
+
     void setMaximunPE()
     {
         //잔존량 > 유저보유량 -> max = 유저량
@@ -38,7 +47,7 @@ public class csInjection : MonoBehaviour {
 
 
         maximun = 50000;
-        slider.GetComponent<Slider>().maxValue = maximun;
+        slider.GetComponent<Slider>().maxValue = userE;
         MaxText.text = slider.GetComponent<Slider>().maxValue + "";
 
     }

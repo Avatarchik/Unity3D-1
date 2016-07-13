@@ -80,25 +80,55 @@ public class StarSceneSqlTest : MonoBehaviour
 
     void Start()
     {
-
-
         ///////////////////////////////////////////////////////////////////[DB Query]
         dbcmd = dbconn.CreateCommand();
-        string sqlQuery = "SELECT * " + "FROM TestTable";
+        string sqlQuery = "SELECT cPE FROM userTableTest";
+        //string sqlQuery = "SLECT Sount(rowid) as Count FROM userTableTest";
         dbcmd.CommandText = sqlQuery;
         ///////////////////////////////////////////////////////////////////[DB Query]
 
         ///////////////////////////////////////////////////////////////////[Data Read]
+        int cPE = 0;
+        int cnt = 0;
         reader = dbcmd.ExecuteReader();
+        //Debug.Log(dbcmd);
+        //Debug.Log(dbcmd.ExecuteReader());
         while (reader.Read())
         {
-            int value = reader.GetInt32(0);
-            string name = reader.GetString(1);
+            //cnt++;
+            //Debug.Log(cnt);
+            //Debug.Log(reader.GetString(cnt));
+            //Debug.Log(reader.Read());
+            cPE = reader.GetInt32(cnt);
+            Debug.Log(reader.Read());
+            Debug.Log(cnt);
+            //int test = reader.GetInt32(cnt);
+            cnt++;
+            Debug.Log(cnt);
+            //Debug.Log(test);
+            //cPE = reader.GetInt32(0);
+            Debug.Log(cPE);
 
-            Debug.Log("value= " + value + "  name =" + name);
+            //break;
+            //int value = reader.GetInt32(0);
+            //string name = reader.GetString(1);
+
+            //Debug.Log("value= " + value + "  name =" + name);
+
+
         }
-        ///////////////////////////////////////////////////////////////////[Data Read]
+        Debug.Log(cPE);
 
+        //GameObject.Find("Manager/UIManager").GetComponent<csInjection>().getE(cPE);
+        ///////////////////////////////////////////////////////////////////[Data Read]
+        //dbClose();
+    }
+
+
+
+
+    void dbClose()
+    {
         ///////////////////////////////////////////////////////////////////[DB Connection Close]
         reader.Close();
         reader = null;
@@ -107,11 +137,5 @@ public class StarSceneSqlTest : MonoBehaviour
         dbconn.Close();
         dbconn = null;
         ///////////////////////////////////////////////////////////////////[DB Connection Close]
-
-    }
-
-    void dbClose()
-    {
-
     }
 }
