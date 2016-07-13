@@ -8,11 +8,13 @@ using System.IO;
 
 public class UpdateDB : MonoBehaviour
 {
-    public GameObject star;
+    //public GameObject star;
     float x;
     float y;
     float z;
     string zID;
+    int cntField;
+    int cntTemp = 1;
 
     void Start()
     {
@@ -75,69 +77,59 @@ public class UpdateDB : MonoBehaviour
         dbconn.Open(); //Open connection to the database.
         ///////////////////////////////////////////////////////////////////[DB Connection]
 
-
-        ///////////////////////////////////////////////////////////////////[DB Query]
-        IDbCommand dbcmd = dbconn.CreateCommand();
-        string sqlQuery = "SELECT rowid, * " + "FROM zodiacTable";
-        dbcmd.CommandText = sqlQuery;
-        ///////////////////////////////////////////////////////////////////[DB Query]
-
-        ///////////////////////////////////////////////////////////////////[Data Read]
-        IDataReader reader = dbcmd.ExecuteReader();
-
-        while (reader.Read())
+        for (cntTemp = 1; cntTemp != cntField; cntTemp++)
         {
-            //if (reader.GetInt32(0) == 1)
-            //{
-                
-                int rowid = reader.GetInt32(0);
-                Debug.Log(rowid);
-                zID = reader.GetString(1);
-                Debug.Log(zID);
-                Debug.Log(GameObject.Find(zID).gameObject.transform.position);
-                x = GameObject.Find(zID).gameObject.transform.position.x;
-                y = GameObject.Find(zID).gameObject.transform.position.y;
-                z = GameObject.Find(zID).gameObject.transform.position.z;
+        ///////////////////////////////////////////////////////////////////[SELECT Query]
+            IDbCommand dbcmd = dbconn.CreateCommand();
+            string sqlCount = "SELECT Count(rowid) as Count " + "FROM zodiacTable";
+            dbcmd.CommandText = sqlCount;
+            IDataReader reader = dbcmd.ExecuteReader();
+            while(reader.Read())
+            {
+                cntField = reader.GetInt32(0);
+            }
+            reader.Close();
+            reader = null;
 
-            //string zodiac = reader.GetString(2);
-            //Debug.Log(zodiac);
-            //string name = reader.GetString(3);
-            //Debug.Log(name);
-            //float locationX = reader.GetFloat(4);
-            //Debug.Log(locationX);
-            //float locationY = reader.GetFloat(5);
-            //Debug.Log(locationY);
-            //float locationZ = reader.GetFloat(6);
-            //Debug.Log(locationZ);
-            //string open = reader.GetString(7);
-            //Debug.Log(open);
-            //string find = reader.GetString(8);
-            //Debug.Log(find);
-            //int needPE = reader.GetInt32(9);
-            //Debug.Log(needPE);
-            //int nowPE = reader.GetInt32(10);
-            //Debug.Log(nowPE);
-            //string active = reader.GetString(11);
-            //Debug.Log(active);
-            //}
-            //Debug.Log("value= " + zID + "  name =" + name);
-          
-        }
-        reader.Close();
-        reader = null;
+            
+            string sqlQuery = "SELECT rowid, * " + "FROM zodiacTable";
+            dbcmd.CommandText = sqlQuery;
+        ///////////////////////////////////////////////////////////////////[SELECT Query]
 
         ///////////////////////////////////////////////////////////////////[Data Read]
+            reader = dbcmd.ExecuteReader();
+        
+            while (reader.Read())
+            {
+                if (reader.GetInt32(0) == cntTemp)
+                {
 
-        //포지션 업데이트 함수 동작(update Query)
-        string UpdatesqlQuery = "UPDATE zodiacTable SET \"locationX\" =" + x + ", \"locationY\" = " + y + ", \"locationZ\" = " + z + " WHERE  \"zID\" = '" + zID + "'";
-        //UPDATE zodiacTable SET "locationX" = 95.45624, "locationY" = 59.22803, "locationZ" = -94.25877 WHERE  "zID" = 'Aqua_1'
-        Debug.Log(UpdatesqlQuery);
-        dbcmd.CommandText = UpdatesqlQuery;
-        dbcmd.ExecuteNonQuery();
+                    int rowid = reader.GetInt32(0);
+                    Debug.Log(rowid);
+                    zID = reader.GetString(1);
+                    Debug.Log(zID);
+                    Debug.Log(GameObject.Find(zID).gameObject.transform.position);
+                    x = GameObject.Find(zID).gameObject.transform.position.x;
+                    y = GameObject.Find(zID).gameObject.transform.position.y;
+                    z = GameObject.Find(zID).gameObject.transform.position.z;
+                }
+            }
+            reader.Close();
+            reader = null;
+        ///////////////////////////////////////////////////////////////////[Data Read]
 
+            //업데이트 함수 동작(update Query)
+        ///////////////////////////////////////////////////////////////////[UPDATE Query]
+            string UpdatesqlQuery = "UPDATE zodiacTable SET \"locationX\" =" + x + ", \"locationY\" = " + y + ", \"locationZ\" = " + z + " WHERE  \"zID\" = '" + zID + "'";
+            
+            Debug.Log(UpdatesqlQuery);
+            dbcmd.CommandText = UpdatesqlQuery;
+            dbcmd.ExecuteNonQuery();
+        ///////////////////////////////////////////////////////////////////[UPDATE Query]
+            dbcmd.Dispose();
+            dbcmd = null;
+        }
         ///////////////////////////////////////////////////////////////////[DB Connection Close]
-        dbcmd.Dispose();
-        dbcmd = null;
         dbconn.Close();
         dbconn = null;
         ///////////////////////////////////////////////////////////////////[DB Connection Close]
@@ -147,9 +139,6 @@ public class UpdateDB : MonoBehaviour
     {
 
     }
-    void setStarPosition()
-    {
-        Debug.Log(star.transform.position);
-    }
+  
 
 }
