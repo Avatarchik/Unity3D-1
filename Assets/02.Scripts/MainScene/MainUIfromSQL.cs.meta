@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 596cba52acee9114a84353ad766c2131
+timeCreated: 1468517292
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - haveFood: {instanceID: 0}
+  - haveTitanium: {instanceID: 0}
+  - havePEEnergy: {instanceID: 0}
+  - PlanetName: {instanceID: 0}
+  - leftFood: {instanceID: 0}
+  - leftTitanium: {instanceID: 0}
+  - singleTon: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

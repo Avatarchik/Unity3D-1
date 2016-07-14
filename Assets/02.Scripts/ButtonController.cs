@@ -66,6 +66,12 @@ public class ButtonController : MonoBehaviour {
         Debug.Log("scene trans to WorldMap");
     }
 
+    public void TransSceneToManage()
+    {
+        SceneManager.LoadScene("ManagePlanet");
+
+    }
+
     public void TransSceneToExplore()
     {
         SceneManager.LoadScene("Explore");
@@ -80,9 +86,9 @@ public class ButtonController : MonoBehaviour {
     }
     public void VisibleSetting()
     {
-        GameObject.Find("Canvas").transform.FindChild("SettingPanal").gameObject.SetActive(true);
-        GameObject.Find("Canvas").transform.FindChild("DragZone").gameObject.SetActive(false);
-        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(true);
+        GameObject.Find("UI").transform.FindChild("SettingPanal").gameObject.SetActive(true);
+        GameObject.Find("UI").transform.FindChild("DragZone").gameObject.SetActive(false);
+        GameObject.Find("UI").transform.FindChild("BlockPanal").gameObject.SetActive(true);
         GameObject planet = GameObject.Find("death_planet");
         planet.gameObject.layer = 2;
     }
@@ -91,9 +97,9 @@ public class ButtonController : MonoBehaviour {
     public void Confirm()
     {
         Debug.Log("confirm");
-        GameObject.Find("Canvas/SettingPanal").gameObject.SetActive(false);
-        GameObject.Find("Canvas").transform.FindChild("DragZone").gameObject.SetActive(true);
-        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(false);
+        GameObject.Find("UI/SettingPanal").gameObject.SetActive(false);
+        GameObject.Find("UI").transform.FindChild("DragZone").gameObject.SetActive(true);
+        GameObject.Find("UI").transform.FindChild("BlockPanal").gameObject.SetActive(false);
         GameObject planet = GameObject.Find("death_planet");
         planet.gameObject.layer = 0;
 
@@ -105,9 +111,9 @@ public class ButtonController : MonoBehaviour {
     public void Cancel()
     {
         Debug.Log("Cancel");
-        GameObject.Find("Canvas/SettingPanal").gameObject.SetActive(false);
-        GameObject.Find("Canvas").transform.FindChild("DragZone").gameObject.SetActive(true);
-        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(false);
+        GameObject.Find("UI/SettingPanal").gameObject.SetActive(false);
+        GameObject.Find("UI").transform.FindChild("DragZone").gameObject.SetActive(true);
+        GameObject.Find("UI").transform.FindChild("BlockPanal").gameObject.SetActive(false);
         GameObject planet = GameObject.Find("death_planet");
         planet.gameObject.layer = 0;
 
@@ -172,5 +178,16 @@ public class ButtonController : MonoBehaviour {
 
     }
 
+    public void setVisibleFusionPanal()
+    {
+        GameObject.Find("UI").transform.FindChild("FusionPanal").gameObject.SetActive(true);
+        MainSingleTon.Instance.activeFusionPanal = true;
+    }
+
+    public void CancelInFusionPanal()
+    {
+        GameObject.Find("UI/FusionPanal").gameObject.SetActive(false);
+        MainSingleTon.Instance.activeFusionPanal = false;
+    }
 
 }
