@@ -126,9 +126,31 @@ public class ButtonController : MonoBehaviour {
         GameObject.Find("Canvas/SettingPanal").gameObject.SetActive(false);
         GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(false);
 
-
-
     }
     
+    public void InjectionInStar()
+    {
+        Debug.Log("injectionOpen");
+        GameObject.Find("Canvas").transform.FindChild("injectionPanal").gameObject.SetActive(true);
+        GameObject.Find("Manager/UIManager").GetComponent<csInjection>().setPanal();
+
+        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(true);
+    }
+
+    public void InjectionConfirm()
+    {
+        Debug.Log("injection confirm");
+        GameObject.Find("Canvas/BlockPanal").gameObject.SetActive(false);
+        GameObject.Find("Canvas/injectionPanal").gameObject.SetActive(false);
+    }
+
+    public void InjectionCancel()
+    {
+        Debug.Log("injection cancel");
+        GameObject.Find("Canvas/BlockPanal").gameObject.SetActive(false);
+        GameObject.Find("Canvas/injectionPanal").gameObject.SetActive(false);
+
+    }
+
 
 }

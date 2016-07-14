@@ -34,13 +34,10 @@ public class csScreenPointTouch : MonoBehaviour {
 
                 if (Physics.Raycast(ray, out hit))
                 {
+                    Debug.Log(hit.transform.name);
                     if(hit.transform.tag.Equals("Finish"))
                     {
                         Debug.Log("panal");
-                    }
-                    if (hit.transform.tag.Equals("Energy"))
-                    {
-                        Debug.Log("Ray hit Energy");
                     }
 
                     if (hit.transform.tag.Equals("Food"))
@@ -57,6 +54,11 @@ public class csScreenPointTouch : MonoBehaviour {
                     {
                         Debug.Log("ray hit ship");
                     }
+                    if (hit.transform.tag.Equals("Energy"))
+                    {
+                        Debug.Log("Ray hit Energy");
+                    }
+
                 }
             }
         }

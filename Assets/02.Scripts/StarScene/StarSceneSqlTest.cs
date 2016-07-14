@@ -13,9 +13,9 @@ public class StarSceneSqlTest : MonoBehaviour
     string m_SQLiteFileName = "CosmicDB.sqlite";
     string conn;
 
-    IDbConnection dbconn;
-    IDbCommand dbcmd ;
-    IDataReader reader;
+    public static IDbConnection dbconn;
+    public static IDbCommand dbcmd ;
+    public static IDataReader reader;
 
 
 
@@ -78,7 +78,7 @@ public class StarSceneSqlTest : MonoBehaviour
 
     }
 
-    void Start()
+    public static void InjectionPanal()
     {
         ///////////////////////////////////////////////////////////////////[DB Query]
         dbcmd = dbconn.CreateCommand();
@@ -91,36 +91,40 @@ public class StarSceneSqlTest : MonoBehaviour
         int cPE = 0;
         int cnt = 0;
         reader = dbcmd.ExecuteReader();
-        //Debug.Log(dbcmd);
-        //Debug.Log(dbcmd.ExecuteReader());
         while (reader.Read())
         {
-            //cnt++;
-            //Debug.Log(cnt);
-            //Debug.Log(reader.GetString(cnt));
-            //Debug.Log(reader.Read());
             cPE = reader.GetInt32(cnt);
-            Debug.Log(reader.Read());
-            Debug.Log(cnt);
-            //int test = reader.GetInt32(cnt);
             cnt++;
-            Debug.Log(cnt);
-            //Debug.Log(test);
-            //cPE = reader.GetInt32(0);
             Debug.Log(cPE);
-
-            //break;
-            //int value = reader.GetInt32(0);
-            //string name = reader.GetString(1);
-
-            //Debug.Log("value= " + value + "  name =" + name);
 
 
         }
-        Debug.Log(cPE);
 
-        //GameObject.Find("Manager/UIManager").GetComponent<csInjection>().getE(cPE);
-        ///////////////////////////////////////////////////////////////////[Data Read]
+        csInjection.userE = cPE;
+
+        reader.Close();
+        reader = null;
+
+        sqlQuery = "SELECT needPE, nowPE From zodiacTableTest WHERE zID = \"Aqua_2\"";
+
+        dbcmd.CommandText = sqlQuery;
+        int lPE = 0;
+        reader = dbcmd.ExecuteReader();
+
+        while (reader.Read())
+        {
+            int needPE = reader.GetInt32(0);
+            int nowPE = reader.GetInt32(1);
+
+            lPE = needPE - nowPE;
+        }
+        Debug.Log(lPE);
+        csInjection.PlanetE = lPE;
+
+        reader.Close();
+        reader = null;
+
+
         //dbClose();
     }
 
