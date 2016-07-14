@@ -37,11 +37,17 @@ public class ButtonController : MonoBehaviour {
         GameManager.Instance().exploreUi.SetActive(false);
     }
 
+    public void TransSceneToMain()
+    {
+        SceneManager.LoadScene("Main");
+        DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
+        Debug.Log("scene Trans to Main");
+    }
 
     public void TransSceneToShop()
     {
         //SceneManager.LoadScene("shop");
-        
+        DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
         Debug.Log("scene Trans to shop");
     }
 
@@ -49,15 +55,29 @@ public class ButtonController : MonoBehaviour {
     public void TransSceneToBook()
     {
         //SceneManager.LoadScene("Book");
+        DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
         Debug.Log("scne trans to Book");
     }
 
     public void TransSceneToMap()
     {
-        //SceneManager.LoadScene("Map");
-        Debug.Log("scene trans to map");
+        SceneManager.LoadScene("WorldMap");
+        DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
+        Debug.Log("scene trans to WorldMap");
     }
 
+    public void TransSceneToExplore()
+    {
+        SceneManager.LoadScene("Explore");
+        DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
+        Debug.Log("scene Trans to Explore");
+    }
+
+    public void ReChoose()
+    {
+        WorldMapManager.Instance().Touch.SetActive(true);
+        WorldMapManager.Instance().Destination_ui.SetActive(false);
+    }
     public void VisibleSetting()
     {
         GameObject.Find("Canvas").transform.FindChild("SettingPanal").gameObject.SetActive(true);

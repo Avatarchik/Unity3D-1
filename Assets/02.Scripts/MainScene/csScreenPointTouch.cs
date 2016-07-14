@@ -25,12 +25,13 @@ public class csScreenPointTouch : MonoBehaviour {
     }
     void Update()
     {
-        if (rDrag == false)
-        {
-            if (Input.GetButtonUp("Fire1"))
+        //if (rDrag == false)
+        //{
+            foreach (Touch touch in Input.touches)
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
                 RaycastHit hit;
+
 
                 if (Physics.Raycast(ray, out hit))
                 {
@@ -52,7 +53,7 @@ public class csScreenPointTouch : MonoBehaviour {
 
                     if (hit.transform.tag.Equals("Ship"))
                     {
-                        Debug.Log("ray hit ship");
+                        GameObject.Find("UIManager").gameObject.GetComponent<ButtonController>().TransSceneToMap();
                     }
                     if (hit.transform.tag.Equals("Energy"))
                     {
@@ -62,8 +63,8 @@ public class csScreenPointTouch : MonoBehaviour {
                 }
             }
         }
-        rDrag = false;
+        //rDrag = false;
 
     }
 
-}
+
