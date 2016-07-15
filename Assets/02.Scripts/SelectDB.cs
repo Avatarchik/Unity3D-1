@@ -31,7 +31,15 @@ public class SelectDB : MonoBehaviour
     float z;
     int cntField;
     int cntTemp = 1;
+
+
+    ///////////////////////////////////////////////////
+    //데이터 임시 저장 변수
     public Vector3 starPosition;
+    public int food;
+    public int shipNum;
+    ///////////////////////////////////////////////////
+
 
     void Start()
     {
@@ -121,26 +129,25 @@ public class SelectDB : MonoBehaviour
 
         
         /////////////////////////////////////////////////////////////////[Data Read]
-        if (type == 1)
+        if (type == 1) // 별 좌표 
         {
             while (reader.Read())
             {
                 x = reader.GetFloat(0);
                 y = reader.GetFloat(1);
                 z = reader.GetFloat(2);
+                starPosition = new Vector3(x, y, z);
             }
             reader.Close();
             reader = null;
 
         }
-        if (type == 2)
+        if (type == 2) // 유저 보유 식량
         {
             while (reader.Read())
             {
-                x = reader.GetFloat(0);
-                y = reader.GetFloat(1);
-                z = reader.GetFloat(2);
-                
+                food = reader.GetInt16(0);
+                shipNum = reader.GetInt16(1);
             }
             reader.Close();
             reader = null;
@@ -163,11 +170,8 @@ public class SelectDB : MonoBehaviour
         dbconn.Close();
         dbconn = null;
         /////////////////////////////////////////////////////////////////[DB Connection Close]
-        resultType2(x, y, z);
+
     }
 
-    public void resultType2(float x, float y, float z)
-    {
-        starPosition = new Vector3(x, y, z);
-    }
+  
 }

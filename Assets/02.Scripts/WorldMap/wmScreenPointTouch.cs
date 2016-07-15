@@ -21,7 +21,7 @@ public class wmScreenPointTouch : MonoBehaviour
                         SelectDB.Instance().column = "locationX,locationY,locationZ";
                         SelectDB.Instance().table = "zodiacTable";
                         SelectDB.Instance().where = "WHERE zID= " + "'" + hit.transform.name + "'";
-                        SelectDB.Instance().Select(2);
+                        SelectDB.Instance().Select(1);
                         GameData.Instance().starPosition = SelectDB.Instance().starPosition;
 
                         WorldMapManager.Instance().Touch.SetActive(false);
