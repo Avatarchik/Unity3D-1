@@ -44,12 +44,16 @@ public class wmState : MonoBehaviour {
 	
     IEnumerator returnMain()
     {
-        yield return new WaitForSeconds(1.0f);
-        GameObject.Find("returnSec").gameObject.GetComponentInChildren<Text>().text = "2";
-        yield return new WaitForSeconds(1.0f);
-        GameObject.Find("returnSec").gameObject.GetComponentInChildren<Text>().text = "1";
-        yield return new WaitForSeconds(1.0f);
-        GameObject.Find("returnSec").gameObject.GetComponentInChildren<Text>().text = "0";
-        GameObject.Find("WorldMapManager").gameObject.GetComponent<ButtonController>().TransSceneToMain();
+        //현재 사용하지 않음
+        //yield return new WaitForSeconds(1.0f);
+        //GameObject.Find("returnSec").gameObject.GetComponentInChildren<Text>().text = "2";
+        //yield return new WaitForSeconds(1.0f);
+        //GameObject.Find("returnSec").gameObject.GetComponentInChildren<Text>().text = "1";
+        //yield return new WaitForSeconds(1.0f);
+        //GameObject.Find("returnSec").gameObject.GetComponentInChildren<Text>().text = "0";
+        //GameObject.Find("WorldMapManager").gameObject.GetComponent<ButtonController>().TransSceneToMain();
+
+        yield return new WaitForSeconds(3.0f);
+        //Warning UI setactive false 추가해야합니다.
     }
 }

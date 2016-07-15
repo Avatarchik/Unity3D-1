@@ -108,7 +108,7 @@ public class SelectDB : MonoBehaviour
         IDbConnection dbconn;
         dbconn = (IDbConnection)new SqliteConnection(conn);
         dbconn.Open(); //Open connection to the database.
-                       /////////////////////////////////////////////////////////////////[DB Connection]
+        /////////////////////////////////////////////////////////////////[DB Connection]
 
         /////////////////////////////////////////////////////////////////[SELECT Query]
         IDbCommand dbcmd = dbconn.CreateCommand();

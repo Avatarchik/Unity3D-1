@@ -11,7 +11,7 @@ public class GameData : MonoBehaviour {
     }
 
     public Vector3 starPosition;
-
+    public bool navOn = false;
 
     void Start()
     {

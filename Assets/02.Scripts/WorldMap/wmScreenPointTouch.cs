@@ -16,7 +16,7 @@ public class wmScreenPointTouch : MonoBehaviour
                 if (WorldMapManager.Instance().dragState == false)
                 {
                     if (hit.transform.tag.Equals("Stars"))
-                    {
+                    {   
 
                         SelectDB.Instance().column = "locationX,locationY,locationZ";
                         SelectDB.Instance().table = "zodiacTable";
