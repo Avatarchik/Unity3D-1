@@ -64,7 +64,7 @@ public class MainSingleTon : MonoBehaviour {
     void Update()
     {
         UIobj.GetComponent<MainUIfromSQL>().setUIText();
-        if (activeFusionPanal)
+        if (activeFusionPanal) 
         {
             UIobj.GetComponent<FusionScript>().setText();
 

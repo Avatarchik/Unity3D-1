@@ -17,10 +17,12 @@ public class FusionScript : MonoBehaviour {
     public GameObject SingleTon;
 
 
+    public Slider slider;
     public Text canNum;
     public Text TextMin;
     public Text TextMax;
     public Text TextMakeNum;
+
 
     public Image ImgResult;
     public Image ImgSum1;
@@ -44,7 +46,9 @@ public class FusionScript : MonoBehaviour {
 
     void Start()
     {
-        setIcon(0, 0, 0);
+        TextMakeNum.text = 0 + "";
+        //setIcon(0, 0, 0,0);
+        canMakeNum();
     }
 
 
@@ -67,7 +71,49 @@ public class FusionScript : MonoBehaviour {
     }
 
 
+    public void MakePE()
+    {
+        Debug.Log("MPE");
+    }
 
+    public void MakeOE()
+    {
+        Debug.Log("MOE");
+    }
+
+    public void MakeGE()
+    {
+        Debug.Log("MGE");
+    }
+
+    public void MakeVE()
+    {
+        Debug.Log("MVE");
+    }
+
+
+    void canMakeNum()
+    {
+        //Test용도
+        TextMax.text = 500 + "";
+        slider.maxValue = 500;
+    }
+
+
+
+    public void ChangeSliderValue()
+    {
+        float val = slider.value;
+
+        UpdateText((int)val);
+
+
+    }
+
+    public void UpdateText(int cnt)
+    {
+        TextMakeNum.text = cnt + "";
+    }
 
 
 
