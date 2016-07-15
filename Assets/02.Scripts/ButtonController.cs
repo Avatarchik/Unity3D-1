@@ -37,11 +37,17 @@ public class ButtonController : MonoBehaviour {
         GameManager.Instance().exploreUi.SetActive(false);
     }
 
+    public void TransSceneToMain()
+    {
+        SceneManager.LoadScene("Main");
+        DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
+        Debug.Log("scene Trans to Main");
+    }
 
     public void TransSceneToShop()
     {
         //SceneManager.LoadScene("shop");
-        
+        DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
         Debug.Log("scene Trans to shop");
     }
 
@@ -49,20 +55,40 @@ public class ButtonController : MonoBehaviour {
     public void TransSceneToBook()
     {
         //SceneManager.LoadScene("Book");
+        DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
         Debug.Log("scne trans to Book");
     }
 
     public void TransSceneToMap()
     {
-        //SceneManager.LoadScene("Map");
-        Debug.Log("scene trans to map");
+        SceneManager.LoadScene("WorldMap");
+        DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
+        Debug.Log("scene trans to WorldMap");
     }
 
+    public void TransSceneToManage()
+    {
+        SceneManager.LoadScene("ManagePlanet");
+
+    }
+
+    public void TransSceneToExplore()
+    {
+        SceneManager.LoadScene("Explore");
+        DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
+        Debug.Log("scene Trans to Explore");
+    }
+
+    public void ReChoose()
+    {
+        WorldMapManager.Instance().Touch.SetActive(true);
+        WorldMapManager.Instance().Destination_ui.SetActive(false);
+    }
     public void VisibleSetting()
     {
-        GameObject.Find("Canvas").transform.FindChild("SettingPanal").gameObject.SetActive(true);
-        GameObject.Find("Canvas").transform.FindChild("DragZone").gameObject.SetActive(false);
-        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(true);
+        GameObject.Find("UI").transform.FindChild("SettingPanal").gameObject.SetActive(true);
+        GameObject.Find("UI").transform.FindChild("DragZone").gameObject.SetActive(false);
+        GameObject.Find("UI").transform.FindChild("BlockPanal").gameObject.SetActive(true);
         GameObject planet = GameObject.Find("death_planet");
         planet.gameObject.layer = 2;
     }
@@ -71,9 +97,9 @@ public class ButtonController : MonoBehaviour {
     public void Confirm()
     {
         Debug.Log("confirm");
-        GameObject.Find("Canvas/SettingPanal").gameObject.SetActive(false);
-        GameObject.Find("Canvas").transform.FindChild("DragZone").gameObject.SetActive(true);
-        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(false);
+        GameObject.Find("UI/SettingPanal").gameObject.SetActive(false);
+        GameObject.Find("UI").transform.FindChild("DragZone").gameObject.SetActive(true);
+        GameObject.Find("UI").transform.FindChild("BlockPanal").gameObject.SetActive(false);
         GameObject planet = GameObject.Find("death_planet");
         planet.gameObject.layer = 0;
 
@@ -85,9 +111,9 @@ public class ButtonController : MonoBehaviour {
     public void Cancel()
     {
         Debug.Log("Cancel");
-        GameObject.Find("Canvas/SettingPanal").gameObject.SetActive(false);
-        GameObject.Find("Canvas").transform.FindChild("DragZone").gameObject.SetActive(true);
-        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(false);
+        GameObject.Find("UI/SettingPanal").gameObject.SetActive(false);
+        GameObject.Find("UI").transform.FindChild("DragZone").gameObject.SetActive(true);
+        GameObject.Find("UI").transform.FindChild("BlockPanal").gameObject.SetActive(false);
         GameObject planet = GameObject.Find("death_planet");
         planet.gameObject.layer = 0;
 
@@ -126,9 +152,42 @@ public class ButtonController : MonoBehaviour {
         GameObject.Find("Canvas/SettingPanal").gameObject.SetActive(false);
         GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(false);
 
-
-
     }
     
+    public void InjectionInStar()
+    {
+        Debug.Log("injectionOpen");
+        GameObject.Find("Canvas").transform.FindChild("injectionPanal").gameObject.SetActive(true);
+        GameObject.Find("Manager/UIManager").GetComponent<csInjection>().setPanal();
+
+        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(true);
+    }
+
+    public void InjectionConfirm()
+    {
+        Debug.Log("injection confirm");
+        GameObject.Find("Canvas/BlockPanal").gameObject.SetActive(false);
+        GameObject.Find("Canvas/injectionPanal").gameObject.SetActive(false);
+    }
+
+    public void InjectionCancel()
+    {
+        Debug.Log("injection cancel");
+        GameObject.Find("Canvas/BlockPanal").gameObject.SetActive(false);
+        GameObject.Find("Canvas/injectionPanal").gameObject.SetActive(false);
+
+    }
+
+    public void setVisibleFusionPanal()
+    {
+        GameObject.Find("UI").transform.FindChild("FusionPanal").gameObject.SetActive(true);
+        MainSingleTon.Instance.activeFusionPanal = true;
+    }
+
+    public void CancelInFusionPanal()
+    {
+        GameObject.Find("UI/FusionPanal").gameObject.SetActive(false);
+        MainSingleTon.Instance.activeFusionPanal = false;
+    }
 
 }

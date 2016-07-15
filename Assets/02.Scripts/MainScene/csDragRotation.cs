@@ -56,9 +56,9 @@ public class csDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         Debug.Log("OnDragEnd");
 
         //planet.gameObject.transform.rotation = RotateBase.gameObject.transform.rotation;
-        calculateRotation();
-        RotateBase.transform.localRotation = Quaternion.identity;
-        planet.transform.Rotate(planetRotation);
+        //calculateRotation();
+        //RotateBase.transform.localRotation = Quaternion.identity;
+        //planet.transform.Rotate(planetRotation);
 
 
 
