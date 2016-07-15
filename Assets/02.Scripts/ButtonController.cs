@@ -6,37 +6,7 @@ using UnityEngine.SceneManagement;
 public class ButtonController : MonoBehaviour {
 
     
-
-    public void explore()
-    {
-        Debug.Log("행성을 탐사합니다!");
-        //Vector3 spawnPoint = GameManager.Instance().planetSpawnPoint;
-
-        //충돌한 물음표 행성 비활성화
-        GameManager.Instance().tempPlanet.SetActive(false);
-
-        //행성 생성
-        Debug.Log("<b>SpawnPoint!!</b> " + GameManager.Instance().planetSpawnPoint);
-        PlanetManager script = GameObject.Find("PlanetManager").GetComponent<PlanetManager>();
-        script.planetChange(GameManager.Instance().planetSpawnPoint);
-
-        //탐사 UI 비활성화
-        GameManager.Instance().exploreUi.SetActive(false);
-
-        //Scene 전환 추가예정
-    }
-
-    public void pass()
-    {
-        //게임 시간 초기화
-        Time.timeScale = 1;
-
-        //행성 생성하지 않음
-        GameManager.Instance().tempPlanet.SetActive(false);
-        //탐사 UI 비활성화
-        GameManager.Instance().exploreUi.SetActive(false);
-    }
-
+    //씬 전환 기능
     public void TransSceneToMain()
     {
         SceneManager.LoadScene("Main");
@@ -79,11 +49,7 @@ public class ButtonController : MonoBehaviour {
         Debug.Log("scene Trans to Explore");
     }
 
-    public void ReChoose()
-    {
-        WorldMapManager.Instance().Touch.SetActive(true);
-        WorldMapManager.Instance().Destination_ui.SetActive(false);
-    }
+   
     public void VisibleSetting()
     {
         GameObject.Find("UI").transform.FindChild("SettingPanal").gameObject.SetActive(true);
@@ -190,4 +156,51 @@ public class ButtonController : MonoBehaviour {
         MainSingleTon.Instance.activeFusionPanal = false;
     }
 
+
+    //월드맵, 탐사화면
+    public void explore()
+    {
+        Debug.Log("행성을 탐사합니다!");
+        //Vector3 spawnPoint = GameManager.Instance().planetSpawnPoint;
+
+        //충돌한 물음표 행성 비활성화
+        GameManager.Instance().tempPlanet.SetActive(false);
+
+        //행성 생성
+        Debug.Log("<b>SpawnPoint!!</b> " + GameManager.Instance().planetSpawnPoint);
+        PlanetManager script = GameObject.Find("PlanetManager").GetComponent<PlanetManager>();
+        script.planetChange(GameManager.Instance().planetSpawnPoint);
+
+        //탐사 UI 비활성화
+        GameManager.Instance().exploreUi.SetActive(false);
+
+        //Scene 전환 추가예정
+    }
+
+    public void pass()
+    {
+        //게임 시간 초기화
+        Time.timeScale = 1;
+
+        //행성 생성하지 않음
+        GameManager.Instance().tempPlanet.SetActive(false);
+        //탐사 UI 비활성화
+        GameManager.Instance().exploreUi.SetActive(false);
+    }
+    public void ReChoose()
+    {
+        WorldMapManager.Instance().Touch.SetActive(true);
+        WorldMapManager.Instance().Destination_ui.SetActive(false);
+    }
+
+    public void useNav()
+    {
+        GameData.Instance().navOn = true;
+        WorldMapManager.Instance().Touch.SetActive(true);
+        WorldMapManager.Instance().UseNav_ui.SetActive(false);
+    }
+    public void noNav()
+    {
+        TransSceneToExplore();
+    }
 }
