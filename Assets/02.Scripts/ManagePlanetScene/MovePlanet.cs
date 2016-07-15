@@ -166,11 +166,7 @@ public class MovePlanet : MonoBehaviour
                 planets[i].MovePrev();
             }
         }
-
-        //if (Input.GetKey(KeyCode.UpArrow))
-        //{
-
-        //}
+        
         
         if(movePos == -1)
         {
@@ -180,21 +176,7 @@ public class MovePlanet : MonoBehaviour
                 planets[i].MoveNext();
             }
         }
-
-
-        //if (Input.GetKey(KeyCode.DownArrow))
-        //{
-            
-        //}
-
-
-        //if (Input.GetKey(KeyCode.Space))
-        //{
-        //    for (int i = 0; i < planets.Count; i++)
-        //    {
-        //        planets[i].Stop();
-        //    }
-        //}
+        
     }
 
     public void insertDrag()

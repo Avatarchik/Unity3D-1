@@ -15,7 +15,7 @@ public class StarNavigation : MonoBehaviour {
         fuelGauge = GameObject.Find("FuelGauge").GetComponent<Slider>();
         GameObject.Find("PlayerController_ui").SetActive(true);
 
-        maxFuel = 1000;   // 우주선 업그레이드시 연료 값 변경되는 코드는 추가 예정
+        maxFuel = 3;   // 우주선 업그레이드시 연료 값 변경되는 코드는 추가 예정
         engineActive = true;
         
     }
@@ -61,7 +61,8 @@ public class StarNavigation : MonoBehaviour {
 
         //목적지 네비게이션
         Vector3 pPoint = GameManager.Instance().player.transform.position;
-        Vector3 dPoint = GameManager.Instance().destination.transform.position;
+        //Vector3 dPoint = GameManager.Instance().destination.transform.position;
+        Vector3 dPoint = GameData.Instance().starPosition;
         GameObject.Find("Nav").GetComponent<LineRenderer>().SetPosition(0, pPoint);        //플레이어 현재 위치
         GameObject.Find("Nav").GetComponent<LineRenderer>().SetPosition(1, dPoint);        //목적지 위치
 

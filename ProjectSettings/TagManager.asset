@@ -12,6 +12,8 @@ TagManager:
   - Food
   - Titanium
   - Energy
+  - NShip
+  - PostBox
   layers:
   - Default
   - TransparentFX
