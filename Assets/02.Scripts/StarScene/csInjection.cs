@@ -19,10 +19,10 @@ public class csInjection : MonoBehaviour {
     
     void Start()
     {
-
-
-
+                
     }
+
+
     public void setPanal()
     {
         PEText = GameObject.Find("Canvas/injectionPanal/Image/Slider/NowE").GetComponent<Text>();
