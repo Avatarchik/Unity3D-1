@@ -15,7 +15,6 @@ public class csScreenPointTouch : MonoBehaviour
 
     public void dragTrue()
     {
-        Debug.Log("dragTrue");
         rDrag = true;
     }
 
@@ -59,6 +58,10 @@ public class csScreenPointTouch : MonoBehaviour
                     if (hit.transform.tag.Equals("Energy"))
                     {
                         Debug.Log("Ray hit Energy");
+                    }
+                    if (hit.transform.tag.Equals("PostBox"))
+                    {
+                        Debug.Log("Ray hit PostBOX");
                     }
 
                 }
