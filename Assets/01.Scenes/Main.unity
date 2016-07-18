@@ -2503,6 +2503,7 @@ MonoBehaviour:
   neighbor: 0
   UIobj: {fileID: 1840778839}
   activeFusionPanal: 0
+  shipTouch: 0
   PlanetList:
   - {fileID: 116424, guid: 82a75b6a944756e4693b78940560e124, type: 2}
   - {fileID: 168910, guid: 02b72008d935e1c479ca113b3bb740ff, type: 2}
@@ -3853,7 +3854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &597186318
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6824,13 +6825,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragRate: 10
-  oldPos: {x: 0, y: 0}
-  newPos: {x: 0, y: 0}
-  delPos: {x: 0, y: 0}
-  obj: {fileID: 0}
-  RotateBase: {fileID: 0}
-  planet: {fileID: 0}
-  planetRotation: {x: 0, y: 0, z: 0}
 --- !u!114 &1192703129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7035,7 +7029,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9dcc2400dd1c24f9737e0c6f149f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreUI: {}
+  ignoreUI:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1215633264
 GameObject:
   m_ObjectHideFlags: 0
@@ -7733,6 +7729,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1331161208}
   - 114: {fileID: 1331161209}
+  - 114: {fileID: 1331161210}
   m_Layer: 0
   m_Name: SqlManager
   m_TagString: Untagged
@@ -7764,9 +7761,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23e7a01245a45549ba1fa0a24e0af40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ConnectionString: 
-  m_SQLiteFileName: 436f736d696344422e73716c697465
-  conn: 
+--- !u!114 &1331161210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1331161207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe91c72a5357fec4abbd533215e81d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  column: ' '
+  table: ' '
+  where: ' '
+  starPosition: {x: 0, y: 0, z: 0}
+  food: 0
+  shipNum: 0
+  countRow: 0
 --- !u!1 &1336242307
 GameObject:
   m_ObjectHideFlags: 0
@@ -10127,6 +10139,7 @@ GameObject:
   - 114: {fileID: 1840778840}
   - 114: {fileID: 1840778842}
   - 114: {fileID: 1840778843}
+  - 114: {fileID: 1840778844}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -10178,7 +10191,6 @@ MonoBehaviour:
   singleTon: {fileID: 354346186}
   PlanetList: {fileID: 1778423600}
   PlanetPosition: {fileID: 412947685}
-  Pla: {fileID: 0}
 --- !u!114 &1840778843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10218,7 +10230,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3eb291a47b71b9e4ba48c1e64fd0ee46, type: 3}
   - {fileID: 21300000, guid: 78bbe44fcd628ac43a2719ab3e863e2a, type: 3}
   - {fileID: 21300000, guid: 246f5362ede3e4149869aeb62d19b111, type: 3}
-  switchEnergy: 0
+--- !u!114 &1840778844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1840778839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a545a8722e323ec4e89326bbd4d322f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warning_ui: {fileID: 646693546}
+  notanymore_ui: {fileID: 1976697242}
 --- !u!1 &1847501499
 GameObject:
   m_ObjectHideFlags: 0
@@ -10676,7 +10700,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9dcc2400dd1c24f9737e0c6f149f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreUI: {}
+  ignoreUI:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1976697242
 GameObject:
   m_ObjectHideFlags: 0
@@ -10691,7 +10717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1976697243
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11031,6 +11057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starPosition: {x: 0, y: 0, z: 0}
   navOn: 0
+  maxFuel: 0
 --- !u!4 &2041590526
 Transform:
   m_ObjectHideFlags: 0
@@ -11487,7 +11514,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attractor: {fileID: 1122134056}
-  myTransform: {fileID: 0}
 --- !u!114 &2132439660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11504,8 +11530,6 @@ MonoBehaviour:
   runSpeed: 2
   rotSpeed: 0.5
   animSpeed: 1.5
-  running: 1
-  movDir: {x: 0, y: 0, z: 0}
   anim: {fileID: 113574424}
 --- !u!23 &2132439661
 MeshRenderer:
