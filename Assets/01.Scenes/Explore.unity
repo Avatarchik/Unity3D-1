@@ -15896,7 +15896,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1243134560}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abc12181da0ce96428ebd205cb52a395, type: 3}
   m_Name: 
@@ -20292,6 +20292,86 @@ MonoBehaviour:
   - {fileID: 163482, guid: 7202e32fcf6195c4a816ae19d9c92200, type: 2}
   - {fileID: 197700, guid: e81027066f34d5745b4a4288629538f8, type: 2}
   - {fileID: 104614, guid: 7a955d4d494ec59419d19891ba0610d0, type: 2}
+  randomName:
+  - "\uD654\uC0AC\uD55C"
+  - "\uBA85\uB791\uD55C"
+  - "\uC720\uCF8C\uD55C"
+  - "\uD589\uBCF5\uD55C"
+  - "\uC758\uC5F0\uD55C"
+  - "\uAE68\uB057\uD55C"
+  - "\uC7AC\uBBF8\uC788\uB294"
+  - "\uCE5C\uADFC\uD55C"
+  - "\uAC74\uBC29\uC9C4"
+  - "\uD574\uB9D1\uC740"
+  - "\uBC1C\uB784\uD55C"
+  - "\uC990\uAC70\uC6B4"
+  - "\uC9DC\uB9BF\uD55C"
+  - "\uC798\uC0DD\uAE34"
+  - "\uB2E4\uBD80\uC9C4"
+  - "\uCC29\uD55C"
+  - "\uCD08\uC5F0\uD55C"
+  - "\uC815\uACA8\uC6B4"
+  - "\uAE30\uC05C"
+  - "\uADC0\uC5EC\uC6B4"
+  - "\uB2E8\uD638\uD55C"
+  - '------S End-----'
+  - "\uC0C1\uB0E5\uD55C"
+  - "\uD2B9\uC774\uD55C"
+  - "\uCE5C\uC219\uD55C"
+  - "\uBA4B\uC9C4"
+  - "\uB2A0\uB984\uD55C"
+  - "\uBB34\uC2EC\uD55C"
+  - "\uACE0\uACE0\uD55C"
+  - "\uC801\uC808\uD55C"
+  - "\uD55C\uAC00\uD55C"
+  - "\uD3EC\uADFC\uD55C"
+  - "\uC0DD\uC0DD\uD55C"
+  - "\uC808\uBB18\uD55C"
+  - "\uAE30\uBC1C\uD55C"
+  - "\uCC2C\uB780\uD55C"
+  - "\uCE58\uBC00\uD55C"
+  - "\uD574\uBC15\uD55C"
+  - '------M End-----'
+  - "\uCCAD\uC544\uD55C"
+  - "\uB530\uB73B\uD55C"
+  - "\uD604\uBA85\uD55C"
+  - "\uC870\uC6A9\uD55C"
+  - "\uC80A\uC796\uC740"
+  - "\uD669\uD640\uD55C"
+  - "\uACB8\uC190\uD55C"
+  - "\uCE68\uCC29\uD55C"
+  - "\uD478\uC9D0\uD55C"
+  - '------L End-----'
+  - "\uC720\uBCC4\uB09C"
+  - "\uD654\uB824\uD55C"
+  - "\uADFC\uC5C4\uD55C"
+  - "\uC9C4\uC2E4\uD55C"
+  - "\uACE0\uC0C1\uD55C"
+  - "\uC721\uC911\uD55C"
+  - "\uC790\uC0C1\uD55C"
+  colorName:
+  - "\uD30C\uB780\uC0C9"
+  - "\uBE68\uAC04\uC0C9"
+  - "\uB178\uB780\uC0C9"
+  - "\uBCF4\uB77C\uC0C9"
+  - "\uCD08\uB85D\uC0C9"
+  - "\uC8FC\uD669\uC0C9"
+  zName:
+  - "\uBB3C\uBCD1"
+  - "\uBB3C\uACE0\uAE30"
+  - "\uC591"
+  - "\uD669\uC18C"
+  - "\uC30D\uB465\uC774"
+  - "\uAC8C"
+  - "\uC0AC\uC790"
+  - "\uCC98\uB140"
+  - "\uCC9C\uCE6D"
+  - "\uC804\uAC08"
+  - "\uAD81\uC218"
+  - "\uC5FC\uC18C"
+  sizeT: 0
+  colorT: 0
+  matT: 0
 --- !u!1 &1964880228
 GameObject:
   m_ObjectHideFlags: 0
@@ -20339,6 +20419,7 @@ GameObject:
   - 114: {fileID: 1974917999}
   - 114: {fileID: 1974918001}
   - 114: {fileID: 1974918002}
+  - 114: {fileID: 1974918003}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -20391,6 +20472,7 @@ MonoBehaviour:
   navUi_player: {fileID: 1035973078}
   alertUi: {fileID: 1558089656}
   exploreUi: {fileID: 87963885}
+  PlanetName: 
 --- !u!114 &1974918001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20415,6 +20497,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c688b39f88f41a419602a78695dc96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1974918003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1974917997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f3e442b6631c44385271898af5bec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  column: ' '
+  table: ' '
+  values: ' '
 --- !u!4 &1977489738 stripped
 Transform:
   m_PrefabParentObject: {fileID: 404966, guid: e13d46c34428fb24485709142f899298, type: 2}

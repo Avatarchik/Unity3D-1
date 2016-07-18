@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
     public GameObject navUi_player;
     public GameObject alertUi;
     public GameObject exploreUi;
-
+    public string PlanetName;
     void Start()
     {
         if (_instance == null)
