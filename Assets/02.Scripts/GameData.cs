@@ -12,7 +12,7 @@ public class GameData : MonoBehaviour {
 
     public Vector3 starPosition;
     public bool navOn = false;
-
+    public int maxFuel = 0;
     void Start()
     {
         if (_instance == null)

@@ -62,6 +62,8 @@ public class MainSingleTon : MonoBehaviour {
 
     public bool activeFusionPanal = false;
 
+    public bool shipTouch = false;
+
     //color) 1= blue, 2= red , 3= yellow, 4= violate, 5= green, 6 = Orange
     //size) 1= small, 2 = midium, 3= large, 4= xlarge
     //mat ) 1= 1, 2=2, 3=3
