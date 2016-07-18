@@ -157,7 +157,10 @@ public class ButtonController : MonoBehaviour {
     }
 
 
-    //월드맵, 탐사화면
+    // 메인화면
+
+
+    // 탐사화면
     public void explore()
     {
         Debug.Log("행성을 탐사합니다!");
@@ -187,6 +190,8 @@ public class ButtonController : MonoBehaviour {
         //탐사 UI 비활성화
         GameManager.Instance().exploreUi.SetActive(false);
     }
+
+    // 월드맵
     public void ReChoose()
     {
         WorldMapManager.Instance().Touch.SetActive(true);

@@ -2877,7 +2877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &353248356
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4844,7 +4844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &554165491
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7295,7 +7295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &954466176
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11737,7 +11737,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1595700334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13851,6 +13851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starPosition: {x: 0, y: 0, z: 0}
   navOn: 0
+  maxFuel: 0
 --- !u!4 &1840636985
 Transform:
   m_ObjectHideFlags: 0
@@ -15560,7 +15561,6 @@ GameObject:
   - 114: {fileID: 2046168192}
   - 114: {fileID: 2046168193}
   - 114: {fileID: 2046168194}
-  - 114: {fileID: 2046168195}
   m_Layer: 0
   m_Name: WorldMapManager
   m_TagString: Untagged
@@ -15626,17 +15626,6 @@ MonoBehaviour:
   starPosition: {x: 0, y: 0, z: 0}
   food: 0
   shipNum: 0
---- !u!114 &2046168195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2046168190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a545a8722e323ec4e89326bbd4d322f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2053140728
 Prefab:
   m_ObjectHideFlags: 0

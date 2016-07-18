@@ -53,7 +53,7 @@ public class csScreenPointTouch : MonoBehaviour
 
                     if (hit.transform.tag.Equals("Ship"))
                     {
-                        GameObject.Find("UIManager").gameObject.GetComponent<ButtonController>().TransSceneToMap();
+                        MainSingleTon.Instance.shipTouch = true;
                     }
                     if (hit.transform.tag.Equals("Energy"))
                     {

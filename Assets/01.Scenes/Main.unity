@@ -1655,6 +1655,7 @@ MonoBehaviour:
   neighbor: 0
   UIobj: {fileID: 1840778839}
   activeFusionPanal: 0
+  shipTouch: 0
   PlanetList:
   - {fileID: 116424, guid: 82a75b6a944756e4693b78940560e124, type: 2}
   - {fileID: 168910, guid: 02b72008d935e1c479ca113b3bb740ff, type: 2}
@@ -2620,7 +2621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &597186318
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4990,7 +4991,6 @@ GameObject:
   - 92: {fileID: 1207492742}
   - 124: {fileID: 1207492741}
   - 81: {fileID: 1207492740}
-  - 114: {fileID: 1207492745}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5066,20 +5066,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &1207492745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1207492739}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb9dcc2400dd1c24f9737e0c6f149f64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ignoreUI:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1215633264
 GameObject:
   m_ObjectHideFlags: 0
@@ -5430,7 +5416,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1252247532}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1840778844}
+        m_MethodName: notanymoreFalse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1252247532
@@ -5666,6 +5663,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1331161208}
   - 114: {fileID: 1331161209}
+  - 114: {fileID: 1331161210}
   m_Layer: 0
   m_Name: SqlManager
   m_TagString: Untagged
@@ -5697,6 +5695,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23e7a01245a45549ba1fa0a24e0af40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1331161210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1331161207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe91c72a5357fec4abbd533215e81d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  column: ' '
+  table: ' '
+  where: ' '
+  starPosition: {x: 0, y: 0, z: 0}
+  food: 0
+  shipNum: 0
+  countRow: 0
 --- !u!1 &1336242307
 GameObject:
   m_ObjectHideFlags: 0
@@ -7656,6 +7672,7 @@ GameObject:
   - 114: {fileID: 1840778840}
   - 114: {fileID: 1840778842}
   - 114: {fileID: 1840778843}
+  - 114: {fileID: 1840778844}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -7739,13 +7756,26 @@ MonoBehaviour:
   ImgSum2: {fileID: 791765324}
   ImgSum3: {fileID: 744784880}
   EnergyIcon:
-  - {fileID: 21300000, guid: f37502432697e264e84d03085171cb74, type: 3}
-  - {fileID: 21300000, guid: 2473b014d50732f4d92344f7eb615e70, type: 3}
-  - {fileID: 21300000, guid: a0ec117cdd07d0446a46000d581cdc8b, type: 3}
-  - {fileID: 21300000, guid: cb8ca1db62d7efc449410c702ff001da, type: 3}
-  - {fileID: 21300000, guid: 553bd90e128675648a96b9331be53115, type: 3}
-  - {fileID: 21300000, guid: b1760e71cee88924c9f2c69fa92a351d, type: 3}
-  - {fileID: 21300000, guid: b1c86edb51876f04688a9b748debca6e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &1840778844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1840778839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a545a8722e323ec4e89326bbd4d322f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warning_ui: {fileID: 646693546}
+  notanymore_ui: {fileID: 1976697242}
 --- !u!1 &1847501499
 GameObject:
   m_ObjectHideFlags: 0
@@ -8220,7 +8250,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1976697243
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8489,6 +8519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starPosition: {x: 0, y: 0, z: 0}
   navOn: 0
+  maxFuel: 0
 --- !u!4 &2041590526
 Transform:
   m_ObjectHideFlags: 0
@@ -8858,7 +8889,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2130424842}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1840778840}
+        m_MethodName: TransSceneToMap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2130424842

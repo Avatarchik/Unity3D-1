@@ -29,6 +29,7 @@ public class SelectDB : MonoBehaviour
     float x;
     float y;
     float z;
+    
     int cntField;
     int cntTemp = 1;
 
@@ -38,6 +39,7 @@ public class SelectDB : MonoBehaviour
     public Vector3 starPosition;
     public int food;
     public int shipNum;
+    public int countRow;
     ///////////////////////////////////////////////////
 
 
@@ -127,8 +129,18 @@ public class SelectDB : MonoBehaviour
         IDataReader reader = dbcmd.ExecuteReader();
         /////////////////////////////////////////////////////////////////[SELECT Query]
 
-        
+
         /////////////////////////////////////////////////////////////////[Data Read]
+        if(type == 0) // Count
+        {
+            while (reader.Read())
+            {
+                countRow = reader.GetInt32(0);
+            }
+            reader.Close();
+            reader = null;
+        }
+
         if (type == 1) // 별 좌표 
         {
             while (reader.Read())
@@ -151,8 +163,8 @@ public class SelectDB : MonoBehaviour
             }
             reader.Close();
             reader = null;
-
         }
+
         /////////////////////////////////////////////////////////////////[Data Read]
 
 

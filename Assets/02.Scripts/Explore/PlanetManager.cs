@@ -4,23 +4,6 @@ using System.Collections;
 
 public class PlanetManager : MonoBehaviour
 {
-    //[SerializeField, Tooltip("Add Planet.")]
-    //public Planet m_planet = new Planet
-    //{
-    //    size = 1,
-
-    //};
-
-    //[System.Serializable]
-    //public struct Planet
-    //{
-    //    public int size;
-    //    static public GameObject[] planet;
-
-    //}
-
-    //public Testitem[] planetList;
-
     public GameObject udp;
     public GameObject[] planet;
     private GameObject player;
