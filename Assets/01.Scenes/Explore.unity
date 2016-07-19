@@ -4050,7 +4050,7 @@ Transform:
   m_GameObject: {fileID: 379682752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 350}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -15896,7 +15896,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1243134560}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abc12181da0ce96428ebd205cb52a395, type: 3}
   m_Name: 
@@ -20164,6 +20164,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1946166169}
   - 114: {fileID: 1946166168}
+  - 114: {fileID: 1946166170}
   m_Layer: 0
   m_Name: PlanetManager
   m_TagString: Untagged
@@ -20182,7 +20183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8bc0bfbc929b7479110359d8376259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  udp: {fileID: 180886, guid: 3e3fdcc302a897b4f952420099b47123, type: 2}
+  udp: {fileID: 180886, guid: d5892b04e8e500744b8fbdf7666a99ab, type: 2}
   planet:
   - {fileID: 0}
   - {fileID: 0}
@@ -20207,6 +20208,170 @@ Transform:
   m_Children: []
   m_Father: {fileID: 777531836}
   m_RootOrder: 0
+--- !u!114 &1946166170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1946166167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a420b128d4e674bbc98ad10ff70722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlanetList:
+  - {fileID: 116424, guid: 82a75b6a944756e4693b78940560e124, type: 2}
+  - {fileID: 168910, guid: 02b72008d935e1c479ca113b3bb740ff, type: 2}
+  - {fileID: 141946, guid: c8de63eb65c7c5346ae2609aa45f9343, type: 2}
+  - {fileID: 190778, guid: 089042573f00da74f941021649c5c0bf, type: 2}
+  - {fileID: 131456, guid: 9787e55690d708c45b94b67a194d7a4d, type: 2}
+  - {fileID: 177642, guid: c0dda58f000e18b4c859cffa3fe54336, type: 2}
+  - {fileID: 190288, guid: 747ca9bf09a786a42b95fad6287f38d4, type: 2}
+  - {fileID: 130876, guid: d700f8c83720362428d19d56b926c6f5, type: 2}
+  - {fileID: 145808, guid: b615c07b012cc84458ea87ee11dc447a, type: 2}
+  - {fileID: 159044, guid: 993d8fc4f19a8204399f94bc42f097a9, type: 2}
+  - {fileID: 176526, guid: fcd76d391e92d7c419479177d487008c, type: 2}
+  - {fileID: 135538, guid: 01dd096c315949846aef93e458b602d6, type: 2}
+  - {fileID: 106260, guid: fad67aa50bf674142bf3f81f89458fcc, type: 2}
+  - {fileID: 174700, guid: 9d9455b45f120de4aa3d11d2592cccbc, type: 2}
+  - {fileID: 138526, guid: 6d2b81e5611cc994ab2d8632964544a4, type: 2}
+  - {fileID: 141752, guid: 454c61e3ec6a52948856f387b8a3f404, type: 2}
+  - {fileID: 180432, guid: 1d855173ac555454db22b1e5a2bef15b, type: 2}
+  - {fileID: 159160, guid: a1f0a6a1a4abe6740a4d9c7944117d90, type: 2}
+  - {fileID: 150312, guid: 86e8665f6ad83014194c8fa2611c9e21, type: 2}
+  - {fileID: 115288, guid: 20da1a562dbddf0469d6d96af9277211, type: 2}
+  - {fileID: 128560, guid: e309a012f81136d4cac2e62316d99b8a, type: 2}
+  - {fileID: 198080, guid: af22b2d1b520d7c4f895689d42bf8ea9, type: 2}
+  - {fileID: 194838, guid: b140eba7596534e459e1461131bd3b4d, type: 2}
+  - {fileID: 145690, guid: 28c8ba5b31d8df2449f8f68915aab4e8, type: 2}
+  - {fileID: 151162, guid: 16a2d45b394841d46b157a0315acee66, type: 2}
+  - {fileID: 178764, guid: 3e24f8bac6c2b0846b639cef4723b695, type: 2}
+  - {fileID: 155218, guid: 45a56b330be74d34daabaa9cc5171c36, type: 2}
+  - {fileID: 194242, guid: 51658720a8dab5d44846d3cc3e300fe1, type: 2}
+  - {fileID: 167428, guid: afcb080059c677f4f90617ac8efaf6a1, type: 2}
+  - {fileID: 140522, guid: f0781de76e424ee4ea3e02bc9171201f, type: 2}
+  - {fileID: 124888, guid: c22c84dd8f398114d85d991e673fd99c, type: 2}
+  - {fileID: 145076, guid: d3edb596488dff14181aae329e389747, type: 2}
+  - {fileID: 142136, guid: 9bd88e688cbedd742ad17340aa181a5b, type: 2}
+  - {fileID: 136060, guid: 0920693b8366592488e9241cb0d7b181, type: 2}
+  - {fileID: 126296, guid: 534e66ff7f6bed345b1234efa13ded4e, type: 2}
+  - {fileID: 183778, guid: fbeeb796646cec84ab947be4202709f5, type: 2}
+  - {fileID: 162168, guid: 522063cdf82cd1348b8943e680e0cde5, type: 2}
+  - {fileID: 197150, guid: eba58b179722bc6479e1550f6f3dfdb4, type: 2}
+  - {fileID: 194888, guid: a593fd323e9fc2c46932b45f42cf3a0c, type: 2}
+  - {fileID: 195856, guid: 3a311a901f3188c47a49655a86a7d71b, type: 2}
+  - {fileID: 197030, guid: f26ee2b5f5fa2594e91dd3b3a4498270, type: 2}
+  - {fileID: 159966, guid: d87a865b1bd023f4c8eee232227c8aef, type: 2}
+  - {fileID: 157258, guid: d2fb938062237324ebf8434a62fded74, type: 2}
+  - {fileID: 178902, guid: 248c27b8990a384489c3a1fcd4985e51, type: 2}
+  - {fileID: 122730, guid: ae679797184a7854197da372083cc1b1, type: 2}
+  - {fileID: 129084, guid: c40a069d43b7e31439be22334e99a28f, type: 2}
+  - {fileID: 175308, guid: 028ed69a935963f4c8b65b34f271f6e7, type: 2}
+  - {fileID: 133886, guid: e24058a7556ce944b80ea0a6aa5c222a, type: 2}
+  - {fileID: 131934, guid: 9c73e39d5b4d5124fafee859d46a4e3c, type: 2}
+  - {fileID: 191682, guid: ce94e83a2365cdd48afb32f568ac7848, type: 2}
+  - {fileID: 196878, guid: 7768c7e5221112b42a809b27c8da202a, type: 2}
+  - {fileID: 196674, guid: f8120929a697e2f4baa7d4cf2579045a, type: 2}
+  - {fileID: 107738, guid: d585148d24e87ca4b8f5715efa4c2a6c, type: 2}
+  - {fileID: 190842, guid: 84966ffa89aeaee47890888ba7400d54, type: 2}
+  - {fileID: 136880, guid: 24d272d1375954b45967c0237f4eaeae, type: 2}
+  - {fileID: 197274, guid: afb77adaf61aaa041adf3dd788181b51, type: 2}
+  - {fileID: 110842, guid: 0aad425be6cac744ca6c47c2bec76487, type: 2}
+  - {fileID: 149630, guid: 9e7e57994a3bc624ca67356bd0914a85, type: 2}
+  - {fileID: 166054, guid: 0008bd427e9f19742b248dd73f8f4717, type: 2}
+  - {fileID: 128822, guid: 86d2d3d97dd2b2847a6101cc0411b9f6, type: 2}
+  - {fileID: 181016, guid: e29e07a7032182d4488b3517561b1d05, type: 2}
+  - {fileID: 153344, guid: 545ef605ad73d3640aa02fdd31d8d042, type: 2}
+  - {fileID: 116146, guid: 5988702bd29689f409781f85ba5ec06b, type: 2}
+  - {fileID: 184790, guid: 72581ead3305e3f418ce55a97743c3ce, type: 2}
+  - {fileID: 141886, guid: 26302a207aaf14b40a6311be66ca9d12, type: 2}
+  - {fileID: 168674, guid: 6033a7c86d042904fb7ab271e4c8f353, type: 2}
+  - {fileID: 152872, guid: 1a2d4d1ae60a6f146bf43fdf97a99a56, type: 2}
+  - {fileID: 137314, guid: b0368baffb480bd4fa6cc41efb4498f4, type: 2}
+  - {fileID: 116464, guid: c364dede5893aad499f87e492ef6cee9, type: 2}
+  - {fileID: 163482, guid: 7202e32fcf6195c4a816ae19d9c92200, type: 2}
+  - {fileID: 197700, guid: e81027066f34d5745b4a4288629538f8, type: 2}
+  - {fileID: 104614, guid: 7a955d4d494ec59419d19891ba0610d0, type: 2}
+  randomName:
+  - "\uD654\uC0AC\uD55C"
+  - "\uBA85\uB791\uD55C"
+  - "\uC720\uCF8C\uD55C"
+  - "\uD589\uBCF5\uD55C"
+  - "\uC758\uC5F0\uD55C"
+  - "\uAE68\uB057\uD55C"
+  - "\uC7AC\uBBF8\uC788\uB294"
+  - "\uCE5C\uADFC\uD55C"
+  - "\uAC74\uBC29\uC9C4"
+  - "\uD574\uB9D1\uC740"
+  - "\uBC1C\uB784\uD55C"
+  - "\uC990\uAC70\uC6B4"
+  - "\uC9DC\uB9BF\uD55C"
+  - "\uC798\uC0DD\uAE34"
+  - "\uB2E4\uBD80\uC9C4"
+  - "\uCC29\uD55C"
+  - "\uCD08\uC5F0\uD55C"
+  - "\uC815\uACA8\uC6B4"
+  - "\uAE30\uC05C"
+  - "\uADC0\uC5EC\uC6B4"
+  - "\uB2E8\uD638\uD55C"
+  - '------S End-----'
+  - "\uC0C1\uB0E5\uD55C"
+  - "\uD2B9\uC774\uD55C"
+  - "\uCE5C\uC219\uD55C"
+  - "\uBA4B\uC9C4"
+  - "\uB2A0\uB984\uD55C"
+  - "\uBB34\uC2EC\uD55C"
+  - "\uACE0\uACE0\uD55C"
+  - "\uC801\uC808\uD55C"
+  - "\uD55C\uAC00\uD55C"
+  - "\uD3EC\uADFC\uD55C"
+  - "\uC0DD\uC0DD\uD55C"
+  - "\uC808\uBB18\uD55C"
+  - "\uAE30\uBC1C\uD55C"
+  - "\uCC2C\uB780\uD55C"
+  - "\uCE58\uBC00\uD55C"
+  - "\uD574\uBC15\uD55C"
+  - '------M End-----'
+  - "\uCCAD\uC544\uD55C"
+  - "\uB530\uB73B\uD55C"
+  - "\uD604\uBA85\uD55C"
+  - "\uC870\uC6A9\uD55C"
+  - "\uC80A\uC796\uC740"
+  - "\uD669\uD640\uD55C"
+  - "\uACB8\uC190\uD55C"
+  - "\uCE68\uCC29\uD55C"
+  - "\uD478\uC9D0\uD55C"
+  - '------L End-----'
+  - "\uC720\uBCC4\uB09C"
+  - "\uD654\uB824\uD55C"
+  - "\uADFC\uC5C4\uD55C"
+  - "\uC9C4\uC2E4\uD55C"
+  - "\uACE0\uC0C1\uD55C"
+  - "\uC721\uC911\uD55C"
+  - "\uC790\uC0C1\uD55C"
+  colorName:
+  - "\uD30C\uB780\uC0C9"
+  - "\uBE68\uAC04\uC0C9"
+  - "\uB178\uB780\uC0C9"
+  - "\uBCF4\uB77C\uC0C9"
+  - "\uCD08\uB85D\uC0C9"
+  - "\uC8FC\uD669\uC0C9"
+  zName:
+  - "\uBB3C\uBCD1"
+  - "\uBB3C\uACE0\uAE30"
+  - "\uC591"
+  - "\uD669\uC18C"
+  - "\uC30D\uB465\uC774"
+  - "\uAC8C"
+  - "\uC0AC\uC790"
+  - "\uCC98\uB140"
+  - "\uCC9C\uCE6D"
+  - "\uC804\uAC08"
+  - "\uAD81\uC218"
+  - "\uC5FC\uC18C"
+  sizeT: 0
+  colorT: 0
+  matT: 0
 --- !u!1 &1964880228
 GameObject:
   m_ObjectHideFlags: 0
@@ -20254,6 +20419,8 @@ GameObject:
   - 114: {fileID: 1974917999}
   - 114: {fileID: 1974918001}
   - 114: {fileID: 1974918002}
+  - 114: {fileID: 1974918003}
+  - 114: {fileID: 1974918004}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -20300,12 +20467,14 @@ MonoBehaviour:
   tempPlanet: {fileID: 0}
   planetSpawnPoint: {x: 0, y: 0, z: 0}
   spaceChecker: {fileID: 379682752}
+  scInit: 0
   spaceCollision: 0
   destination: {fileID: 337374381}
   navUi_des: {fileID: 854981746}
   navUi_player: {fileID: 1035973078}
   alertUi: {fileID: 1558089656}
   exploreUi: {fileID: 87963885}
+  PlanetName: 
 --- !u!114 &1974918001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20330,6 +20499,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c688b39f88f41a419602a78695dc96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1974918003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1974917997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8f3e442b6631c44385271898af5bec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  column: ' '
+  table: ' '
+  values: ' '
+--- !u!114 &1974918004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1974917997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe91c72a5357fec4abbd533215e81d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  column: ' '
+  table: ' '
+  where: ' '
+  starPosition: {x: 0, y: 0, z: 0}
+  planetIndex: 0
+  planetName: 
+  planetSize: 0
+  planetColor: 0
+  planetMat: 0
+  food: 0
+  shipNum: 0
+  countRow: 0
 --- !u!4 &1977489738 stripped
 Transform:
   m_PrefabParentObject: {fileID: 404966, guid: e13d46c34428fb24485709142f899298, type: 2}

@@ -1,32 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 
 public class PlanetManager : MonoBehaviour
 {
-    //[SerializeField, Tooltip("Add Planet.")]
-    //public Planet m_planet = new Planet
-    //{
-    //    size = 1,
-
-    //};
-
-    //[System.Serializable]
-    //public struct Planet
-    //{
-    //    public int size;
-    //    static public GameObject[] planet;
-
-    //}
-
-    //public Testitem[] planetList;
-
     public GameObject udp;
     public GameObject[] planet;
     private GameObject player;
     private GameObject spaceChecker;
     public float spawnTime = 10.0f;
-    
+
     float deltaSpawnTime = 0.0f;
 
     int spawnCnt = 1;
@@ -35,15 +18,18 @@ public class PlanetManager : MonoBehaviour
     GameObject[] planetPool;
     int poolSize = 20;
 
+    int planetLoadCnt = 1;
+
     void Start()
     {
-        
+
         planetPool = new GameObject[poolSize];
         for (int i = 0; i < poolSize; ++i)
         {
             planetPool[i] = Instantiate(udp) as GameObject;
             planetPool[i].SetActive(false);
         }
+        loadPlanet();
     }
 
     void Update()
@@ -77,17 +63,17 @@ public class PlanetManager : MonoBehaviour
                 int planetRandom = Random.Range(1, 4);
                 //Debug.Log("[SpawnDirection]\n1: left , 2: Right, 3: up, 4: down" + "\t<b>" +planetRandom +"</b>");
                 //Vector3 pcPosition = player.transform.localPosition;
-                Vector3 left = Vector3.left * 3.5f;
-                Vector3 right = Vector3.right * 3.5f;
-                Vector3 up = Vector3.up * 3.5f;
-                Vector3 down = Vector3.down * 3.5f;
+                Vector3 left = Vector3.left * Random.Range(1.0f, 5.0f);
+                Vector3 right = Vector3.right * Random.Range(1.0f, 5.0f);
+                Vector3 up = Vector3.up * Random.Range(1.0f, 5.0f);
+                Vector3 down = Vector3.down * Random.Range(1.0f, 5.0f);
                 int x = Random.Range(-5, 5);
 
-                
+
                 if (planetRandom == 1)
                 {
                     spaceChecker.transform.position = player.transform.position + player.transform.forward * 10.0f + left;
-                    if (GameManager.Instance().spaceCollision == false)
+                    if (GameManager.Instance().spaceCollision == false && GameManager.Instance().scInit == true)
                     {
                         Debug.Log("false!");
                         planetPool[i].transform.position = player.transform.position + player.transform.forward * 10.0f + left;
@@ -102,7 +88,7 @@ public class PlanetManager : MonoBehaviour
                     {
                         Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
                         GameManager.Instance().spaceCollision = false;
-                        Debug.Log("현재 상태:" +GameManager.Instance().spaceCollision);
+                        Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
                         --i;
                         break;
                     }
@@ -111,7 +97,7 @@ public class PlanetManager : MonoBehaviour
                 else if (planetRandom == 2)
                 {
                     spaceChecker.transform.position = player.transform.position + player.transform.forward * 10.0f + right;
-                    if (GameManager.Instance().spaceCollision == false)
+                    if (GameManager.Instance().spaceCollision == false && GameManager.Instance().scInit == true)
                     {
                         Debug.Log("false!");
                         planetPool[i].transform.position = player.transform.position + player.transform.forward * 10.0f + right;
@@ -134,7 +120,7 @@ public class PlanetManager : MonoBehaviour
                 else if (planetRandom == 3)
                 {
                     spaceChecker.transform.position = player.transform.position + player.transform.forward * 10.0f + up;
-                    if (GameManager.Instance().spaceCollision == false)
+                    if (GameManager.Instance().spaceCollision == false && GameManager.Instance().scInit == true)
                     {
                         Debug.Log("false!");
                         planetPool[i].transform.position = player.transform.position + player.transform.forward * 10.0f + up;
@@ -158,7 +144,7 @@ public class PlanetManager : MonoBehaviour
                 else if (planetRandom == 4)
                 {
                     spaceChecker.transform.position = player.transform.position + player.transform.forward * 10.0f + down;
-                    if (GameManager.Instance().spaceCollision == false)
+                    if (GameManager.Instance().spaceCollision == false && GameManager.Instance().scInit == true)
                     {
                         Debug.Log("false!");
                         planetPool[i].transform.position = player.transform.position + player.transform.forward * 10.0f + down;
@@ -181,33 +167,118 @@ public class PlanetManager : MonoBehaviour
             }
         }
     }
-
+    
     public void planetChange(Vector3 spawnPoint)
     {
-        int rand = Random.Range(1, 9);
+        int rand = GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().PlanetCreate();
         float tempDistance = 500;       // 별자리 거리 임시 값
         int nearStar = 0;               // 가장 가까운 별자리 카운트 값 
-
-        // 행성 오브젝트 생성 및 배치 
-        GameObject obj = Instantiate(planet[rand]);
-        obj.transform.position = spawnPoint;
-        obj.name = rand + "" +"" + spawnPoint;
+        string tempName;
+        int tempsize;
+        int tempcolor;
+        int tempmFood;
+        int tempmTitanium;
+        int tempLepersec;
+        float tempX;
+        float tempY;
+        float tempZ;
+        int tempmat;
         
+        // 행성 오브젝트 생성 및 배치 
+        GameObject obj = Instantiate(GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().D_PlanetList[rand]);
+        obj.transform.position = spawnPoint;
+
+        // 행성 이름 생성 <형용사(사이즈별)> + <행성 색깔> + <별자리이름> 조합
         // 가까운 별자리 찾기
-        for(int i = 1; i <= 12; i++)
+        for (int i = 1; i <= 12; i++)
         {
             string starName = "Center_" + i;
             float starDistance = Vector3.Distance(obj.transform.position, GameObject.Find(starName).transform.position);
-            
-            Debug.Log(starName+ "\t" + starDistance);
-            if(tempDistance > starDistance)
+
+            Debug.Log(starName + "\t" + starDistance);
+            if (tempDistance > starDistance)
             {
                 tempDistance = starDistance;
                 nearStar = i;
             }
         }
         Debug.Log("제일 가까운 거리!" + tempDistance + "\t" + nearStar);
-        // 행성 이름 생성 <형용사(사이즈별)> + <행성 색깔> + <별자리이름> 조합
+        tempName = GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().PlanetNameCreate() + " " + GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().zName[nearStar - 1];
+        obj.name = tempName;
 
+        tempsize = GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().sizeT;
+        tempcolor = GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().colorT;
+        tempmFood = Random.Range(tempsize * tempsize * 100, tempsize * 5 * 100);
+        tempmTitanium = Random.Range(tempsize * tempsize * 100, tempsize * 5 * 100);
+        tempLepersec = tempsize;
+        tempX = spawnPoint.x;
+        tempY = spawnPoint.y;
+        tempZ = spawnPoint.z;
+        tempmat = GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().matT;
+
+        //초기 행성생성시 데이터 초기화 및 DB INSERT (Table Column 순서 수정필요함)
+        InsertDB.Instance().table = "managePlanetTableTest";
+        InsertDB.Instance().column = "name,size,color,mFood,mTitanium,le_persec,locationX,locationY,locationZ,mat,state,lFood,lTitanium,position_house,User,neighbor,tree1,tree2,tree3,tree4,tree5,tree6";
+        InsertDB.Instance().values = "\""+tempName + "\"," +    //name      행성이름
+                                     tempsize + "," +           //size      행성크기
+                                     tempcolor + "," +          //color     행성색상
+                                     tempmFood + "," +          //mFood     식량 부존량
+                                     tempmTitanium + "," +      //mTitanium 티타늄 부존량
+                                     tempLepersec + "," +       //le_persec 초당 빛생산량
+                                     tempX + "," +              //locationX 좌표X
+                                     tempY + "," +              //locationY 좌표Y
+                                     tempZ + "," +              //locationZ 좌표Z 
+                                     tempmat + "," +            //material  행성 스타일
+                                     "1" + "," +                //state     행성 상태
+                                     tempmFood + "," +          //lFood     식량 잔존량
+                                     tempmTitanium + "," +      //lTitanium 티타늄 잔존량
+                                     "0" + "," +                //position_house 기지 건설 여부 
+                                     "0" + "," +                //User      유저 거주 여부
+                                     "0" + "," +                //neighbor  이웃 거주 여부(현재 이웃 시스템 없으므로 0)
+                                     "0" + "," +                //tree1     나무1 배치 여부(나무종류에 따라 1~4)
+                                     "0" + "," +                //tree2     나무2 배치 여부(나무종류에 따라 1~4)
+                                     "0" + "," +                //tree3     나무3 배치 여부(나무종류에 따라 1~4)
+                                     "0" + "," +                //tree4     나무4 배치 여부(나무종류에 따라 1~4)
+                                     "0" + "," +                //tree5     나무5 배치 여부(나무종류에 따라 1~4)
+                                     "0";                       //tree6     나무6 배치 여부(나무종류에 따라 1~4)
+
+        InsertDB.Instance().Insert();
     }
+
+    void loadPlanet()
+    {
+        
+        //마지막에 추가된 rowid 조회
+        SelectDB.Instance().table = "managePlanetTableTest";
+        SelectDB.Instance().column = "rowid, Count(*)";
+        SelectDB.Instance().Select(0);
+        Debug.Log(SelectDB.Instance().countRow);
+
+        SelectDB.Instance().table = "managePlanetTableTest";
+        SelectDB.Instance().column = "rowid, name, size, color, mat, locationX, locationY, locationZ";
+
+        for (; planetLoadCnt <= SelectDB.Instance().countRow; planetLoadCnt++)
+        {
+            SelectDB.Instance().where = "WHERE rowid =" + planetLoadCnt;
+            SelectDB.Instance().Select(3);
+
+            if (SelectDB.Instance().planetIndex != 0)
+            {
+                int planetShape = (SelectDB.Instance().planetSize * 100) + (SelectDB.Instance().planetColor * 10) + SelectDB.Instance().planetMat;
+                //쿼리 결과로 변수 초기화
+                Debug.Log(planetShape);
+                // 행성 오브젝트 생성 및 배치 
+
+                GameObject obj = Instantiate(GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().D_PlanetList[planetShape]);
+                obj.transform.position = SelectDB.Instance().starPosition;
+                obj.name = SelectDB.Instance().planetName;
+            }
+        }
+
+        planetLoadCnt = 1;
+    }
+
 }
+
+
+    

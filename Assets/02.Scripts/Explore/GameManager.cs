@@ -20,13 +20,14 @@ public class GameManager : MonoBehaviour {
     public GameObject tempPlanet;
     public Vector3 planetSpawnPoint;
     public GameObject spaceChecker;
-    public bool spaceCollision = false;
+    public bool scInit = false;         //SpaceCollision Init
+    public bool spaceCollision = true;  
     public GameObject destination;
     public GameObject navUi_des;
     public GameObject navUi_player;
     public GameObject alertUi;
     public GameObject exploreUi;
-
+    public string PlanetName;
     void Start()
     {
         if (_instance == null)

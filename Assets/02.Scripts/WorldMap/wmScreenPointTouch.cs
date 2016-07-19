@@ -27,11 +27,6 @@ public class wmScreenPointTouch : MonoBehaviour
                         WorldMapManager.Instance().Touch.SetActive(false);
                         WorldMapManager.Instance().Destination_ui.SetActive(true);
                         WorldMapManager.Instance().Destination_ui.GetComponentInChildren<Text>().text = hit.transform.name;
-                        //csCubeRotate cubeScript = hit.transform.GetComponent<csCubeRotate>();
-                        //if (cubeScript != null)
-                        //{
-                        //    cubeScript.RotateByHit();
-                        //}
                     }
                     //else
                     //{

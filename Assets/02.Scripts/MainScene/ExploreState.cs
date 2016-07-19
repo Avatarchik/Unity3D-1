@@ -1,18 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-public class wmState : MonoBehaviour {
+public class ExploreState : MonoBehaviour {
     int maxFood;
     bool warning = false;
-	
+    public GameObject warning_ui;
+    public GameObject notanymore_ui;
+
     void Update()
     {
-        if (warning == false)
+        if (MainSingleTon.Instance.shipTouch == true)
         {
             SelectDB.Instance().column = "cFood, shipNum";
             SelectDB.Instance().table = "userTable";
             //SelectDB.Instance().where = "WHERE zID= " + "'" + hit.transform.name + "'";
             SelectDB.Instance().Select(2);
+
+            SelectDB.Instance().column = "Count(*)";
+            SelectDB.Instance().table = "managePlanetTable";
+            SelectDB.Instance().Select(0);
 
             switch (SelectDB.Instance().shipNum)
             {
@@ -34,11 +40,26 @@ public class wmState : MonoBehaviour {
             }
             if (SelectDB.Instance().food < maxFood)
             {
-                WorldMapManager.Instance().Warning_ui.SetActive(true);
+                MainSingleTon.Instance.shipTouch = false;
+                warning_ui.SetActive(true);
                 GameObject.Find("Food").gameObject.GetComponentInChildren<Text>().text = maxFood.ToString();
                 StartCoroutine(returnMain());
             }
-            warning = true;
+            else if(SelectDB.Instance().food >= maxFood)
+            {
+                MainSingleTon.Instance.shipTouch = false;
+                if (SelectDB.Instance().countRow == 24)
+                {
+                    notanymore_ui.SetActive(true);
+                }
+                else
+                {
+                    GameData.Instance().maxFuel = maxFood;
+                    transScenetoMap();
+                }
+                
+            }
+            
         }
     }
 	
@@ -54,6 +75,16 @@ public class wmState : MonoBehaviour {
         //GameObject.Find("WorldMapManager").gameObject.GetComponent<ButtonController>().TransSceneToMain();
 
         yield return new WaitForSeconds(3.0f);
-        //Warning UI setactive false 추가해야합니다.
+        warning_ui.SetActive(false);
+    }
+
+    void transScenetoMap()
+    {
+        GameObject.Find("UIManager").gameObject.GetComponent<ButtonController>().TransSceneToMap();
+    }
+
+    public void notanymoreFalse()
+    {
+        notanymore_ui.SetActive(false);
     }
 }

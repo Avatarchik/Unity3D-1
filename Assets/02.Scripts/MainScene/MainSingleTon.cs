@@ -37,7 +37,7 @@ public class MainSingleTon : MonoBehaviour {
     public int shipNum;
 
 
-    public string pID;
+    //public string pID;
     public string pName;
     public int color;
     public int size;
@@ -61,6 +61,8 @@ public class MainSingleTon : MonoBehaviour {
     public GameObject UIobj;
 
     public bool activeFusionPanal = false;
+
+    public bool shipTouch = false;
 
     //color) 1= blue, 2= red , 3= yellow, 4= violate, 5= green, 6 = Orange
     //size) 1= small, 2 = midium, 3= large, 4= xlarge
@@ -110,6 +112,14 @@ public class MainSingleTon : MonoBehaviour {
         UIobj.GetComponent<MainUIfromSQL>().setTree(6, tree5);
 
     }
+
+    public void callGetShip()
+    {
+    }
+
+
+
+
 
 
     void Update()
