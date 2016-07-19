@@ -18,6 +18,7 @@ public class ButtonController : MonoBehaviour {
     {
         GameObject.Find("UI").transform.FindChild("StorePanal").gameObject.SetActive(true);
         GameObject.Find("UI/Main/Button/SettingBtn").gameObject.SetActive(false);
+        GameObject.Find("GameManager/UIManager").GetComponent<StoreScript>().activeBuildingPanal();
         //Debug.Log("scene Trans to shop");
     }
 

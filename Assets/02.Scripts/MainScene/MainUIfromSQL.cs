@@ -35,10 +35,13 @@ public class MainUIfromSQL : MonoBehaviour
 
     public void setPlanet(int Num)
     {
-        Pla = Instantiate(MainSingleTon.Instance.D_PlanetList[Num], PlanetPosition.transform.position, PlanetPosition.transform.rotation) as GameObject;
-        Pla.name = "death_planet";
-        Pla.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
-        Pla.transform.parent = PlanetPosition.transform;
+        if (PlanetPosition.transform.childCount == 0)
+        {
+            Pla = Instantiate(MainSingleTon.Instance.D_PlanetList[Num], PlanetPosition.transform.position, PlanetPosition.transform.rotation) as GameObject;
+            Pla.name = "death_planet";
+            Pla.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
+            Pla.transform.parent = PlanetPosition.transform;
+        }
     }
 
     public void setShip(int num)
@@ -116,40 +119,40 @@ public class MainUIfromSQL : MonoBehaviour
         {
             case 0:
                 GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
-                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
                 GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
                 GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
                 break;
 
             case 1:
                 GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(true);
-                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
                 GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
                 GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
 
                 break;
 
             case 2:
                 GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
-                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(true);
-                GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(true);
                 GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
 
                 break;
 
             case 3:
                 GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(true);
                 GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
-                GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(true);
-                GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
 
                 break;
 
             case 4:
                 GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
-                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
                 GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
-                GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(true);
+                GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(true);
 
                 break;
 
@@ -160,6 +163,37 @@ public class MainUIfromSQL : MonoBehaviour
 
     }
 
+    public void setNeighber()
+    {
+        if(MainSingleTon.Instance.neighbor == 0)
+        {
+            GameObject.Find("PlanetPosition/death_planet/Ship_Neighbor").gameObject.SetActive(false);
+            GameObject.Find("PlanetPosition/death_planet/Neighbor").gameObject.SetActive(false);
+        }
+        else
+        {
+            GameObject.Find("PlanetPosition/death_planet/Ship_Neighbor").gameObject.SetActive(true);
+            GameObject.Find("PlanetPosition/death_planet/Neighbor").gameObject.SetActive(true);
 
+        }
+    }
+
+    public void setStation()
+    {
+        if (MainSingleTon.Instance.position_house)
+        {
+            GameObject.Find("PlanetPosition/death_planet/Spacestation").gameObject.SetActive(true);
+        }
+        else
+        {
+            GameObject.Find("PlanetPosition/death_planet/Spacestation").gameObject.SetActive(false);
+
+        }
+    }
+
+    public void setPostBox()
+    {
+
+    }
 
 }

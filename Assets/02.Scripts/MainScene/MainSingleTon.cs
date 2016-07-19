@@ -15,16 +15,31 @@ public class MainSingleTon : MonoBehaviour {
             return _instance;
         }
     }
+    //color) 1= blue, 2= red , 3= yellow, 4= violate, 5= green, 6 = Orange
+    //size) 1= small, 2 = midium, 3= large, 4= xlarge
+    //mat ) 1= 1, 2=2, 3=3
+    //list입력관련 (Color)(Size)(Mat) -> 변경순서mat->size->color
 
     void Awake()
     {
         if (_instance == null)
             _instance = this;
-        
+        int count = 0;
+        for (int i = 1; i <= 6; i++)
+        {
+            for (int j = 1; j <= 4; j++)
+            {
+                for (int k = 1; k <= 3; k++)
+                {
+                    D_PlanetList.Add(i * 100 + j * 10 + k, PlanetList[count]);
+                    count++;
+                }
+            }
+        }
     }
 
 
-    public string cPlanet;
+    public int cPlanet;
     public int cFood;
     public int cTitanium;
     public int cRE;
@@ -37,17 +52,28 @@ public class MainSingleTon : MonoBehaviour {
     public int shipNum;
 
 
-    //public string pID;
+    public int rowid;
     public string pName;
-    public int color;
     public int size;
-    public int mFood;
-    public int le_persec;
+    public int color;
     public int mat;
+    public int mFood;
+    public int mTitanium;
+    public float locationX;
+    public float locationY;
+    public float locationZ;
+    public int le_persec;
+    public bool position_house;
     public int state;
+    public bool user;
+    public int neighbor;
     public int lFood;
     public int lTitanium;
-    public bool position_house;
+    // public ??? planetTouchT
+    // public ??? titaniumTouchT
+    // public ??? treeTouchT
+    // public ??? breaktime
+    
     public int tree1;
     public int tree2;
     public int tree3;
@@ -55,8 +81,6 @@ public class MainSingleTon : MonoBehaviour {
     public int tree5;
     public int tree6;
 
-    //public bool user;
-    public int neighbor;
 
     public GameObject UIobj;
 
@@ -64,10 +88,6 @@ public class MainSingleTon : MonoBehaviour {
 
     public bool shipTouch = false;
 
-    //color) 1= blue, 2= red , 3= yellow, 4= violate, 5= green, 6 = Orange
-    //size) 1= small, 2 = midium, 3= large, 4= xlarge
-    //mat ) 1= 1, 2=2, 3=3
-    //list입력관련 (Color)(Size)(Mat) -> 변경순서mat->size->color
 
     public List<GameObject> PlanetList = new List<GameObject>();
     public Dictionary<int, GameObject> D_PlanetList = new Dictionary<int, GameObject>();
@@ -75,18 +95,7 @@ public class MainSingleTon : MonoBehaviour {
 
     void Start()
     {
-        int count = 0;
-        for(int i = 1; i <= 6; i++)
-        {
-            for(int j = 1; j <= 4; j++)
-            {
-                for(int k = 1; k <= 3; k++)
-                {
-                    D_PlanetList.Add(i * 100 + j * 10 + k, PlanetList[count]);
-                    count++;
-                }
-            }
-        }
+
     }
 
     public void callPlanet()
@@ -113,14 +122,21 @@ public class MainSingleTon : MonoBehaviour {
 
     }
 
-    public void callGetShip()
+
+    public void callNeighber()
     {
+        UIobj.GetComponent<MainUIfromSQL>().setNeighber();
     }
 
+    public void callStation()
+    {
+        UIobj.GetComponent<MainUIfromSQL>().setStation();
+    }
 
-
-
-
+    public void setPostBox()
+    {
+        UIobj.GetComponent<MainUIfromSQL>().setPostBox();
+    }
 
     void Update()
     {

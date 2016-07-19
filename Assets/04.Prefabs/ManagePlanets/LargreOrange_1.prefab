@@ -3996,6 +3996,7 @@ GameObject:
   - 4: {fileID: 487260}
   - 33: {fileID: 3346008}
   - 23: {fileID: 2335106}
+  - 114: {fileID: 11458142}
   m_Layer: 0
   m_Name: LargreOrange_1
   m_TagString: Untagged
@@ -7817,7 +7818,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192052}
   m_LocalRotation: {x: 0.009552239, y: -0.66581637, z: -0.7140701, w: 0.21610498}
-  m_LocalPosition: {x: 61.55, y: 1.05, z: -28.02}
+  m_LocalPosition: {x: 1.6800001, y: 4, z: -0.00000054741355}
   m_LocalScale: {x: 0.035, y: 0.035, z: 0.035}
   m_LocalEulerAnglesHint: {x: -71.217995, y: -429.4166, z: -93.5569}
   m_Children:
@@ -12811,6 +12812,21 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &11458142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d23f9588a1bab478fb150385efdb55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastPos: 2
+  stepAmount: 10
+  onMoving: 0
+  curPos: 2
 --- !u!137 &13700020
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -205,7 +205,7 @@ public class FusionScript : MonoBehaviour {
 
 
         switchEnergy = 0;
-        SQLManager.GetComponent<MainSceneSQL>().UpdateEnergy(Query);
+        SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
         SubPanal.SetActive(false);
         
     }

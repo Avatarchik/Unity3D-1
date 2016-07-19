@@ -19,13 +19,20 @@ public class StoreScript : MonoBehaviour {
     public Image ShipImage;
     public Text shipMoney;
 
+    public Image stationImg;
+    public Image tree1Img;
+    public Image tree2Img;
+    public Image tree3Img;
+    public Image tree4Img;
     public Text stationBtnText;
     public Text tree1BtnText;
     public Text tree2BtnText;
     public Text tree3BtnText;
     public Text tree4BtnText;
+    public Sprite notBuy;
 
 
+    int treeCount = 1;
     void Start()
     {
 
@@ -39,11 +46,13 @@ public class StoreScript : MonoBehaviour {
         GameObject.Find("UI/StorePanal").gameObject.SetActive(false);
     }
 
-    public void ativeBuildingPanal()
+    public void activeBuildingPanal()
     {
         BuildingPanal.gameObject.SetActive(true);
         ShipPanal.gameObject.SetActive(false);
         CachePanal.gameObject.SetActive(false);
+
+        setBuildingPanal();
     }
 
     public void activeShipPanal()
@@ -63,36 +72,216 @@ public class StoreScript : MonoBehaviour {
 
     public void getStation()
     {
-        Debug.Log("station");
+        bool station = MainSingleTon.Instance.position_house;
+        int cTitanium = MainSingleTon.Instance.cTitanium;
+        string Query = "";
+        if (station)
+        {
+            return;
+        }
+
+        if (cTitanium >= 2500)
+        {
+            Query = "UPDATE managePlanetTableTest SET position_house = " + 1 + " WHERE rowid = "+MainSingleTon.Instance.rowid;
+            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+
+            MainSingleTon.Instance.cTitanium -= 2500;
+            Query = "UPDATE userTableTest SET cTitanium = " + MainSingleTon.Instance.cTitanium;
+            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+
+        }
+        else
+        {
+            activeLake();
+        }
+
+        setBuildingPanal();
     }
 
     public void getTree1()
     {
-        Debug.Log("tree1");
-
+        getTree(1);
     }
     
     public void getTree2()
     {
-        Debug.Log("tree2");
-
+        getTree(2);
     }
 
     public void getTree3()
     {
-        Debug.Log("tree3");
-
+        getTree(3);
     }
 
     public void getTree4()
     {
-        Debug.Log("tree4");
+        getTree(4);
+    }
 
+    void getTree(int treeNum)
+    {
+        if (tree1BtnText.text == "구매불가")
+            return;
+
+        int nowFood = MainSingleTon.Instance.cFood;
+        int foodCost = System.Convert.ToInt32(tree1BtnText.text);
+        string Query = "";
+        if (nowFood >= foodCost)
+        {
+            Debug.Log(MainSingleTon.Instance.cFood);
+            Query = "UPDATE managePlanetTableTest SET tree" + treeCount + " = " + treeNum + " Where rowid = " + MainSingleTon.Instance.rowid;
+            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+
+            MainSingleTon.Instance.cFood -= foodCost;
+            Query = "UPDATE userTableTest SET cFood = " + MainSingleTon.Instance.cFood;
+            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+
+        }
+        else
+        {
+            activeLake();
+        }
+
+        setBuildingPanal();
     }
 
     void setBuildingPanal()
     {
-        //int stationNum
+        bool station = MainSingleTon.Instance.position_house;
+        int size = MainSingleTon.Instance.size;
+        int tree1 = MainSingleTon.Instance.tree1;
+        int tree2 = MainSingleTon.Instance.tree2;
+        int tree3 = MainSingleTon.Instance.tree3;
+        int tree4 = MainSingleTon.Instance.tree4;
+        int tree5 = MainSingleTon.Instance.tree5;
+        int tree6 = MainSingleTon.Instance.tree6;
+
+        if (!station)
+        {
+            stationBtnText.text = "2500";
+        }
+        else
+        {
+            stationImg.sprite = notBuy;
+            stationBtnText.text = "구매불가";
+        }
+
+
+
+        if (tree1 == 0)  //나무없음
+        {
+            tree1BtnText.text = "25";
+            tree2BtnText.text = "25";
+            tree3BtnText.text = "25";
+            tree4BtnText.text = "25";
+
+        }
+        else // 나무1개 이상 있음
+        {
+            treeCount = 2;
+            if(tree2 == 0) // 나무1개만있는경우
+            {
+                tree1BtnText.text = "50";
+                tree2BtnText.text = "50";
+                tree3BtnText.text = "50";
+                tree4BtnText.text = "50";
+            }
+            else // 나무 2개이상 있음
+            {
+                treeCount = 3;
+                if (tree3 == 0) //나무2개만 있는경우
+                {
+                    tree1BtnText.text = "100";
+                    tree2BtnText.text = "100";
+                    tree3BtnText.text = "100";
+                    tree4BtnText.text = "100";
+                }
+                else //나무3개이상 있음
+                {
+                    treeCount = 4;
+                    if (size == 1) //스몰사이즈 걸러냄
+                    {
+                        tree1Img.sprite = notBuy;
+                        tree2Img.sprite = notBuy;
+                        tree3Img.sprite = notBuy;
+                        tree4Img.sprite = notBuy;
+                        tree1BtnText.text = "구매불가";
+                        tree2BtnText.text = "구매불가";
+                        tree3BtnText.text = "구매불가";
+                        tree4BtnText.text = "구매불가";
+
+                        return;
+                    }
+                    if(tree4 == 0) //나무 3개만 있는경우
+                    {
+                        tree1BtnText.text = "200";
+                        tree2BtnText.text = "200";
+                        tree3BtnText.text = "200";
+                        tree4BtnText.text = "200";
+                    }
+                    else //나무4개이상 있음
+                    {
+                        treeCount = 5;
+                        if(size == 2) // 미디움사이즈 걸러냄
+                        {
+                            tree1Img.sprite = notBuy;
+                            tree2Img.sprite = notBuy;
+                            tree3Img.sprite = notBuy;
+                            tree4Img.sprite = notBuy;
+                            tree1BtnText.text = "구매불가";
+                            tree2BtnText.text = "구매불가";
+                            tree3BtnText.text = "구매불가";
+                            tree4BtnText.text = "구매불가";
+                            return;
+                        }
+                        if(tree5 == 0) //나무4개만 있는경우
+                        {
+                            tree1BtnText.text = "400";
+                            tree2BtnText.text = "400";
+                            tree3BtnText.text = "400";
+                            tree4BtnText.text = "400";
+                        }
+                        else // 나무5개이상 있음
+                        {
+                            treeCount = 6;
+                            if(size == 3) //빅사이즈 걸러냄 
+                            {
+                                tree1Img.sprite = notBuy;
+                                tree2Img.sprite = notBuy;
+                                tree3Img.sprite = notBuy;
+                                tree4Img.sprite = notBuy;
+                                tree1BtnText.text = "구매불가";
+                                tree2BtnText.text = "구매불가";
+                                tree3BtnText.text = "구매불가";
+                                tree4BtnText.text = "구매불가";
+                                return;
+                            }
+                            if(tree6 == 0) //나무 5개만 있는경우
+                            {
+                                tree1BtnText.text = "800";
+                                tree2BtnText.text = "800";
+                                tree3BtnText.text = "800";
+                                tree4BtnText.text = "800";
+                            }
+                            else //나무 6개이상 있음
+                            {
+                                treeCount = 7;
+                                tree1Img.sprite = notBuy;
+                                tree2Img.sprite = notBuy;
+                                tree3Img.sprite = notBuy;
+                                tree4Img.sprite = notBuy;
+                                tree1BtnText.text = "구매불가";
+                                tree2BtnText.text = "구매불가";
+                                tree3BtnText.text = "구매불가";
+                                tree4BtnText.text = "구매불가";
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
 
     }
 
@@ -109,8 +298,7 @@ public class StoreScript : MonoBehaviour {
             case 1:
                 if(nowTitanium < 9999)
                 {
-                    lake.gameObject.SetActive(true);
-                    lakescript.ActiveFalseTime = 0;
+                    activeLake();
                 }
                 else
                 {
@@ -118,19 +306,15 @@ public class StoreScript : MonoBehaviour {
                     MainSingleTon.Instance.shipNum++;
 
                     Query = "UPDATE userTableTest SET cTitanium = " + MainSingleTon.Instance.cTitanium + ", shipNum = " + MainSingleTon.Instance.shipNum;
-                    Debug.Log(Query);
-                    SQLManager.GetComponent<MainSceneSQL>().UpdateShip(Query);
+                    SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
 
-                    setShipPanal();
                 }
                 break;
 
             case 2:
                 if(nowTitanium < 12900)
                 {
-                    lake.gameObject.SetActive(true);
-                    lakescript.ActiveFalseTime = 0;
-
+                    activeLake();
                 }
                 else
                 {
@@ -138,19 +322,14 @@ public class StoreScript : MonoBehaviour {
                     MainSingleTon.Instance.shipNum++;
 
                     Query = "UPDATE userTableTest SET cTitanium = " + MainSingleTon.Instance.cTitanium + ", shipNum = " + MainSingleTon.Instance.shipNum;
-                    Debug.Log(Query);
-                    SQLManager.GetComponent<MainSceneSQL>().UpdateShip(Query);
-
-                    setShipPanal();
+                    SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
                 }
                 break;
 
             case 3:
                 if (nowTitanium < 15900)
                 {
-                    lake.gameObject.SetActive(true);
-                    lakescript.ActiveFalseTime = 0;
-
+                    activeLake();
                 }
                 else
                 {
@@ -158,18 +337,14 @@ public class StoreScript : MonoBehaviour {
                     MainSingleTon.Instance.shipNum++;
 
                     Query = "UPDATE userTableTest SET cTitanium = " + MainSingleTon.Instance.cTitanium + ", shipNum = " + MainSingleTon.Instance.shipNum;
-                    Debug.Log(Query);
-                    SQLManager.GetComponent<MainSceneSQL>().UpdateShip(Query);
-
-                    setShipPanal();
+                    SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
                 }
                 break;
 
             case 4:
                 if (nowTitanium < 20000)
                 {
-                    lake.gameObject.SetActive(true);
-                    lakescript.ActiveFalseTime = 0;
+                    activeLake();
                 }
                 else
                 {
@@ -177,20 +352,26 @@ public class StoreScript : MonoBehaviour {
                     MainSingleTon.Instance.shipNum++;
 
                     Query = "UPDATE userTableTest SET cTitanium = " + MainSingleTon.Instance.cTitanium + ", shipNum = " + MainSingleTon.Instance.shipNum;
-                    Debug.Log(Query);
-                    SQLManager.GetComponent<MainSceneSQL>().UpdateShip(Query);
-
-                    setShipPanal();
+                    SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
 
                 }
                 break;
+
 
             default:
                 break;
 
         }
-        
 
+        setShipPanal();
+
+
+    }
+
+    void activeLake()
+    {
+        lake.gameObject.SetActive(true);
+        lakescript.ActiveFalseTime = 0;
     }
 
     void setShipPanal()
@@ -235,7 +416,6 @@ public class StoreScript : MonoBehaviour {
                 break;
 
         }
-        //if()
 
     }
 

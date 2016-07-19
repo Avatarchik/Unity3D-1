@@ -22,6 +22,44 @@ public class MovePlanet : MonoBehaviour
             _instance = this;
 
 
+        //setPlanets();
+    }
+
+    public List<MoveEachPlanet> planets = new List<MoveEachPlanet>();    
+    public List<Transform> orderdPoints = new List<Transform>();
+    public List<Transform> points = new List<Transform>();
+
+    bool bDrag = false;
+    int movePos = 0;
+
+    public List<MoveEachPlanet> planetList = new List<MoveEachPlanet>();
+
+    public float moveTime = 0.5f;
+    public float addTime = 1f;
+
+    public int planetCount;
+
+    public GameObject instantPosition;
+
+
+
+
+    public void getPlanets()
+    {
+        int count = 0;
+        while (count < planetCount)
+        {
+            planets.Add(planetList[count]);
+            Instantiate(planetList[count++], instantPosition.transform.position, instantPosition.transform.rotation);
+
+       }
+
+        setPlanets();
+    }
+
+
+    void setPlanets()
+    {
         for (int i = 0; i < planets.Count; i++)
         {
             points.Add(orderdPoints[i]);
@@ -34,23 +72,60 @@ public class MovePlanet : MonoBehaviour
             planets[i].transform.position = points[i].position;
             planets[i].curPos = i;
             planets[i].lastPos = i;
-        }       
+        }
+
+    }
+
+
+
+
+    void Update()
+    {
+
+        if(bDrag)
+        {
+            if (addTime < 5)
+                addTime += 0.1f;
+            else
+                addTime = 5;
+        }
+        else
+        {
+            if (addTime > 1)
+                addTime -= 0.1f;
+            else
+                addTime = 1f;
+        }
+        bDrag = false;
+
+        if (OnMove) return;
+
+        if(movePos == 1)
+        {
+            movePos = 0;
+            for (int i = 0; i < planets.Count; i++)
+            {
+                planets[i].MovePrev();
+            }
+        }
+        
+        
+        if(movePos == -1)
+        {
+            movePos = 0;
+            for (int i = 0; i < planets.Count; i++)
+            {
+                planets[i].MoveNext();
+            }
+        }
         
     }
 
-    public List<MoveEachPlanet> planets = new List<MoveEachPlanet>();    
-        
-    public List<Transform> orderdPoints = new List<Transform>();
-    public List<Transform> points = new List<Transform>();
-        
-    public float moveTime = 0.5f;
-    public float addTime = 1f;
-    
     public bool OnMove
     {
         get
         {
-            foreach(MoveEachPlanet planet in planets)
+            foreach (MoveEachPlanet planet in planets)
             {
                 if (!planet.onMoving)
                     continue;
@@ -59,6 +134,23 @@ public class MovePlanet : MonoBehaviour
             }
             return false;
         }
+    }
+    
+    public void insertDrag()
+    {
+        bDrag = true;
+
+    }
+
+    public void moveUp()
+    {
+        movePos = 1;
+
+    }
+
+    public void moveDown()
+    {
+        movePos = -1;
     }
 
     //public void SetDrag(PointerEventData data)
@@ -86,7 +178,6 @@ public class MovePlanet : MonoBehaviour
     //            planets[i].MovePrev();
     //    }
     //}
-
 
     /* keyboard
     void Update()
@@ -133,66 +224,4 @@ public class MovePlanet : MonoBehaviour
 
     */
 
-
-    bool bDrag = false;
-    int movePos = 0;
-
-    void Update()
-    {
-
-        if(bDrag)
-        {
-            if (addTime < 5)
-                addTime += 0.1f;
-            else
-                addTime = 5;
-        }
-        else
-        {
-            if (addTime > 1)
-                addTime -= 0.1f;
-            else
-                addTime = 1f;
-        }
-        bDrag = false;
-
-        if (OnMove) return;
-
-        if(movePos == 1)
-        {
-            movePos = 0;
-            for (int i = 0; i < planets.Count; i++)
-            {
-                planets[i].MovePrev();
-            }
-        }
-        
-        
-        if(movePos == -1)
-        {
-            movePos = 0;
-            for (int i = 0; i < planets.Count; i++)
-            {
-                planets[i].MoveNext();
-            }
-        }
-        
-    }
-
-    public void insertDrag()
-    {
-        bDrag = true;
-
-    }
-
-    public void moveUp()
-    {
-        movePos = 1;
-
-    }
-
-    public void moveDown()
-    {
-        movePos = -1;
-    }
 }

@@ -96,7 +96,7 @@ public class MainSceneSQL : MonoBehaviour {
         reader = dbcmd.ExecuteReader();
         while (reader.Read())
         {
-            MainSingleTon.Instance.cPlanet = reader.GetString(cnt++);
+            MainSingleTon.Instance.cPlanet = reader.GetInt32(cnt++);
             MainSingleTon.Instance.cFood = reader.GetInt32(cnt++);
             MainSingleTon.Instance.cTitanium = reader.GetInt32(cnt++);
             MainSingleTon.Instance.cRE = reader.GetInt32(cnt++);
@@ -112,32 +112,42 @@ public class MainSceneSQL : MonoBehaviour {
         reader.Close();
         reader = null;
 
-        //sqlQuery = "select pid, name, size, color,mFood, le_persec, mat, state,lFood, lTitanium,position_house,tree1, tree2, tree3, tree4, tree5, tree6, neighbor from managePlanetTableTest where User =\"true\"";
-        sqlQuery = "select name, size, color,mFood, le_persec, mat, state,lFood, lTitanium,position_house,tree1, tree2, tree3, tree4, tree5, tree6, neighbor from managePlanetTableTest where User = 1";
+        //sqlQuery = "select * from managePlanetTableTest where rowid = " + MainSingleTon.Instance.cPlanet;
+        sqlQuery = "select rowid, name, size, color, mat, mFood, mTitanium, locationX, locationY, locationZ, le_persec, position_house, state, user, neighbor, lFood, lTitanium, tree1, tree2, tree3, tree4, tree5, tree6 FROM managePlanetTableTest WHERE rowid = " + MainSingleTon.Instance.cPlanet;
         dbcmd.CommandText = sqlQuery;
         reader = dbcmd.ExecuteReader();
         cnt = 0;
         while (reader.Read())
         {
-            //MainSingleTon.Instance.pID = reader.GetString(cnt++);
+            MainSingleTon.Instance.rowid = reader.GetInt32(cnt++);
             MainSingleTon.Instance.pName = reader.GetString(cnt++);
             MainSingleTon.Instance.size = reader.GetInt32(cnt++);
             MainSingleTon.Instance.color = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.mFood = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.le_persec = reader.GetInt32(cnt++);
             MainSingleTon.Instance.mat = reader.GetInt32(cnt++);
+            MainSingleTon.Instance.mFood = reader.GetInt32(cnt++);
+            MainSingleTon.Instance.mTitanium = reader.GetInt32(cnt++);
+            MainSingleTon.Instance.locationX = reader.GetFloat(cnt++);
+            MainSingleTon.Instance.locationY = reader.GetFloat(cnt++);
+            MainSingleTon.Instance.locationZ = reader.GetFloat(cnt++);
+            MainSingleTon.Instance.le_persec = reader.GetInt32(cnt++);
+            MainSingleTon.Instance.position_house = reader.GetBoolean(cnt++);
             MainSingleTon.Instance.state = reader.GetInt32(cnt++);
+            MainSingleTon.Instance.user = reader.GetBoolean(cnt++);
+            MainSingleTon.Instance.neighbor = reader.GetInt32(cnt++);
             MainSingleTon.Instance.lFood = reader.GetInt32(cnt++);
             MainSingleTon.Instance.lTitanium = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.position_house = reader.GetBoolean(cnt++);
+
+            //MainSingleTon.Instance.planetTouchT = ;
+            //MainSingleTon.Instance.titaniumTouchT = ;
+            //MainSingleTon.Instance.treeTouchT = ;
+            //MainSingleTon.Instance.breaktime = ;
+
             MainSingleTon.Instance.tree1 = reader.GetInt32(cnt++);
             MainSingleTon.Instance.tree2 = reader.GetInt32(cnt++);
             MainSingleTon.Instance.tree3 = reader.GetInt32(cnt++);
             MainSingleTon.Instance.tree4 = reader.GetInt32(cnt++);
             MainSingleTon.Instance.tree5 = reader.GetInt32(cnt++);
             MainSingleTon.Instance.tree6 = reader.GetInt32(cnt++);
-            //MainSingleTon.Instance.user = reader.GetBoolean(cnt++);
-            MainSingleTon.Instance.neighbor = reader.GetInt32(cnt++);
 
         }
 
@@ -147,19 +157,22 @@ public class MainSceneSQL : MonoBehaviour {
         MainSingleTon.Instance.callPlanet();
         MainSingleTon.Instance.callShip();
         MainSingleTon.Instance.callTree();
+        MainSingleTon.Instance.callNeighber();
+        MainSingleTon.Instance.callStation();
+        MainSingleTon.Instance.callPlanet();
     }
 
 
-    public void UpdateEnergy(string EnergyQuery)
-    {
-        dbcmd.CommandText = EnergyQuery;
-        dbcmd.ExecuteNonQuery();
+    //public void UpdateEnergy(string EnergyQuery)
+    //{
+    //    dbcmd.CommandText = EnergyQuery;
+    //    dbcmd.ExecuteNonQuery();
 
-        settingInfo();
+    //    settingInfo();
 
-    }
+    //}
 
-    public void UpdateShip(string ShipQuery)
+    public void UpdateQuery(string ShipQuery)
     {
         dbcmd.CommandText = ShipQuery;
         dbcmd.ExecuteNonQuery();
