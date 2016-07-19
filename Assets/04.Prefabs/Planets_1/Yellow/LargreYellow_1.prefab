@@ -1361,6 +1361,8 @@ GameObject:
   - 4: {fileID: 448778}
   - 33: {fileID: 3361482}
   - 23: {fileID: 2374678}
+  - 54: {fileID: 5458004}
+  - 135: {fileID: 13568340}
   m_Layer: 0
   m_Name: LargreYellow_1
   m_TagString: Untagged
@@ -6019,7 +6021,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127136}
-  m_LocalRotation: {x: 0.5505095, y: 0.7884439, z: 0.27352965, w: -0.021843523}
+  m_LocalRotation: {x: 0.55050945, y: 0.7884438, z: 0.27352962, w: -0.02184352}
   m_LocalPosition: {x: 0.42015076, y: 0.35560226, z: -0.48997766}
   m_LocalScale: {x: 0.06300001, y: 0.06300001, z: 0.06300002}
   m_LocalEulerAnglesHint: {x: -27.0891, y: -197.43239, z: -285.9225}
@@ -7344,7 +7346,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171086}
-  m_LocalRotation: {x: 0.5505096, y: 0.78844386, z: 0.27352965, w: -0.021843612}
+  m_LocalRotation: {x: 0.5505095, y: 0.78844374, z: 0.27352962, w: -0.02184361}
   m_LocalPosition: {x: 0.42015076, y: 0.35560226, z: -0.48997766}
   m_LocalScale: {x: 0.063, y: 0.063000016, z: 0.06300001}
   m_LocalEulerAnglesHint: {x: -27.0891, y: -197.43239, z: -285.9225}
@@ -11953,6 +11955,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189632}
   m_Mesh: {fileID: 4300002, guid: 20ac4b8a60bc9234fb1f02e299d3a7cc, type: 3}
+--- !u!54 &5458004
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124888}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 14
+  m_CollisionDetection: 0
 --- !u!64 &6400004
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -13289,6 +13306,18 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!135 &13568340
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 23.873556
+  m_Center: {x: 0.000034332286, y: 3.3608671e-12, z: 0.000025749207}
 --- !u!137 &13714162
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

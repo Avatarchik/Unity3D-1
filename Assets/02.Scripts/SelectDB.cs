@@ -32,11 +32,16 @@ public class SelectDB : MonoBehaviour
     
     int cntField;
     int cntTemp = 1;
-
+    
 
     ///////////////////////////////////////////////////
     //데이터 임시 저장 변수
     public Vector3 starPosition;
+    public int planetIndex;
+    public string planetName;
+    public int planetSize;
+    public int planetColor;
+    public int planetMat;
     public int food;
     public int shipNum;
     public int countRow;
@@ -161,6 +166,29 @@ public class SelectDB : MonoBehaviour
                 food = reader.GetInt16(0);
                 shipNum = reader.GetInt16(1);
             }
+            reader.Close();
+            reader = null;
+        }
+        if (type == 3) // 행성 로드
+        {
+            if(reader.Read())
+            {
+                planetIndex = reader.GetInt16(0);
+                planetName = reader.GetString(1);
+                planetSize = reader.GetInt16(2);
+                planetColor = reader.GetInt16(3);
+                planetMat = reader.GetInt16(4);
+                x = reader.GetFloat(5);
+                y = reader.GetFloat(6);
+                z = reader.GetFloat(7);
+                starPosition = new Vector3(x, y, z);
+            }
+            else
+            {
+                planetIndex = 0;
+            }
+            //Select 결과가 없을 경우 예외처리 필요
+         
             reader.Close();
             reader = null;
         }
