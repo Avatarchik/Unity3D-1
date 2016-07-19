@@ -3741,6 +3741,8 @@ GameObject:
   - 4: {fileID: 451884}
   - 33: {fileID: 3368816}
   - 23: {fileID: 2353496}
+  - 54: {fileID: 5475228}
+  - 135: {fileID: 13518980}
   m_Layer: 0
   m_Name: SmallGreen_3
   m_TagString: Untagged
@@ -9350,6 +9352,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146814}
   m_Mesh: {fileID: 4300012, guid: 20ac4b8a60bc9234fb1f02e299d3a7cc, type: 3}
+--- !u!54 &5475228
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196878}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 14
+  m_CollisionDetection: 0
 --- !u!64 &6400550
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -10254,6 +10271,18 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!135 &13518980
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196878}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 23.873549
+  m_Center: {x: 0.0002784729, y: 4.117373e-12, z: 0.000056266785}
 --- !u!137 &13706746
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
