@@ -3,18 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 public class RandPlanet : MonoBehaviour
 {
-
     //color) 1= blue, 2= red , 3= yellow, 4= violate, 5= green, 6 = Orange
     //size) 1= small, 2 = midium, 3= large, 4= xlarge
     //mat ) 1= 1, 2=2, 3=3
-
 
     public List<GameObject> PlanetList = new List<GameObject>();
     public List<string> randomName = new List<string>();
     public List<string> colorName = new List<string>();
     public List<string> zName = new List<string>();
     public Dictionary<int, GameObject> D_PlanetList = new Dictionary<int, GameObject>();
-
 
     int sizeP;
     int colorP;
@@ -24,7 +21,7 @@ public class RandPlanet : MonoBehaviour
     public int colorT; // Blue : 1, Red : 2, Yellow : 3, Violate : 4, Green : 5, Orange : 6
     public int matT;   // 1, 2, 3
 
-    void Start()
+    void Awake()
     {
         int count = 0;
         for (int i = 1; i <= 6; i++)
@@ -33,18 +30,13 @@ public class RandPlanet : MonoBehaviour
             {
                 for (int k = 1; k <= 3; k++)
                 {
-                    D_PlanetList.Add(j * 100 + i * 10 + k, PlanetList[count]);
+                    D_PlanetList.Add(j * 100 + i * 10 + k, PlanetList[count]);  //size * 100 + color * 10 + mat
                     count ++;
                 }
             }
         }
-        
     }
-
-    void Update()
-    {
-
-    }
+    
     public int PlanetCreate()
     {
         //Random.seed = Random.Range(1, 500);
@@ -267,5 +259,5 @@ public class RandPlanet : MonoBehaviour
         }
         return createName;
     }
-    //size * 100 + color * 10 + mat
+    
 }
