@@ -11262,7 +11262,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 28f26354b53457241b67d9b006169e63, type: 2}
+  - {fileID: 2100000, guid: 3bb0b9d605b38474388296285e772752, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -15624,8 +15624,14 @@ MonoBehaviour:
   table: 
   where: ' '
   starPosition: {x: 0, y: 0, z: 0}
+  planetIndex: 0
+  planetName: 
+  planetSize: 0
+  planetColor: 0
+  planetMat: 0
   food: 0
   shipNum: 0
+  countRow: 0
 --- !u!1001 &2053140728
 Prefab:
   m_ObjectHideFlags: 0
