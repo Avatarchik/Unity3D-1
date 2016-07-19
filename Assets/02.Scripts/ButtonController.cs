@@ -16,9 +16,9 @@ public class ButtonController : MonoBehaviour {
 
     public void TransSceneToShop()
     {
-        //SceneManager.LoadScene("shop");
-        DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
-        Debug.Log("scene Trans to shop");
+        GameObject.Find("UI").transform.FindChild("StorePanal").gameObject.SetActive(true);
+        GameObject.Find("UI/Main/Button/SettingBtn").gameObject.SetActive(false);
+        //Debug.Log("scene Trans to shop");
     }
 
 

@@ -112,14 +112,14 @@ public class MainSceneSQL : MonoBehaviour {
         reader.Close();
         reader = null;
 
-        sqlQuery = "select pid, name, size, color,mFood, le_persec, mat, state,lFood, lTitanium,position_house,tree1, tree2, tree3, tree4, tree5, tree6, neighbor from managePlanetTableTest where User =\"true\"";
-        //sqlQuery = "select pid, name, size, color,mFood, le_persec, mat, state,lFood, lTitanium,position_house,tree1, neighbor from managePlanetTableTest where User =\"true\"";
+        //sqlQuery = "select pid, name, size, color,mFood, le_persec, mat, state,lFood, lTitanium,position_house,tree1, tree2, tree3, tree4, tree5, tree6, neighbor from managePlanetTableTest where User =\"true\"";
+        sqlQuery = "select name, size, color,mFood, le_persec, mat, state,lFood, lTitanium,position_house,tree1, tree2, tree3, tree4, tree5, tree6, neighbor from managePlanetTableTest where User =\"true\"";
         dbcmd.CommandText = sqlQuery;
         reader = dbcmd.ExecuteReader();
         cnt = 0;
         while (reader.Read())
         {
-            MainSingleTon.Instance.pID = reader.GetString(cnt++);
+            //MainSingleTon.Instance.pID = reader.GetString(cnt++);
             MainSingleTon.Instance.pName = reader.GetString(cnt++);
             MainSingleTon.Instance.size = reader.GetInt32(cnt++);
             MainSingleTon.Instance.color = reader.GetInt32(cnt++);
@@ -153,6 +153,15 @@ public class MainSceneSQL : MonoBehaviour {
     public void UpdateEnergy(string EnergyQuery)
     {
         dbcmd.CommandText = EnergyQuery;
+        dbcmd.ExecuteNonQuery();
+
+        settingInfo();
+
+    }
+
+    public void UpdateShip(string ShipQuery)
+    {
+        dbcmd.CommandText = ShipQuery;
         dbcmd.ExecuteNonQuery();
 
         settingInfo();

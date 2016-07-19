@@ -37,7 +37,7 @@ public class MainSingleTon : MonoBehaviour {
     public int shipNum;
 
 
-    public string pID;
+    //public string pID;
     public string pName;
     public int color;
     public int size;
@@ -112,6 +112,14 @@ public class MainSingleTon : MonoBehaviour {
         UIobj.GetComponent<MainUIfromSQL>().setTree(6, tree5);
 
     }
+
+    public void callGetShip()
+    {
+    }
+
+
+
+
 
 
     void Update()
