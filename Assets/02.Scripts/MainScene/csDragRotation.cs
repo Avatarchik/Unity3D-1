@@ -29,7 +29,7 @@ public class csDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     public void OnBeginDrag(PointerEventData eventData)
     {
         oldPos = new Vector2(eventData.position.x,eventData.position.y);
-        Debug.Log("OnBeginDrag");
+        //Debug.Log("OnBeginDrag");
         csScreenPointTouch script = obj.GetComponent<csScreenPointTouch>();
         script.dragTrue();
     }
@@ -39,7 +39,7 @@ public class csDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         newPos = new Vector2(eventData.position.x, eventData.position.y);
 
         delPos = new Vector2(eventData.delta.x, eventData.delta.y);
-        Debug.Log(delPos);
+        //Debug.Log(delPos);
         RotateBase.transform.Rotate(new Vector3(eventData.delta.y, -eventData.delta.x,0 ));
 
         //GameObject obj = GameObject.Find("PlanetPosition/death_planet");
@@ -53,7 +53,7 @@ public class csDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDragEnd");
+        //Debug.Log("OnDragEnd");
 
         //planet.gameObject.transform.rotation = RotateBase.gameObject.transform.rotation;
         //calculateRotation();

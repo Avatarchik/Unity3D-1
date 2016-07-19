@@ -997,7 +997,7 @@ GameObject:
   - 137: {fileID: 13765410}
   m_Layer: 0
   m_Name: animal_ch_dog_mesh
-  m_TagString: Untagged
+  m_TagString: Zoo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1584,7 +1584,7 @@ GameObject:
   - 95: {fileID: 9546648}
   m_Layer: 0
   m_Name: Panda
-  m_TagString: Untagged
+  m_TagString: Zoo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1828,7 +1828,7 @@ GameObject:
   - 95: {fileID: 9596928}
   m_Layer: 0
   m_Name: Rabbit
-  m_TagString: Untagged
+  m_TagString: Zoo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1987,7 +1987,7 @@ GameObject:
   - 4: {fileID: 488852}
   m_Layer: 0
   m_Name: animal_spine_joint
-  m_TagString: Untagged
+  m_TagString: Zoo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2181,7 +2181,7 @@ GameObject:
   - 4: {fileID: 444806}
   m_Layer: 0
   m_Name: Zoo
-  m_TagString: Untagged
+  m_TagString: Zoo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2475,7 +2475,7 @@ GameObject:
   - 4: {fileID: 434326}
   m_Layer: 0
   m_Name: animal_spine_joint
-  m_TagString: Untagged
+  m_TagString: Zoo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2872,7 +2872,7 @@ GameObject:
   - 95: {fileID: 9584926}
   m_Layer: 0
   m_Name: Cat
-  m_TagString: Untagged
+  m_TagString: Zoo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2933,7 +2933,7 @@ GameObject:
   - 137: {fileID: 13789266}
   m_Layer: 0
   m_Name: animal_ch_panda_mesh
-  m_TagString: Untagged
+  m_TagString: Zoo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3046,7 +3046,7 @@ GameObject:
   - 95: {fileID: 9518682}
   m_Layer: 0
   m_Name: Dog
-  m_TagString: Untagged
+  m_TagString: Zoo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3507,7 +3507,7 @@ GameObject:
   - 4: {fileID: 487426}
   m_Layer: 0
   m_Name: animal_spine_joint
-  m_TagString: Untagged
+  m_TagString: Zoo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3540,7 +3540,7 @@ GameObject:
   - 4: {fileID: 491014}
   m_Layer: 0
   m_Name: animal_spine_joint
-  m_TagString: Untagged
+  m_TagString: Zoo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3616,7 +3616,7 @@ GameObject:
   - 137: {fileID: 13754536}
   m_Layer: 0
   m_Name: animal_ch_rabbit_mesh
-  m_TagString: Untagged
+  m_TagString: Zoo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3740,7 +3740,7 @@ GameObject:
   - 137: {fileID: 13739978}
   m_Layer: 0
   m_Name: animal_ch_cat_mesh
-  m_TagString: Untagged
+  m_TagString: Zoo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5364,7 +5364,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 141036}
-  m_LocalRotation: {x: -0.55267054, y: 0.40631792, z: -0.3980768, w: -0.60909426}
+  m_LocalRotation: {x: -0.5526706, y: 0.40631795, z: -0.39807683, w: -0.6090943}
   m_LocalPosition: {x: -26.428509, y: 4.5781145, z: 16.406343}
   m_LocalScale: {x: 1.7999997, y: 1.8, z: 1.8}
   m_LocalEulerAnglesHint: {x: 85.378296, y: -43.0081, z: -333.6113}

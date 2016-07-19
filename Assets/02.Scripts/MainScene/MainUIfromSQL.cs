@@ -4,7 +4,8 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 
-public class MainUIfromSQL : MonoBehaviour {
+public class MainUIfromSQL : MonoBehaviour
+{
 
 
     public GameObject haveFood;
@@ -16,9 +17,9 @@ public class MainUIfromSQL : MonoBehaviour {
     public GameObject singleTon;
     public GameObject PlanetList;
     public GameObject PlanetPosition;
-    
 
-    public GameObject Planet; // 수정해야함 -> DB에서 리스트 읽어서 해당행성 불러올 수 있도록
+
+    //public GameObject Planet; // 수정해야함 -> DB에서 리스트 읽어서 해당행성 불러올 수 있도록
     GameObject Pla;
 
     public void setUIText()
@@ -32,11 +33,131 @@ public class MainUIfromSQL : MonoBehaviour {
 
     }
 
-    public void setPlanet()
+    public void setPlanet(int Num)
     {
-        Pla = Instantiate(Planet, PlanetPosition.transform.position, PlanetPosition.transform.rotation) as GameObject;
+        Pla = Instantiate(MainSingleTon.Instance.D_PlanetList[Num], PlanetPosition.transform.position, PlanetPosition.transform.rotation) as GameObject;
         Pla.name = "death_planet";
         Pla.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
         Pla.transform.parent = PlanetPosition.transform;
     }
+
+    public void setShip(int num)
+    {
+        switch (num)
+        {
+            case 1:
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_1").gameObject.SetActive(true);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_2").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_3").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_4").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_5").gameObject.SetActive(false);
+
+                break;
+
+            case 2:
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_1").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_2").gameObject.SetActive(true);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_3").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_4").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_5").gameObject.SetActive(false);
+
+                break;
+
+            case 3:
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_1").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_2").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_3").gameObject.SetActive(true);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_4").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_5").gameObject.SetActive(false);
+
+                break;
+
+            case 4:
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_1").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_2").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_3").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_4").gameObject.SetActive(true);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_5").gameObject.SetActive(false);
+
+                break;
+
+            case 5:
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_1").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_2").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_3").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_4").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_5").gameObject.SetActive(true);
+
+                break;
+
+            default:
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_1").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_2").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_3").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_4").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_5").gameObject.SetActive(false);
+
+                break;
+
+        }
+
+    }
+
+    public void setTree(int TreeCount, int TreeNum)
+    {
+        string stringTree = "PlanetPosition/death_planet/Tree_" + TreeCount;
+
+        if (GameObject.Find(stringTree) == null)
+        {
+            return;
+
+        }
+        switch (TreeNum)
+        {
+            case 0:
+                GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
+                break;
+
+            case 1:
+                GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(true);
+                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
+
+                break;
+
+            case 2:
+                GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(true);
+                GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
+
+                break;
+
+            case 3:
+                GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(true);
+                GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
+
+                break;
+
+            case 4:
+                GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(true);
+
+                break;
+
+            default:
+                break;
+
+        }
+
+    }
+
 }

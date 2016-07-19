@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class csScreenPointTouch : MonoBehaviour {
+public class csScreenPointTouch : MonoBehaviour
+{
 
     public LayerMask ignoreUI;
 
@@ -14,7 +15,6 @@ public class csScreenPointTouch : MonoBehaviour {
 
     public void dragTrue()
     {
-        Debug.Log("dragTrue");
         rDrag = true;
     }
 
@@ -25,8 +25,8 @@ public class csScreenPointTouch : MonoBehaviour {
     }
     void Update()
     {
-        //if (rDrag == false)
-        //{
+        if (rDrag == false)
+        {
             foreach (Touch touch in Input.touches)
             {
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
@@ -36,7 +36,7 @@ public class csScreenPointTouch : MonoBehaviour {
                 if (Physics.Raycast(ray, out hit))
                 {
                     Debug.Log(hit.transform.name);
-                    if(hit.transform.tag.Equals("Finish"))
+                    if (hit.transform.tag.Equals("Finish"))
                     {
                         Debug.Log("panal");
                     }
@@ -59,12 +59,16 @@ public class csScreenPointTouch : MonoBehaviour {
                     {
                         Debug.Log("Ray hit Energy");
                     }
+                    if (hit.transform.tag.Equals("PostBox"))
+                    {
+                        Debug.Log("Ray hit PostBOX");
+                    }
 
                 }
             }
         }
-        //rDrag = false;
+        rDrag = false;
 
     }
-
+}
 
