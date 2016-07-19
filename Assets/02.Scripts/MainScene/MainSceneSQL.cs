@@ -113,7 +113,7 @@ public class MainSceneSQL : MonoBehaviour {
         reader = null;
 
         //sqlQuery = "select pid, name, size, color,mFood, le_persec, mat, state,lFood, lTitanium,position_house,tree1, tree2, tree3, tree4, tree5, tree6, neighbor from managePlanetTableTest where User =\"true\"";
-        sqlQuery = "select name, size, color,mFood, le_persec, mat, state,lFood, lTitanium,position_house,tree1, tree2, tree3, tree4, tree5, tree6, neighbor from managePlanetTableTest where User =\"true\"";
+        sqlQuery = "select name, size, color,mFood, le_persec, mat, state,lFood, lTitanium,position_house,tree1, tree2, tree3, tree4, tree5, tree6, neighbor from managePlanetTableTest where User = 1";
         dbcmd.CommandText = sqlQuery;
         reader = dbcmd.ExecuteReader();
         cnt = 0;

@@ -8844,6 +8844,11 @@ MonoBehaviour:
   table: ' '
   where: ' '
   starPosition: {x: 0, y: 0, z: 0}
+  planetIndex: 0
+  planetName: 
+  planetSize: 0
+  planetColor: 0
+  planetMat: 0
   food: 0
   shipNum: 0
   countRow: 0
@@ -11678,13 +11683,13 @@ MonoBehaviour:
   ImgSum2: {fileID: 791765324}
   ImgSum3: {fileID: 744784880}
   EnergyIcon:
-  - {fileID: 21300000, guid: 2ffd314c50945564ca4ab90d3ca2dcdb, type: 3}
-  - {fileID: 21300000, guid: 33c64ae70f22bb9469c31b0572d7ec73, type: 3}
-  - {fileID: 21300000, guid: 6bc76fd7bed54564996ef390425fdaee, type: 3}
-  - {fileID: 21300000, guid: 43bb0a1501c36f3438f4cf2a7a09fefd, type: 3}
-  - {fileID: 21300000, guid: 3eb291a47b71b9e4ba48c1e64fd0ee46, type: 3}
-  - {fileID: 21300000, guid: 78bbe44fcd628ac43a2719ab3e863e2a, type: 3}
-  - {fileID: 21300000, guid: 246f5362ede3e4149869aeb62d19b111, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1840778844
 MonoBehaviour:
   m_ObjectHideFlags: 0
