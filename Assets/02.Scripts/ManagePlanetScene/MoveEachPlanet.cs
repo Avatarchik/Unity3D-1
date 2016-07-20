@@ -28,7 +28,6 @@ public class MoveEachPlanet : MonoBehaviour
 
     public void MoveNext()
     {
-        //Debug.Log("Next");
         lastPos += 1;
         if (lastPos > POS_MAX) lastPos = 0;
 
@@ -38,7 +37,6 @@ public class MoveEachPlanet : MonoBehaviour
 
     public void MovePrev()
     {
-        //Debug.Log("Prev");
         lastPos -= 1;
         if (lastPos < 0) lastPos = POS_MAX;
 

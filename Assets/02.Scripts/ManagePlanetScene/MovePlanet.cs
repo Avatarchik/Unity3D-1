@@ -22,17 +22,33 @@ public class MovePlanet : MonoBehaviour
             _instance = this;
 
 
-        //setPlanets();
+        int count = 0;
+        for (int i = 1; i <= 6; i++)
+        {
+            for (int j = 1; j <= 4; j++)
+            {
+                for (int k = 1; k <= 3; k++)
+                {
+                    D_PlanetList.Add(i * 100 + j * 10 + k, planetList[count]);
+                    count++;
+                }
+            }
+        }
+
     }
 
-    public List<MoveEachPlanet> planets = new List<MoveEachPlanet>();    
+    //public List<MoveEachPlanet> planets = new List<MoveEachPlanet>(); 
+    public List<GameObject> planets = new List<GameObject>();
+    
+       
     public List<Transform> orderdPoints = new List<Transform>();
     public List<Transform> points = new List<Transform>();
 
     bool bDrag = false;
     int movePos = 0;
 
-    public List<MoveEachPlanet> planetList = new List<MoveEachPlanet>();
+    public List<GameObject> planetList = new List<GameObject>();
+    public Dictionary<int, GameObject> D_PlanetList = new Dictionary<int, GameObject>();
 
     public float moveTime = 0.5f;
     public float addTime = 1f;
@@ -44,21 +60,23 @@ public class MovePlanet : MonoBehaviour
 
 
 
-    public void getPlanets()
+    public void getPlanets(int color, int size, int mat, int rowid)
     {
-        int count = 0;
-        while (count < planetCount)
-        {
-            planets.Add(planetList[count]);
-            Instantiate(planetList[count++], instantPosition.transform.position, instantPosition.transform.rotation);
+        int count = color * 100 + size * 10 + mat;
+        GameObject temp;
+        temp = Instantiate(D_PlanetList[count], instantPosition.transform.position, instantPosition.transform.rotation) as GameObject;
+        temp.AddComponent<MoveEachPlanet>();
+        temp.AddComponent<PlanetInfo>();
+        temp.name = rowid.ToString();
+        temp.transform.parent = GameObject.Find("RotatePlanet").transform;
+        planets.Add(temp);
+        count++;
 
-       }
-
-        setPlanets();
+        //setPlanets();
     }
 
 
-    void setPlanets()
+    public void setPlanets()
     {
         for (int i = 0; i < planets.Count; i++)
         {
@@ -67,17 +85,34 @@ public class MovePlanet : MonoBehaviour
 
         points.Sort((x, y) => string.Compare(x.name, y.name));
 
+
         for (int i = 0; i < points.Count; i++)
         {
             planets[i].transform.position = points[i].position;
-            planets[i].curPos = i;
-            planets[i].lastPos = i;
+            //planets[i].curPos = i;
+            //planets[i].lastPos = i;
+            planets[i].GetComponent<MoveEachPlanet>().curPos = i;
+            planets[i].GetComponent<MoveEachPlanet>().lastPos = i;
         }
 
     }
 
 
 
+    //public bool OnMove
+    //{
+    //    get
+    //    {
+    //        foreach (MoveEachPlanet planet in planets)
+    //        {
+    //            if (!planet.onMoving)
+    //                continue;
+    //            else
+    //                return true;
+    //        }
+    //        return false;
+    //    }
+    //}
 
     void Update()
     {
@@ -98,14 +133,14 @@ public class MovePlanet : MonoBehaviour
         }
         bDrag = false;
 
-        if (OnMove) return;
+        //if (OnMove) return;
 
         if(movePos == 1)
         {
             movePos = 0;
             for (int i = 0; i < planets.Count; i++)
             {
-                planets[i].MovePrev();
+                planets[i].GetComponent<MoveEachPlanet>().MovePrev();
             }
         }
         
@@ -115,27 +150,12 @@ public class MovePlanet : MonoBehaviour
             movePos = 0;
             for (int i = 0; i < planets.Count; i++)
             {
-                planets[i].MoveNext();
+                planets[i].GetComponent<MoveEachPlanet>().MoveNext();
             }
         }
         
     }
 
-    public bool OnMove
-    {
-        get
-        {
-            foreach (MoveEachPlanet planet in planets)
-            {
-                if (!planet.onMoving)
-                    continue;
-                else
-                    return true;
-            }
-            return false;
-        }
-    }
-    
     public void insertDrag()
     {
         bDrag = true;
@@ -152,6 +172,13 @@ public class MovePlanet : MonoBehaviour
     {
         movePos = -1;
     }
+
+
+
+
+
+
+
 
     //public void SetDrag(PointerEventData data)
     //{
