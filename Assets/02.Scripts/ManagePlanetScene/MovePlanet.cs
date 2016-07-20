@@ -56,6 +56,8 @@ public class MovePlanet : MonoBehaviour
     public int planetCount;
 
     public GameObject instantPosition;
+    public GameObject myPosition;
+
 
 
 
@@ -72,9 +74,19 @@ public class MovePlanet : MonoBehaviour
         planets.Add(temp);
         count++;
 
-        //setPlanets();
     }
 
+    public void nowPlanet(int color, int size, int mat, int rowid)
+    {
+        int count = color * 100 + size * 10 + mat;
+        GameObject nowPlanet;
+        nowPlanet = Instantiate(D_PlanetList[count], myPosition.transform.position, Quaternion.Euler(335f,0.01f,15f)) as GameObject;
+        nowPlanet.AddComponent<PlanetInfo>();
+        nowPlanet.name = "Myplanet";
+        nowPlanet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        nowPlanet.transform.parent = GameObject.Find("CurrentPlanet").transform;
+        
+    }
 
     public void setPlanets()
     {
@@ -172,12 +184,6 @@ public class MovePlanet : MonoBehaviour
     {
         movePos = -1;
     }
-
-
-
-
-
-
 
 
     //public void SetDrag(PointerEventData data)

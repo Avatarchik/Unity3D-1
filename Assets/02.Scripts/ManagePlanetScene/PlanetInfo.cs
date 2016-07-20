@@ -36,12 +36,56 @@ public class PlanetInfo : MonoBehaviour {
     public int tree6;
 
 
-    public void setVisible()
+    public void Start()
     {
-        //요런식
-        //this.transform.FindChild("!@#$").gameObject.SetActive(true);
+        if (!user)
+        {
+            this.transform.FindChild("Postbox").gameObject.SetActive(false);
+            this.transform.FindChild("PC").gameObject.SetActive(false);
+            this.transform.FindChild("Ship").gameObject.SetActive(false);
+        }
+
+        this.transform.FindChild("Zoo").gameObject.SetActive(false);
+
+        setStation(position_house);
+        setNeighbor(neighbor);
+
+        setTree(1,tree1);
+        setTree(2,tree2);
+        setTree(3, tree3);
+        setTree(4, tree4);
+        setTree(5, tree5);
+        setTree(6, tree6);
+
+
     }
 
+    void setNeighbor(int num)
+    {
+        if (num == 0)
+        {
+            this.transform.FindChild("Ship_Neighbor").gameObject.SetActive(false);
+            this.transform.FindChild("Neighbor").gameObject.SetActive(false);
+        }
+        else
+        {
+            this.transform.FindChild("Ship_Neighbor").gameObject.SetActive(true);
+            this.transform.FindChild("Neighbor").gameObject.SetActive(true);
+        }
+    }
+
+    void setStation(bool station)
+    {
+        if (station)
+        {
+            this.transform.FindChild("Spacestation").gameObject.SetActive(true);
+        }
+        else
+        {
+            this.transform.FindChild("Spacestation").gameObject.SetActive(false);
+
+        }
+    }
 
     public void setShip(int num)
     {
@@ -105,90 +149,65 @@ public class PlanetInfo : MonoBehaviour {
 
     }
 
-    //public void setTree(int TreeCount, int TreeNum)
-    //{
-    //    string stringTree = "PlanetPosition/death_planet/Tree_" + TreeCount;
+    public void setTree(int TreeCount, int TreeNum)
+    {
+        string stringTree = "Tree_" + TreeCount;
 
-    //    if (GameObject.Find(stringTree) == null)
-    //    {
-    //        return;
+        if (this.transform.FindChild(stringTree) == null)
+        {
+            return;
 
-    //    }
-    //    switch (TreeNum)
-    //    {
-    //        case 0:
-    //            GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
-    //            GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
-    //            GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
-    //            GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
-    //            break;
+        }
+        switch (TreeNum)
+        {
+            case 0:
+                this.transform.FindChild(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
+                this.transform.FindChild(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
+                this.transform.FindChild(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
+                this.transform.FindChild(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
+                break;
 
-    //        case 1:
-    //            GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(true);
-    //            GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
-    //            GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
-    //            GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
+            case 1:
+                this.transform.FindChild(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(true);
+                this.transform.FindChild(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
+                this.transform.FindChild(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
+                this.transform.FindChild(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
 
-    //            break;
+                break;
 
-    //        case 2:
-    //            GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
-    //            GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(true);
-    //            GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
-    //            GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
+            case 2:
+                this.transform.FindChild(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
+                this.transform.FindChild(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(true);
+                this.transform.FindChild(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
+                this.transform.FindChild(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
 
-    //            break;
+                break;
 
-    //        case 3:
-    //            GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
-    //            GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
-    //            GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(true);
-    //            GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
+            case 3:
+                this.transform.FindChild(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
+                this.transform.FindChild(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
+                this.transform.FindChild(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(true);
+                this.transform.FindChild(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
 
-    //            break;
+                break;
 
-    //        case 4:
-    //            GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
-    //            GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
-    //            GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
-    //            GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(true);
+            case 4:
+                this.transform.FindChild(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
+                this.transform.FindChild(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
+                this.transform.FindChild(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
+                this.transform.FindChild(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(true);
 
-    //            break;
+                break;
 
-    //        default:
-    //            break;
+            default:
+                break;
 
-    //    }
+        }
 
-    //}
+    }
 
-    //public void setNeighber()
-    //{
-    //    if (MainSingleTon.Instance.neighbor == 0)
-    //    {
-    //        GameObject.Find("PlanetPosition/death_planet/Ship_Neighbor").gameObject.SetActive(false);
-    //        GameObject.Find("PlanetPosition/death_planet/Neighbor").gameObject.SetActive(false);
-    //    }
-    //    else
-    //    {
-    //        GameObject.Find("PlanetPosition/death_planet/Ship_Neighbor").gameObject.SetActive(true);
-    //        GameObject.Find("PlanetPosition/death_planet/Neighbor").gameObject.SetActive(true);
 
-    //    }
-    //}
 
-    //public void setStation()
-    //{
-    //    if (MainSingleTon.Instance.position_house)
-    //    {
-    //        GameObject.Find("PlanetPosition/death_planet/Spacestation").gameObject.SetActive(true);
-    //    }
-    //    else
-    //    {
-    //        GameObject.Find("PlanetPosition/death_planet/Spacestation").gameObject.SetActive(false);
-
-    //    }
-    //}
 
     //public void setPostBox()
     //{

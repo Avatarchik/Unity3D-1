@@ -21,6 +21,9 @@ public class ManagePlanetRay : MonoBehaviour {
 
             if (Physics.Raycast(ray, out hit))
             {
+                Debug.Log("Rayhit");
+                Debug.Log(hit.transform.name);
+                Debug.Log(hit.transform.tag);
                 if (hit.transform.tag.Equals("Planet"))
                 {
                     Debug.Log("Planet");

@@ -23,6 +23,8 @@ public class newDragPlanetList : MonoBehaviour, IBeginDragHandler, IDragHandler,
     {
         //Debug.Log("OnBeginDrag");
     }
+
+
     public void OnDrag(PointerEventData eventData)
     {
 

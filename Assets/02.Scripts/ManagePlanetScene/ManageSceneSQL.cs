@@ -93,18 +93,18 @@ public class ManageSceneSQL : MonoBehaviour {
         int cnt = 0;
         ///////////////////////////////////////////////////////////////////[Data Read]
         reader = dbcmd.ExecuteReader();
+        //행성갯수 카운트
         while (reader.Read())
         {
             MovePlanet.Instance.planetCount = reader.GetInt32(cnt++);
         }
 
-        //MovePlanet.Instance.getPlanets();
-
         reader.Close();
         reader = null;
 
+        //각 행성 리스트로
         //sqlQuery = "select * from managePlanetTableTest where rowid = " + MainSingleTon.Instance.cPlanet;
-        sqlQuery = "select rowid, name, size, color, mat, mFood, mTitanium, locationX, locationY, locationZ, le_persec, position_house, state, user, neighbor, lFood, lTitanium, tree1, tree2, tree3, tree4, tree5, tree6 FROM managePlanetTableTest ";
+        sqlQuery = "select rowid, name, size, color, mat, mFood, mTitanium, locationX, locationY, locationZ, le_persec, position_house, state, user, neighbor, lFood, lTitanium, tree1, tree2, tree3, tree4, tree5, tree6 FROM managePlanetTableTest WHERE user =0";
         dbcmd.CommandText = sqlQuery;
         reader = dbcmd.ExecuteReader();
         cnt = 0;
@@ -165,9 +165,83 @@ public class ManageSceneSQL : MonoBehaviour {
             GameObject.Find("RotatePlanet/" + rowid).GetComponent<PlanetInfo>().tree4 = tree4;
             GameObject.Find("RotatePlanet/" + rowid).GetComponent<PlanetInfo>().tree5 = tree5;
             GameObject.Find("RotatePlanet/" + rowid).GetComponent<PlanetInfo>().tree6 = tree6;
+
             cnt = 0;
         }
         MovePlanet.Instance.setPlanets();
+
+        reader.Close();
+        reader = null;
+
+
+        //유저있는행성불러오기
+        //sqlQuery = "select * from managePlanetTableTest where rowid = " + MainSingleTon.Instance.cPlanet;
+        sqlQuery = "select rowid, name, size, color, mat, mFood, mTitanium, locationX, locationY, locationZ, le_persec, position_house, state, user, neighbor, lFood, lTitanium, tree1, tree2, tree3, tree4, tree5, tree6 FROM managePlanetTableTest WHERE user = 1";
+        dbcmd.CommandText = sqlQuery;
+        reader = dbcmd.ExecuteReader();
+        cnt = 0;
+        while (reader.Read())
+        {
+            int rowid = reader.GetInt32(cnt++);
+            string pName = reader.GetString(cnt++);
+            int size = reader.GetInt32(cnt++);
+            int color = reader.GetInt32(cnt++);
+            int mat = reader.GetInt32(cnt++);
+            int mFood = reader.GetInt32(cnt++);
+            int mTitanium = reader.GetInt32(cnt++);
+            float locationX = reader.GetFloat(cnt++);
+            float locationY = reader.GetFloat(cnt++);
+            float locationZ = reader.GetFloat(cnt++);
+            int le_persec = reader.GetInt32(cnt++);
+            bool position_house = reader.GetBoolean(cnt++);
+            int state = reader.GetInt32(cnt++);
+            bool user = reader.GetBoolean(cnt++);
+            int neighbor = reader.GetInt32(cnt++);
+            int lFood = reader.GetInt32(cnt++);
+            int lTitanium = reader.GetInt32(cnt++);
+
+            //MainSingleTon.Instance.planetTouchT = ;
+            //MainSingleTon.Instance.titaniumTouchT = ;
+            //MainSingleTon.Instance.treeTouchT = ;
+            //MainSingleTon.Instance.breaktime = ;
+
+            int tree1 = reader.GetInt32(cnt++);
+            int tree2 = reader.GetInt32(cnt++);
+            int tree3 = reader.GetInt32(cnt++);
+            int tree4 = reader.GetInt32(cnt++);
+            int tree5 = reader.GetInt32(cnt++);
+            int tree6 = reader.GetInt32(cnt++);
+
+            MovePlanet.Instance.nowPlanet(color, size, mat, rowid);
+
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().rowid = rowid;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().pName = pName;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().size = size;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().color = color;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().mat = mat;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().mFood = mFood;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().mTitanium = mTitanium;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().locationX = locationX;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().locationY = locationY;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().locationZ = locationZ;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().le_persec = le_persec;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().position_house = position_house;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().state = state;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().user = user;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().neighbor = neighbor;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().lFood = lFood;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().lTitanium = lTitanium;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().tree1 = tree1;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().tree2 = tree2;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().tree3 = tree3;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().tree4 = tree4;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().tree5 = tree5;
+            GameObject.Find("CurrentPlanet/Myplanet").GetComponent<PlanetInfo>().tree6 = tree6;
+
+            cnt = 0;
+        }
+
+
     }
 
 
