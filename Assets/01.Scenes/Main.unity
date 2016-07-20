@@ -2736,7 +2736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe13912681f07243bf3b737f8c00f67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cPlanet: 
+  cPlanet: 0
   cFood: 0
   cTitanium: 0
   cRE: 0
@@ -2749,22 +2749,27 @@ MonoBehaviour:
   shipNum: 0
   rowid: 0
   pName: 
-  color: 0
   size: 0
-  mFood: 0
-  le_persec: 0
+  color: 0
   mat: 0
+  mFood: 0
+  mTitanium: 0
+  locationX: 0
+  locationY: 0
+  locationZ: 0
+  le_persec: 0
+  position_house: 0
   state: 0
+  user: 0
+  neighbor: 0
   lFood: 0
   lTitanium: 0
-  position_house: 0
   tree1: 0
   tree2: 0
   tree3: 0
   tree4: 0
   tree5: 0
   tree6: 0
-  neighbor: 0
   UIobj: {fileID: 1840778839}
   activeFusionPanal: 0
   shipTouch: 0
@@ -8852,7 +8857,14 @@ MonoBehaviour:
   planetMat: 0
   food: 0
   shipNum: 0
-  countRow: 0
+  planetCount: 0
+  starCount: 0
+  tree1: 0
+  tree2: 0
+  tree3: 0
+  tree4: 0
+  tree5: 0
+  tree6: 0
 --- !u!1 &1331766895
 GameObject:
   m_ObjectHideFlags: 0

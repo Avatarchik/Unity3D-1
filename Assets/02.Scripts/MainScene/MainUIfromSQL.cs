@@ -41,6 +41,8 @@ public class MainUIfromSQL : MonoBehaviour
             Pla.name = "death_planet";
             Pla.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
             Pla.transform.parent = PlanetPosition.transform;
+            Destroy(Pla.GetComponent<Rigidbody>());
+            Destroy(Pla.GetComponent<SphereCollider>());
         }
     }
 

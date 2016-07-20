@@ -14,6 +14,9 @@ public class PlanetCollisionCheck : MonoBehaviour {
         
         Debug.Log("Planet_OnTriggerEnter");
 
+        //충돌 오브젝트 종류 체크
+        string tempTriggerName = other.tag;
+        
         //충돌 행성 위치 저장
         GameManager.Instance().planetSpawnPoint = other.gameObject.GetComponent<Transform>().position;
 

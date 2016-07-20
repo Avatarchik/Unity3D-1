@@ -16,8 +16,13 @@ public class ExploreState : MonoBehaviour {
             //SelectDB.Instance().where = "WHERE zID= " + "'" + hit.transform.name + "'";
             SelectDB.Instance().Select(2);
 
-            SelectDB.Instance().column = "Count(*)";
             SelectDB.Instance().table = "managePlanetTable";
+            SelectDB.Instance().column = "Count(*)";
+            SelectDB.Instance().Select(0);
+
+            SelectDB.Instance().table = "zodiacTable";
+            SelectDB.Instance().column = "Count(*)";
+            SelectDB.Instance().where = "WHERE open = 1 AND  find = 1 AND active = 0";
             SelectDB.Instance().Select(0);
 
             switch (SelectDB.Instance().shipNum)
@@ -48,7 +53,7 @@ public class ExploreState : MonoBehaviour {
             else if(SelectDB.Instance().food >= maxFood)
             {
                 MainSingleTon.Instance.shipTouch = false;
-                if (SelectDB.Instance().countRow == 24)
+                if (SelectDB.Instance().planetCount + SelectDB.Instance().starCount == 16)
                 {
                     notanymore_ui.SetActive(true);
                 }

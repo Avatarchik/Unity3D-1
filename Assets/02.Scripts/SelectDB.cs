@@ -35,7 +35,7 @@ public class SelectDB : MonoBehaviour
     
 
     ///////////////////////////////////////////////////
-    //데이터 임시 저장 변수
+    //데이터 임시 저장 변수(column)
     public Vector3 starPosition;
     public int planetIndex;
     public string planetName;
@@ -44,11 +44,18 @@ public class SelectDB : MonoBehaviour
     public int planetMat;
     public int food;
     public int shipNum;
-    public int countRow;
+    public int planetCount;
+    public int starCount;
+    public int tree1;
+    public int tree2;
+    public int tree3;
+    public int tree4;
+    public int tree5;
+    public int tree6;
     ///////////////////////////////////////////////////
 
 
-    void Start()
+    void Awake()
     {
         if (_instance == null)
             _instance = this;
@@ -140,7 +147,10 @@ public class SelectDB : MonoBehaviour
         {
             while (reader.Read())
             {
-                countRow = reader.GetInt32(0);
+                if(table == "managePlanetTable")
+                planetCount = reader.GetInt32(0);
+                else if (table == "zodiacTable")
+                starCount = reader.GetInt32(0);
             }
             reader.Close();
             reader = null;
@@ -181,6 +191,12 @@ public class SelectDB : MonoBehaviour
                 x = reader.GetFloat(5);
                 y = reader.GetFloat(6);
                 z = reader.GetFloat(7);
+                tree1 = reader.GetInt16(8);
+                tree2 = reader.GetInt16(9);
+                tree3 = reader.GetInt16(10);
+                tree4 = reader.GetInt16(11);
+                tree5 = reader.GetInt16(12);
+                tree6 = reader.GetInt16(13);
                 starPosition = new Vector3(x, y, z);
             }
             else
@@ -192,6 +208,7 @@ public class SelectDB : MonoBehaviour
             reader.Close();
             reader = null;
         }
+       
 
         /////////////////////////////////////////////////////////////////[Data Read]
 

@@ -247,21 +247,24 @@ public class PlanetManager : MonoBehaviour
 
     void loadPlanet()
     {
-        
         //마지막에 추가된 rowid 조회
         SelectDB.Instance().table = "managePlanetTableTest";
         SelectDB.Instance().column = "rowid, Count(*)";
         SelectDB.Instance().Select(0);
-        Debug.Log(SelectDB.Instance().countRow);
+        Debug.Log(SelectDB.Instance().planetCount);
+
+        SelectDB.Instance().table = "userTableTest";
+        SelectDB.Instance().column = "cfood, shipNum";
+        SelectDB.Instance().Select(2);
 
         SelectDB.Instance().table = "managePlanetTableTest";
-        SelectDB.Instance().column = "rowid, name, size, color, mat, locationX, locationY, locationZ";
+        SelectDB.Instance().column = "rowid, name, size, color, mat, locationX, locationY, locationZ, tree1, tree2, tree3, tree4, tree5, tree6";
 
-        for (; planetLoadCnt <= SelectDB.Instance().countRow; planetLoadCnt++)
+        for (; planetLoadCnt <= SelectDB.Instance().planetCount; planetLoadCnt++)
         {
             SelectDB.Instance().where = "WHERE rowid =" + planetLoadCnt;
             SelectDB.Instance().Select(3);
-
+            
             if (SelectDB.Instance().planetIndex != 0)
             {
                 int planetShape = (SelectDB.Instance().planetSize * 100) + (SelectDB.Instance().planetColor * 10) + SelectDB.Instance().planetMat;
@@ -272,12 +275,85 @@ public class PlanetManager : MonoBehaviour
                 GameObject obj = Instantiate(GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().D_PlanetList[planetShape]);
                 obj.transform.position = SelectDB.Instance().starPosition;
                 obj.name = SelectDB.Instance().planetName;
+                obj.transform.FindChild("PC").gameObject.SetActive(false);
+                obj.transform.FindChild("Neighbor").gameObject.SetActive(false);
+                obj.transform.FindChild("Ship").gameObject.SetActive(false);
+                obj.transform.FindChild("Ship_Neighbor").gameObject.SetActive(false);
+                obj.transform.FindChild("Zoo").gameObject.SetActive(false);
+                
+                //나무 표시 처리
+                for(int treeCnt = 1; treeCnt <= 6; treeCnt++)
+                {
+                    string treeObj = "Tree_" + treeCnt;
+                    if(obj.transform.FindChild(treeObj) != null)
+                    {
+                        string treeCntStr = "tree" + treeCnt;
+
+                        switch (treeCheck(treeCntStr))
+                        {
+                            case 1:
+                                obj.transform.FindChild(treeObj).FindChild("Pinetree_" + treeCnt).gameObject.SetActive(true);
+                                obj.transform.FindChild(treeObj).FindChild("Springtree_" + treeCnt).gameObject.SetActive(false);
+                                obj.transform.FindChild(treeObj).FindChild("Mapletree_" + treeCnt).gameObject.SetActive(false);
+                                obj.transform.FindChild(treeObj).FindChild("Wintertree_" + treeCnt).gameObject.SetActive(false);
+                                break;
+                            case 2:
+                                obj.transform.FindChild(treeObj).FindChild("Pinetree_" + treeCnt).gameObject.SetActive(false);
+                                obj.transform.FindChild(treeObj).FindChild("Springtree_" + treeCnt).gameObject.SetActive(true);
+                                obj.transform.FindChild(treeObj).FindChild("Mapletree_" + treeCnt).gameObject.SetActive(false);
+                                obj.transform.FindChild(treeObj).FindChild("Wintertree_" + treeCnt).gameObject.SetActive(false);
+                                break;
+                            case 3:
+                                obj.transform.FindChild(treeObj).FindChild("Pinetree_" + treeCnt).gameObject.SetActive(false);
+                                obj.transform.FindChild(treeObj).FindChild("Springtree_" + treeCnt).gameObject.SetActive(false);
+                                obj.transform.FindChild(treeObj).FindChild("Mapletree_" + treeCnt).gameObject.SetActive(true);
+                                obj.transform.FindChild(treeObj).FindChild("Wintertree_" + treeCnt).gameObject.SetActive(false);
+                                break;
+                            case 4:
+                                obj.transform.FindChild(treeObj).FindChild("Pinetree_" + treeCnt).gameObject.SetActive(false);
+                                obj.transform.FindChild(treeObj).FindChild("Springtree_" + treeCnt).gameObject.SetActive(false);
+                                obj.transform.FindChild(treeObj).FindChild("Mapletree_" + treeCnt).gameObject.SetActive(false);
+                                obj.transform.FindChild(treeObj).FindChild("Wintertree_" + treeCnt).gameObject.SetActive(true);
+                                break;
+                            default:
+                                obj.transform.FindChild(treeObj).FindChild("Pinetree_" + treeCnt).gameObject.SetActive(false);
+                                obj.transform.FindChild(treeObj).FindChild("Springtree_" + treeCnt).gameObject.SetActive(false);
+                                obj.transform.FindChild(treeObj).FindChild("Mapletree_" + treeCnt).gameObject.SetActive(false);
+                                obj.transform.FindChild(treeObj).FindChild("Wintertree_" + treeCnt).gameObject.SetActive(false);
+                                break;
+                        }
+
+                    }
+                }
+
             }
         }
 
         planetLoadCnt = 1;
     }
 
+ 
+    int treeCheck(string treeCntStr)
+    {
+        if(treeCntStr == "tree1")
+        {
+            return SelectDB.Instance().tree1;
+        }else if (treeCntStr == "tree2")
+        {
+            return SelectDB.Instance().tree2;
+        }
+        else if (treeCntStr == "tree3")
+        {
+            return SelectDB.Instance().tree3;
+        }
+        else if (treeCntStr == "tree4")
+        {
+            return SelectDB.Instance().tree4;
+        }else
+        {
+            return 0;
+        }
+    }
 }
 
 

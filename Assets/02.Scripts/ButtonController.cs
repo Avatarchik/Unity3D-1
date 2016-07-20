@@ -30,6 +30,7 @@ public class ButtonController : MonoBehaviour {
         Debug.Log("scne trans to Book");
     }
 
+    //우주선 터치하여 월드맵으로 전환할때 (내비게이션 기능 활성화)
     public void TransSceneToMap()
     {
         SceneManager.LoadScene("WorldMap");
@@ -37,6 +38,13 @@ public class ButtonController : MonoBehaviour {
         Debug.Log("scene trans to WorldMap");
     }
 
+    // 행성관리 화면에서 전체맵 버튼으로 월드맵 전환할때 (내비게이션 기능 비활성화)
+    public void TransSceneToWorldMap()
+    {
+        //내비게이션 비활성화 조건 추가필요 
+        SceneManager.LoadScene("WorldMap");
+        Debug.Log("scene Trans to WorldMap");
+    }
     public void TransSceneToManage()
     {
         SceneManager.LoadScene("ManagePlanet");
@@ -89,11 +97,7 @@ public class ButtonController : MonoBehaviour {
 
     }
 
-    public void TransSceneToWorldMap()
-    {
-        //SceneManager.LoadScene("WorldMap");
-        Debug.Log("scene Trans to WorldMap");
-    }
+    
 
 
     public void VisibleSettingInStar()
@@ -164,6 +168,15 @@ public class ButtonController : MonoBehaviour {
     // 탐사화면
     public void explore()
     {
+        //관리중인 오브젝트 개수 체크
+        //SelectDB.Instance().table = "managePlanetTable";
+        //SelectDB.Instance().column = "Count(*)";
+        //SelectDB.Instance().Select(0);
+
+        //SelectDB.Instance().table = "zodiacTable";
+        //SelectDB.Instance().column = "Count(*)";
+        //SelectDB.Instance().where = "WHERE open = 1 AND  find = 1 AND active = 0";
+
         Debug.Log("행성을 탐사합니다!");
         //Vector3 spawnPoint = GameManager.Instance().planetSpawnPoint;
 

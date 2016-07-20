@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class csScreenPointTouch : MonoBehaviour
 {
 
@@ -33,8 +33,9 @@ public class csScreenPointTouch : MonoBehaviour
                 RaycastHit hit;
 
 
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out hit))  
                 {
+                
                     Debug.Log(hit.transform.name);
                     if (hit.transform.tag.Equals("Finish"))
                     {
@@ -53,6 +54,7 @@ public class csScreenPointTouch : MonoBehaviour
 
                     if (hit.transform.tag.Equals("Ship"))
                     {
+                        //ExploreState에 관련 로직 처리 
                         MainSingleTon.Instance.shipTouch = true;
                     }
                     if (hit.transform.tag.Equals("Energy"))

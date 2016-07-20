@@ -13822,49 +13822,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 478804, guid: 9173beb08a95c1943b5d5c369b5a0642, type: 2}
   m_PrefabInternal: {fileID: 1836573922}
---- !u!1 &1840636983
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1840636985}
-  - 114: {fileID: 1840636984}
-  m_Layer: 0
-  m_Name: GameData
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1840636984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1840636983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cc42b03a091cee4abbc1dd120a78786, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  starPosition: {x: 0, y: 0, z: 0}
-  navOn: 0
-  maxFuel: 0
---- !u!4 &1840636985
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1840636983}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.0811, y: 84.344124, z: -62.802658}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
 --- !u!1001 &1858820719
 Prefab:
   m_ObjectHideFlags: 0
@@ -15624,8 +15581,21 @@ MonoBehaviour:
   table: 
   where: ' '
   starPosition: {x: 0, y: 0, z: 0}
+  planetIndex: 0
+  planetName: 
+  planetSize: 0
+  planetColor: 0
+  planetMat: 0
   food: 0
   shipNum: 0
+  planetCount: 0
+  starCount: 0
+  tree1: 0
+  tree2: 0
+  tree3: 0
+  tree4: 0
+  tree5: 0
+  tree6: 0
 --- !u!1001 &2053140728
 Prefab:
   m_ObjectHideFlags: 0
