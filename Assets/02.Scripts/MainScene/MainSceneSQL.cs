@@ -87,7 +87,7 @@ public class MainSceneSQL : MonoBehaviour {
     {
         ///////////////////////////////////////////////////////////////////[DB Query]
         dbcmd = dbconn.CreateCommand();
-        string sqlQuery = "SELECT * FROM userTableTest";
+        string sqlQuery = "SELECT * FROM userTable";
         //string sqlQuery = "SLECT Sount(rowid) as Count FROM userTableTest";
         dbcmd.CommandText = sqlQuery;
         ///////////////////////////////////////////////////////////////////[DB Query]
@@ -96,6 +96,7 @@ public class MainSceneSQL : MonoBehaviour {
         reader = dbcmd.ExecuteReader();
         while (reader.Read())
         {
+
             MainSingleTon.Instance.cPlanet = reader.GetInt32(cnt++);
             MainSingleTon.Instance.cFood = reader.GetInt32(cnt++);
             MainSingleTon.Instance.cTitanium = reader.GetInt32(cnt++);
@@ -113,7 +114,7 @@ public class MainSceneSQL : MonoBehaviour {
         reader = null;
 
         //sqlQuery = "select * from managePlanetTableTest where rowid = " + MainSingleTon.Instance.cPlanet;
-        sqlQuery = "select rowid, name, size, color, mat, mFood, mTitanium, locationX, locationY, locationZ, le_persec, position_house, state, user, neighbor, lFood, lTitanium, tree1, tree2, tree3, tree4, tree5, tree6 FROM managePlanetTableTest WHERE rowid = " + MainSingleTon.Instance.cPlanet;
+        sqlQuery = "select rowid, name, size, color, mat, mFood, mTitanium, locationX, locationY, locationZ, le_persec, position_house, state, user, neighbor, lFood, lTitanium, tree1, tree2, tree3, tree4, tree5, tree6 FROM managePlanetTable WHERE rowid = " + MainSingleTon.Instance.cPlanet;
         dbcmd.CommandText = sqlQuery;
         reader = dbcmd.ExecuteReader();
         cnt = 0;

@@ -21,7 +21,7 @@ public class csDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     void Start()
     {
         //planetRotation = new Vector3(0, 0, 0);
-        obj = GameObject.Find("Main Camera");
+        obj = GameObject.Find("UI");
 
         RotateBase = GameObject.Find("PlanetPosition");
         planet = GameObject.Find("PlanetPosition/death_planet");

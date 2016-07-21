@@ -259,7 +259,7 @@ public class PlanetManager : MonoBehaviour
 
         SelectDB.Instance().table = "managePlanetTableTest";
         SelectDB.Instance().column = "rowid, name, size, color, mat, locationX, locationY, locationZ, tree1, tree2, tree3, tree4, tree5, tree6";
-
+        Debug.Log(planetLoadCnt+","+SelectDB.Instance().planetCount);
         for (; planetLoadCnt <= SelectDB.Instance().planetCount; planetLoadCnt++)
         {
             SelectDB.Instance().where = "WHERE rowid =" + planetLoadCnt;
@@ -329,7 +329,6 @@ public class PlanetManager : MonoBehaviour
 
         planetLoadCnt = 1;
     }
-
  
     int treeCheck(string treeCntStr)
     {

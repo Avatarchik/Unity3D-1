@@ -22,9 +22,9 @@ public class ExploreState : MonoBehaviour {
 
             SelectDB.Instance().table = "zodiacTable";
             SelectDB.Instance().column = "Count(*)";
-            SelectDB.Instance().where = "WHERE open = 1 AND  find = 1 AND active = 0";
+            SelectDB.Instance().where = "WHERE \"open\" = 1 AND  \"find\" = 1 AND \"active\" = 0";
             SelectDB.Instance().Select(0);
-
+            
             switch (SelectDB.Instance().shipNum)
             {
                 case 1:
@@ -43,11 +43,13 @@ public class ExploreState : MonoBehaviour {
                     maxFood = 700;
                     break;
             }
+            
             if (SelectDB.Instance().food < maxFood)
             {
                 MainSingleTon.Instance.shipTouch = false;
+                GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;
                 warning_ui.SetActive(true);
-                GameObject.Find("Food").gameObject.GetComponentInChildren<Text>().text = maxFood.ToString();
+                warning_ui.transform.FindChild("Food").GetComponent<Text>().text = maxFood.ToString();
                 StartCoroutine(returnMain());
             }
             else if(SelectDB.Instance().food >= maxFood)
@@ -55,6 +57,7 @@ public class ExploreState : MonoBehaviour {
                 MainSingleTon.Instance.shipTouch = false;
                 if (SelectDB.Instance().planetCount + SelectDB.Instance().starCount == 16)
                 {
+                    GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;
                     notanymore_ui.SetActive(true);
                 }
                 else
@@ -78,9 +81,10 @@ public class ExploreState : MonoBehaviour {
         //yield return new WaitForSeconds(1.0f);
         //GameObject.Find("returnSec").gameObject.GetComponentInChildren<Text>().text = "0";
         //GameObject.Find("WorldMapManager").gameObject.GetComponent<ButtonController>().TransSceneToMain();
-
         yield return new WaitForSeconds(3.0f);
+        
         warning_ui.SetActive(false);
+        GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = true;
     }
 
     void transScenetoMap()
@@ -91,5 +95,6 @@ public class ExploreState : MonoBehaviour {
     public void notanymoreFalse()
     {
         notanymore_ui.SetActive(false);
+        GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = true;
     }
 }

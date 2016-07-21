@@ -42,6 +42,7 @@ public class StoreScript : MonoBehaviour {
     //버튼
     public void Exit()
     {
+        GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = true;
         GameObject.Find("UI/Main/Button").transform.FindChild("SettingBtn").gameObject.SetActive(true);
         GameObject.Find("UI/StorePanal").gameObject.SetActive(false);
     }
