@@ -168,7 +168,6 @@ public class ManageSceneSQL : MonoBehaviour {
 
             cnt = 0;
         }
-        MovePlanet.Instance.setPlanets();
 
         reader.Close();
         reader = null;
@@ -241,6 +240,48 @@ public class ManageSceneSQL : MonoBehaviour {
             cnt = 0;
         }
 
+        reader.Close();
+        reader = null;
+
+
+        sqlQuery = "SELECT count(*) FROM zodiacTableTest WHERE find = 1 and active = 0";
+        dbcmd.CommandText = sqlQuery;
+        reader = dbcmd.ExecuteReader();
+        //행성갯수  + 별 갯수
+        while (reader.Read())
+        {
+            MovePlanet.Instance.planetCount += reader.GetInt32(cnt++);
+            cnt = 0;
+        }
+
+        reader.Close();
+        reader = null;
+
+
+        sqlQuery = "SELECT rowid, name FROM zodiacTableTest WHERE find = 1 and active = 0";
+        dbcmd.CommandText = sqlQuery;
+        reader = dbcmd.ExecuteReader();
+        //행성갯수  + 별 갯수
+        while (reader.Read())
+        {
+
+            int rowid = reader.GetInt32(cnt++);
+            string zName = reader.GetString(cnt++);
+
+            MovePlanet.Instance.getStar(rowid);
+            GameObject.Find("RotateStar/" + rowid).GetComponent<StarInfo>().rowid = rowid;
+            GameObject.Find("RotateStar/" + rowid).GetComponent<StarInfo>().zName = zName;
+
+
+            cnt = 0;
+        }
+
+        reader.Close();
+        reader = null;
+
+
+
+        MovePlanet.Instance.setPlanets();
 
     }
 

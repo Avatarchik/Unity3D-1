@@ -83,7 +83,9 @@ public class StoreScript : MonoBehaviour {
 
         if (cTitanium >= 2500)
         {
-            Query = "UPDATE managePlanetTable SET position_house = " + 1 + " WHERE rowid = "+MainSingleTon.Instance.rowid;
+            System.DateTime getTime = System.DateTime.Now;
+
+            Query = "UPDATE managePlanetTable SET position_house = " + 1 + ", titaniumTouchT = \"" + getTime.ToString("yyyy-MM-dd HH:mm:ss") +"\" WHERE rowid = " +MainSingleTon.Instance.rowid;
             SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
 
             MainSingleTon.Instance.cTitanium -= 2500;
@@ -129,8 +131,9 @@ public class StoreScript : MonoBehaviour {
         string Query = "";
         if (nowFood >= foodCost)
         {
+            System.DateTime getTreeTime = System.DateTime.Now;
             Debug.Log(MainSingleTon.Instance.cFood);
-            Query = "UPDATE managePlanetTable SET tree" + treeCount + " = " + treeNum + " Where rowid = " + MainSingleTon.Instance.rowid;
+            Query = "UPDATE managePlanetTable SET tree" + treeCount + " = " + treeNum + ", treeTouchT = \"" + getTreeTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" Where rowid = " + MainSingleTon.Instance.rowid;
             SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
 
             MainSingleTon.Instance.cFood -= foodCost;

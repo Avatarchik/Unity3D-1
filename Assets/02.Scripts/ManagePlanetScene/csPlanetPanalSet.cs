@@ -8,8 +8,6 @@ public class csPlanetPanalSet : MonoBehaviour {
 
 
     public static int PlanetCount;
-    public static int nowPlanetNum = 1;
-    //public static string pName = "";
 
     GameObject PlanetExPanal;
     Text txt;
@@ -22,7 +20,6 @@ public class csPlanetPanalSet : MonoBehaviour {
         txt = GameObject.Find("UI/ManagePlanet_ui/PlanetEx/Text").GetComponent<Text>();
         PlanetCount = MovePlanet.Instance.planets.Count;
         setPanalVisible();
-        //ChangeText();
     }
 
     void Update()
@@ -43,7 +40,6 @@ public class csPlanetPanalSet : MonoBehaviour {
 
     public void ChangeText(string pName)
     {
-        string temp = nowPlanetNum + "번째 행성";
         txt.text = pName;
     }
 }

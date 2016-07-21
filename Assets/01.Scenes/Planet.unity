@@ -2920,7 +2920,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1778423601}
   - {fileID: 1840778841}
   - {fileID: 1331161208}
   m_Father: {fileID: 0}
@@ -9316,7 +9315,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 354346187}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &1331161210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11959,47 +11958,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1776098131}
---- !u!1 &1778423600
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 184760, guid: 8b0c1406583205a4bb31da6d73abf081, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1778423601}
-  - 114: {fileID: 1778423602}
-  m_Layer: 0
-  m_Name: tempPlanet
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1778423601
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 440822, guid: 8b0c1406583205a4bb31da6d73abf081, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1778423600}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 354346187}
-  m_RootOrder: 0
---- !u!114 &1778423602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11404632, guid: 8b0c1406583205a4bb31da6d73abf081,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1778423600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9c873fd9123a37478c5d456881f56cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1781394894
 GameObject:
   m_ObjectHideFlags: 0
@@ -12281,7 +12239,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 354346187}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!114 &1840778842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12300,7 +12258,7 @@ MonoBehaviour:
   leftFood: {fileID: 329160869}
   leftTitanium: {fileID: 140401367}
   singleTon: {fileID: 354346186}
-  PlanetList: {fileID: 1778423600}
+  PlanetList: {fileID: 0}
   PlanetPosition: {fileID: 412947685}
 --- !u!114 &1840778843
 MonoBehaviour:

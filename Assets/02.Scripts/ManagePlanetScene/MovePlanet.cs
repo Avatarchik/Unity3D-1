@@ -59,6 +59,7 @@ public class MovePlanet : MonoBehaviour
     public GameObject myPosition;
 
 
+    public GameObject prefStar;
 
 
 
@@ -73,6 +74,23 @@ public class MovePlanet : MonoBehaviour
         temp.transform.parent = GameObject.Find("RotatePlanet").transform;
         planets.Add(temp);
         count++;
+
+    }
+
+
+    public void getStar(int rowid)
+    {
+        GameObject temp;
+        temp = Instantiate(prefStar, instantPosition.transform.position, instantPosition.transform.rotation) as GameObject;
+        temp.AddComponent<MoveEachPlanet>();
+        temp.AddComponent<StarInfo>();
+        temp.name = rowid.ToString();
+        temp.transform.parent = GameObject.Find("RotateStar").transform;
+        planets.Add(temp);
+
+    }
+    public void setStar()
+    {
 
     }
 

@@ -16,7 +16,6 @@ public class MoveEachPlanet : MonoBehaviour
 
     csPlanetPanalSet script;
 
-
     void Start()
     {
         POS_MAX = MovePlanet.Instance.points.Count - 1;
@@ -30,7 +29,15 @@ public class MoveEachPlanet : MonoBehaviour
     {
         if(curPos == 1)
         {
-            script.ChangeText(this.gameObject.GetComponent<PlanetInfo>().pName);
+            if (this.gameObject.GetComponent<PlanetInfo>())
+            {
+                script.ChangeText(this.gameObject.GetComponent<PlanetInfo>().pName);
+
+            }
+            if (this.gameObject.GetComponent<StarInfo>())
+            {
+                script.ChangeText(this.gameObject.GetComponent<StarInfo>().zName);
+            }
         }
     }
 

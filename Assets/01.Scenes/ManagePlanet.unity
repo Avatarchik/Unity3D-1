@@ -30051,6 +30051,7 @@ MonoBehaviour:
   planetCount: 0
   instantPosition: {fileID: 1812125184}
   myPosition: {fileID: 1031991495}
+  prefStar: {fileID: 128792, guid: 81fafa776185e3140b9ecbb8e88e68d3, type: 2}
 --- !u!4 &992776182
 Transform:
   m_ObjectHideFlags: 0
@@ -45451,7 +45452,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1480864637}
   m_Layer: 0
-  m_Name: RoateStar
+  m_Name: RotateStar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
