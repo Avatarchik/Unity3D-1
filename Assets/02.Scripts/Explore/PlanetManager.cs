@@ -88,6 +88,7 @@ public class PlanetManager : MonoBehaviour
                     {
                         Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
                         GameManager.Instance().spaceCollision = false;
+                        spaceChecker.transform.position = new Vector3(0, 0, 350);
                         Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
                         --i;
                         break;
@@ -112,6 +113,7 @@ public class PlanetManager : MonoBehaviour
                     {
                         Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
                         GameManager.Instance().spaceCollision = false;
+                        spaceChecker.transform.position = new Vector3(0, 0, 350);
                         Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
                         --i;
                         break;
@@ -135,6 +137,7 @@ public class PlanetManager : MonoBehaviour
                     {
                         Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
                         GameManager.Instance().spaceCollision = false;
+                        spaceChecker.transform.position = new Vector3(0, 0, 350);
                         Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
                         --i;
                         break;
@@ -159,6 +162,7 @@ public class PlanetManager : MonoBehaviour
                     {
                         Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
                         GameManager.Instance().spaceCollision = false;
+                        spaceChecker.transform.position = new Vector3(0, 0, 350);
                         Debug.Log("현재 상태:" + GameManager.Instance().spaceCollision);
                         --i;
                         break;
@@ -217,9 +221,9 @@ public class PlanetManager : MonoBehaviour
         tempmat = GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().matT;
 
         //초기 행성생성시 데이터 초기화 및 DB INSERT (Table Column 순서 수정필요함)
-        InsertDB.Instance().table = "managePlanetTableTest";
-        InsertDB.Instance().column = "name,size,color,mFood,mTitanium,le_persec,locationX,locationY,locationZ,mat,state,lFood,lTitanium,position_house,User,neighbor,tree1,tree2,tree3,tree4,tree5,tree6";
-        InsertDB.Instance().values = "\""+tempName + "\"," +    //name      행성이름
+        InsertDB.Instance().table = "managePlanetTable";
+        InsertDB.Instance().column = "name,size,color,mFood,mTitanium,le_persec,locationX,locationY,locationZ,mat,lFood,lTitanium";
+        InsertDB.Instance().values = "\"" + tempName + "\"," +    //name      행성이름
                                      tempsize + "," +           //size      행성크기
                                      tempcolor + "," +          //color     행성색상
                                      tempmFood + "," +          //mFood     식량 부존량
@@ -229,18 +233,10 @@ public class PlanetManager : MonoBehaviour
                                      tempY + "," +              //locationY 좌표Y
                                      tempZ + "," +              //locationZ 좌표Z 
                                      tempmat + "," +            //material  행성 스타일
-                                     "1" + "," +                //state     행성 상태
                                      tempmFood + "," +          //lFood     식량 잔존량
-                                     tempmTitanium + "," +      //lTitanium 티타늄 잔존량
-                                     "0" + "," +                //position_house 기지 건설 여부 
-                                     "0" + "," +                //User      유저 거주 여부
-                                     "0" + "," +                //neighbor  이웃 거주 여부(현재 이웃 시스템 없으므로 0)
-                                     "0" + "," +                //tree1     나무1 배치 여부(나무종류에 따라 1~4)
-                                     "0" + "," +                //tree2     나무2 배치 여부(나무종류에 따라 1~4)
-                                     "0" + "," +                //tree3     나무3 배치 여부(나무종류에 따라 1~4)
-                                     "0" + "," +                //tree4     나무4 배치 여부(나무종류에 따라 1~4)
-                                     "0" + "," +                //tree5     나무5 배치 여부(나무종류에 따라 1~4)
-                                     "0";                       //tree6     나무6 배치 여부(나무종류에 따라 1~4)
+                                     tempmTitanium;     //lTitanium 티타늄 잔존량
+
+                                               
 
         InsertDB.Instance().Insert();
     }
@@ -248,16 +244,16 @@ public class PlanetManager : MonoBehaviour
     void loadPlanet()
     {
         //마지막에 추가된 rowid 조회
-        SelectDB.Instance().table = "managePlanetTableTest";
+        SelectDB.Instance().table = "managePlanetTable";
         SelectDB.Instance().column = "rowid, Count(*)";
         SelectDB.Instance().Select(0);
         Debug.Log(SelectDB.Instance().planetCount);
 
-        SelectDB.Instance().table = "userTableTest";
+        SelectDB.Instance().table = "userTable";
         SelectDB.Instance().column = "cfood, shipNum";
         SelectDB.Instance().Select(2);
 
-        SelectDB.Instance().table = "managePlanetTableTest";
+        SelectDB.Instance().table = "managePlanetTable";
         SelectDB.Instance().column = "rowid, name, size, color, mat, locationX, locationY, locationZ, tree1, tree2, tree3, tree4, tree5, tree6";
         Debug.Log(planetLoadCnt+","+SelectDB.Instance().planetCount);
         for (; planetLoadCnt <= SelectDB.Instance().planetCount; planetLoadCnt++)
@@ -275,6 +271,7 @@ public class PlanetManager : MonoBehaviour
                 GameObject obj = Instantiate(GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().D_PlanetList[planetShape]);
                 obj.transform.position = SelectDB.Instance().starPosition;
                 obj.name = SelectDB.Instance().planetName;
+                obj.tag = "Planet";
                 obj.transform.FindChild("PC").gameObject.SetActive(false);
                 obj.transform.FindChild("Neighbor").gameObject.SetActive(false);
                 obj.transform.FindChild("Ship").gameObject.SetActive(false);
