@@ -37,22 +37,22 @@ public class newDragPlanetList : MonoBehaviour, IBeginDragHandler, IDragHandler,
             script.setPanalNotVisible();
             if (deltaX > 0)
             {
-                csPlanetPanalSet.nowPlanetNum++;
-                if(csPlanetPanalSet.nowPlanetNum > csPlanetPanalSet.PlanetCount)
-                {
-                    csPlanetPanalSet.nowPlanetNum = 1;
-                }
+                //csPlanetPanalSet.nowPlanetNum++;
+                //if(csPlanetPanalSet.nowPlanetNum > csPlanetPanalSet.PlanetCount)
+                //{
+                //    csPlanetPanalSet.nowPlanetNum = 1;
+                //}
 
                 MovePlanet.Instance.insertDrag();
                 MovePlanet.Instance.moveUp();
             }
             else if (deltaX < 0)
             {
-                csPlanetPanalSet.nowPlanetNum--;
-                if(csPlanetPanalSet.nowPlanetNum <= 0)
-                {
-                    csPlanetPanalSet.nowPlanetNum = csPlanetPanalSet.PlanetCount;
-                }
+                //csPlanetPanalSet.nowPlanetNum--;
+                //if(csPlanetPanalSet.nowPlanetNum <= 0)
+                //{
+                //    csPlanetPanalSet.nowPlanetNum = csPlanetPanalSet.PlanetCount;
+                //}
 
                 MovePlanet.Instance.insertDrag();
                 MovePlanet.Instance.moveDown();
@@ -74,7 +74,7 @@ public class newDragPlanetList : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
         yield return new WaitForSeconds(0.4f);
         script.setPanalVisible();
-        script.ChangeText();
+        //script.ChangeText();
 
 
         moving = false;

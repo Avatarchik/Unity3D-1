@@ -7,7 +7,7 @@ using Mono.Data.Sqlite;
 using System.IO;
 
 
-public class MainSceneSQL : MonoBehaviour {
+public class PlanetSceneSQL : MonoBehaviour {
     string m_ConnectionString;
     string m_SQLiteFileName = "CosmicDB.sqlite";
     string conn;
@@ -112,7 +112,7 @@ public class MainSceneSQL : MonoBehaviour {
         reader.Close();
         reader = null;
 
-        sqlQuery = "select rowid, * from managePlanetTable where rowid = " + MainSingleTon.Instance.cPlanet;
+        sqlQuery = "select rowid, * from managePlanetTable where user = 1";
         dbcmd.CommandText = sqlQuery;
         reader = dbcmd.ExecuteReader();
         cnt = 0;
@@ -136,7 +136,7 @@ public class MainSceneSQL : MonoBehaviour {
             MainSingleTon.Instance.lFood = reader.GetInt32(cnt++);
             MainSingleTon.Instance.lTitanium = reader.GetInt32(cnt++);
 
-            MainSingleTon.Instance.planetTouchT = reader.GetString(cnt++) ;
+            MainSingleTon.Instance.planetTouchT = reader.GetString(cnt++);
             MainSingleTon.Instance.titaniumTouchT = reader.GetString(cnt++);
             MainSingleTon.Instance.treeTouchT = reader.GetString(cnt++);
             MainSingleTon.Instance.breaktime = reader.GetString(cnt++);

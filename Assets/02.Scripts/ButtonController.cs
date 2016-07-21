@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour {
 
-    
+
     //씬 전환 기능
     public void TransSceneToMain()
     {
@@ -59,7 +59,7 @@ public class ButtonController : MonoBehaviour {
         Debug.Log("scene Trans to Explore");
     }
 
-   
+
     public void VisibleSetting()
     {
         GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;
@@ -101,7 +101,7 @@ public class ButtonController : MonoBehaviour {
 
     }
 
-    
+
 
 
     public void VisibleSettingInStar()
@@ -117,8 +117,6 @@ public class ButtonController : MonoBehaviour {
         GameObject.Find("Canvas/SettingPanal").gameObject.SetActive(false);
         GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(false);
 
-
-
     }
 
     public void CancelInStar()
@@ -128,7 +126,7 @@ public class ButtonController : MonoBehaviour {
         GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(false);
 
     }
-    
+
     public void InjectionInStar()
     {
         Debug.Log("injectionOpen");
@@ -167,6 +165,15 @@ public class ButtonController : MonoBehaviour {
         MainSingleTon.Instance.activeFusionPanal = false;
     }
 
+    public void getEnergy()
+    {
+        MainSingleTon.Instance.getEnergy();
+    }
+
+    public void Movebtn()
+    {
+        Debug.Log("이주이주");
+    }
     // 메인화면
 
     // 탐사화면

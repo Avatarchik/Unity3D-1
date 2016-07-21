@@ -4,11 +4,12 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-public class MainSingleTon : MonoBehaviour {
 
-    static MainSingleTon _instance = null;
+public class PlanetSceneSingleTon : MonoBehaviour {
 
-    public static MainSingleTon Instance
+    static PlanetSceneSingleTon _instance = null;
+
+    public static PlanetSceneSingleTon Instance
     {
         get
         {
@@ -163,27 +164,27 @@ public class MainSingleTon : MonoBehaviour {
 
     public void getFood(Vector3 textPos)
     {
- 
+
         treeCount = checkTree();
         int canStoreMaxFood = maxStoreFood * treeCount;
 
         System.DateTime touchTime = System.DateTime.Now;
         string Query = "";
-        if(treeTouchT == "0")
+        if (treeTouchT == "0")
         {
             Query = "UPDATE managePlanetTable SET treeTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
-            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+            SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
-            tempTex =  Instantiate(getText, textPos, Quaternion.Euler(new Vector3(0f,0f,0f))) as GameObject;
+            tempTex = Instantiate(getText, textPos, Quaternion.Euler(new Vector3(0f, 0f, 0f))) as GameObject;
             tempTex.GetComponent<getTextScript>().setText("생산시작");
             return;
         }
 
-        if(cFood >= maxFood)
+        if (cFood >= maxFood)
         {
             cFood = maxFood;
             Query = "UPDATE managePlanetTable SET treeTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
-            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+            SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
             tempTex = Instantiate(getText, textPos, Quaternion.Euler(new Vector3(0f, 0f, 0f))) as GameObject;
             tempTex.GetComponent<getTextScript>().setText("MAX");
@@ -237,11 +238,11 @@ public class MainSingleTon : MonoBehaviour {
                 }
             }
 
-            if(cFood >= maxFood)
+            if (cFood >= maxFood)
             {
                 cFood = maxFood;
             }
-            if(lFood < 0)
+            if (lFood < 0)
             {
                 lFood = 0;
             }
@@ -252,12 +253,12 @@ public class MainSingleTon : MonoBehaviour {
             tempTex = Instantiate(getText, textPos, Quaternion.Euler(new Vector3(0f, 0f, 0f))) as GameObject;
             tempTex.GetComponent<getTextScript>().setText(tempString);
 
-            string tempQuery1 = "UPDATE userTable SET cFood = " + cFood ;
+            string tempQuery1 = "UPDATE userTable SET cFood = " + cFood;
             string tempQuery2 = "UPDATE managePlanetTable SET treeTouchT = \"" + treeTouchT + "\", lFood = " + lFood + " WHERE rowid = " + rowid;
             Debug.Log(tempQuery1);
             Debug.Log(tempQuery2);
-            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(tempQuery1);
-            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(tempQuery2);
+            SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(tempQuery1);
+            SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(tempQuery2);
 
             setVisibleEnergyBtn();
 
@@ -271,7 +272,7 @@ public class MainSingleTon : MonoBehaviour {
         {
             treeTouchT = touchTime.ToString("yyyy-MM-dd HH:mm:ss");
             Query = "UPDATE managePlanetTable SET treeTouchT = \"" + treeTouchT + "\" WHERE rowid = " + rowid;
-            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+            SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
         }
 
@@ -280,10 +281,10 @@ public class MainSingleTon : MonoBehaviour {
     int checkTree()
     {
         int a = 0;
-        if(tree1 != 0)
+        if (tree1 != 0)
         {
             a++;
-            if(tree2 != 0)
+            if (tree2 != 0)
             {
                 a++;
 
@@ -319,7 +320,7 @@ public class MainSingleTon : MonoBehaviour {
         if (titaniumTouchT == "0")
         {
             Query = "UPDATE managePlanetTable SET titaniumTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
-            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+            SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
             tempTex = Instantiate(getText, textPos, Quaternion.Euler(new Vector3(0f, 0f, 0f))) as GameObject;
             tempTex.GetComponent<getTextScript>().setText("생산시작");
@@ -331,7 +332,7 @@ public class MainSingleTon : MonoBehaviour {
         {
             cTitanium = maxTitanium;
             Query = "UPDATE managePlanetTable SET treeTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
-            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+            SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
             tempTex = Instantiate(getText, textPos, Quaternion.Euler(new Vector3(0f, 0f, 0f))) as GameObject;
             tempTex.GetComponent<getTextScript>().setText("MAX");
@@ -409,8 +410,8 @@ public class MainSingleTon : MonoBehaviour {
             tempTex.GetComponent<getTextScript>().setText(tempString);
 
 
-            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(tempQuery1);
-            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(tempQuery2);
+            SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(tempQuery1);
+            SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(tempQuery2);
 
             setVisibleEnergyBtn();
 
@@ -424,7 +425,7 @@ public class MainSingleTon : MonoBehaviour {
         {
             titaniumTouchT = touchTime.ToString("yyyy-MM-dd HH:mm:ss");
             Query = "UPDATE managePlanetTable SET titaniumTouchT = \"" + titaniumTouchT + "\" WHERE rowid = " + rowid;
-            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+            SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
         }
     }
 
@@ -435,15 +436,15 @@ public class MainSingleTon : MonoBehaviour {
         if (planetTouchT == "0")
         {
             Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
-            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+            SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
             return;
         }
 
 
-        if(lFood ==0 && lTitanium == 0)
+        if (lFood == 0 && lTitanium == 0)
         {
             Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
-            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+            SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
             return;
         }
 
@@ -471,7 +472,7 @@ public class MainSingleTon : MonoBehaviour {
         System.DateTime preT = System.DateTime.ParseExact(planetTouchT, "yyyy-MM-dd HH:mm:ss", null);
         System.TimeSpan deff = touchTime - preT;
         int defTime = System.Convert.ToInt32(deff.TotalSeconds);
-        int calculateEnergy = System.Convert.ToInt32( defTime * getCountE);
+        int calculateEnergy = System.Convert.ToInt32(defTime * getCountE);
 
         //이후시간, 이전시간 = 1, 같은경우 = 0, 이전,이후 = -1
         int comp = System.DateTime.Compare(touchTime, preT);
@@ -490,11 +491,11 @@ public class MainSingleTon : MonoBehaviour {
                     {
                         cBE = maxE;
                         Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
-                        SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+                        SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
                         return;
                     }
 
-                    if(calculateEnergy <= maxStoreE)
+                    if (calculateEnergy <= maxStoreE)
                     {
                         cBE += calculateEnergy;
                     }
@@ -504,7 +505,7 @@ public class MainSingleTon : MonoBehaviour {
                     }
 
 
-                    if(cBE > maxE)
+                    if (cBE > maxE)
                     {
                         cBE = maxE;
                     }
@@ -521,7 +522,7 @@ public class MainSingleTon : MonoBehaviour {
                     {
                         cRE = maxE;
                         Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
-                        SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+                        SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
                         return;
                     }
 
@@ -552,7 +553,7 @@ public class MainSingleTon : MonoBehaviour {
                     {
                         cYE = maxE;
                         Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
-                        SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+                        SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
                         return;
                     }
 
@@ -583,7 +584,7 @@ public class MainSingleTon : MonoBehaviour {
                     {
                         cVE = maxE;
                         Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
-                        SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+                        SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
                         return;
                     }
 
@@ -613,7 +614,7 @@ public class MainSingleTon : MonoBehaviour {
                     {
                         cGE = maxE;
                         Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
-                        SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+                        SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
                         return;
                     }
 
@@ -643,7 +644,7 @@ public class MainSingleTon : MonoBehaviour {
                     {
                         cOE = maxE;
                         Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
-                        SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+                        SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
                         return;
                     }
 
@@ -675,8 +676,8 @@ public class MainSingleTon : MonoBehaviour {
 
             Debug.Log(tempQuery1);
             Debug.Log(tempQuery2);
-            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(tempQuery1);
-            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(tempQuery2);
+            SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(tempQuery1);
+            SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(tempQuery2);
 
             return;
         }
@@ -688,13 +689,13 @@ public class MainSingleTon : MonoBehaviour {
         {
             planetTouchT = touchTime.ToString("yyyy-MM-dd HH:mm:ss");
             Query = "UPDATE managePlanetTable SET planetTouchT = \"" + planetTouchT + "\" WHERE rowid = " + rowid;
-            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+            SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
         }
     }
 
     public void setVisibleEnergyBtn()
     {
-        if(lFood == 0  && lTitanium == 0)
+        if (lFood == 0 && lTitanium == 0)
         {
             EnergyBtn.gameObject.SetActive(false);
             notResText.gameObject.SetActive(true);
@@ -708,7 +709,7 @@ public class MainSingleTon : MonoBehaviour {
 
     public void setVisibleMoveBtn()
     {
-        if(cPlanet == rowid)
+        if (cPlanet == rowid)
         {
             MoveBtn.gameObject.SetActive(false);
         }
@@ -717,7 +718,7 @@ public class MainSingleTon : MonoBehaviour {
     void Update()
     {
         UIobj.GetComponent<MainUIfromSQL>().setUIText();
-        if (activeFusionPanal) 
+        if (activeFusionPanal)
         {
             UIobj.GetComponent<FusionScript>().setText();
 

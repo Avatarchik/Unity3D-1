@@ -37,6 +37,8 @@ public class FusionScript : MonoBehaviour {
     public List<Sprite> EnergyIcon = new List<Sprite>();
 
     int switchEnergy = 0;
+    public int maxE = 20000;
+
 
     public void setText()
     {
@@ -117,6 +119,39 @@ public class FusionScript : MonoBehaviour {
             min = sum2;
         if (sum3 <= sum1 && sum3 <= sum2)
             min = sum3;
+
+        switch (switchEnergy)
+        {
+            case 1:
+                if(MainSingleTon.Instance.cPE + min > maxE)
+                {
+                    min = (MainSingleTon.Instance.cPE + min) - maxE;
+                }
+                break;
+
+            case 2:
+                if(MainSingleTon.Instance.cOE + min > maxE)
+                {
+                    min = (MainSingleTon.Instance.cOE + min) - maxE;
+                }
+                break;
+
+            case 3:
+                if(MainSingleTon.Instance.cGE + min > maxE)
+                {
+                    min = (MainSingleTon.Instance.cGE + min) - maxE;
+                }
+                break;
+
+            case 4:
+                if(MainSingleTon.Instance.cVE + min > maxE)
+                {
+                    min = (MainSingleTon.Instance.cVE + min) - maxE;
+                }
+                break;
+            default:
+                break;
+        }
         TextMax.text = min + "";
         slider.maxValue = min;
         canNum.text = min.ToString();

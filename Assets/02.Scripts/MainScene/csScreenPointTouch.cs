@@ -41,6 +41,8 @@ public class csScreenPointTouch : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                     {
+                    Debug.Log(hit.point);
+                    Debug.Log(hit.transform.position);
 
                         if (hit.transform.tag.Equals("Finish"))
                         {
@@ -50,7 +52,7 @@ public class csScreenPointTouch : MonoBehaviour
                         if (hit.transform.tag.Equals("Food"))
                         {
                             Debug.Log("ray hit food") ;
-                        MainSingleTon.Instance.getFood();
+                        MainSingleTon.Instance.getFood(hit.point);
 
 
                         }
@@ -58,7 +60,7 @@ public class csScreenPointTouch : MonoBehaviour
                         if (hit.transform.tag.Equals("Titanium"))
                         {
                             Debug.Log("ray hit titanium");
-                        MainSingleTon.Instance.getTitanium();
+                        MainSingleTon.Instance.getTitanium(hit.point);
                         }
 
                         if (hit.transform.tag.Equals("Ship"))
@@ -69,6 +71,7 @@ public class csScreenPointTouch : MonoBehaviour
                         if (hit.transform.tag.Equals("Energy"))
                         {
                             Debug.Log("Ray hit Energy");
+                        MainSingleTon.Instance.getEnergy();
                         }
                         if (hit.transform.tag.Equals("PostBox"))
                         {

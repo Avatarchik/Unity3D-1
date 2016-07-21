@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -66,7 +66,8 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000001, guid: ca2afffab16a46645acfbb1244d89f9a,
+    type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
 NavMeshSettings:
@@ -5587,7 +5588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.141}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -30062,7 +30063,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &993571938
 GameObject:
   m_ObjectHideFlags: 0
@@ -34801,8 +34802,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0.63571787}
   m_AnchorMax: {x: 0.643, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.5}
-  m_SizeDelta: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 44.8, y: -0.5}
+  m_SizeDelta: {x: 89.5, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1152754552
 MonoBehaviour:
@@ -36636,6 +36637,7 @@ MonoBehaviour:
   alertUi: {fileID: 0}
   exploreUi: {fileID: 0}
   PlanetName: 
+  rotShip: {x: 0, y: 0, z: 0}
 --- !u!1 &1209439344
 GameObject:
   m_ObjectHideFlags: 0
@@ -45440,6 +45442,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1478065384}
   m_Mesh: {fileID: 4300002, guid: 1dcf24a9de89075429f3818b650e25d8, type: 3}
+--- !u!1 &1480864636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1480864637}
+  m_Layer: 0
+  m_Name: RoateStar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1480864637
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1480864636}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.4379654, y: -4.6435614, z: 5.222515}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1 &1482764428
 GameObject:
   m_ObjectHideFlags: 0
@@ -54050,7 +54080,7 @@ Transform:
   - {fileID: 1331161208}
   - {fileID: 1840778841}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!114 &1791729472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55828,7 +55858,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1871210853}
   m_Layer: 0
-  m_Name: RotatePlanet
+  m_Name: RotatePlanet_not
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55866,7 +55896,7 @@ Transform:
   - {fileID: 1501018134}
   - {fileID: 896775979}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &1871455057
 GameObject:
   m_ObjectHideFlags: 0
