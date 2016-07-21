@@ -17778,7 +17778,7 @@ Transform:
   m_PrefabParentObject: {fileID: 429070, guid: ea164c3a6dd4ac646b1771857fd85e9d, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1322337368}
-  m_LocalRotation: {x: -0.5577699, y: 0.5809893, z: 0.27807018, w: 0.5234703}
+  m_LocalRotation: {x: -0.55776995, y: 0.58098936, z: 0.2780702, w: 0.52347034}
   m_LocalPosition: {x: 0.007428769, y: 0.02782102, z: 1.442}
   m_LocalScale: {x: 0.017999997, y: 0.018, z: 0.018}
   m_LocalEulerAnglesHint: {x: -65.1027, y: -585.07227, z: 302.0075}
@@ -20535,7 +20535,8 @@ MonoBehaviour:
   planetMat: 0
   food: 0
   shipNum: 0
-  countRow: 0
+  planetCount: 0
+  starCount: 0
   tree1: 0
   tree2: 0
   tree3: 0

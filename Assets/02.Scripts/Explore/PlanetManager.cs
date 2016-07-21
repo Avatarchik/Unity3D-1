@@ -322,10 +322,8 @@ public class PlanetManager : MonoBehaviour
                                 obj.transform.FindChild(treeObj).FindChild("Wintertree_" + treeCnt).gameObject.SetActive(false);
                                 break;
                         }
-
                     }
                 }
-
             }
         }
 
