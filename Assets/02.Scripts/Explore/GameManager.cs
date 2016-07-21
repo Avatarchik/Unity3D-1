@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour {
     public GameObject alertUi;
     public GameObject exploreUi;
     public string PlanetName;
+    public Vector3 rotShip;
     void Start()
     {
         if (_instance == null)
