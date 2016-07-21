@@ -69,11 +69,11 @@ public class MainSingleTon : MonoBehaviour {
     public int neighbor;
     public int lFood;
     public int lTitanium;
-    // public ??? planetTouchT
+    //public ??? planetTouchT
     // public ??? titaniumTouchT
     // public ??? treeTouchT
     // public ??? breaktime
-    
+
     public int tree1;
     public int tree2;
     public int tree3;

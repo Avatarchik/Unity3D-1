@@ -1011,6 +1011,7 @@ GameObject:
   - 4: {fileID: 473930}
   - 33: {fileID: 3303000}
   - 23: {fileID: 2326656}
+  - 64: {fileID: 6426530}
   m_Layer: 0
   m_Name: Spacestation
   m_TagString: Titanium
@@ -10841,6 +10842,18 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300012, guid: 20ac4b8a60bc9234fb1f02e299d3a7cc, type: 3}
+--- !u!64 &6426530
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119930}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: 5642380b7fe28784fba814ef2dc8fc7b, type: 3}
 --- !u!64 &6426930
 MeshCollider:
   m_ObjectHideFlags: 1
