@@ -88,7 +88,6 @@ public class MainSceneSQL : MonoBehaviour {
         ///////////////////////////////////////////////////////////////////[DB Query]
         dbcmd = dbconn.CreateCommand();
         string sqlQuery = "SELECT * FROM userTable";
-        //string sqlQuery = "SLECT Sount(rowid) as Count FROM userTableTest";
         dbcmd.CommandText = sqlQuery;
         ///////////////////////////////////////////////////////////////////[DB Query]
         int cnt = 0;
@@ -113,8 +112,7 @@ public class MainSceneSQL : MonoBehaviour {
         reader.Close();
         reader = null;
 
-        //sqlQuery = "select * from managePlanetTableTest where rowid = " + MainSingleTon.Instance.cPlanet;
-        sqlQuery = "select rowid, name, size, color, mat, mFood, mTitanium, locationX, locationY, locationZ, le_persec, position_house, state, user, neighbor, lFood, lTitanium, tree1, tree2, tree3, tree4, tree5, tree6 FROM managePlanetTable WHERE rowid = " + MainSingleTon.Instance.cPlanet;
+        sqlQuery = "select rowid, * from managePlanetTable where rowid = " + MainSingleTon.Instance.cPlanet;
         dbcmd.CommandText = sqlQuery;
         reader = dbcmd.ExecuteReader();
         cnt = 0;
@@ -138,10 +136,10 @@ public class MainSceneSQL : MonoBehaviour {
             MainSingleTon.Instance.lFood = reader.GetInt32(cnt++);
             MainSingleTon.Instance.lTitanium = reader.GetInt32(cnt++);
 
-            //MainSingleTon.Instance.planetTouchT = ;
-            //MainSingleTon.Instance.titaniumTouchT = ;
-            //MainSingleTon.Instance.treeTouchT = ;
-            //MainSingleTon.Instance.breaktime = ;
+            MainSingleTon.Instance.planetTouchT = reader.GetString(cnt++) ;
+            MainSingleTon.Instance.titaniumTouchT = reader.GetString(cnt++);
+            MainSingleTon.Instance.treeTouchT = reader.GetString(cnt++);
+            MainSingleTon.Instance.breaktime = reader.GetString(cnt++);
 
             MainSingleTon.Instance.tree1 = reader.GetInt32(cnt++);
             MainSingleTon.Instance.tree2 = reader.GetInt32(cnt++);

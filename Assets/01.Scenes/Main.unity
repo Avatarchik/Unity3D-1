@@ -2764,6 +2764,10 @@ MonoBehaviour:
   neighbor: 0
   lFood: 0
   lTitanium: 0
+  planetTouchT: 
+  titaniumTouchT: 
+  treeTouchT: 
+  breaktime: 
   tree1: 0
   tree2: 0
   tree3: 0
@@ -2846,6 +2850,13 @@ MonoBehaviour:
   - {fileID: 163482, guid: 7202e32fcf6195c4a816ae19d9c92200, type: 2}
   - {fileID: 197700, guid: e81027066f34d5745b4a4288629538f8, type: 2}
   - {fileID: 104614, guid: 7a955d4d494ec59419d19891ba0610d0, type: 2}
+  SQLManager: {fileID: 1331161207}
+  getCountFood: 1
+  getCountTitanium: 1
+  getCountEnergy: 1
+  maxStoreFood: 0
+  maxStoreTitanium: 0
+  maxStoreEnergy: 0
 --- !u!1 &367095730
 GameObject:
   m_ObjectHideFlags: 0
@@ -12196,6 +12207,7 @@ MonoBehaviour:
   ignoreUI:
     serializedVersion: 2
     m_Bits: 0
+  SQLManager: {fileID: 1331161207}
 --- !u!1 &1976697242
 GameObject:
   m_ObjectHideFlags: 0

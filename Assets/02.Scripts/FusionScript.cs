@@ -163,7 +163,7 @@ public class FusionScript : MonoBehaviour {
                 MainSingleTon.Instance.cOE -= makeNum;
                 MainSingleTon.Instance.cGE -= makeNum;
                 MainSingleTon.Instance.cVE -= makeNum;
-                Query = "UPDATE userTableTest SET cPE = " + MainSingleTon.Instance.cPE
+                Query = "UPDATE userTable SET cPE = " + MainSingleTon.Instance.cPE
                     + ", cOE = " + MainSingleTon.Instance.cOE + ", cGE = " + MainSingleTon.Instance.cGE
                     + ", cVE = " + MainSingleTon.Instance.cVE + " WHERE cPE = " + (MainSingleTon.Instance.cPE - makeNum);
                 break;
@@ -172,7 +172,7 @@ public class FusionScript : MonoBehaviour {
                 MainSingleTon.Instance.cOE += makeNum;
                 MainSingleTon.Instance.cRE -= makeNum;
                 MainSingleTon.Instance.cYE -= makeNum;
-                Query = "UPDATE userTableTest SET cOE = " + MainSingleTon.Instance.cOE
+                Query = "UPDATE userTable SET cOE = " + MainSingleTon.Instance.cOE
                     + ", cRE = " + MainSingleTon.Instance.cRE + ", cYE = " + MainSingleTon.Instance.cYE
                     + " WHERE cOE = " + (MainSingleTon.Instance.cOE - makeNum);
 
@@ -182,7 +182,7 @@ public class FusionScript : MonoBehaviour {
                 MainSingleTon.Instance.cGE += makeNum;
                 MainSingleTon.Instance.cYE -= makeNum;
                 MainSingleTon.Instance.cBE -= makeNum;
-                Query = "UPDATE userTableTest SET cGE = " + MainSingleTon.Instance.cGE
+                Query = "UPDATE userTable SET cGE = " + MainSingleTon.Instance.cGE
                       + ", cYE = " + MainSingleTon.Instance.cYE + ", cBE = " + MainSingleTon.Instance.cBE
                         + " WHERE cGE = " + (MainSingleTon.Instance.cGE - makeNum);
 
@@ -192,7 +192,7 @@ public class FusionScript : MonoBehaviour {
                 MainSingleTon.Instance.cVE += makeNum;
                 MainSingleTon.Instance.cRE -= makeNum;
                 MainSingleTon.Instance.cBE -= makeNum;
-                Query = "UPDATE userTableTest SET cVE = " + MainSingleTon.Instance.cVE
+                Query = "UPDATE userTable SET cVE = " + MainSingleTon.Instance.cVE
                     + ", cRE = " + MainSingleTon.Instance.cRE + ", cBE = " + MainSingleTon.Instance.cBE
                     + " WHERE cVE = " + (MainSingleTon.Instance.cVE - makeNum);
                 break;

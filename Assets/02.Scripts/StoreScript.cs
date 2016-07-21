@@ -83,11 +83,11 @@ public class StoreScript : MonoBehaviour {
 
         if (cTitanium >= 2500)
         {
-            Query = "UPDATE managePlanetTableTest SET position_house = " + 1 + " WHERE rowid = "+MainSingleTon.Instance.rowid;
+            Query = "UPDATE managePlanetTable SET position_house = " + 1 + " WHERE rowid = "+MainSingleTon.Instance.rowid;
             SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
 
             MainSingleTon.Instance.cTitanium -= 2500;
-            Query = "UPDATE userTableTest SET cTitanium = " + MainSingleTon.Instance.cTitanium;
+            Query = "UPDATE userTable SET cTitanium = " + MainSingleTon.Instance.cTitanium;
             SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
 
         }
@@ -130,11 +130,11 @@ public class StoreScript : MonoBehaviour {
         if (nowFood >= foodCost)
         {
             Debug.Log(MainSingleTon.Instance.cFood);
-            Query = "UPDATE managePlanetTableTest SET tree" + treeCount + " = " + treeNum + " Where rowid = " + MainSingleTon.Instance.rowid;
+            Query = "UPDATE managePlanetTable SET tree" + treeCount + " = " + treeNum + " Where rowid = " + MainSingleTon.Instance.rowid;
             SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
 
             MainSingleTon.Instance.cFood -= foodCost;
-            Query = "UPDATE userTableTest SET cFood = " + MainSingleTon.Instance.cFood;
+            Query = "UPDATE userTable SET cFood = " + MainSingleTon.Instance.cFood;
             SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
 
         }
@@ -306,7 +306,7 @@ public class StoreScript : MonoBehaviour {
                     MainSingleTon.Instance.cTitanium -= 9999;
                     MainSingleTon.Instance.shipNum++;
 
-                    Query = "UPDATE userTableTest SET cTitanium = " + MainSingleTon.Instance.cTitanium + ", shipNum = " + MainSingleTon.Instance.shipNum;
+                    Query = "UPDATE userTable SET cTitanium = " + MainSingleTon.Instance.cTitanium + ", shipNum = " + MainSingleTon.Instance.shipNum;
                     SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
 
                 }
@@ -322,7 +322,7 @@ public class StoreScript : MonoBehaviour {
                     MainSingleTon.Instance.cTitanium -= 12900;
                     MainSingleTon.Instance.shipNum++;
 
-                    Query = "UPDATE userTableTest SET cTitanium = " + MainSingleTon.Instance.cTitanium + ", shipNum = " + MainSingleTon.Instance.shipNum;
+                    Query = "UPDATE userTable SET cTitanium = " + MainSingleTon.Instance.cTitanium + ", shipNum = " + MainSingleTon.Instance.shipNum;
                     SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
                 }
                 break;
@@ -337,7 +337,7 @@ public class StoreScript : MonoBehaviour {
                     MainSingleTon.Instance.cTitanium -= 15900;
                     MainSingleTon.Instance.shipNum++;
 
-                    Query = "UPDATE userTableTest SET cTitanium = " + MainSingleTon.Instance.cTitanium + ", shipNum = " + MainSingleTon.Instance.shipNum;
+                    Query = "UPDATE userTable SET cTitanium = " + MainSingleTon.Instance.cTitanium + ", shipNum = " + MainSingleTon.Instance.shipNum;
                     SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
                 }
                 break;
@@ -352,7 +352,7 @@ public class StoreScript : MonoBehaviour {
                     MainSingleTon.Instance.cTitanium -= 20000;
                     MainSingleTon.Instance.shipNum++;
 
-                    Query = "UPDATE userTableTest SET cTitanium = " + MainSingleTon.Instance.cTitanium + ", shipNum = " + MainSingleTon.Instance.shipNum;
+                    Query = "UPDATE userTable SET cTitanium = " + MainSingleTon.Instance.cTitanium + ", shipNum = " + MainSingleTon.Instance.shipNum;
                     SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
 
                 }

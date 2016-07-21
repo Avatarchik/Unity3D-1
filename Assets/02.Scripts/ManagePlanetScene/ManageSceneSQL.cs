@@ -87,7 +87,7 @@ public class ManageSceneSQL : MonoBehaviour {
     {
         ///////////////////////////////////////////////////////////////////[DB Query]
         dbcmd = dbconn.CreateCommand();
-        string sqlQuery = "SELECT count(*) FROM managePlanetTableTest";
+        string sqlQuery = "SELECT count(*) FROM managePlanetTable";
         dbcmd.CommandText = sqlQuery;
         ///////////////////////////////////////////////////////////////////[DB Query]
         int cnt = 0;
@@ -104,7 +104,7 @@ public class ManageSceneSQL : MonoBehaviour {
 
         //각 행성 리스트로
         //sqlQuery = "select * from managePlanetTableTest where rowid = " + MainSingleTon.Instance.cPlanet;
-        sqlQuery = "select rowid, name, size, color, mat, mFood, mTitanium, locationX, locationY, locationZ, le_persec, position_house, state, user, neighbor, lFood, lTitanium, tree1, tree2, tree3, tree4, tree5, tree6 FROM managePlanetTableTest WHERE user =0";
+        sqlQuery = "select rowid, name, size, color, mat, mFood, mTitanium, locationX, locationY, locationZ, le_persec, position_house, state, user, neighbor, lFood, lTitanium, tree1, tree2, tree3, tree4, tree5, tree6 FROM managePlanetTable WHERE user =0";
         dbcmd.CommandText = sqlQuery;
         reader = dbcmd.ExecuteReader();
         cnt = 0;
@@ -176,7 +176,7 @@ public class ManageSceneSQL : MonoBehaviour {
 
         //유저있는행성불러오기
         //sqlQuery = "select * from managePlanetTableTest where rowid = " + MainSingleTon.Instance.cPlanet;
-        sqlQuery = "select rowid, name, size, color, mat, mFood, mTitanium, locationX, locationY, locationZ, le_persec, position_house, state, user, neighbor, lFood, lTitanium, tree1, tree2, tree3, tree4, tree5, tree6 FROM managePlanetTableTest WHERE user = 1";
+        sqlQuery = "select rowid, name, size, color, mat, mFood, mTitanium, locationX, locationY, locationZ, le_persec, position_house, state, user, neighbor, lFood, lTitanium, tree1, tree2, tree3, tree4, tree5, tree6 FROM managePlanetTable WHERE user = 1";
         dbcmd.CommandText = sqlQuery;
         reader = dbcmd.ExecuteReader();
         cnt = 0;

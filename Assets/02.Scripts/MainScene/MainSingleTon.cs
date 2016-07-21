@@ -69,10 +69,10 @@ public class MainSingleTon : MonoBehaviour {
     public int neighbor;
     public int lFood;
     public int lTitanium;
-    //public ??? planetTouchT
-    // public ??? titaniumTouchT
-    // public ??? treeTouchT
-    // public ??? breaktime
+    public string planetTouchT;
+    public string titaniumTouchT;
+    public string treeTouchT;
+    public string breaktime;
 
     public int tree1;
     public int tree2;
@@ -92,10 +92,17 @@ public class MainSingleTon : MonoBehaviour {
     public List<GameObject> PlanetList = new List<GameObject>();
     public Dictionary<int, GameObject> D_PlanetList = new Dictionary<int, GameObject>();
 
+    public GameObject SQLManager;
+    public int getCountFood;
+    public int getCountTitanium;
+    public int getCountEnergy;
+
+    public int maxStoreFood;
+    public int maxStoreTitanium;
+    public int maxStoreEnergy;
 
     void Start()
     {
-
     }
 
     public void callPlanet()
@@ -136,6 +143,73 @@ public class MainSingleTon : MonoBehaviour {
     public void setPostBox()
     {
         UIobj.GetComponent<MainUIfromSQL>().setPostBox();
+    }
+
+    public void getFood()
+    {
+        System.DateTime touchTime = System.DateTime.Now;
+        string Query = "";
+        if(treeTouchT == "0")
+        {
+            Query = "UPDATE managePlanetTable SET treeTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
+            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+            return;
+        }
+
+        System.DateTime preT = System.DateTime.ParseExact(treeTouchT, "yyyy-MM-dd HH:mm:ss", null);
+
+        System.TimeSpan deff = touchTime - preT;
+        int defTime = System.Convert.ToInt32(deff.TotalSeconds);
+        int calculateFood = defTime * getCountFood;
+
+        //이후시간, 이전시간 = 1, 같은경우 = 0, 이전,이후 = -1
+        int comp = System.DateTime.Compare(touchTime, preT);
+
+        if (comp == 1)
+        {
+            if(calculateFood > lFood)
+            {
+                if (lFood > maxStoreFood)
+                {
+
+                }
+            }
+            if (calculateFood > maxStoreFood)
+            {
+                cFood = cFood + maxStoreFood;
+            }
+            else
+            {
+                cFood = cFood + calculateFood;
+            }
+
+            treeTouchT = touchTime.ToString("yyyy-MM-dd HH:mm:ss");
+
+            Query = "UPDATE userTable SET cFood = " + cFood;
+            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+
+            Query = "UPDATE managePlanetTable SET treeTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
+            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+
+            return;
+        }
+        else if (comp == 0)
+        {
+            return;
+        }
+        else
+        {
+            treeTouchT = touchTime.ToString("yyyy-MM-dd HH:mm:ss");
+            Query = "UPDATE managePlanetTable SET treeTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
+            SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
+
+        }
+
+    }
+
+    public void getTitanium()
+    {
+
     }
 
     void Update()

@@ -7,6 +7,8 @@ public class csScreenPointTouch : MonoBehaviour
     public LayerMask ignoreUI;
 
     public static bool rDrag;
+    public GameObject SQLManager;
+
 
     void Start()
     {
@@ -40,7 +42,6 @@ public class csScreenPointTouch : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                     {
 
-                        Debug.Log(hit.transform.name);
                         if (hit.transform.tag.Equals("Finish"))
                         {
                             Debug.Log("panal");
@@ -48,12 +49,16 @@ public class csScreenPointTouch : MonoBehaviour
 
                         if (hit.transform.tag.Equals("Food"))
                         {
-                            Debug.Log("ray hit food");
+                            Debug.Log("ray hit food") ;
+                        MainSingleTon.Instance.getFood();
+
+
                         }
 
                         if (hit.transform.tag.Equals("Titanium"))
                         {
                             Debug.Log("ray hit titanium");
+                        MainSingleTon.Instance.getTitanium();
                         }
 
                         if (hit.transform.tag.Equals("Ship"))
