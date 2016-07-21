@@ -33,9 +33,9 @@ public class wmDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         {
             WorldMapManager.Instance().dragState = true;
         }
-        if (Input.touchCount == 1)
-        {
-            
+        //if (Input.touchCount == 1)  //Build Mode
+        //{
+
             //Debug.Log("OnDrag");
             newPos = new Vector2(eventData.position.x, eventData.position.y);
             //Debug.Log(eventData.delta);
@@ -43,7 +43,7 @@ public class wmDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             GameObject obj = GameObject.Find("Galaxy");
             //obj.transform.Rotate(new Vector3(eventData.delta.y/dragRate, 0, -eventData.delta.x/ dragRate));
             obj.transform.Rotate(new Vector3((newPos.y - oldPos.y) / dragRate, 0, -(newPos.x - oldPos.x) / dragRate));
-        }
+        //}//Build Mode
 
     }
 

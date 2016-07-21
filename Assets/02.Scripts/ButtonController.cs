@@ -10,12 +10,13 @@ public class ButtonController : MonoBehaviour {
     public void TransSceneToMain()
     {
         SceneManager.LoadScene("Main");
-        DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
+        Destroy(GameObject.Find("GameData").gameObject);
         Debug.Log("scene Trans to Main");
     }
 
     public void TransSceneToShop()
     {
+        GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;
         GameObject.Find("UI").transform.FindChild("StorePanal").gameObject.SetActive(true);
         GameObject.Find("UI/Main/Button/SettingBtn").gameObject.SetActive(false);
         GameObject.Find("GameManager/UIManager").GetComponent<StoreScript>().activeBuildingPanal();
@@ -61,6 +62,7 @@ public class ButtonController : MonoBehaviour {
    
     public void VisibleSetting()
     {
+        GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;
         GameObject.Find("UI").transform.FindChild("SettingPanal").gameObject.SetActive(true);
         GameObject.Find("UI").transform.FindChild("DragZone").gameObject.SetActive(false);
         GameObject.Find("UI").transform.FindChild("BlockPanal").gameObject.SetActive(true);
@@ -72,6 +74,7 @@ public class ButtonController : MonoBehaviour {
     public void Confirm()
     {
         Debug.Log("confirm");
+        GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = true;
         GameObject.Find("UI/SettingPanal").gameObject.SetActive(false);
         GameObject.Find("UI").transform.FindChild("DragZone").gameObject.SetActive(true);
         GameObject.Find("UI").transform.FindChild("BlockPanal").gameObject.SetActive(false);
@@ -86,6 +89,7 @@ public class ButtonController : MonoBehaviour {
     public void Cancel()
     {
         Debug.Log("Cancel");
+        GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = true;
         GameObject.Find("UI/SettingPanal").gameObject.SetActive(false);
         GameObject.Find("UI").transform.FindChild("DragZone").gameObject.SetActive(true);
         GameObject.Find("UI").transform.FindChild("BlockPanal").gameObject.SetActive(false);
@@ -151,19 +155,19 @@ public class ButtonController : MonoBehaviour {
 
     public void setVisibleFusionPanal()
     {
+        GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;
         GameObject.Find("UI").transform.FindChild("FusionPanal").gameObject.SetActive(true);
         MainSingleTon.Instance.activeFusionPanal = true;
     }
 
     public void CancelInFusionPanal()
     {
+        GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = true;
         GameObject.Find("UI/FusionPanal").gameObject.SetActive(false);
         MainSingleTon.Instance.activeFusionPanal = false;
     }
 
-
     // 메인화면
-
 
     // 탐사화면
     public void explore()
