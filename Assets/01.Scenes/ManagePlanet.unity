@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 2100000, guid: b85f311b1710f9649a0236d9b3718b71, type: 2}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -5499,7 +5499,7 @@ Transform:
   m_PrefabParentObject: {fileID: 430898, guid: f37c2fa3724dd5b4ba9af099225c2ba0, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1741265050}
-  m_LocalRotation: {x: -0.55776995, y: 0.58098936, z: 0.2780702, w: 0.52347034}
+  m_LocalRotation: {x: -0.5577699, y: 0.5809893, z: 0.27807018, w: 0.5234703}
   m_LocalPosition: {x: 34.58, y: -4.010229, z: 12.698103}
   m_LocalScale: {x: 0.035000004, y: 0.03499997, z: 0.034999955}
   m_LocalEulerAnglesHint: {x: -65.1027, y: -585.07227, z: 302.0075}
@@ -11026,7 +11026,7 @@ Transform:
   m_PrefabParentObject: {fileID: 430898, guid: f37c2fa3724dd5b4ba9af099225c2ba0, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 186888754}
-  m_LocalRotation: {x: -0.55776995, y: 0.58098936, z: 0.2780702, w: 0.52347034}
+  m_LocalRotation: {x: -0.5577699, y: 0.5809893, z: 0.27807018, w: 0.5234703}
   m_LocalPosition: {x: 34.58, y: -4.010229, z: 12.698103}
   m_LocalScale: {x: 0.035000037, y: 0.034999993, z: 0.034999996}
   m_LocalEulerAnglesHint: {x: -65.1027, y: -585.07227, z: 302.0075}
@@ -12475,7 +12475,7 @@ Transform:
   m_PrefabParentObject: {fileID: 430898, guid: f37c2fa3724dd5b4ba9af099225c2ba0, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1838416290}
-  m_LocalRotation: {x: -0.55776995, y: 0.58098936, z: 0.2780702, w: 0.52347034}
+  m_LocalRotation: {x: -0.5577699, y: 0.5809893, z: 0.27807018, w: 0.5234703}
   m_LocalPosition: {x: 34.58, y: -4.010229, z: 12.698103}
   m_LocalScale: {x: 0.035000004, y: 0.034999985, z: 0.034999985}
   m_LocalEulerAnglesHint: {x: -65.1027, y: -585.07227, z: 302.0075}
@@ -12642,7 +12642,7 @@ Transform:
   m_PrefabParentObject: {fileID: 430898, guid: f37c2fa3724dd5b4ba9af099225c2ba0, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1566588466}
-  m_LocalRotation: {x: -0.5577699, y: 0.5809893, z: 0.27807018, w: 0.5234703}
+  m_LocalRotation: {x: -0.55776995, y: 0.58098936, z: 0.2780702, w: 0.52347034}
   m_LocalPosition: {x: 34.58, y: -4.010229, z: 12.698103}
   m_LocalScale: {x: 0.035, y: 0.034999985, z: 0.03499999}
   m_LocalEulerAnglesHint: {x: -65.1027, y: -585.07227, z: 302.0075}
@@ -13734,7 +13734,7 @@ Transform:
   m_PrefabParentObject: {fileID: 430898, guid: f37c2fa3724dd5b4ba9af099225c2ba0, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1058045329}
-  m_LocalRotation: {x: -0.55776995, y: 0.58098936, z: 0.2780702, w: 0.52347034}
+  m_LocalRotation: {x: -0.5577699, y: 0.5809893, z: 0.27807018, w: 0.5234703}
   m_LocalPosition: {x: 34.58, y: -4.010229, z: 12.698103}
   m_LocalScale: {x: 0.03500002, y: 0.034999978, z: 0.03499997}
   m_LocalEulerAnglesHint: {x: -65.1027, y: -585.07227, z: 302.0075}
@@ -18838,12 +18838,14 @@ MonoBehaviour:
   tempPlanet: {fileID: 0}
   planetSpawnPoint: {x: 0, y: 0, z: 0}
   spaceChecker: {fileID: 0}
+  scInit: 0
   spaceCollision: 0
   destination: {fileID: 0}
   navUi_des: {fileID: 0}
   navUi_player: {fileID: 0}
   alertUi: {fileID: 0}
   exploreUi: {fileID: 0}
+  PlanetName: 
 --- !u!1 &1209439344
 GameObject:
   m_ObjectHideFlags: 0
@@ -23037,7 +23039,7 @@ Transform:
   m_PrefabParentObject: {fileID: 430898, guid: f37c2fa3724dd5b4ba9af099225c2ba0, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1375503504}
-  m_LocalRotation: {x: -0.55776995, y: 0.58098936, z: 0.2780702, w: 0.52347034}
+  m_LocalRotation: {x: -0.5577699, y: 0.5809893, z: 0.27807018, w: 0.5234703}
   m_LocalPosition: {x: 34.58, y: -4.010229, z: 12.698103}
   m_LocalScale: {x: 0.035000056, y: 0.03500001, z: 0.03500002}
   m_LocalEulerAnglesHint: {x: -65.1027, y: -585.07227, z: 302.0075}
@@ -24237,7 +24239,7 @@ Transform:
   m_PrefabParentObject: {fileID: 430898, guid: f37c2fa3724dd5b4ba9af099225c2ba0, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 518567492}
-  m_LocalRotation: {x: -0.55776995, y: 0.58098936, z: 0.2780702, w: 0.52347034}
+  m_LocalRotation: {x: -0.5577699, y: 0.5809893, z: 0.27807018, w: 0.5234703}
   m_LocalPosition: {x: 34.58, y: -4.010229, z: 12.698103}
   m_LocalScale: {x: 0.035000056, y: 0.035000008, z: 0.035000008}
   m_LocalEulerAnglesHint: {x: -65.1027, y: -585.07227, z: 302.0075}
@@ -24650,7 +24652,7 @@ Transform:
   m_PrefabParentObject: {fileID: 430898, guid: f37c2fa3724dd5b4ba9af099225c2ba0, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 117142156}
-  m_LocalRotation: {x: -0.5577699, y: 0.5809893, z: 0.27807018, w: 0.5234703}
+  m_LocalRotation: {x: -0.55776995, y: 0.58098936, z: 0.2780702, w: 0.52347034}
   m_LocalPosition: {x: 34.58, y: -4.010229, z: 12.698103}
   m_LocalScale: {x: 0.035000056, y: 0.035000004, z: 0.035000004}
   m_LocalEulerAnglesHint: {x: -65.1027, y: -585.07227, z: 302.0075}
@@ -27542,7 +27544,7 @@ Transform:
   m_PrefabParentObject: {fileID: 430898, guid: f37c2fa3724dd5b4ba9af099225c2ba0, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 194886267}
-  m_LocalRotation: {x: -0.55776995, y: 0.58098936, z: 0.2780702, w: 0.52347034}
+  m_LocalRotation: {x: -0.5577699, y: 0.5809893, z: 0.27807018, w: 0.5234703}
   m_LocalPosition: {x: 34.58, y: -4.010229, z: 12.698103}
   m_LocalScale: {x: 0.035000004, y: 0.034999963, z: 0.034999944}
   m_LocalEulerAnglesHint: {x: -65.1027, y: -585.07227, z: 302.0075}
@@ -28681,7 +28683,7 @@ Transform:
   m_PrefabParentObject: {fileID: 430898, guid: f37c2fa3724dd5b4ba9af099225c2ba0, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 879587692}
-  m_LocalRotation: {x: -0.55776995, y: 0.58098936, z: 0.2780702, w: 0.52347034}
+  m_LocalRotation: {x: -0.5577699, y: 0.5809893, z: 0.27807018, w: 0.5234703}
   m_LocalPosition: {x: 34.58, y: -4.010229, z: 12.698103}
   m_LocalScale: {x: 0.035000004, y: 0.034999978, z: 0.034999967}
   m_LocalEulerAnglesHint: {x: -65.1027, y: -585.07227, z: 302.0075}
