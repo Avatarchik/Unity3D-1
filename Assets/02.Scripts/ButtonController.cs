@@ -48,6 +48,7 @@ public class ButtonController : MonoBehaviour {
     }
     public void TransSceneToManage()
     {
+        GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().dbClose();
         SceneManager.LoadScene("ManagePlanet");
 
     }
@@ -130,8 +131,8 @@ public class ButtonController : MonoBehaviour {
     public void InjectionInStar()
     {
         Debug.Log("injectionOpen");
-        GameObject.Find("Canvas").transform.FindChild("injectionPanal").gameObject.SetActive(true);
-        GameObject.Find("Manager/UIManager").GetComponent<csInjection>().setPanal();
+        GameObject.Find("UI").transform.FindChild("injectionPanal").gameObject.SetActive(true);
+        GameObject.Find("GameManager/UIManager").GetComponent<csInjection>().setPanal();
 
         GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(true);
     }
@@ -139,15 +140,15 @@ public class ButtonController : MonoBehaviour {
     public void InjectionConfirm()
     {
         Debug.Log("injection confirm");
-        GameObject.Find("Canvas/BlockPanal").gameObject.SetActive(false);
-        GameObject.Find("Canvas/injectionPanal").gameObject.SetActive(false);
+        GameObject.Find("UI/BlockPanal").gameObject.SetActive(false);
+        GameObject.Find("UI/injectionPanal").gameObject.SetActive(false);
     }
 
     public void InjectionCancel()
     {
         Debug.Log("injection cancel");
-        GameObject.Find("Canvas/BlockPanal").gameObject.SetActive(false);
-        GameObject.Find("Canvas/injectionPanal").gameObject.SetActive(false);
+        GameObject.Find("UI/BlockPanal").gameObject.SetActive(false);
+        GameObject.Find("UI/injectionPanal").gameObject.SetActive(false);
 
     }
 

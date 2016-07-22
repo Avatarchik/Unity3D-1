@@ -12,7 +12,7 @@ public class csPlanetPanalSet : MonoBehaviour {
     GameObject PlanetExPanal;
     Text txt;
 
-
+    public GameObject deleteBtn;
 
     void Start()
     {
@@ -40,6 +40,18 @@ public class csPlanetPanalSet : MonoBehaviour {
 
     public void ChangeText(string pName)
     {
+        Debug.Log("check");
         txt.text = pName;
     }
+
+    public void setVisibleBtn()
+    {
+        deleteBtn.SetActive(true);
+    }
+
+    public void notVisibleBtn()
+    {
+        deleteBtn.SetActive(false);
+    }
+
 }

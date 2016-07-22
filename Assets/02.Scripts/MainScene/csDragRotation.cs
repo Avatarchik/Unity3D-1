@@ -40,11 +40,10 @@ public class csDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
         delPos = new Vector2(eventData.delta.x, eventData.delta.y);
         //Debug.Log(delPos);
-        RotateBase.transform.Rotate(new Vector3(eventData.delta.y, -eventData.delta.x,0 ));
+        RotateBase.transform.Rotate(new Vector3(eventData.delta.y/dragRate, -eventData.delta.x/dragRate,0 ));
 
         //GameObject obj = GameObject.Find("PlanetPosition/death_planet");
         //obj.transform.Rotate(new Vector3(eventData.delta.y , 0, -eventData.delta.x ));
-        //Quaternion.w
         ////obj.transform.Rotate(new Vector3((newPos.y - oldPos.y) / dragRate, 0, -(newPos.x - oldPos.x) / dragRate));
         //obj.transform.Rotate(RotateBase.transform.localEulerAngles/dragRate);
         //obj.transform.localRotation = Quaternion.Euler(new Vector3(RotateBase.transform.eulerAngles.x/dragRate, 0, -RotateBase.transform.eulerAngles.z/dragRate));

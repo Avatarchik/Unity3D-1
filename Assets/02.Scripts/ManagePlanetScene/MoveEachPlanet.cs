@@ -16,27 +16,36 @@ public class MoveEachPlanet : MonoBehaviour
 
     csPlanetPanalSet script;
 
+    int listCount;
+    public bool center;
+
     void Start()
     {
         POS_MAX = MovePlanet.Instance.points.Count - 1;
         StartCoroutine(CheckMove());
 
         script = GameObject.Find("Manager/UIManager").GetComponent<csPlanetPanalSet>();
-
+        listCount = (MovePlanet.Instance.points.Count) / 2;
+        Debug.Log(listCount);
+        center = false;
     }
 
     void Update()
     {
-        if(curPos == 1)
+        center = false;
+        if (curPos == listCount)
         {
+            center = true;
             if (this.gameObject.GetComponent<PlanetInfo>())
             {
                 script.ChangeText(this.gameObject.GetComponent<PlanetInfo>().pName);
+                script.setVisibleBtn();
 
             }
             if (this.gameObject.GetComponent<StarInfo>())
             {
                 script.ChangeText(this.gameObject.GetComponent<StarInfo>().zName);
+                script.notVisibleBtn();
             }
         }
     }

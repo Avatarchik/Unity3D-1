@@ -182,11 +182,11 @@ public class MainSceneSQL : MonoBehaviour {
 
     }
 
-    void dbClose()
+    public void dbClose()
     {
         ///////////////////////////////////////////////////////////////////[DB Connection Close]
-        reader.Close();
-        reader = null;
+        //reader.Close();
+        //reader = null;
         dbcmd.Dispose();
         dbcmd = null;
         dbconn.Close();

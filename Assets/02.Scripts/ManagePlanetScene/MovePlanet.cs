@@ -89,10 +89,7 @@ public class MovePlanet : MonoBehaviour
         planets.Add(temp);
 
     }
-    public void setStar()
-    {
 
-    }
 
     public void nowPlanet(int color, int size, int mat, int rowid)
     {
