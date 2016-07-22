@@ -824,7 +824,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 483464, guid: 429a12a4105e6f749b0ccc042f712d28, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 429a12a4105e6f749b0ccc042f712d28, type: 2}
@@ -4340,7 +4340,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 487020, guid: 34a9267cc7acc7d44b97789354cba91f, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11452344, guid: 34a9267cc7acc7d44b97789354cba91f, type: 2}
       propertyPath: m_input.Mouse.SensitivityOnMaxSpeed
@@ -5493,6 +5493,88 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300096, guid: bb375fe2672dfa24a9df2435ef097756, type: 3}
+--- !u!1001 &304424168
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22440152, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c9cc6d7b3381c0e48a7390cd35607296, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &312146510
 GameObject:
   m_ObjectHideFlags: 0
