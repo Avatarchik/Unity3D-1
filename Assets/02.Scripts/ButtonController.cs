@@ -229,6 +229,8 @@ public class ButtonController : MonoBehaviour {
         GameData.Instance().navOn = true;
         WorldMapManager.Instance().Touch.SetActive(true);
         WorldMapManager.Instance().UseNav_ui.SetActive(false);
+        WorldMapManager.Instance().Notice.SetActive(true);
+        WorldMapManager.Instance().Notice.GetComponentInChildren<Text>().CrossFadeAlpha(-1, 8.0f, false);
     }
     public void noNav()
     {
