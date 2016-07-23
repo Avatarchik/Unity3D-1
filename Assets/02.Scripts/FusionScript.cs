@@ -18,21 +18,30 @@ public class FusionScript : MonoBehaviour {
     public GameObject SingleTon;
     public GameObject SQLManager;
 
+    public GameObject SubPanal1;
+    public GameObject SubPanal2;
 
-    public GameObject SubPanal;
-    public GameObject ConfirmInSub;
-
-    public Slider slider;
-    public Text canNum;
-    public Text TextMin;
-    public Text TextMax;
-    public Text TextMakeNum;
-
-
+    public Slider slider1;
+    public Text canNum1;
+    public Text TextMin1;
+    public Text TextMax1;
+    public Text TextMakeNum1;
+    public Text TextResultName1;
+    public Text TextSum1Num;
+    public Text textSum2Num;
     public Image ImgResult;
     public Image ImgSum1;
     public Image ImgSum2;
-    public Image ImgSum3;
+
+    public Slider slider2;
+    public Text canNum2;
+    public Text TextMin2;
+    public Text TextMax2;
+    public Text TextMakeNum2;
+    public Text TextONum;
+    public Text TextGNum;
+    public Text TextVNum;
+
 
     public List<Sprite> EnergyIcon = new List<Sprite>();
 
@@ -49,7 +58,6 @@ public class FusionScript : MonoBehaviour {
         TextRENum.GetComponent<Text>().text = SingleTon.GetComponent<MainSingleTon>().cRE + "";
         TextYENum.GetComponent<Text>().text = SingleTon.GetComponent<MainSingleTon>().cYE + "";
         TextBENum.GetComponent<Text>().text = SingleTon.GetComponent<MainSingleTon>().cBE + "";
-
     }
 
     void Start()
@@ -57,57 +65,71 @@ public class FusionScript : MonoBehaviour {
     }
 
 
-    public void setIcon(int Result, int Sum1, int Sum3)
-    {
-        ImgResult.GetComponent<Image>().sprite = EnergyIcon[Result];
-        ImgSum1.GetComponent<Image>().sprite = EnergyIcon[Sum1];
-        ImgSum3.GetComponent<Image>().sprite = EnergyIcon[Sum3];
-        ImgSum2.GetComponent<Image>().gameObject.SetActive(false);
-        
-    }
-
-    public void setIcon(int Result, int Sum1, int Sum2, int Sum3)
+    public void setIcon(int Result, int Sum1, int Sum2)
     {
         ImgResult.GetComponent<Image>().sprite = EnergyIcon[Result];
         ImgSum1.GetComponent<Image>().sprite = EnergyIcon[Sum1];
         ImgSum2.GetComponent<Image>().sprite = EnergyIcon[Sum2];
-        ImgSum3.GetComponent<Image>().sprite = EnergyIcon[Sum3];
-
+        
     }
+
+    //public void setIcon(int Result, int Sum1, int Sum2, int Sum3)
+    //{
+    //    ImgResult.GetComponent<Image>().sprite = EnergyIcon[Result];
+    //    ImgSum1.GetComponent<Image>().sprite = EnergyIcon[Sum1];
+    //    ImgSum2.GetComponent<Image>().sprite = EnergyIcon[Sum2];
+    //    ImgSum3.GetComponent<Image>().sprite = EnergyIcon[Sum3];
+
+    //}
 
 
     public void MakePE()
     {
         switchEnergy = 1;
-        SubPanal.SetActive(true);
-        setIcon(0, 1, 2, 3);
+        SubPanal2.SetActive(true);
         canMakeNum(SingleTon.GetComponent<MainSingleTon>().cPE, SingleTon.GetComponent<MainSingleTon>().cOE, SingleTon.GetComponent<MainSingleTon>().cGE, SingleTon.GetComponent<MainSingleTon>().cVE);
+
+        TextONum.text = MainSingleTon.Instance.cOE.ToString();
+        TextGNum.text = MainSingleTon.Instance.cGE.ToString();
+        TextVNum.text = MainSingleTon.Instance.cVE.ToString();
+
     }
 
     public void MakeOE()
     {
         switchEnergy = 2;
-        SubPanal.SetActive(true);
+        SubPanal1.SetActive(true);
         setIcon(1, 4, 5);
         canMakeNum(SingleTon.GetComponent<MainSingleTon>().cOE, SingleTon.GetComponent<MainSingleTon>().cRE, SingleTon.GetComponent<MainSingleTon>().cYE);
+        TextResultName1.text = "오렌지";
+        TextSum1Num.text = MainSingleTon.Instance.cRE.ToString();
+        textSum2Num.text = MainSingleTon.Instance.cYE.ToString();
 
     }
 
     public void MakeGE()
     {
         switchEnergy = 3;
-        SubPanal.SetActive(true);
+        SubPanal1.SetActive(true);
         setIcon(2, 5, 6);
         canMakeNum(SingleTon.GetComponent<MainSingleTon>().cGE, SingleTon.GetComponent<MainSingleTon>().cYE, SingleTon.GetComponent<MainSingleTon>().cBE);
+        TextResultName1.text = "그린";
+        TextSum1Num.text = MainSingleTon.Instance.cYE.ToString();
+        textSum2Num.text = MainSingleTon.Instance.cBE.ToString();
+
 
     }
 
     public void MakeVE()
     {
         switchEnergy = 4;
-        SubPanal.SetActive(true);
+        SubPanal1.SetActive(true);
         setIcon(3, 4, 6);
         canMakeNum(SingleTon.GetComponent<MainSingleTon>().cVE, SingleTon.GetComponent<MainSingleTon>().cRE, SingleTon.GetComponent<MainSingleTon>().cBE);
+        TextResultName1.text = "바이올렛";
+        TextSum1Num.text = MainSingleTon.Instance.cRE.ToString();
+        textSum2Num.text = MainSingleTon.Instance.cBE.ToString();
+
     }
 
     void canMakeNum(int resutl, int sum1, int sum2, int sum3)
@@ -126,6 +148,7 @@ public class FusionScript : MonoBehaviour {
                 if(MainSingleTon.Instance.cPE + min > maxE)
                 {
                     min = (MainSingleTon.Instance.cPE + min) - maxE;
+
                 }
                 break;
 
@@ -152,9 +175,9 @@ public class FusionScript : MonoBehaviour {
             default:
                 break;
         }
-        TextMax.text = min + "";
-        slider.maxValue = min;
-        canNum.text = min.ToString();
+        TextMax2.text = min + "";
+        slider2.maxValue = min;
+        canNum2.text = min.ToString();
     }
 
     void canMakeNum(int resutl, int sum1, int sum3)
@@ -164,36 +187,49 @@ public class FusionScript : MonoBehaviour {
             min = sum1;
         else
             min = sum3;
-        TextMax.text = min + "";
-        slider.maxValue = min;
-        canNum.text = min.ToString();
+        TextMax1.text = min + "";
+        slider1.maxValue = min;
+        canNum1.text = min.ToString();
     }
 
 
-    public void ChangeSliderValue()
+    public void ChangeSliderValue1()
     {
-        float val = slider.value;
-        UpdateText((int)val);
+        float val = slider1.value;
+        UpdateText1((int)val);
     }
 
-    public void UpdateText(int cnt)
+    public void UpdateText1(int cnt)
     {
-        TextMakeNum.text = cnt + "";
+        TextMakeNum1.text = cnt + "";
+    }
+
+
+
+    public void ChangeSliderValue2()
+    {
+        float val = slider2.value;
+        UpdateText2((int)val);
+    }
+
+    public void UpdateText2(int cnt)
+    {
+        TextMakeNum2.text = cnt + "";
     }
 
 
 
     public void ConfirmInSubPanal()
     {
-        int makeNum = System.Convert.ToInt32(TextMakeNum.text);
-        TextMakeNum.text = 0 + "";
-        slider.value = 0;
+        int makeNum;
 
-        string Query="";
+        string Query ="";
 
         switch (switchEnergy)
         {
             case 1: //pletinum = orange + green + violate 1:1:1
+
+                makeNum = System.Convert.ToInt32(TextMakeNum2.text);
                 MainSingleTon.Instance.cPE += makeNum;
                 MainSingleTon.Instance.cOE -= makeNum;
                 MainSingleTon.Instance.cGE -= makeNum;
@@ -204,6 +240,9 @@ public class FusionScript : MonoBehaviour {
                 break;
 
             case 2: // orange = red + yellow 1:1
+
+                makeNum = System.Convert.ToInt32(TextMakeNum1.text);
+
                 MainSingleTon.Instance.cOE += makeNum;
                 MainSingleTon.Instance.cRE -= makeNum;
                 MainSingleTon.Instance.cYE -= makeNum;
@@ -214,6 +253,8 @@ public class FusionScript : MonoBehaviour {
                 break;
 
             case 3: //green = ytellow + blue 1:1
+                makeNum = System.Convert.ToInt32(TextMakeNum1.text);
+
                 MainSingleTon.Instance.cGE += makeNum;
                 MainSingleTon.Instance.cYE -= makeNum;
                 MainSingleTon.Instance.cBE -= makeNum;
@@ -224,6 +265,8 @@ public class FusionScript : MonoBehaviour {
                 break;
 
             case 4: // violate = red + blue 1:1
+                makeNum = System.Convert.ToInt32(TextMakeNum1.text);
+
                 MainSingleTon.Instance.cVE += makeNum;
                 MainSingleTon.Instance.cRE -= makeNum;
                 MainSingleTon.Instance.cBE -= makeNum;
@@ -235,21 +278,30 @@ public class FusionScript : MonoBehaviour {
             default:
                 break;
 
-
         }
 
 
+        TextMakeNum1.text = 0 + "";
+        slider1.value = 0;
+
+        TextMakeNum2.text = 0 + "";
+        slider2.value = 0;
+
         switchEnergy = 0;
         SQLManager.GetComponent<MainSceneSQL>().UpdateQuery(Query);
-        SubPanal.SetActive(false);
-        
+        SubPanal1.SetActive(false);
+        SubPanal2.SetActive(false);
+
     }
     public void CancelInSubPanal()
     {
-        TextMakeNum.text = 0 + "";
-        slider.value = 0;
+        TextMakeNum1.text = 0 + "";
+        slider1.value = 0;
+        TextMakeNum2.text = 0 + "";
+        slider2.value = 0;
         switchEnergy = 0;
-        SubPanal.SetActive(false);
+        SubPanal1.SetActive(false);
+        SubPanal2.SetActive(false);
 
     }
 

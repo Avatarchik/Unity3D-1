@@ -94,6 +94,9 @@ public class MainSingleTon : MonoBehaviour {
 
     public List<GameObject> PlanetList = new List<GameObject>();
     public Dictionary<int, GameObject> D_PlanetList = new Dictionary<int, GameObject>();
+    public List<Sprite> EnergyIconList = new List<Sprite>();
+
+
 
     public GameObject SQLManager;
     public float getCountFood;

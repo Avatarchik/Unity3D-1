@@ -18,8 +18,10 @@ public class MainUIfromSQL : MonoBehaviour
     public GameObject PlanetList;
     public GameObject PlanetPosition;
 
+    public GameObject getEnergyBtn;
 
-    //public GameObject Planet; // 수정해야함 -> DB에서 리스트 읽어서 해당행성 불러올 수 있도록
+
+
     GameObject Pla;
 
     public void setUIText()
@@ -30,6 +32,7 @@ public class MainUIfromSQL : MonoBehaviour
         PlanetName.GetComponent<Text>().text = singleTon.GetComponent<MainSingleTon>().pName;
         leftFood.GetComponent<Text>().text = singleTon.GetComponent<MainSingleTon>().lFood + "";
         leftTitanium.GetComponent<Text>().text = singleTon.GetComponent<MainSingleTon>().lTitanium + "";
+        getEnergyBtn.GetComponent<Image>().sprite = MainSingleTon.Instance.EnergyIconList[MainSingleTon.Instance.color -1];
 
     }
 

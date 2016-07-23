@@ -63,6 +63,7 @@ public class ButtonController : MonoBehaviour {
 
     public void VisibleSetting()
     {
+        Debug.Log("set");
         GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;
         GameObject.Find("UI").transform.FindChild("SettingPanal").gameObject.SetActive(true);
         GameObject.Find("UI").transform.FindChild("DragZone").gameObject.SetActive(false);
@@ -155,14 +156,14 @@ public class ButtonController : MonoBehaviour {
     public void setVisibleFusionPanal()
     {
         GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;
-        GameObject.Find("UI").transform.FindChild("FusionPanal").gameObject.SetActive(true);
+        GameObject.Find("UI").transform.FindChild("FusionPanel").gameObject.SetActive(true);
         MainSingleTon.Instance.activeFusionPanal = true;
     }
 
     public void CancelInFusionPanal()
     {
         GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = true;
-        GameObject.Find("UI/FusionPanal").gameObject.SetActive(false);
+        GameObject.Find("UI/FusionPanel").gameObject.SetActive(false);
         MainSingleTon.Instance.activeFusionPanal = false;
     }
 
