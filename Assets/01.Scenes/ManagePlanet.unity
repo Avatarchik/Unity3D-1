@@ -36692,8 +36692,10 @@ MonoBehaviour:
   navUi_player: {fileID: 0}
   alertUi: {fileID: 0}
   exploreUi: {fileID: 0}
+  noMorePS: {fileID: 0}
   PlanetName: 
   rotShip: {x: 0, y: 0, z: 0}
+  rotRate: 0
 --- !u!1 &1209439344
 GameObject:
   m_ObjectHideFlags: 0
@@ -52396,6 +52398,34 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 23.87356
   m_Center: {x: 0.000034332283, y: 0.00012207033, z: 0.000018119812}
+--- !u!1 &1741587033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1741587034}
+  m_Layer: 0
+  m_Name: WorldMapFlag
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1741587034
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1741587033}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
 --- !u!1 &1747842237
 GameObject:
   m_ObjectHideFlags: 0

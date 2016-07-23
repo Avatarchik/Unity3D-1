@@ -16,19 +16,34 @@ public class PlanetCollisionCheck : MonoBehaviour
         //충돌 오브젝트 종류 체크
         if (other.tag == "PlanetSpawn")
         {
-            //충돌 행성 위치 저장
-            GameManager.Instance().planetSpawnPoint = other.gameObject.GetComponent<Transform>().position;
+            SelectDB.Instance().table = "managePlanetTable";
+            SelectDB.Instance().column = "Count(*)";
+            SelectDB.Instance().Select(0);
 
-            //탐사 UI 활성화
-            GameManager.Instance().exploreUi.SetActive(true);
+            SelectDB.Instance().table = "zodiacTable";
+            SelectDB.Instance().column = "Count(*)";
+            SelectDB.Instance().where = "WHERE \"open\" = 1 AND  \"find\" = 1 AND \"active\" = 0";
+            SelectDB.Instance().Select(0);
+
+            if (SelectDB.Instance().planetCount == 11 || SelectDB.Instance().starCount == 5)
+            {
+                GameManager.Instance().noMorePS.SetActive(true);
+            } else {
+                //충돌 행성 위치 저장
+                GameManager.Instance().planetSpawnPoint = other.gameObject.GetComponent<Transform>().position;
+
+                //탐사 UI 활성화
+                GameManager.Instance().exploreUi.SetActive(true);
+
+                //물음표 행성 오브젝트 임시 저장
+                GameManager.Instance().tempPlanet = other.gameObject;
+
+                //행성 생성(ButtonController.cs에 'explore()'로 이동)
+            }
 
             //게임 시간 정지
             Time.timeScale = 0;
-
-            //행성 생성(ButtonController.cs에 'explore()'로 이동)
-
-            //물음표 행성 오브젝트 임시 저장
-            GameManager.Instance().tempPlanet = other.gameObject;
+            
         }
         else if (other.name != "SpaceCheck")
         {

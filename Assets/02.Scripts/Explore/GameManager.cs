@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour {
     public GameObject navUi_player;
     public GameObject alertUi;
     public GameObject exploreUi;
+    public GameObject noMorePS;
     public string PlanetName;
     public Vector3 rotShip;
     public int rotRate;
