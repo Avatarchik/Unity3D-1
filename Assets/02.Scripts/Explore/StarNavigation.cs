@@ -62,7 +62,6 @@ public class StarNavigation : MonoBehaviour {
 
         //목적지 네비게이션
         Vector3 pPoint = GameManager.Instance().player.transform.position;
-        //Vector3 dPoint = GameManager.Instance().destination.transform.position;
         if (GameData.Instance().navOn == true)
         {
             Vector3 dPoint = GameData.Instance().starPosition;

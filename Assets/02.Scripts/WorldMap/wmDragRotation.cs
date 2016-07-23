@@ -12,10 +12,6 @@ public class wmDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     Vector2 newPos;
 
     GameObject obj;
-    void Start()
-    {
-        obj = GameObject.Find("Main Camera");
-    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -41,19 +37,16 @@ public class wmDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             //Debug.Log(eventData.delta);
 
             GameObject obj = GameObject.Find("Galaxy");
-            //obj.transform.Rotate(new Vector3(eventData.delta.y/dragRate, 0, -eventData.delta.x/ dragRate));
-            obj.transform.Rotate(new Vector3((newPos.y - oldPos.y) / dragRate, 0, -(newPos.x - oldPos.x) / dragRate));
+            obj.transform.Rotate(new Vector3(eventData.delta.y / dragRate, -eventData.delta.x / dragRate,0));
         //}//Build Mode
 
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if(WorldMapManager.Instance().dragState == true)
-        {
-            WorldMapManager.Instance().dragState = false;
-        }
+        WorldMapManager.Instance().dragState = true;
+        
         //Debug.Log("OnDragEnd");
     }
-
+    
 }

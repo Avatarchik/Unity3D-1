@@ -6,17 +6,19 @@ public class wmScreenPointTouch : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonUp("Fire1"))                                     // Debug Mode
+        if (WorldMapManager.Instance().dragState == false)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    // Debug Mode
-            RaycastHit hit;                                                 // Debug Mode
+            if (Input.GetButtonUp("Fire1"))                                     // Debug Mode
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    // Debug Mode
+                RaycastHit hit;                                                 // Debug Mode
 
-            //foreach (Touch touch in Input.touches)                        // Build Mode
-            //{
-            //    Ray ray = Camera.main.ScreenPointToRay(touch.position);   // Build Mode
-            //    RaycastHit hit;                                           // Build Mode
+                //foreach (Touch touch in Input.touches)                        // Build Mode
+                //{
+                //    Ray ray = Camera.main.ScreenPointToRay(touch.position);   // Build Mode
+                //    RaycastHit hit;                                           // Build Mode
 
-            if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out hit))
                 {
                     if (WorldMapManager.Instance().dragState == false)
                     {
@@ -41,7 +43,9 @@ public class wmScreenPointTouch : MonoBehaviour
                         //}
                     }
                 }
-            //}                                                             // Build Mode
-        }                                                                   // Debug Mode
+                //}                                                             // Build Mode
+            }                                                                   // Debug Mode
+        }
+        WorldMapManager.Instance().dragState = false;
     }
 }

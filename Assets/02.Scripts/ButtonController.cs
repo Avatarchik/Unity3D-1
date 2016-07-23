@@ -44,11 +44,15 @@ public class ButtonController : MonoBehaviour {
     {
         //내비게이션 비활성화 조건 추가필요 
         SceneManager.LoadScene("WorldMap");
+        DontDestroyOnLoad(GameObject.Find("WorldMapFlag"));
         Debug.Log("scene Trans to WorldMap");
     }
     public void TransSceneToManage()
     {
-        GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().dbClose();
+        if(GameObject.Find("GameManager/SqlManager") != null)
+        {
+            GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().dbClose();
+        }
         SceneManager.LoadScene("ManagePlanet");
 
     }
@@ -207,15 +211,22 @@ public class ButtonController : MonoBehaviour {
         //Scene 전환 추가예정
     }
 
-    public void pass()
+    public void pass(int type)
     {
         //게임 시간 초기화
         Time.timeScale = 1;
 
-        //행성 생성하지 않음
-        GameManager.Instance().tempPlanet.SetActive(false);
-        //탐사 UI 비활성화
-        GameManager.Instance().exploreUi.SetActive(false);
+        if (type == 1)
+        {
+            //행성 생성하지 않음
+            GameManager.Instance().tempPlanet.SetActive(false);
+            //탐사 UI 비활성화
+            GameManager.Instance().exploreUi.SetActive(false);
+        }
+        else if(type == 2)
+        {
+            GameManager.Instance().noMorePS.SetActive(false);
+        }
     }
 
     // 월드맵
@@ -230,6 +241,7 @@ public class ButtonController : MonoBehaviour {
         GameData.Instance().navOn = true;
         WorldMapManager.Instance().Touch.SetActive(true);
         WorldMapManager.Instance().UseNav_ui.SetActive(false);
+        
     }
     public void noNav()
     {

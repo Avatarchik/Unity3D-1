@@ -16,19 +16,34 @@ public class PlanetCollisionCheck : MonoBehaviour
         //충돌 오브젝트 종류 체크
         if (other.tag == "PlanetSpawn")
         {
-            //충돌 행성 위치 저장
-            GameManager.Instance().planetSpawnPoint = other.gameObject.GetComponent<Transform>().position;
+            SelectDB.Instance().table = "managePlanetTable";
+            SelectDB.Instance().column = "Count(*)";
+            SelectDB.Instance().Select(0);
 
-            //탐사 UI 활성화
-            GameManager.Instance().exploreUi.SetActive(true);
+            SelectDB.Instance().table = "zodiacTable";
+            SelectDB.Instance().column = "Count(*)";
+            SelectDB.Instance().where = "WHERE \"open\" = 1 AND  \"find\" = 1 AND \"active\" = 0";
+            SelectDB.Instance().Select(0);
+
+            if (SelectDB.Instance().planetCount == 11 || SelectDB.Instance().starCount == 5)
+            {
+                GameManager.Instance().noMorePS.SetActive(true);
+            } else {
+                //충돌 행성 위치 저장
+                GameManager.Instance().planetSpawnPoint = other.gameObject.GetComponent<Transform>().position;
+
+                //탐사 UI 활성화
+                GameManager.Instance().exploreUi.SetActive(true);
+
+                //물음표 행성 오브젝트 임시 저장
+                GameManager.Instance().tempPlanet = other.gameObject;
+
+                //행성 생성(ButtonController.cs에 'explore()'로 이동)
+            }
 
             //게임 시간 정지
             Time.timeScale = 0;
-
-            //행성 생성(ButtonController.cs에 'explore()'로 이동)
-
-            //물음표 행성 오브젝트 임시 저장
-            GameManager.Instance().tempPlanet = other.gameObject;
+            
         }
         else if (other.name != "SpaceCheck")
         {
@@ -51,18 +66,31 @@ public class PlanetCollisionCheck : MonoBehaviour
                         GameManager.Instance().rotShip = Vector3.right;
                         break;
                 }
-                Vector3 rotShip = GameManager.Instance().rotShip;
-                GameObject.Find("Player").transform.FindChild("Ship").transform.Rotate(rotShip * 20);
+                GameManager.Instance().rotRate = 30;
+                GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
             }
             else if (this.gameObject.name == "ShipCollider_2")
             {
-                Vector3 rotShip = GameManager.Instance().rotShip;
-                GameObject.Find("Player").transform.FindChild("Ship").transform.Rotate(rotShip * 30);
+                GameManager.Instance().rotRate = 35;
+                GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
             }
             else if (this.gameObject.name == "ShipCollider_3")
             {
-                Vector3 rotShip = GameManager.Instance().rotShip;
-                GameObject.Find("Player").transform.FindChild("Ship").transform.Rotate(rotShip * 40);
+                GameManager.Instance().rotRate = 40;
+                GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
+            }else if(this.gameObject.name =="ShipCollider_left")
+            {
+                Debug.Log("left");
+                GameManager.Instance().rotShip = Vector3.up;
+                GameManager.Instance().rotRate = 35;
+                GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
+            }
+            else if (this.gameObject.name == "ShipCollider_right")
+            {
+                Debug.Log("Right");
+                GameManager.Instance().rotShip = Vector3.down;
+                GameManager.Instance().rotRate = 35;
+                GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
             }
         }
     }
