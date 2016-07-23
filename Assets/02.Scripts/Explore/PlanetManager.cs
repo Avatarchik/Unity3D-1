@@ -272,6 +272,7 @@ public class PlanetManager : MonoBehaviour
                 obj.transform.position = SelectDB.Instance().starPosition;
                 obj.name = SelectDB.Instance().planetName;
                 obj.tag = "Planet";
+                //obj.GetComponent<SphereCollider>().isTrigger = false;
                 obj.transform.FindChild("PC").gameObject.SetActive(false);
                 obj.transform.FindChild("Neighbor").gameObject.SetActive(false);
                 obj.transform.FindChild("Ship").gameObject.SetActive(false);

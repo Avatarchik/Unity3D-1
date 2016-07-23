@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
@@ -29,10 +30,27 @@ public class GameManager : MonoBehaviour {
     public GameObject exploreUi;
     public string PlanetName;
     public Vector3 rotShip;
+    public int rotRate;
+    int itweenCnt;
     void Start()
     {
         if (_instance == null)
             _instance = this;
     }
 
+
+    void Update()
+    {
+        itweenCnt = iTween.Count();
+        if (itweenCnt != 0 && GameObject.Find("MobileJoystick").GetComponent<Image>().enabled == true)
+        {
+            Debug.Log(iTween.Count());
+            GameObject.Find("MobileJoystick").GetComponent<Image>().enabled = false;
+        }
+        
+        else if (itweenCnt == 0 && GameObject.Find("MobileJoystick").GetComponent<Image>().enabled == false)
+        {
+            GameObject.Find("MobileJoystick").GetComponent<Image>().enabled = true;
+        }
+    }
 }

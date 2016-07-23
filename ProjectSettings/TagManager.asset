@@ -15,6 +15,7 @@ TagManager:
   - NShip
   - PostBox
   - Zoo
+  - ShipCollider
   layers:
   - Default
   - TransparentFX

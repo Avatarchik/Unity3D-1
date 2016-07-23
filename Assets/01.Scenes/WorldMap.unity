@@ -732,6 +732,7 @@ MonoBehaviour:
   ignoreUI:
     serializedVersion: 2
     m_Bits: 0
+  SQLManager: {fileID: 0}
 --- !u!1001 &80568553
 Prefab:
   m_ObjectHideFlags: 0
@@ -3875,35 +3876,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 478804, guid: 9173beb08a95c1943b5d5c369b5a0642, type: 2}
   m_PrefabInternal: {fileID: 463112585}
---- !u!1 &476219296
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 476219297}
-  m_Layer: 0
-  m_Name: UI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &476219297
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 476219296}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 1595700337}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
 --- !u!1001 &478078811
 Prefab:
   m_ObjectHideFlags: 0
@@ -11296,10 +11268,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1520242251}
-  m_LocalRotation: {x: 0.8629714, y: -0.472282, z: -0.059059646, w: 0.16953477}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 300, y: 300, z: 300}
-  m_LocalEulerAnglesHint: {x: 13.698999, y: 195.649, z: -1920.7269}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 565050513}
   - {fileID: 1623631697}
@@ -11732,7 +11704,7 @@ GameObject:
   - 114: {fileID: 1595700335}
   - 114: {fileID: 1595700334}
   m_Layer: 5
-  m_Name: WorldMap
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11809,8 +11781,8 @@ RectTransform:
   - {fileID: 1775480591}
   - {fileID: 554165491}
   - {fileID: 1918846350}
-  m_Father: {fileID: 476219297}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}

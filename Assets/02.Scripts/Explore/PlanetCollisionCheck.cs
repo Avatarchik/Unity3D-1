@@ -51,18 +51,31 @@ public class PlanetCollisionCheck : MonoBehaviour
                         GameManager.Instance().rotShip = Vector3.right;
                         break;
                 }
-                Vector3 rotShip = GameManager.Instance().rotShip;
-                GameObject.Find("Player").transform.FindChild("Ship").transform.Rotate(rotShip * 20);
+                GameManager.Instance().rotRate = 30;
+                GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
             }
             else if (this.gameObject.name == "ShipCollider_2")
             {
-                Vector3 rotShip = GameManager.Instance().rotShip;
-                GameObject.Find("Player").transform.FindChild("Ship").transform.Rotate(rotShip * 30);
+                GameManager.Instance().rotRate = 35;
+                GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
             }
             else if (this.gameObject.name == "ShipCollider_3")
             {
-                Vector3 rotShip = GameManager.Instance().rotShip;
-                GameObject.Find("Player").transform.FindChild("Ship").transform.Rotate(rotShip * 40);
+                GameManager.Instance().rotRate = 40;
+                GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
+            }else if(this.gameObject.name =="ShipCollider_left")
+            {
+                Debug.Log("left");
+                GameManager.Instance().rotShip = Vector3.up;
+                GameManager.Instance().rotRate = 35;
+                GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
+            }
+            else if (this.gameObject.name == "ShipCollider_right")
+            {
+                Debug.Log("Right");
+                GameManager.Instance().rotShip = Vector3.down;
+                GameManager.Instance().rotRate = 35;
+                GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
             }
         }
     }
