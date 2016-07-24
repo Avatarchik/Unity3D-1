@@ -33,9 +33,15 @@ public class StoreScript : MonoBehaviour {
 
 
     int treeCount = 1;
+
+    public Text storeFood;
+    public Text storeTitanium;
+    public Text storeEnergy;
+
+
     void Start()
     {
-
+        setStoreText();
     }
 
 
@@ -45,6 +51,14 @@ public class StoreScript : MonoBehaviour {
         GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = true;
         GameObject.Find("UI/Main/Button").transform.FindChild("SettingBtn").gameObject.SetActive(true);
         GameObject.Find("UI/StorePanal").gameObject.SetActive(false);
+    }
+
+    public void setStoreText()
+    {
+        storeFood.text = MainSingleTon.Instance.cFood.ToString();
+        storeTitanium.text = MainSingleTon.Instance.cTitanium.ToString();
+        storeEnergy.text = MainSingleTon.Instance.cPE.ToString();
+
     }
 
     public void activeBuildingPanal()
@@ -99,6 +113,8 @@ public class StoreScript : MonoBehaviour {
         }
 
         setBuildingPanal();
+        setStoreText();
+
     }
 
     public void getTree1()
@@ -147,6 +163,7 @@ public class StoreScript : MonoBehaviour {
         }
 
         setBuildingPanal();
+        setStoreText();
     }
 
     void setBuildingPanal()
@@ -368,6 +385,7 @@ public class StoreScript : MonoBehaviour {
         }
 
         setShipPanal();
+        setStoreText();
 
 
     }

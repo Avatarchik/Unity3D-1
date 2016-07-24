@@ -14,13 +14,13 @@ public class ButtonController : MonoBehaviour {
         Debug.Log("scene Trans to Main");
     }
 
-    public void TransSceneToShop()
+    public void setVisibleStore()
     {
         GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;
         GameObject.Find("UI").transform.FindChild("StorePanal").gameObject.SetActive(true);
         GameObject.Find("UI/Main/Button/SettingBtn").gameObject.SetActive(false);
         GameObject.Find("GameManager/UIManager").GetComponent<StoreScript>().activeBuildingPanal();
-        //Debug.Log("scene Trans to shop");
+        //Debug.Log("scene Trans to shop")
     }
 
 
