@@ -83,6 +83,7 @@ public class ManageSceneSQL : MonoBehaviour {
 
     }
 
+
     void settingInfo()
     {
         ///////////////////////////////////////////////////////////////////[DB Query]
@@ -279,6 +280,33 @@ public class ManageSceneSQL : MonoBehaviour {
         reader.Close();
         reader = null;
 
+
+        sqlQuery = "SELECT * FROM userTable";
+        dbcmd.CommandText = sqlQuery;
+        reader = dbcmd.ExecuteReader();
+        //유저정보
+        cnt = 0;
+        while (reader.Read())
+        {
+            MovePlanet.Instance.cPlanet = reader.GetInt32(cnt++);
+            MovePlanet.Instance.cFood = reader.GetInt32(cnt++);
+            MovePlanet.Instance.cTitanium = reader.GetInt32(cnt++);
+            MovePlanet.Instance.cRE = reader.GetInt32(cnt++);
+            MovePlanet.Instance.cYE = reader.GetInt32(cnt++);
+            MovePlanet.Instance.cBE = reader.GetInt32(cnt++);
+            MovePlanet.Instance.cOE = reader.GetInt32(cnt++);
+            MovePlanet.Instance.cGE = reader.GetInt32(cnt++);
+            MovePlanet.Instance.cVE = reader.GetInt32(cnt++);
+            MovePlanet.Instance.cPE = reader.GetInt32(cnt++);
+            MovePlanet.Instance.shipNum = reader.GetInt32(cnt++);
+
+            cnt = 0;
+        }
+
+        MovePlanet.Instance.setResource();
+
+        reader.Close();
+        reader = null;
 
 
         MovePlanet.Instance.setPlanets();

@@ -3,6 +3,8 @@ using UnityEngine.EventSystems;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+
 
 public class MovePlanet : MonoBehaviour
 {
@@ -61,7 +63,29 @@ public class MovePlanet : MonoBehaviour
 
     public GameObject prefStar;
 
+    public int cPlanet;
+    public int cFood;
+    public int cTitanium;
+    public int cRE;
+    public int cYE;
+    public int cBE;
+    public int cOE;
+    public int cGE;
+    public int cVE;
+    public int cPE;
+    public int shipNum;
 
+
+    public Text textFood;
+    public Text textTitanium;
+    public Text textPE;
+
+    public void setResource()
+    {
+        textFood.text = cFood.ToString();
+        textTitanium.text = cTitanium.ToString();
+        textPE.text = cPE.ToString();
+    }
 
     public void getPlanets(int color, int size, int mat, int rowid)
     {

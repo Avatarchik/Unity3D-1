@@ -7,7 +7,7 @@ using Mono.Data.Sqlite;
 using System.IO;
 
 
-public class StarSceneSqlTest : MonoBehaviour
+public class StarSceneSql : MonoBehaviour
 {
     string m_ConnectionString;
     string m_SQLiteFileName = "CosmicDB.sqlite";
@@ -78,64 +78,80 @@ public class StarSceneSqlTest : MonoBehaviour
 
     }
 
-    public static void InjectionPanal()
+    public static void StarStart()
     {
         ///////////////////////////////////////////////////////////////////[DB Query]
         dbcmd = dbconn.CreateCommand();
-        string sqlQuery = "SELECT cPE FROM userTableTest";
-        //string sqlQuery = "SLECT Sount(rowid) as Count FROM userTableTest";
+        string sqlQuery = "SELECT * FROM userTable";
         dbcmd.CommandText = sqlQuery;
         ///////////////////////////////////////////////////////////////////[DB Query]
 
-        ///////////////////////////////////////////////////////////////////[Data Read]
-        int cPE = 0;
         int cnt = 0;
         reader = dbcmd.ExecuteReader();
         while (reader.Read())
         {
-            cPE = reader.GetInt32(cnt);
-            cnt++;
-            Debug.Log(cPE);
+            StarSingleTon.Instance.cPlanet = reader.GetInt32(cnt++);
+            StarSingleTon.Instance.cFood = reader.GetInt32(cnt++);
+            StarSingleTon.Instance.cTitanium = reader.GetInt32(cnt++);
+            StarSingleTon.Instance.cRE = reader.GetInt32(cnt++);
+            StarSingleTon.Instance.cYE = reader.GetInt32(cnt++);
+            StarSingleTon.Instance.cBE = reader.GetInt32(cnt++);
+            StarSingleTon.Instance.cOE = reader.GetInt32(cnt++);
+            StarSingleTon.Instance.cGE = reader.GetInt32(cnt++);
+            StarSingleTon.Instance.cVE = reader.GetInt32(cnt++);
+            StarSingleTon.Instance.cPE = reader.GetInt32(cnt++);
+            StarSingleTon.Instance.shipNum = reader.GetInt32(cnt++);
 
-
+            cnt = 0;
         }
-
-        csInjection.userE = cPE;
+        cnt = 0;
 
         reader.Close();
         reader = null;
 
-        sqlQuery = "SELECT needPE, nowPE From zodiacTableTest WHERE zID = \"Aqua_2\"";
-
+        sqlQuery = "SELECT * FROM zodiacTableTest WHERE rowid =" + StarSingleTon.Instance.rowid;
         dbcmd.CommandText = sqlQuery;
-        int lPE = 0;
         reader = dbcmd.ExecuteReader();
-
         while (reader.Read())
         {
-            int needPE = reader.GetInt32(0);
-            int nowPE = reader.GetInt32(1);
+            StarSingleTon.Instance.zID = reader.GetString(cnt++);
+            StarSingleTon.Instance.zodiac = reader.GetString(cnt++);
+            StarSingleTon.Instance.zName = reader.GetString(cnt++);
+            StarSingleTon.Instance.locationX = reader.GetFloat(cnt++);
+            StarSingleTon.Instance.locationY = reader.GetFloat(cnt++);
+            StarSingleTon.Instance.locationZ = reader.GetFloat(cnt++);
+            StarSingleTon.Instance.zOpen = reader.GetBoolean(cnt++);
+            StarSingleTon.Instance.zFind = reader.GetBoolean(cnt++);
+            StarSingleTon.Instance.needPE = reader.GetInt32(cnt++);
+            StarSingleTon.Instance.nowPE = reader.GetInt32(cnt++);
+            StarSingleTon.Instance.zActive = reader.GetBoolean(cnt++);
 
-            lPE = needPE - nowPE;
+            cnt = 0;
         }
-        Debug.Log(lPE);
-        csInjection.PlanetE = lPE;
-
+        cnt = 0;
         reader.Close();
         reader = null;
 
+        StarSingleTon.Instance.setMainText();
 
-        //dbClose();
     }
 
 
+    public void UpdateQuery(string ShipQuery)
+    {
+        dbcmd.CommandText = ShipQuery;
+        dbcmd.ExecuteNonQuery();
+
+        StarStart();
+
+    }
 
 
     public void dbClose()
     {
         ///////////////////////////////////////////////////////////////////[DB Connection Close]
-        reader.Close();
-        reader = null;
+        //reader.Close();
+        //reader = null;
         dbcmd.Dispose();
         dbcmd = null;
         dbconn.Close();

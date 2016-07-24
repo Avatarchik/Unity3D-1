@@ -719,7 +719,9 @@ public class MainSingleTon : MonoBehaviour {
 
     void Update()
     {
-        UIobj.GetComponent<MainUIfromSQL>().setUIText();
+            UIobj.GetComponent<MainUIfromSQL>().setUIText();
+
+
         if (activeFusionPanal) 
         {
             UIobj.GetComponent<FusionScript>().setText();

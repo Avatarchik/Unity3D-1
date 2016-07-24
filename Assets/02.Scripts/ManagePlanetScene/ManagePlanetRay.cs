@@ -27,13 +27,17 @@ public class ManagePlanetRay : MonoBehaviour {
                 Debug.Log(hit.transform.name);
                 Debug.Log(hit.transform.tag);
 
-                if (hit.transform.GetComponent<MoveEachPlanet>().center && hit.transform.GetComponent<StarInfo>())
+                if(hit.transform.tag == "Stars")
                 {
-                    Debug.Log("center");
-                    GameObject.Find("OBJ").GetComponent<OBJScript>().rowid = hit.transform.GetComponent<StarInfo>().rowid;
-                    DontDestroyOnLoad(GameObject.Find("OBJ").gameObject);
+                    if (hit.transform.GetComponent<MoveEachPlanet>().center && hit.transform.GetComponent<StarInfo>())
+                    {
+                        Debug.Log("center");
+                        GameObject.Find("OBJ").GetComponent<OBJScript>().rowid = hit.transform.GetComponent<StarInfo>().rowid;
+                        DontDestroyOnLoad(GameObject.Find("OBJ").gameObject);
 
-                    SceneManager.LoadScene("Star");
+                        SceneManager.LoadScene("Star");
+                    }
+
                 }
 
             }

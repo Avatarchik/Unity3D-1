@@ -16,8 +16,8 @@ public class csPlanetPanalSet : MonoBehaviour {
 
     void Start()
     {
-        PlanetExPanal = GameObject.Find("UI/ManagePlanet_ui/PlanetEx");
-        txt = GameObject.Find("UI/ManagePlanet_ui/PlanetEx/Text").GetComponent<Text>();
+        PlanetExPanal = GameObject.Find("UI/PlanetEx");
+        txt = GameObject.Find("UI/PlanetEx/Text").GetComponent<Text>();
         PlanetCount = MovePlanet.Instance.planets.Count;
         setPanalVisible();
     }
@@ -40,7 +40,6 @@ public class csPlanetPanalSet : MonoBehaviour {
 
     public void ChangeText(string pName)
     {
-        Debug.Log("check");
         txt.text = pName;
     }
 

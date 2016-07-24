@@ -26,7 +26,6 @@ public class MoveEachPlanet : MonoBehaviour
 
         script = GameObject.Find("Manager/UIManager").GetComponent<csPlanetPanalSet>();
         listCount = (MovePlanet.Instance.points.Count) / 2;
-        Debug.Log(listCount);
         center = false;
     }
 

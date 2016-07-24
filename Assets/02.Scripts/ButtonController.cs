@@ -54,7 +54,16 @@ public class ButtonController : MonoBehaviour {
             GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().dbClose();
         }
         SceneManager.LoadScene("ManagePlanet");
+    }
 
+    public void TransSceneToManageInStar()
+    {
+        if(GameObject.Find("GameManager/SqlManager") != null)
+        {
+            GameObject.Find("GameManager/SqlManager").GetComponent<StarSceneSql>().dbClose();
+        }
+
+        SceneManager.LoadScene("ManagePlanet");
     }
 
     public void TransSceneToExplore()
@@ -75,6 +84,7 @@ public class ButtonController : MonoBehaviour {
         GameObject planet = GameObject.Find("death_planet");
         planet.gameObject.layer = 2;
     }
+
 
 
     public void Confirm()
@@ -103,7 +113,29 @@ public class ButtonController : MonoBehaviour {
         planet.gameObject.layer = 0;
 
         csScreenPointTouch.rDrag = true;
+    }
 
+    public void VisibleSettingInManage()
+    {
+        GameObject.Find("Manager").gameObject.GetComponent<ManagePlanetRay>().enabled = false;
+        GameObject.Find("UI").transform.FindChild("SettingPanal").gameObject.SetActive(true);
+        GameObject.Find("UI/PlanetEx").gameObject.SetActive(false);
+
+    }
+
+    public void confirmInSettingAtManage()
+    {
+        GameObject.Find("Manager").gameObject.GetComponent<ManagePlanetRay>().enabled = true;
+        GameObject.Find("UI/SettingPanal").gameObject.SetActive(false);
+        GameObject.Find("UI").transform.FindChild("PlanetEx").gameObject.SetActive(true);
+
+    }
+
+    public void cancelInSettingAtmanage()
+    {
+        GameObject.Find("Manager").gameObject.GetComponent<ManagePlanetRay>().enabled = true;
+        GameObject.Find("UI/SettingPanal").gameObject.SetActive(false);
+        GameObject.Find("UI").transform.FindChild("PlanetEx").gameObject.SetActive(true);
 
     }
 
@@ -112,63 +144,62 @@ public class ButtonController : MonoBehaviour {
 
     public void VisibleSettingInStar()
     {
-        GameObject.Find("Canvas").transform.FindChild("SettingPanal").gameObject.SetActive(true);
-        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(true);
+        GameObject.Find("UI").transform.FindChild("SettingPanal").gameObject.SetActive(true);
     }
 
 
     public void ConfirmInStar()
     {
         Debug.Log("confirm");
-        GameObject.Find("Canvas/SettingPanal").gameObject.SetActive(false);
-        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(false);
+        GameObject.Find("UI/SettingPanal").gameObject.SetActive(false);
 
     }
 
     public void CancelInStar()
     {
         Debug.Log("Cancel");
-        GameObject.Find("Canvas/SettingPanal").gameObject.SetActive(false);
-        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(false);
+        GameObject.Find("UI/SettingPanal").gameObject.SetActive(false);
 
     }
+
 
     public void InjectionInStar()
     {
         Debug.Log("injectionOpen");
-        GameObject.Find("UI").transform.FindChild("injectionPanal").gameObject.SetActive(true);
+        GameObject.Find("UI").transform.FindChild("Injection_PE").gameObject.SetActive(true);
         GameObject.Find("GameManager/UIManager").GetComponent<csInjection>().setPanal();
-
-        GameObject.Find("Canvas").transform.FindChild("BlockPanal").gameObject.SetActive(true);
-    }
-
-    public void InjectionConfirm()
-    {
-        Debug.Log("injection confirm");
-        GameObject.Find("UI/BlockPanal").gameObject.SetActive(false);
-        GameObject.Find("UI/injectionPanal").gameObject.SetActive(false);
-    }
-
-    public void InjectionCancel()
-    {
-        Debug.Log("injection cancel");
-        GameObject.Find("UI/BlockPanal").gameObject.SetActive(false);
-        GameObject.Find("UI/injectionPanal").gameObject.SetActive(false);
 
     }
 
     public void setVisibleFusionPanal()
     {
-        GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;
+        if (GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>())
+        {
+            GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;
+        }
+
         GameObject.Find("UI").transform.FindChild("FusionPanel").gameObject.SetActive(true);
-        MainSingleTon.Instance.activeFusionPanal = true;
+
+        if (GameObject.Find("GameManager").gameObject.GetComponent<MainSingleTon>())
+        {
+            MainSingleTon.Instance.activeFusionPanal = true;
+        }
+
     }
 
     public void CancelInFusionPanal()
     {
-        GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = true;
+        if (GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>())
+        {
+            GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = true;
+        }
+
         GameObject.Find("UI/FusionPanel").gameObject.SetActive(false);
-        MainSingleTon.Instance.activeFusionPanal = false;
+
+        if (GameObject.Find("GameManager").gameObject.GetComponent<MainSingleTon>())
+        {
+            MainSingleTon.Instance.activeFusionPanal = false;
+        }
     }
 
     public void getEnergy()

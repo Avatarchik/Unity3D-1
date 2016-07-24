@@ -5,42 +5,37 @@ using UnityEngine.UI;
 
 public class csInjection : MonoBehaviour {
 
-    Text PEText;
-    Text MaxText;
-    Slider slider;
 
 
     int minimum;
-    static int maximun;
+    int maximun;
     int nowE;
 
-    public static int userE;
-    public static int PlanetE;
+    int userE;
+    int PlanetE;
+
+    public Text havePE;
+    public Text needPE;
+
+    public Slider slider;
+    public Text textMaxPE;
+    public Text textMakeNum;
+
+    public GameObject SQLManager;
     
-    void Start()
-    {
-                
-    }
-
-
     public void setPanal()
     {
-        PEText = GameObject.Find("Canvas/injectionPanal/Image/Slider/NowE").GetComponent<Text>();
-        slider = GameObject.Find("Canvas/injectionPanal/Image/Slider").GetComponent<Slider>();
-        MaxText = GameObject.Find("Canvas/injectionPanal/Image/Slider/MAX").GetComponent<Text>();
+        havePE.text = StarSingleTon.Instance.cPE.ToString();
+        needPE.text = (StarSingleTon.Instance.needPE - StarSingleTon.Instance.nowPE).ToString();
+
+        userE = StarSingleTon.Instance.cPE;
+        PlanetE = (StarSingleTon.Instance.needPE - StarSingleTon.Instance.nowPE);
 
 
         minimum = 0;
         nowE = 0;
-        StarSceneSqlTest.InjectionPanal();
         setMaximunPE();
     }
-
-    //public static void getE(int data)
-    //{
-    //    userE = data;
-    //    Debug.Log("injec" + userE);
-    //}
 
 
     void setMaximunPE()
@@ -57,10 +52,7 @@ public class csInjection : MonoBehaviour {
             slider.GetComponent<Slider>().maxValue = PlanetE;
         }
 
-
-        //maximun = 50000;
-        //slider.GetComponent<Slider>().maxValue = userE;
-        MaxText.text = slider.GetComponent<Slider>().maxValue + "";
+        textMaxPE.text = slider.GetComponent<Slider>().maxValue.ToString();
 
     }
 
@@ -75,7 +67,43 @@ public class csInjection : MonoBehaviour {
 
     public void UpdateText(int cnt)
     {
-        PEText.text = cnt + "";
+        textMakeNum.text = cnt.ToString();
     }
+
+
+
+    public void Confirm()
+    {
+        string Query;
+        string Query2;
+
+        StarSingleTon.Instance.nowPE += System.Convert.ToInt32(textMakeNum.text);
+        StarSingleTon.Instance.cPE -= System.Convert.ToInt32(textMakeNum.text);
+
+        Query2 = "UPDATE userTable SET cPE = " + StarSingleTon.Instance.cPE;
+        Debug.Log(Query2);
+
+        if(StarSingleTon.Instance.needPE == StarSingleTon.Instance.nowPE)
+        {
+            Query = "UPDATE zodiacTableTest SET nowPE = " + StarSingleTon.Instance.nowPE + ", active = " + 1 +  " WHERE rowid = " + StarSingleTon.Instance.rowid;
+            Debug.Log(Query);
+        }
+        else
+        {
+            Query = "UPDATE zodiacTableTest SET nowPE = " + StarSingleTon.Instance.nowPE + " WHERE rowid = " + StarSingleTon.Instance.rowid;
+            Debug.Log(Query);
+        }
+        SQLManager.GetComponent<StarSceneSql>().UpdateQuery(Query);
+        SQLManager.GetComponent<StarSceneSql>().UpdateQuery(Query2);
+
+        GameObject.Find("UI/Injection_PE").gameObject.SetActive(false);
+    }
+
+    public void Cancel()
+    {
+        slider.value = 0;
+        GameObject.Find("UI/Injection_PE").gameObject.SetActive(false);
+    }
+
 }
 

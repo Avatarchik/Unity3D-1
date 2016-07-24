@@ -292,7 +292,11 @@ public class FusionScript : MonoBehaviour {
         SubPanal1.SetActive(false);
         SubPanal2.SetActive(false);
 
+        setText();
+
     }
+
+
     public void CancelInSubPanal()
     {
         TextMakeNum1.text = 0 + "";
