@@ -187,6 +187,10 @@ public class ButtonController : MonoBehaviour {
         {
             MainSingleTon.Instance.activeFusionPanal = true;
         }
+        if (GameObject.Find("GameManager").gameObject.GetComponent<StarSingleTon>())
+        {
+            GameObject.Find("GameManager/UIManager").gameObject.GetComponent<StarFusion>().setText();
+        }
 
     }
 

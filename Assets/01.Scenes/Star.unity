@@ -3869,7 +3869,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1840778844}
         m_MethodName: MakeGE
         m_Mode: 1
         m_Arguments:
@@ -4395,7 +4395,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1840778844}
         m_MethodName: ConfirmInSubPanal
         m_Mode: 1
         m_Arguments:
@@ -5003,7 +5003,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1840778844}
         m_MethodName: CancelInSubPanal
         m_Mode: 1
         m_Arguments:
@@ -5419,7 +5419,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 684166171}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1840778840}
+        m_MethodName: setVisibleFusionPanal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &684166171
@@ -5821,7 +5832,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1840778844}
         m_MethodName: CancelInSubPanal
         m_Mode: 1
         m_Arguments:
@@ -6028,7 +6039,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1840778844}
         m_MethodName: ChangeSliderValue2
         m_Mode: 1
         m_Arguments:
@@ -6942,7 +6953,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1840778844}
         m_MethodName: ConfirmInSubPanal
         m_Mode: 1
         m_Arguments:
@@ -7805,7 +7816,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1840778844}
         m_MethodName: MakeVE
         m_Mode: 1
         m_Arguments:
@@ -9739,7 +9750,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1840778844}
         m_MethodName: MakePE
         m_Mode: 1
         m_Arguments:
@@ -10301,7 +10312,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1840778840}
         m_MethodName: CancelInFusionPanal
         m_Mode: 1
         m_Arguments:
@@ -12982,6 +12993,7 @@ GameObject:
   - 114: {fileID: 1840778840}
   - 114: {fileID: 1840778842}
   - 114: {fileID: 1840778843}
+  - 114: {fileID: 1840778844}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -13041,6 +13053,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4785112b53616db459182e98ffeca6b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1840778844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1840778839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc136d91ff8a1e478038e310d6f8e74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextPENum: {fileID: 610243911}
+  TextOENum: {fileID: 1775501522}
+  TextGENum: {fileID: 1812066328}
+  TextVENum: {fileID: 269501035}
+  TextRENum: {fileID: 1120039137}
+  TextYENum: {fileID: 1483259920}
+  TextBENum: {fileID: 321553902}
+  SQLManager: {fileID: 1331161207}
+  SubPanal1: {fileID: 265629437}
+  SubPanal2: {fileID: 2102446532}
+  slider1: {fileID: 2030954475}
+  canNum1: {fileID: 465682653}
+  TextMin1: {fileID: 790631970}
+  TextMax1: {fileID: 1496277624}
+  TextMakeNum1: {fileID: 1514203455}
+  TextResultName1: {fileID: 467280427}
+  TextSum1Num: {fileID: 691870661}
+  textSum2Num: {fileID: 224747239}
+  ImgResult: {fileID: 206817737}
+  ImgSum1: {fileID: 1022345513}
+  ImgSum2: {fileID: 1483341557}
+  slider2: {fileID: 740869798}
+  canNum2: {fileID: 2066563145}
+  TextMin2: {fileID: 1896861794}
+  TextMax2: {fileID: 755464991}
+  TextMakeNum2: {fileID: 1571880289}
+  TextONum: {fileID: 37442769}
+  TextGNum: {fileID: 1463340037}
+  TextVNum: {fileID: 299545698}
+  EnergyIcon:
+  - {fileID: 21300000, guid: 68c4411945c78474fb6509ed022bb506, type: 3}
+  - {fileID: 21300000, guid: afb90c7cd783a0c48b6a7a798e8157e7, type: 3}
+  - {fileID: 21300000, guid: 7842cf473052f064d86f79296eaf6b46, type: 3}
+  - {fileID: 21300000, guid: 4dc1bb6f798dcb646ac6bafe84c80598, type: 3}
+  - {fileID: 21300000, guid: 1435302edf358d14c92bea3f53d8f3b5, type: 3}
+  - {fileID: 21300000, guid: 3927892f3e66c6746bb43a5b7387da91, type: 3}
+  - {fileID: 21300000, guid: f442494dda158144c9ccdd17d4f19f20, type: 3}
+  maxE: 20000
 --- !u!1 &1843741507
 GameObject:
   m_ObjectHideFlags: 0
@@ -13704,7 +13765,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1840778844}
         m_MethodName: MakeOE
         m_Mode: 1
         m_Arguments:
@@ -14205,7 +14266,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1840778844}
         m_MethodName: ChangeSliderValue1
         m_Mode: 1
         m_Arguments:
