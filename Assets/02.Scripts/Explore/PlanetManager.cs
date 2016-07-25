@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class PlanetManager : MonoBehaviour
 {
     public GameObject udp;
-    public GameObject[] planet;
+    public GameObject[] natureObj;
     private GameObject player;
     private GameObject spaceChecker;
     public float spawnTime = 10.0f;
@@ -19,6 +19,21 @@ public class PlanetManager : MonoBehaviour
     int poolSize = 20;
 
     int planetLoadCnt = 1;
+
+    void Awake()
+    {
+        Debug.Log(natureObj.Length);
+        for (int i = 0; i < natureObj.Length; i++)
+        {
+            Debug.Log(i +" "+ natureObj[i].transform.childCount);
+            for (int j = 0; j < natureObj[i].transform.childCount; j++)
+            {
+                Debug.Log(j +" "+ natureObj[i].transform.GetChild(j).gameObject.name);
+                natureObj[i].transform.GetChild(j).gameObject.AddComponent<MeshCollider>().enabled =true;
+            }
+        }
+
+    }
 
     void Start()
     {

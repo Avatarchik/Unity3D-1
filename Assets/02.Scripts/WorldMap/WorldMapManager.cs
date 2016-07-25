@@ -12,12 +12,13 @@ public class WorldMapManager : MonoBehaviour
         return _instance;
     }
 
-    public GameObject Warning_ui;
+    
     public GameObject NotAnyMore_ui;
     public GameObject UseNav_ui;
     public GameObject Destination_ui;
     public GameObject Touch;
     public GameObject Notice;
+    public GameObject ChooseStar;
     public bool dragState = false;
 
     void Start()

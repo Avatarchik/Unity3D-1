@@ -270,6 +270,7 @@ public class ButtonController : MonoBehaviour {
     // 월드맵
     public void ReChoose()
     {
+        WorldMapManager.Instance().ChooseStar.SetActive(true);
         WorldMapManager.Instance().Touch.SetActive(true);
         WorldMapManager.Instance().Destination_ui.SetActive(false);
     }

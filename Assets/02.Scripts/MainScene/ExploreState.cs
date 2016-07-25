@@ -24,7 +24,8 @@ public class ExploreState : MonoBehaviour {
             SelectDB.Instance().column = "Count(*)";
             SelectDB.Instance().where = "WHERE \"open\" = 1 AND  \"find\" = 1 AND \"active\" = 0";
             SelectDB.Instance().Select(0);
-            
+
+            GameData.Instance().shipNum = SelectDB.Instance().shipNum;
             switch (SelectDB.Instance().shipNum)
             {
                 case 1:

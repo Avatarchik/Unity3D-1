@@ -33,6 +33,29 @@ public class GameManager : MonoBehaviour {
     public Vector3 rotShip;
     public int rotRate;
     int itweenCnt;
+    
+    void Awake()
+    {
+        switch (GameData.Instance().shipNum)
+        {
+            case 1:
+                GameObject.Find("Ship_1").gameObject.SetActive(true);
+                break;
+            case 2:
+                GameObject.Find("Ship_2").gameObject.SetActive(true);
+                break;
+            case 3:
+                GameObject.Find("Ship_3").gameObject.SetActive(true);
+                break;
+            case 4:
+                GameObject.Find("Ship_4").gameObject.SetActive(true);
+                break;
+            case 5:
+                GameObject.Find("Ship_5").gameObject.SetActive(true);
+                break;
+        }
+    }
+
     void Start()
     {
         if (_instance == null)

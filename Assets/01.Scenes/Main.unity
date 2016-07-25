@@ -9686,7 +9686,7 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 8
+  m_Intensity: 5.4
   m_Range: 52.19
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -10390,6 +10390,10 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 683103759}
+--- !u!4 &683318771 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 456516, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+  m_PrefabInternal: {fileID: 1372579459}
 --- !u!1 &684454350
 GameObject:
   m_ObjectHideFlags: 0
@@ -17050,6 +17054,7 @@ Transform:
   m_Children:
   - {fileID: 632301351}
   - {fileID: 1911836809}
+  - {fileID: 683318771}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &1207492745
@@ -19878,6 +19883,76 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 10.33478}
   m_SizeDelta: {x: 0, y: 20.674683}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1372579459
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1207492744}
+    m_Modifications:
+    - target: {fileID: 456516, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1121
+      objectReference: {fileID: 0}
+    - target: {fileID: 456516, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 531.57135
+      objectReference: {fileID: 0}
+    - target: {fileID: 456516, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -225.74889
+      objectReference: {fileID: 0}
+    - target: {fileID: 456516, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.21136825
+      objectReference: {fileID: 0}
+    - target: {fileID: 456516, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456516, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456516, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9774065
+      objectReference: {fileID: 0}
+    - target: {fileID: 456516, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 168308, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456516, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456516, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456516, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456516, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -24.4051
+      objectReference: {fileID: 0}
+    - target: {fileID: 456516, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456516, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c92e48efffc4c584d80e982879d8b273, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1373956942
 GameObject:
   m_ObjectHideFlags: 0
@@ -26021,7 +26096,7 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 8
+  m_Intensity: 5.4
   m_Range: 52.19
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -27187,6 +27262,7 @@ MonoBehaviour:
   starPosition: {x: 0, y: 0, z: 0}
   navOn: 0
   maxFuel: 0
+  shipNum: 0
 --- !u!4 &2041590526
 Transform:
   m_ObjectHideFlags: 0

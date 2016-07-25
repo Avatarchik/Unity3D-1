@@ -31,6 +31,7 @@ public class wmScreenPointTouch : MonoBehaviour
                             SelectDB.Instance().Select(1);
                             GameData.Instance().starPosition = SelectDB.Instance().starPosition;
 
+                            WorldMapManager.Instance().ChooseStar.SetActive(false);
                             WorldMapManager.Instance().Touch.SetActive(false);
                             WorldMapManager.Instance().Destination_ui.SetActive(true);
                             WorldMapManager.Instance().Destination_ui.GetComponentInChildren<Text>().text = SelectDB.Instance().starName +" "+ hit.transform.name;
