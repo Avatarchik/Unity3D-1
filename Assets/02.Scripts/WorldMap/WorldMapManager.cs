@@ -43,8 +43,35 @@ public class WorldMapManager : MonoBehaviour
             //onClick.AddListener(gameObject.GetComponent<ButtonController>().TransSceneToManage); 파라미터 미사용시
             GameObject.Find("ReturnButton").gameObject.GetComponent<Button>().onClick.AddListener(() => gameObject.GetComponent<ButtonController>().TransSceneToManage());
         }
-        
+        loadStar();
     }
-    
+    void loadStar()
+    {
+        SelectDB.Instance().table = "zodiacTable";
+        SelectDB.Instance().column = "Count(*)";
+        SelectDB.Instance().Select(0);
+        for (int i = 1; i <= SelectDB.Instance().starCount; i++)
+        {
+            SelectDB.Instance().table = "zodiacTable";
+            SelectDB.Instance().column = "rowid, open, find, active, zID";
+            SelectDB.Instance().where = "WHERE \"rowid\" =" + i;
+            SelectDB.Instance().Select(4);
+
+            if (SelectDB.Instance().starActive == 0)
+            {
+                Debug.Log("@@@" + GameObject.Find(SelectDB.Instance().zodiacName).name);
+                GameObject.Find(SelectDB.Instance().zodiacName).gameObject.GetComponent<SphereCollider>().enabled = true;
+                GameObject.Find(SelectDB.Instance().zodiacName).gameObject.GetComponent<SphereCollider>().isTrigger = true;
+            }
+            else if (SelectDB.Instance().starActive == 1)
+            {
+                Debug.Log("###" + GameObject.Find(SelectDB.Instance().zodiacName).name);
+                GameObject.Find(SelectDB.Instance().zodiacName).gameObject.GetComponent<SphereCollider>().enabled = false;
+                GameObject.Find(SelectDB.Instance().zodiacName).gameObject.GetComponent<MeshRenderer>().enabled = false;
+
+            }
+        }
+    }
+
 
 }

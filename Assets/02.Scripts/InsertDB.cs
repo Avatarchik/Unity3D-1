@@ -32,7 +32,7 @@ public class InsertDB : MonoBehaviour
     int cntField;
     int cntTemp = 1;
 
-    void Start()
+    void Awake()
     {
         if (_instance == null)
             _instance = this;
