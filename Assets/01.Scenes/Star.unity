@@ -8964,6 +8964,7 @@ GameObject:
   - 124: {fileID: 1207492741}
   - 81: {fileID: 1207492740}
   - 114: {fileID: 1207492745}
+  - 114: {fileID: 1207492746}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9054,6 +9055,103 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   SQLManager: {fileID: 0}
+--- !u!114 &1207492746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1207492739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10593b7d510b64560a297a8af1356dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colorTemp: 0
+  _colorTint: 0
+  _toneMapping: 0
+  _exposure: 1
+  _saturation: 1
+  _rCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _gCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _bCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0.02173913
+      value: 0.16137564
+      inSlope: 1.0116333
+      outSlope: 1.0116333
+      tangentMode: 10
+    - time: 0.21953341
+      value: 0.36147094
+      inSlope: 0.91488546
+      outSlope: 0.91488546
+      tangentMode: 10
+    - time: 1
+      value: 1
+      inSlope: 0.81813765
+      outSlope: 0.81813765
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _cCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0.0033444816
+      value: -0.021164019
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 0.2038299
+      value: 0.14330602
+      inSlope: 1.0231137
+      outSlope: 1.0231137
+      tangentMode: 0
+    - time: 0.64796656
+      value: 0.66827095
+      inSlope: 1.104176
+      outSlope: 1.104176
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _ditherMode: 0
+  shader: {fileID: 4800000, guid: dc9775b65c52747e69fc4c854c00d696, type: 3}
 --- !u!1 &1273796544
 GameObject:
   m_ObjectHideFlags: 0
