@@ -9,8 +9,12 @@ public class ButtonController : MonoBehaviour {
     //씬 전환 기능
     public void TransSceneToMain()
     {
+        if (GameObject.Find("GameData"))
+        {
+            Destroy(GameObject.Find("GameData").gameObject);
+        }
+
         SceneManager.LoadScene("Main");
-        Destroy(GameObject.Find("GameData").gameObject);
         Debug.Log("scene Trans to Main");
     }
 

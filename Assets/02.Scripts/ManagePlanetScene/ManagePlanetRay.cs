@@ -25,9 +25,9 @@ public class ManagePlanetRay : MonoBehaviour {
             if (Physics.Raycast(ray, out hit))
             {
 
-                Debug.Log("Rayhit");
-                Debug.Log(hit.transform.name);
-                Debug.Log(hit.transform.tag);
+                //Debug.Log("Rayhit");
+                //Debug.Log(hit.transform.name);
+                //Debug.Log(hit.transform.tag);
 
                 if(hit.transform.tag == "Stars")
                 {
@@ -40,7 +40,14 @@ public class ManagePlanetRay : MonoBehaviour {
                         SQLManager.GetComponent<ManageSceneSQL>().dbClose();
                         SceneManager.LoadScene("Star");
                     }
+                }
 
+                if (!(hit.transform.name == "Myplanet"))
+                {
+                    if (hit.transform.GetComponent<MoveEachPlanet>().center && !(hit.transform.tag == "Stars"))
+                    {
+                        Debug.Log("hit~~~");
+                    }
                 }
 
             }

@@ -88,18 +88,28 @@ public class csPlanetPanalSet : MonoBehaviour {
         SQLManager.GetComponent<ManageSceneSQL>().UpdateQuery1(Query1);
         SQLManager.GetComponent<ManageSceneSQL>().DeleteQuery(Query2);
 
-        //SQLManager.GetComponent<ManageSceneSQL>().settingInfo();
         SQLManager.GetComponent<ManageSceneSQL>().dbClose();
 
-        //if (GameObject.Find("WorldMapFlag") != null)
-        //{
-        //    Destroy(GameObject.Find("WorldMapFlag").gameObject);
-        //}
 
         SceneManager.LoadScene("ManagePlanet");
 
-        //warningPanal.gameObject.SetActive(false);
-        //GameObject.Find("Manager").GetComponent<ManagePlanetRay>().enabled = true;
+
+    }
+
+    public void btnDownHome()
+    {
+        string Query1;
+        string Query2;
+
+        Query1 = "UPDATE managePlanetTable SET user = 0";
+        Debug.Log(Query1);
+        Query2 = "UPDATE managePlanetTable SET user = 1 WHERE rowid = (select cPlanet FROM userTable)";
+        Debug.Log(Query2);
+
+        SQLManager.GetComponent<ManageSceneSQL>().UpdateQuery1(Query1);
+        SQLManager.GetComponent<ManageSceneSQL>().UpdateQuery1(Query2);
+
+        GameObject.Find("Manager/UIManager").GetComponent<ButtonController>().TransSceneToMain();
 
     }
 
