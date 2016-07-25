@@ -8,6 +8,23 @@ using System.IO;
 
 public class UpdateDB : MonoBehaviour
 {
+    static UpdateDB _instance = null;
+
+    public static UpdateDB Instance()
+    {
+        return _instance;
+    }
+    string m_ConnectionString;
+    string m_SQLiteFileName = "CosmicDB.sqlite";
+    [Tooltip("Columnname\nEx)zId,locationX")]
+    public string setColumn = " ";
+    [Tooltip("Tablename\nEx)zodiacTable")]
+    public string table = " ";
+    public string where = " ";
+    public string value = " ";
+    string sqlQuery;
+    string conn;
+
     //public GameObject star;
     float x;
     float y;
@@ -16,11 +33,15 @@ public class UpdateDB : MonoBehaviour
     int cntField;
     int cntTemp = 1;
 
-    void Start()
+    void Awake()
     {
-        string m_ConnectionString;
-        string m_SQLiteFileName = "CosmicDB.sqlite";
-        string conn;
+        if (_instance == null)
+            _instance = this;
+    }
+
+    public void UpdateData()
+    {
+      
 #if UNITY_EDITOR
         m_ConnectionString = "URI=file:" + Application.streamingAssetsPath + "/" + m_SQLiteFileName;
         //m_ConnectionString = "URI=file:" + Application.dataPath + "/" + m_SQLiteFileName;
@@ -70,75 +91,87 @@ public class UpdateDB : MonoBehaviour
         else { conn = "URI=file:" + Application.streamingAssetsPath + "/CosmicDB.sqlite"; } //Path to database Else
         ///////////////////////////////////////////////////////////////////[DB Path]
 
-
-        ///////////////////////////////////////////////////////////////////[DB Connection]
+        /////////////////////////////////////////////////////////////////[DB Connection]
         IDbConnection dbconn;
         dbconn = (IDbConnection)new SqliteConnection(conn);
         dbconn.Open(); //Open connection to the database.
-        ///////////////////////////////////////////////////////////////////[DB Connection]
+        /////////////////////////////////////////////////////////////////[DB Connection]
 
-        for (cntTemp = 1; cntTemp != cntField; cntTemp++)
-        {
-        ///////////////////////////////////////////////////////////////////[SELECT Query]
-            IDbCommand dbcmd = dbconn.CreateCommand();
-            string sqlCount = "SELECT Count(rowid) as Count " + "FROM zodiacTable";
-            dbcmd.CommandText = sqlCount;
-            IDataReader reader = dbcmd.ExecuteReader();
-            while(reader.Read())
-            {
-                cntField = reader.GetInt32(0);
-            }
-            reader.Close();
-            reader = null;
+        /////////////////////////////////////////////////////////////////[INSERT Query]
+        IDbCommand dbcmd = dbconn.CreateCommand();
 
-            
-            string sqlQuery = "SELECT rowid, * " + "FROM zodiacTable";
-            dbcmd.CommandText = sqlQuery;
-        ///////////////////////////////////////////////////////////////////[SELECT Query]
-
-        ///////////////////////////////////////////////////////////////////[Data Read]
-            reader = dbcmd.ExecuteReader();
+        sqlQuery = "UPDATE " + table + " SET " + setColumn + where;
+        Debug.Log(sqlQuery);
+        dbcmd.CommandText = sqlQuery;
+        dbcmd.ExecuteNonQuery();
+        /////////////////////////////////////////////////////////////////[INSERT Query]
         
-            while (reader.Read())
-            {
-                if (reader.GetInt32(0) == cntTemp)
-                {
-
-                    int rowid = reader.GetInt32(0);
-                    Debug.Log(rowid);
-                    zID = reader.GetString(1);
-                    Debug.Log(zID);
-                    Debug.Log(GameObject.Find(zID).gameObject.transform.position);
-                    x = GameObject.Find(zID).gameObject.transform.position.x;
-                    y = GameObject.Find(zID).gameObject.transform.position.y;
-                    z = GameObject.Find(zID).gameObject.transform.position.z;
-                }
-            }
-            reader.Close();
-            reader = null;
-        ///////////////////////////////////////////////////////////////////[Data Read]
-
-            //업데이트 함수 동작(update Query)
-        ///////////////////////////////////////////////////////////////////[UPDATE Query]
-            string UpdatesqlQuery = "UPDATE zodiacTable SET \"locationX\" =" + x + ", \"locationY\" = " + y + ", \"locationZ\" = " + z + " WHERE  \"zID\" = '" + zID + "'";
-            
-            Debug.Log(UpdatesqlQuery);
-            dbcmd.CommandText = UpdatesqlQuery;
-            dbcmd.ExecuteNonQuery();
-        ///////////////////////////////////////////////////////////////////[UPDATE Query]
-            dbcmd.Dispose();
-            dbcmd = null;
-        }
-        ///////////////////////////////////////////////////////////////////[DB Connection Close]
+        dbcmd.Dispose();
+        dbcmd = null;
+        /////////////////////////////////////////////////////////////////[DB Connection Close]
         dbconn.Close();
         dbconn = null;
-        ///////////////////////////////////////////////////////////////////[DB Connection Close]
+        /////////////////////////////////////////////////////////////////[DB Connection Close]
+
+
+        //초기 별 좌표 일괄 업데이트
+        /////////////////////////////////////////////////////////////////////[DB Connection]
+        //IDbConnection dbconn;
+        //dbconn = (IDbConnection)new SqliteConnection(conn);
+        //dbconn.Open(); //Open connection to the database.
+        /////////////////////////////////////////////////////////////////////[DB Connection]
+
+        //for (cntTemp = 1; cntTemp != cntField; cntTemp++)
+        //{
+        //    IDbCommand dbcmd = dbconn.CreateCommand();
+        //    string sqlCount = "SELECT Count(rowid) as Count " + "FROM zodiacTable";
+        //    dbcmd.CommandText = sqlCount;
+        //    IDataReader reader = dbcmd.ExecuteReader();
+        //    while(reader.Read())
+        //    {
+        //        cntField = reader.GetInt32(0);
+        //    }
+        //    reader.Close();
+        //    reader = null;
+            
+        //    string sqlQuery = "SELECT rowid, * " + "FROM zodiacTable";
+        //    dbcmd.CommandText = sqlQuery;
+     
+        //    reader = dbcmd.ExecuteReader();
+        
+        //    while (reader.Read())
+        //    {
+        //        if (reader.GetInt32(0) == cntTemp)
+        //        {
+
+        //            int rowid = reader.GetInt32(0);
+        //            Debug.Log(rowid);
+        //            zID = reader.GetString(1);
+        //            Debug.Log(zID);
+        //            Debug.Log(GameObject.Find(zID).gameObject.transform.position);
+        //            x = GameObject.Find(zID).gameObject.transform.position.x;
+        //            y = GameObject.Find(zID).gameObject.transform.position.y;
+        //            z = GameObject.Find(zID).gameObject.transform.position.z;
+        //        }
+        //    }
+        //    reader.Close();
+        //    reader = null;
+
+        ////업데이트 함수 동작(update Query)
+        /////////////////////////////////////////////////////////////////////[UPDATE Query]
+        //    string UpdatesqlQuery = "UPDATE zodiacTable SET \"locationX\" =" + x + ", \"locationY\" = " + y + ", \"locationZ\" = " + z + " WHERE  \"zID\" = '" + zID + "'";
+            
+        //    Debug.Log(UpdatesqlQuery);
+        //    dbcmd.CommandText = UpdatesqlQuery;
+        //    dbcmd.ExecuteNonQuery();
+        /////////////////////////////////////////////////////////////////////[UPDATE Query]
+        //    dbcmd.Dispose();
+        //    dbcmd = null;
+        //}
+        /////////////////////////////////////////////////////////////////////[DB Connection Close]
+        //dbconn.Close();
+        //dbconn = null;
+        /////////////////////////////////////////////////////////////////////[DB Connection Close]
     }
-
-    void Update()
-    {
-
-    }
-  
-
+       
 }

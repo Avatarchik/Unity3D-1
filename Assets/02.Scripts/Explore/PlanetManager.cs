@@ -235,9 +235,14 @@ public class PlanetManager : MonoBehaviour
         tempZ = spawnPoint.z;
         tempmat = GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().matT;
 
+        UpdateDB.Instance().table = "managePlanetTable";
+        UpdateDB.Instance().setColumn = " \"User\" = 0 ";
+        UpdateDB.Instance().where = " WHERE \"User\"= 1";
+        UpdateDB.Instance().UpdateData();
+
         //초기 행성생성시 데이터 초기화 및 DB INSERT (Table Column 순서 수정필요함)
         InsertDB.Instance().table = "managePlanetTable";
-        InsertDB.Instance().column = "name,size,color,mFood,mTitanium,le_persec,locationX,locationY,locationZ,mat,lFood,lTitanium";
+        InsertDB.Instance().column = "name,size,color,mFood,mTitanium,le_persec,locationX,locationY,locationZ,mat,lFood,lTitanium,User";
         InsertDB.Instance().values = "\"" + tempName + "\"," +    //name      행성이름
                                      tempsize + "," +           //size      행성크기
                                      tempcolor + "," +          //color     행성색상
@@ -249,11 +254,10 @@ public class PlanetManager : MonoBehaviour
                                      tempZ + "," +              //locationZ 좌표Z 
                                      tempmat + "," +            //material  행성 스타일
                                      tempmFood + "," +          //lFood     식량 잔존량
-                                     tempmTitanium;     //lTitanium 티타늄 잔존량
-
-                                               
-
+                                     tempmTitanium + "," +      //lTitanium 티타늄 잔존량
+                                     "1";     
         InsertDB.Instance().Insert();
+
     }
 
     void loadPlanet()
