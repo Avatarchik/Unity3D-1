@@ -38,12 +38,13 @@ public class MainUIfromSQL : MonoBehaviour
 
     public void setPlanet(int Num)
     {
-        if (PlanetPosition.transform.childCount == 0)
+        if (PlanetPosition.transform.childCount == 1)
         {
             Pla = Instantiate(MainSingleTon.Instance.D_PlanetList[Num], PlanetPosition.transform.position, PlanetPosition.transform.rotation) as GameObject;
             Pla.name = "death_planet";
             Pla.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
             Pla.transform.parent = PlanetPosition.transform;
+            Camera.main.transform.parent = PlanetPosition.transform.FindChild("DragCamera").transform;
             Destroy(Pla.GetComponent<Rigidbody>());
             Destroy(Pla.GetComponent<SphereCollider>());
         }

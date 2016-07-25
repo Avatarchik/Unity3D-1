@@ -46,6 +46,7 @@ public class SelectDB : MonoBehaviour
     public int shipNum;
     public int planetCount;
     public int starCount;
+    public string starName;
     public int tree1;
     public int tree2;
     public int tree3;
@@ -163,6 +164,10 @@ public class SelectDB : MonoBehaviour
                 x = reader.GetFloat(0);
                 y = reader.GetFloat(1);
                 z = reader.GetFloat(2);
+                if(reader.GetString(3) != null)
+                {
+                    starName = reader.GetString(3);
+                }
                 starPosition = new Vector3(x, y, z);
             }
             reader.Close();
