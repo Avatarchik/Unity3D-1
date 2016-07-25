@@ -27,7 +27,7 @@ public class ButtonController : MonoBehaviour {
     public void TransSceneToBook()
     {
         //SceneManager.LoadScene("Book");
-        DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
+        //DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
         Debug.Log("scne trans to Book");
     }
 

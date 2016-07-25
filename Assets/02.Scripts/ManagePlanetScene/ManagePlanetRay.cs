@@ -6,6 +6,8 @@ public class ManagePlanetRay : MonoBehaviour {
 
     public static bool dragging;
 
+    public GameObject SQLManager;
+
     void Start()
     {
         dragging = false;
@@ -35,6 +37,7 @@ public class ManagePlanetRay : MonoBehaviour {
                         GameObject.Find("OBJ").GetComponent<OBJScript>().rowid = hit.transform.GetComponent<StarInfo>().rowid;
                         DontDestroyOnLoad(GameObject.Find("OBJ").gameObject);
 
+                        SQLManager.GetComponent<ManageSceneSQL>().dbClose();
                         SceneManager.LoadScene("Star");
                     }
 

@@ -25,7 +25,27 @@ public class MoveEachPlanet : MonoBehaviour
         StartCoroutine(CheckMove());
 
         script = GameObject.Find("Manager/UIManager").GetComponent<csPlanetPanalSet>();
-        listCount = (MovePlanet.Instance.points.Count) / 2;
+        if (MovePlanet.Instance.points.Count <= 7)
+        {
+            listCount = MovePlanet.Instance.points.Count / 2;
+        }
+
+        else if (MovePlanet.Instance.points.Count < 10)
+        {
+            if (MovePlanet.Instance.points.Count % 2 == 0)
+            {
+
+                listCount = (MovePlanet.Instance.points.Count) / 2;
+            }
+            else
+            {
+                listCount = (MovePlanet.Instance.points.Count / 2) + 1;
+            }
+        }
+        else
+        {
+            listCount = 6;
+        }
         center = false;
     }
 
@@ -39,6 +59,8 @@ public class MoveEachPlanet : MonoBehaviour
             {
                 script.ChangeText(this.gameObject.GetComponent<PlanetInfo>().pName);
                 script.setVisibleBtn();
+                script.PlanetNum = this.gameObject.GetComponent<PlanetInfo>().rowid;
+
 
             }
             if (this.gameObject.GetComponent<StarInfo>())
