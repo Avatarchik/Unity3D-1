@@ -27,6 +27,15 @@ public class ButtonController : MonoBehaviour {
         //Debug.Log("scene Trans to shop")
     }
 
+    public void setVisibleStoreInPlanet()
+    {
+        GameObject.Find("UI").gameObject.GetComponent<PlanetTouchRay>().enabled = false;
+        GameObject.Find("UI").transform.FindChild("StorePanal").gameObject.SetActive(true);
+        GameObject.Find("UI/Main/Button/SettingBtn").gameObject.SetActive(false);
+        GameObject.Find("GameManager/UIManager").GetComponent<PlanetStoreScript>().activeBuildingPanal();
+
+    }
+
 
     public void TransSceneToBook()
     {

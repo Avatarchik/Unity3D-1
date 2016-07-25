@@ -2,8 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class csScreenPointTouch : MonoBehaviour
-{
+public class PlanetTouchRay : MonoBehaviour {
+
 
     public LayerMask ignoreUI;
     public static bool rDrag;
@@ -40,50 +40,52 @@ public class csScreenPointTouch : MonoBehaviour
                 //    RaycastHit hit;                                           // Build Mode
 
                 if (Physics.Raycast(ray, out hit))
-                    {
+                {
                     Debug.Log(hit.point);
                     Debug.Log(hit.transform.position);
 
-                        if (hit.transform.tag.Equals("Finish"))
-                        {
-                            Debug.Log("panal");
-                        }
+                    if (hit.transform.tag.Equals("Finish"))
+                    {
+                        Debug.Log("panal");
+                    }
 
-                        if (hit.transform.tag.Equals("Food"))
-                        {
-                            Debug.Log("ray hit food") ;
-                        MainSingleTon.Instance.getFood(hit.point);
+                    if (hit.transform.tag.Equals("Food"))
+                    {
+                        Debug.Log("ray hit food");
+                        PlanetSceneSingleTon.Instance.getFood(hit.point);
 
-
-                        }
-
-                        if (hit.transform.tag.Equals("Titanium"))
-                        {
-                            Debug.Log("ray hit titanium");
-                        MainSingleTon.Instance.getTitanium(hit.point);
-                        }
-
-                        if (hit.transform.tag.Equals("Ship"))
-                        {
-                            //ExploreState에 관련 로직 처리 
-                            MainSingleTon.Instance.shipTouch = true;
-                        }
-                        if (hit.transform.tag.Equals("Energy"))
-                        {
-                            Debug.Log("Ray hit Energy");
-                        MainSingleTon.Instance.getEnergy();
-                        }
-                        if (hit.transform.tag.Equals("PostBox"))
-                        {
-                            Debug.Log("Ray hit PostBOX");
-                        }
 
                     }
+
+                    if (hit.transform.tag.Equals("Titanium"))
+                    {
+                        Debug.Log("ray hit titanium");
+                        PlanetSceneSingleTon.Instance.getTitanium(hit.point);
+                    }
+
+                    if (hit.transform.tag.Equals("Ship"))
+                    {
+                        //ExploreState에 관련 로직 처리 
+                        PlanetSceneSingleTon.Instance.shipTouch = true;
+                    }
+                    if (hit.transform.tag.Equals("Energy"))
+                    {
+                        Debug.Log("Ray hit Energy");
+                        PlanetSceneSingleTon.Instance.getEnergy();
+                    }
+                    if (hit.transform.tag.Equals("PostBox"))
+                    {
+                        Debug.Log("Ray hit PostBOX");
+                    }
+
+                }
                 //}                                                             // Build mode
             }                                                                   // Debug mode 
         }
         rDrag = false;
 
     }
-}
 
+
+
+}

@@ -159,6 +159,7 @@ public class MainSceneSQL : MonoBehaviour {
         MainSingleTon.Instance.callNeighber();
         MainSingleTon.Instance.callStation();
         MainSingleTon.Instance.callPlanet();
+        MainSingleTon.Instance.callPostBox();
         MainSingleTon.Instance.setVisibleEnergyBtn();
         MainSingleTon.Instance.setVisibleMoveBtn();
     }

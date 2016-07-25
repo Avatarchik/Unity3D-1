@@ -159,7 +159,7 @@ public class MainSingleTon : MonoBehaviour {
         UIobj.GetComponent<MainUIfromSQL>().setStation();
     }
 
-    public void setPostBox()
+    public void callPostBox()
     {
         UIobj.GetComponent<MainUIfromSQL>().setPostBox();
     }

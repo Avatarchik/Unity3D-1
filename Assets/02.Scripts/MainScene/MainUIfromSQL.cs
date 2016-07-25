@@ -6,8 +6,6 @@ using System.Collections.Generic;
 
 public class MainUIfromSQL : MonoBehaviour
 {
-
-
     public GameObject haveFood;
     public GameObject haveTitanium;
     public GameObject havePEEnergy;
@@ -19,8 +17,6 @@ public class MainUIfromSQL : MonoBehaviour
     public GameObject PlanetPosition;
 
     public GameObject getEnergyBtn;
-
-
 
     GameObject Pla;
 
@@ -199,7 +195,14 @@ public class MainUIfromSQL : MonoBehaviour
 
     public void setPostBox()
     {
-
+        if (MainSingleTon.Instance.cPlanet == MainSingleTon.Instance.rowid)
+        {
+            GameObject.Find("PlanetPosition/death_planet/Postbox").gameObject.SetActive(true);
+        }
+        else
+        {
+            GameObject.Find("PlanetPosition/death_planet/Postbox").gameObject.SetActive(false);
+        }
     }
 
 }

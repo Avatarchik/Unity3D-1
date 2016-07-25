@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class PlanetStoreScript : MonoBehaviour {
 
-
     public GameObject SQLManager;
 
     public GameObject BuildingPanal;
@@ -16,7 +15,6 @@ public class PlanetStoreScript : MonoBehaviour {
     public List<Sprite> shipList = new List<Sprite>();
 
     public GameObject lake;
-
 
     public Image ShipImage;
     public Text shipMoney;
@@ -35,16 +33,27 @@ public class PlanetStoreScript : MonoBehaviour {
 
 
     int treeCount = 1;
+
+    public Text storeFood;
+    public Text storeTitanium;
+    public Text storeEnergy;
     void Start()
     {
-
+        setStoreText();
     }
 
+    public void setStoreText()
+    {
+        storeFood.text = PlanetSceneSingleTon.Instance.cFood.ToString();
+        storeTitanium.text = PlanetSceneSingleTon.Instance.cTitanium.ToString();
+        storeEnergy.text = PlanetSceneSingleTon.Instance.cPE.ToString();
+
+    }
 
     //버튼
     public void Exit()
     {
-        GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = true;
+        GameObject.Find("UI").gameObject.GetComponent<PlanetTouchRay>().enabled = true;
         GameObject.Find("UI/Main/Button").transform.FindChild("SettingBtn").gameObject.SetActive(true);
         GameObject.Find("UI/StorePanal").gameObject.SetActive(false);
     }
@@ -75,8 +84,8 @@ public class PlanetStoreScript : MonoBehaviour {
 
     public void getStation()
     {
-        bool station = MainSingleTon.Instance.position_house;
-        int cTitanium = MainSingleTon.Instance.cTitanium;
+        bool station = PlanetSceneSingleTon.Instance.position_house;
+        int cTitanium = PlanetSceneSingleTon.Instance.cTitanium;
         string Query = "";
         if (station)
         {
@@ -85,11 +94,11 @@ public class PlanetStoreScript : MonoBehaviour {
 
         if (cTitanium >= 2500)
         {
-            Query = "UPDATE managePlanetTable SET position_house = " + 1 + " WHERE rowid = " + MainSingleTon.Instance.rowid;
+            Query = "UPDATE managePlanetTable SET position_house = " + 1 + " WHERE User = 1";
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
-            MainSingleTon.Instance.cTitanium -= 2500;
-            Query = "UPDATE userTable SET cTitanium = " + MainSingleTon.Instance.cTitanium;
+            PlanetSceneSingleTon.Instance.cTitanium -= 2500;
+            Query = "UPDATE userTable SET cTitanium = " + PlanetSceneSingleTon.Instance.cTitanium;
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
         }
@@ -99,6 +108,8 @@ public class PlanetStoreScript : MonoBehaviour {
         }
 
         setBuildingPanal();
+        setStoreText();
+
     }
 
     public void getTree1()
@@ -126,17 +137,17 @@ public class PlanetStoreScript : MonoBehaviour {
         if (tree1BtnText.text == "구매불가")
             return;
 
-        int nowFood = MainSingleTon.Instance.cFood;
+        int nowFood = PlanetSceneSingleTon.Instance.cFood;
         int foodCost = System.Convert.ToInt32(tree1BtnText.text);
         string Query = "";
         if (nowFood >= foodCost)
         {
-            Debug.Log(MainSingleTon.Instance.cFood);
-            Query = "UPDATE managePlanetTable SET tree" + treeCount + " = " + treeNum + " Where rowid = " + MainSingleTon.Instance.rowid;
+            Debug.Log(PlanetSceneSingleTon.Instance.cFood);
+            Query = "UPDATE managePlanetTable SET tree" + treeCount + " = " + treeNum + " Where User = 1 ";
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
-            MainSingleTon.Instance.cFood -= foodCost;
-            Query = "UPDATE userTable SET cFood = " + MainSingleTon.Instance.cFood;
+            PlanetSceneSingleTon.Instance.cFood -= foodCost;
+            Query = "UPDATE userTable SET cFood = " + PlanetSceneSingleTon.Instance.cFood;
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
         }
@@ -146,18 +157,20 @@ public class PlanetStoreScript : MonoBehaviour {
         }
 
         setBuildingPanal();
+        setStoreText();
+
     }
 
     void setBuildingPanal()
     {
-        bool station = MainSingleTon.Instance.position_house;
-        int size = MainSingleTon.Instance.size;
-        int tree1 = MainSingleTon.Instance.tree1;
-        int tree2 = MainSingleTon.Instance.tree2;
-        int tree3 = MainSingleTon.Instance.tree3;
-        int tree4 = MainSingleTon.Instance.tree4;
-        int tree5 = MainSingleTon.Instance.tree5;
-        int tree6 = MainSingleTon.Instance.tree6;
+        bool station = PlanetSceneSingleTon.Instance.position_house;
+        int size = PlanetSceneSingleTon.Instance.size;
+        int tree1 = PlanetSceneSingleTon.Instance.tree1;
+        int tree2 = PlanetSceneSingleTon.Instance.tree2;
+        int tree3 = PlanetSceneSingleTon.Instance.tree3;
+        int tree4 = PlanetSceneSingleTon.Instance.tree4;
+        int tree5 = PlanetSceneSingleTon.Instance.tree5;
+        int tree6 = PlanetSceneSingleTon.Instance.tree6;
 
         if (!station)
         {
@@ -291,8 +304,8 @@ public class PlanetStoreScript : MonoBehaviour {
     public void getShip()
     {
 
-        int nowShipNum = MainSingleTon.Instance.shipNum;
-        int nowTitanium = MainSingleTon.Instance.cTitanium;
+        int nowShipNum = PlanetSceneSingleTon.Instance.shipNum;
+        int nowTitanium = PlanetSceneSingleTon.Instance.cTitanium;
         string Query = "";
 
 
@@ -305,10 +318,10 @@ public class PlanetStoreScript : MonoBehaviour {
                 }
                 else
                 {
-                    MainSingleTon.Instance.cTitanium -= 9999;
-                    MainSingleTon.Instance.shipNum++;
+                    PlanetSceneSingleTon.Instance.cTitanium -= 9999;
+                    PlanetSceneSingleTon.Instance.shipNum++;
 
-                    Query = "UPDATE userTable SET cTitanium = " + MainSingleTon.Instance.cTitanium + ", shipNum = " + MainSingleTon.Instance.shipNum;
+                    Query = "UPDATE userTable SET cTitanium = " + PlanetSceneSingleTon.Instance.cTitanium + ", shipNum = " + PlanetSceneSingleTon.Instance.shipNum;
                     SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
                 }
@@ -321,10 +334,10 @@ public class PlanetStoreScript : MonoBehaviour {
                 }
                 else
                 {
-                    MainSingleTon.Instance.cTitanium -= 12900;
-                    MainSingleTon.Instance.shipNum++;
+                    PlanetSceneSingleTon.Instance.cTitanium -= 12900;
+                    PlanetSceneSingleTon.Instance.shipNum++;
 
-                    Query = "UPDATE userTable SET cTitanium = " + MainSingleTon.Instance.cTitanium + ", shipNum = " + MainSingleTon.Instance.shipNum;
+                    Query = "UPDATE userTable SET cTitanium = " + PlanetSceneSingleTon.Instance.cTitanium + ", shipNum = " + PlanetSceneSingleTon.Instance.shipNum;
                     SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
                 }
                 break;
@@ -336,10 +349,10 @@ public class PlanetStoreScript : MonoBehaviour {
                 }
                 else
                 {
-                    MainSingleTon.Instance.cTitanium -= 15900;
-                    MainSingleTon.Instance.shipNum++;
+                    PlanetSceneSingleTon.Instance.cTitanium -= 15900;
+                    PlanetSceneSingleTon.Instance.shipNum++;
 
-                    Query = "UPDATE userTable SET cTitanium = " + MainSingleTon.Instance.cTitanium + ", shipNum = " + MainSingleTon.Instance.shipNum;
+                    Query = "UPDATE userTable SET cTitanium = " + PlanetSceneSingleTon.Instance.cTitanium + ", shipNum = " + PlanetSceneSingleTon.Instance.shipNum;
                     SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
                 }
                 break;
@@ -351,10 +364,10 @@ public class PlanetStoreScript : MonoBehaviour {
                 }
                 else
                 {
-                    MainSingleTon.Instance.cTitanium -= 20000;
-                    MainSingleTon.Instance.shipNum++;
+                    PlanetSceneSingleTon.Instance.cTitanium -= 20000;
+                    PlanetSceneSingleTon.Instance.shipNum++;
 
-                    Query = "UPDATE userTable SET cTitanium = " + MainSingleTon.Instance.cTitanium + ", shipNum = " + MainSingleTon.Instance.shipNum;
+                    Query = "UPDATE userTable SET cTitanium = " + PlanetSceneSingleTon.Instance.cTitanium + ", shipNum = " + PlanetSceneSingleTon.Instance.shipNum;
                     SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
                 }
@@ -367,6 +380,7 @@ public class PlanetStoreScript : MonoBehaviour {
         }
 
         setShipPanal();
+        setStoreText();
 
 
     }
@@ -379,7 +393,7 @@ public class PlanetStoreScript : MonoBehaviour {
 
     void setShipPanal()
     {
-        int tempShip = MainSingleTon.Instance.shipNum;
+        int tempShip = PlanetSceneSingleTon.Instance.shipNum;
         switch (tempShip)
         {
             case 1:
