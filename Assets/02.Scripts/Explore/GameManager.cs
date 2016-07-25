@@ -36,30 +36,15 @@ public class GameManager : MonoBehaviour {
     
     void Awake()
     {
-        switch (GameData.Instance().shipNum)
-        {
-            case 1:
-                GameObject.Find("Ship_1").gameObject.SetActive(true);
-                break;
-            case 2:
-                GameObject.Find("Ship_2").gameObject.SetActive(true);
-                break;
-            case 3:
-                GameObject.Find("Ship_3").gameObject.SetActive(true);
-                break;
-            case 4:
-                GameObject.Find("Ship_4").gameObject.SetActive(true);
-                break;
-            case 5:
-                GameObject.Find("Ship_5").gameObject.SetActive(true);
-                break;
-        }
+      
     }
 
     void Start()
     {
         if (_instance == null)
             _instance = this;
+
+        GameObject.Find("Ship").transform.FindChild("Ship_" + GameData.Instance().shipNum).gameObject.SetActive(true);
     }
 
 
