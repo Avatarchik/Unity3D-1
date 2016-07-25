@@ -18,6 +18,18 @@ public class ButtonController : MonoBehaviour {
         Debug.Log("scene Trans to Main");
     }
 
+    public void TransSceneToPlanet()
+    {
+        if (GameObject.Find("GameData"))
+        {
+            Destroy(GameObject.Find("GameData").gameObject);
+        }
+
+        SceneManager.LoadScene("Planet");
+        Debug.Log("scene Trans to Planet");
+    }
+
+
     public void setVisibleStore()
     {
         GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;

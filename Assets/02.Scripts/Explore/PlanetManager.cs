@@ -257,7 +257,7 @@ public class PlanetManager : MonoBehaviour
                                      tempmTitanium + "," +      //lTitanium 티타늄 잔존량
                                      "1";     
         InsertDB.Instance().Insert();
-
+        GameObject.Find("GameManager").gameObject.GetComponent<ButtonController>().TransSceneToPlanet();
     }
 
     void loadPlanet()
