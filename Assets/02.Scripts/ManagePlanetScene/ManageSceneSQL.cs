@@ -324,11 +324,25 @@ public class ManageSceneSQL : MonoBehaviour {
 
     }
 
-    void dbClose()
+    public void UpdateQuery1(string Query)
+    {
+        dbcmd.CommandText = Query;
+        dbcmd.ExecuteNonQuery();
+
+    }
+
+    public void DeleteQuery(string Query)
+    {
+        dbcmd.CommandText = Query;
+        dbcmd.ExecuteNonQuery();
+
+    }
+
+    public void dbClose()
     {
         ///////////////////////////////////////////////////////////////////[DB Connection Close]
-        reader.Close();
-        reader = null;
+        //reader.Close();
+        //reader = null;
         dbcmd.Dispose();
         dbcmd = null;
         dbconn.Close();

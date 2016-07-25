@@ -6,6 +6,8 @@ public class ManagePlanetRay : MonoBehaviour {
 
     public static bool dragging;
 
+    public GameObject SQLManager;
+
     void Start()
     {
         dragging = false;
@@ -23,9 +25,9 @@ public class ManagePlanetRay : MonoBehaviour {
             if (Physics.Raycast(ray, out hit))
             {
 
-                Debug.Log("Rayhit");
-                Debug.Log(hit.transform.name);
-                Debug.Log(hit.transform.tag);
+                //Debug.Log("Rayhit");
+                //Debug.Log(hit.transform.name);
+                //Debug.Log(hit.transform.tag);
 
                 if(hit.transform.tag == "Stars")
                 {
@@ -35,9 +37,26 @@ public class ManagePlanetRay : MonoBehaviour {
                         GameObject.Find("OBJ").GetComponent<OBJScript>().rowid = hit.transform.GetComponent<StarInfo>().rowid;
                         DontDestroyOnLoad(GameObject.Find("OBJ").gameObject);
 
+                        SQLManager.GetComponent<ManageSceneSQL>().dbClose();
                         SceneManager.LoadScene("Star");
                     }
+                }
 
+                if (!(hit.transform.name == "Myplanet"))
+                {
+                    if (hit.transform.GetComponent<MoveEachPlanet>().center && !(hit.transform.tag == "Stars"))
+                    {
+                        Debug.Log("hit~~~");
+
+
+
+
+
+
+
+                        //SQLManager.GetComponent<ManageSceneSQL>().dbClose();
+                        //SceneManager.LoadScene("Planet");
+                    }
                 }
 
             }

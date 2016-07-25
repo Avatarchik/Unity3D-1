@@ -9,8 +9,12 @@ public class ButtonController : MonoBehaviour {
     //씬 전환 기능
     public void TransSceneToMain()
     {
+        if (GameObject.Find("GameData"))
+        {
+            Destroy(GameObject.Find("GameData").gameObject);
+        }
+
         SceneManager.LoadScene("Main");
-        Destroy(GameObject.Find("GameData").gameObject);
         Debug.Log("scene Trans to Main");
     }
 
@@ -27,7 +31,7 @@ public class ButtonController : MonoBehaviour {
     public void TransSceneToBook()
     {
         //SceneManager.LoadScene("Book");
-        DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
+        //DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
         Debug.Log("scne trans to Book");
     }
 

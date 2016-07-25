@@ -19,3 +19,5 @@ EditorBuildSettings:
     path: Assets/01.Scenes/ManagePlanet.unity
   - enabled: 1
     path: Assets/01.Scenes/Star.unity
+  - enabled: 1
+    path: Assets/01.Scenes/Planet.unity
