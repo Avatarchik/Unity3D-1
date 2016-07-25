@@ -282,6 +282,7 @@ public class ButtonController : MonoBehaviour {
     public void useNav()
     {
         GameData.Instance().navOn = true;
+        WorldMapManager.Instance().ChooseStar.SetActive(true);
         WorldMapManager.Instance().Touch.SetActive(true);
         WorldMapManager.Instance().UseNav_ui.SetActive(false);
         
