@@ -1698,7 +1698,7 @@ MeshCollider:
   m_GameObject: {fileID: 55155069}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 5dbfc4e10a6a0a746a8a7d4d7b8d2725, type: 3}
@@ -34070,7 +34070,7 @@ MeshCollider:
   m_GameObject: {fileID: 634601949}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: ac1f9e24cc2a6334e9a75bd515965ada, type: 3}
@@ -100033,7 +100033,7 @@ MeshCollider:
   m_GameObject: {fileID: 1395604466}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: cc2a9593af8b4484c92c0d9fdd3de6bc, type: 3}
@@ -102807,7 +102807,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1464557927}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76b5ec6153a1d55438228df10fe66844, type: 3}
   m_Name: 
@@ -125684,7 +125684,7 @@ MeshCollider:
   m_GameObject: {fileID: 1819167599}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300002, guid: ba009f03bbe6cb54298666b0d3b99f5b, type: 3}
