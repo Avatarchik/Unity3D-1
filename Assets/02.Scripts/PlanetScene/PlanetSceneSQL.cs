@@ -175,7 +175,7 @@ public class PlanetSceneSQL : MonoBehaviour {
 
     }
 
-    void dbClose()
+     public void dbClose()
     {
         ///////////////////////////////////////////////////////////////////[DB Connection Close]
 //        reader.Close();

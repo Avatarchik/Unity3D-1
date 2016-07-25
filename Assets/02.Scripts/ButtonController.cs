@@ -74,13 +74,22 @@ public class ButtonController : MonoBehaviour {
     }
     public void TransSceneToManage()
     {
-        if(GameObject.Find("GameManager/SqlManager") != null)
+        if(GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>())
         {
             GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().dbClose();
         }else if(GameObject.Find("WorldMapFlag") != null)
         {
             Destroy(GameObject.Find("WorldMapFlag").gameObject);
         }
+        if (GameObject.Find("GameManager/SqlManager").GetComponent<PlanetSceneSQL>())
+        {
+            GameObject.Find("GameManager/SqlManager").GetComponent<PlanetSceneSQL>().dbClose();
+        }
+        if (GameObject.Find("GameManager/SqlManager").GetComponent<StarSceneSql>())
+        {
+            GameObject.Find("GameManager/SqlManager").GetComponent<StarSceneSql>().dbClose();
+        }
+
         SceneManager.LoadScene("ManagePlanet");
     }
 
@@ -206,6 +215,7 @@ public class ButtonController : MonoBehaviour {
             GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;
         }
 
+
         GameObject.Find("UI").transform.FindChild("FusionPanel").gameObject.SetActive(true);
 
         if (GameObject.Find("GameManager").gameObject.GetComponent<MainSingleTon>())
@@ -216,8 +226,22 @@ public class ButtonController : MonoBehaviour {
         {
             GameObject.Find("GameManager/UIManager").gameObject.GetComponent<StarFusion>().setText();
         }
+        if (GameObject.Find("GameManager").gameObject.GetComponent<PlanetSceneSingleTon>())
+        {
+            PlanetSceneSingleTon.Instance.activeFusionPanal = true;
+            GameObject.Find("GameManager/UIManager").gameObject.GetComponent<PlanetFusionScript>().setText();
+        }
 
     }
+
+    //public void setVisibleFusionPanalInPlanet()
+    //{
+    //    if (GameObject.Find("UI").gameObject.GetComponent<PlanetTouchRay>())
+    //    {
+    //        GameObject.Find("UI").gameObject.GetComponent<PlanetTouchRay>().enabled = false;
+    //    }
+    //    //GameObject.Find("GameManager").trans
+    //}
 
     public void CancelInFusionPanal()
     {
@@ -225,12 +249,19 @@ public class ButtonController : MonoBehaviour {
         {
             GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = true;
         }
-
+        if (GameObject.Find("UI").gameObject.GetComponent<PlanetTouchRay>())
+        {
+            GameObject.Find("UI").gameObject.GetComponent<PlanetTouchRay>().enabled = true;
+        }
         GameObject.Find("UI/FusionPanel").gameObject.SetActive(false);
 
         if (GameObject.Find("GameManager").gameObject.GetComponent<MainSingleTon>())
         {
             MainSingleTon.Instance.activeFusionPanal = false;
+        }
+        if (GameObject.Find("GameManager").gameObject.GetComponent<PlanetSceneSingleTon>())
+        {
+            PlanetSceneSingleTon.Instance.activeFusionPanal = false;
         }
     }
 
@@ -242,6 +273,16 @@ public class ButtonController : MonoBehaviour {
     public void Movebtn()
     {
         Debug.Log("이주이주");
+
+        string Query = "UPDATE userTable SET cPlanet = " + PlanetSceneSingleTon.Instance.rowid;
+
+        GameObject.Find("GameManager/SqlManager").GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
+
+        GameObject.Find("GameManager/SqlManager").GetComponent<PlanetSceneSQL>().dbClose();
+
+        SceneManager.LoadScene("Main");
+
+
     }
     // 메인화면
 

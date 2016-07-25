@@ -101,9 +101,9 @@ public class csPlanetPanalSet : MonoBehaviour {
         string Query1;
         string Query2;
 
-        Query1 = "UPDATE managePlanetTable SET user = 0";
+        Query1 = "UPDATE managePlanetTable SET User = 0";
         Debug.Log(Query1);
-        Query2 = "UPDATE managePlanetTable SET user = 1 WHERE rowid = (select cPlanet FROM userTable)";
+        Query2 = "UPDATE managePlanetTable SET User = 1 WHERE rowid = (select cPlanet FROM userTable)";
         Debug.Log(Query2);
 
         SQLManager.GetComponent<ManageSceneSQL>().UpdateQuery1(Query1);

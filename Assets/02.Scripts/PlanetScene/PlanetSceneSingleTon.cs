@@ -346,16 +346,21 @@ public class PlanetSceneSingleTon : MonoBehaviour {
 
     public void setVisibleEnergyBtn()
     {
+        EnergyBtn.gameObject.SetActive(false);
         if (lFood == 0 && lTitanium == 0)
         {
             EnergyBtn.gameObject.SetActive(false);
             notResText.gameObject.SetActive(true);
+            return;
         }
 
         if (!position_house)
         {
             EnergyBtn.gameObject.SetActive(false);
+            return;
         }
+
+        EnergyBtn.gameObject.SetActive(true);
     }
 
     public void setVisibleMoveBtn()
@@ -906,7 +911,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
         UIobj.GetComponent<PlanetUIFromSQL>().setUIText();
         if (activeFusionPanal)
         {
-            UIobj.GetComponent<FusionScript>().setText();
+            UIobj.GetComponent<PlanetFusionScript>().setText();
 
         }
     }
