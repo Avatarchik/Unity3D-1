@@ -85,12 +85,12 @@ public class csInjection : MonoBehaviour {
 
         if(StarSingleTon.Instance.needPE == StarSingleTon.Instance.nowPE)
         {
-            Query = "UPDATE zodiacTableTest SET nowPE = " + StarSingleTon.Instance.nowPE + ", active = " + 1 +  " WHERE rowid = " + StarSingleTon.Instance.rowid;
+            Query = "UPDATE zodiacTable SET nowPE = " + StarSingleTon.Instance.nowPE + ", active = " + 1 +  " WHERE rowid = " + StarSingleTon.Instance.rowid;
             Debug.Log(Query);
         }
         else
         {
-            Query = "UPDATE zodiacTableTest SET nowPE = " + StarSingleTon.Instance.nowPE + " WHERE rowid = " + StarSingleTon.Instance.rowid;
+            Query = "UPDATE zodiacTable SET nowPE = " + StarSingleTon.Instance.nowPE + " WHERE rowid = " + StarSingleTon.Instance.rowid;
             Debug.Log(Query);
         }
         SQLManager.GetComponent<StarSceneSql>().UpdateQuery(Query);

@@ -108,6 +108,7 @@ public class csPlanetPanalSet : MonoBehaviour {
 
         SQLManager.GetComponent<ManageSceneSQL>().UpdateQuery1(Query1);
         SQLManager.GetComponent<ManageSceneSQL>().UpdateQuery1(Query2);
+        SQLManager.GetComponent<ManageSceneSQL>().dbClose();
 
         GameObject.Find("Manager/UIManager").GetComponent<ButtonController>().TransSceneToMain();
 

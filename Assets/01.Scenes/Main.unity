@@ -7429,7 +7429,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4cb21782d8c40e14a843f39d1f96f68a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77ff02ceac593d542bc47a34cc7aaa10, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11333,7 +11333,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: bd71c827d895dfa448f1d84e50a38068, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c913c7dabcb5794cbd3cde3da73289d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12562,7 +12562,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 69dfbf3ed8680cf4e95e844ce10d9f8f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e12e5af1544a14140b6b21aceecbb323, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14200,7 +14200,7 @@ MonoBehaviour:
   ignoreUI:
     serializedVersion: 2
     m_Bits: 0
-  SQLManager: {fileID: 0}
+  SQLManager: {fileID: 1331161207}
 --- !u!1 &1016315966
 GameObject:
   m_ObjectHideFlags: 0
@@ -17788,7 +17788,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 2cedbabf95d818a40b553ca5db7eb212, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fc0323aefd66e2a4098f12b3b13bebe3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19029,6 +19029,10 @@ MonoBehaviour:
   shipNum: 0
   planetCount: 0
   starCount: 0
+  starRowid: 0
+  starOpen: 0
+  starFind: 0
+  starActive: 0
   zodiacName: 
   starName: 
   tree1: 0
@@ -20904,7 +20908,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 2205624c39f0482429c3548e6390224a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77ff02ceac593d542bc47a34cc7aaa10, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -24469,7 +24473,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 69f9564ba46b44c44af0723c191a051f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5ad8db4edff45aa40ad8f1f80a8475b9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -25399,10 +25403,10 @@ MonoBehaviour:
   ShipPanal: {fileID: 121997107}
   CachePanal: {fileID: 758863998}
   shipList:
-  - {fileID: 21300000, guid: 69dfbf3ed8680cf4e95e844ce10d9f8f, type: 3}
-  - {fileID: 21300000, guid: 42e6490175095cb46b24876774878f3c, type: 3}
-  - {fileID: 21300000, guid: 5cbf0c2070e4b174bb46af7ed7dde8a1, type: 3}
-  - {fileID: 21300000, guid: 9d6999c24cbe0954187f5ce64f6cfefd, type: 3}
+  - {fileID: 21300000, guid: e12e5af1544a14140b6b21aceecbb323, type: 3}
+  - {fileID: 21300000, guid: f5af5c4c12c9b854f8b8f592777ea18a, type: 3}
+  - {fileID: 21300000, guid: 5cf26c5f24e7db149ba7c492d0f7f59a, type: 3}
+  - {fileID: 21300000, guid: e0c4e36b05db6b74698f16bb1cd4dd96, type: 3}
   - {fileID: 21300000, guid: 40b40ad07d6df624ca8c1b35dd0dec7b, type: 3}
   lake: {fileID: 1071708103}
   ShipImage: {fileID: 916137675}

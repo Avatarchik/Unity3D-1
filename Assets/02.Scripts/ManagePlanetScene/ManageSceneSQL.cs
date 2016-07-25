@@ -245,7 +245,7 @@ public class ManageSceneSQL : MonoBehaviour {
         reader = null;
 
 
-        sqlQuery = "SELECT count(*) FROM zodiacTableTest WHERE find = 1 and active = 0";
+        sqlQuery = "SELECT count(*) FROM zodiacTable WHERE find = 1 and active = 0";
         dbcmd.CommandText = sqlQuery;
         reader = dbcmd.ExecuteReader();
         //행성갯수  + 별 갯수
@@ -258,8 +258,7 @@ public class ManageSceneSQL : MonoBehaviour {
         reader.Close();
         reader = null;
 
-
-        sqlQuery = "SELECT rowid, name FROM zodiacTableTest WHERE find = 1 and active = 0";
+        sqlQuery = "SELECT rowid, name FROM zodiacTable WHERE find = 1 and active = 0";
         dbcmd.CommandText = sqlQuery;
         reader = dbcmd.ExecuteReader();
         //행성갯수  + 별 갯수

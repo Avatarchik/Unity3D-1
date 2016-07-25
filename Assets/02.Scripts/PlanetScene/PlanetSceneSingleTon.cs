@@ -155,6 +155,10 @@ public class PlanetSceneSingleTon : MonoBehaviour {
 
     public void callShip()
     {
+        if(rowid != cPlanet)
+        {
+            return;
+        }
         setShip(shipNum);
 
     }
