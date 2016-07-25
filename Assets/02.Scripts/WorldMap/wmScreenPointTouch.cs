@@ -25,7 +25,7 @@ public class wmScreenPointTouch : MonoBehaviour
                         if (hit.transform.tag.Equals("Stars"))
                         {
 
-                            SelectDB.Instance().column = "locationX,locationY,locationZ";
+                            SelectDB.Instance().column = "locationX,locationY,locationZ,name";
                             SelectDB.Instance().table = "zodiacTable";
                             SelectDB.Instance().where = "WHERE zID= " + "'" + hit.transform.name + "'";
                             SelectDB.Instance().Select(1);
@@ -33,7 +33,7 @@ public class wmScreenPointTouch : MonoBehaviour
 
                             WorldMapManager.Instance().Touch.SetActive(false);
                             WorldMapManager.Instance().Destination_ui.SetActive(true);
-                            WorldMapManager.Instance().Destination_ui.GetComponentInChildren<Text>().text = hit.transform.name;
+                            WorldMapManager.Instance().Destination_ui.GetComponentInChildren<Text>().text = SelectDB.Instance().starName +" "+ hit.transform.name;
                         }
                         //else
                         //{

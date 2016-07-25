@@ -36,8 +36,10 @@ public class wmDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             newPos = new Vector2(eventData.position.x, eventData.position.y);
             //Debug.Log(eventData.delta);
 
-            GameObject obj = GameObject.Find("Galaxy");
+            GameObject obj = GameObject.Find("DragCamera");
             obj.transform.Rotate(new Vector3(eventData.delta.y / dragRate, -eventData.delta.x / dragRate,0));
+            //obj.transform.localRotation = 
+            
         //}//Build Mode
 
     }

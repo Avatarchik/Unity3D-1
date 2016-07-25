@@ -52,6 +52,9 @@ public class ButtonController : MonoBehaviour {
         if(GameObject.Find("GameManager/SqlManager") != null)
         {
             GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().dbClose();
+        }else if(GameObject.Find("WorldMapFlag") != null)
+        {
+            Destroy(GameObject.Find("WorldMapFlag").gameObject);
         }
         SceneManager.LoadScene("ManagePlanet");
     }
