@@ -48,14 +48,18 @@ public class ManagePlanetRay : MonoBehaviour {
                     {
                         Debug.Log("hit~~~");
 
+                        string Query1 = "UPDATE managePlanetTable SET User = 0";
+                        Debug.Log(Query1);
 
+                        string Query2 = "UPDATE managePlanetTable SET User = 1 Where rowid = " + hit.transform.GetComponent<PlanetInfo>().rowid;
+                        Debug.Log(Query2);
 
+                        SQLManager.GetComponent<ManageSceneSQL>().UpdateQuery1(Query1);
+                        SQLManager.GetComponent<ManageSceneSQL>().UpdateQuery1(Query2);
+                        SQLManager.GetComponent<ManageSceneSQL>().dbClose();
 
+                        SceneManager.LoadScene("Planet");
 
-
-
-                        //SQLManager.GetComponent<ManageSceneSQL>().dbClose();
-                        //SceneManager.LoadScene("Planet");
                     }
                 }
 

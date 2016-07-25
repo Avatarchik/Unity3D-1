@@ -10439,7 +10439,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 684454350}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1200242548, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -19029,6 +19029,7 @@ MonoBehaviour:
   shipNum: 0
   planetCount: 0
   starCount: 0
+  zodiacName: 
   starName: 
   tree1: 0
   tree2: 0
@@ -21343,7 +21344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1472490037
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23820,7 +23821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1694441086
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27373,7 +27374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2061566700
 RectTransform:
   m_ObjectHideFlags: 0
