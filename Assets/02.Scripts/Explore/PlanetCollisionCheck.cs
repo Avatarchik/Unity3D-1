@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlanetCollisionCheck : MonoBehaviour
 {
+    public GameObject obj;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -33,6 +35,7 @@ public class PlanetCollisionCheck : MonoBehaviour
                 GameManager.Instance().planetSpawnPoint = other.gameObject.GetComponent<Transform>().position;
 
                 //탐사 UI 활성화
+                GameManager.Instance().exploreUi.transform.FindChild("Ok").GetComponent<Button>().onClick.AddListener(() => gameObject.GetComponent<ButtonController>().explore(1));
                 GameManager.Instance().exploreUi.SetActive(true);
 
                 //물음표 행성 오브젝트 임시 저장
@@ -45,54 +48,88 @@ public class PlanetCollisionCheck : MonoBehaviour
             Time.timeScale = 0;
             
         }
+        else if(other.tag == "Stars")
+        {
+            SelectDB.Instance().table = "zodiacTable";
+            SelectDB.Instance().column = "Count(*)";
+            SelectDB.Instance().where = "WHERE \"open\" = 1 AND  \"find\" = 1 AND \"active\" = 0";
+            SelectDB.Instance().Select(0);
+            if (SelectDB.Instance().starCount == 5)
+            {
+                GameManager.Instance().noMorePS.SetActive(true);
+            }
+            else
+            {
+                SelectDB.Instance().table = "zodiacTable";
+                SelectDB.Instance().column = "rowid, open, find, active";
+                SelectDB.Instance().where = "WHERE zID = " + "'" + other.name +"'";
+                SelectDB.Instance().Select(4);
+                if (SelectDB.Instance().starOpen == 0 && SelectDB.Instance().starFind == 0 && SelectDB.Instance().starActive == 0)
+                {
+                    GameManager.Instance().exploreUi.SetActive(true);
+                    GameManager.Instance().exploreUi.transform.FindChild("Ok").GetComponent<Button>().onClick.AddListener(() => GameObject.Find("GameManager").GetComponent<ButtonController>().explore(2));
+                }else
+                {
+                    turnShip();
+                }
+            }
+            //게임 시간 정지
+            Time.timeScale = 0;
+
+        }
         else if (other.name != "SpaceCheck")
         {
-            int rotRand = 0;
-            if (this.gameObject.name == "ShipCollider_1")
-            {
-                rotRand = Random.Range(1, 4);
-                switch(rotRand)
-                {
-                    case 1:
-                        GameManager.Instance().rotShip = Vector3.up;
-                        break;
-                    case 2:
-                        GameManager.Instance().rotShip = Vector3.down;
-                        break;
-                    case 3:
-                        GameManager.Instance().rotShip = Vector3.left;
-                        break;
-                    case 4:
-                        GameManager.Instance().rotShip = Vector3.right;
-                        break;
-                }
-                GameManager.Instance().rotRate = 30;
-                GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
-            }
-            else if (this.gameObject.name == "ShipCollider_2")
-            {
-                GameManager.Instance().rotRate = 35;
-                GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
-            }
-            else if (this.gameObject.name == "ShipCollider_3")
-            {
-                GameManager.Instance().rotRate = 40;
-                GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
-            }else if(this.gameObject.name =="ShipCollider_left")
-            {
-                Debug.Log("left");
-                GameManager.Instance().rotShip = Vector3.up;
-                GameManager.Instance().rotRate = 35;
-                GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
-            }
-            else if (this.gameObject.name == "ShipCollider_right")
-            {
-                Debug.Log("Right");
-                GameManager.Instance().rotShip = Vector3.down;
-                GameManager.Instance().rotRate = 35;
-                GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
-            }
+            turnShip();
         }
     }
 
+    void turnShip()
+    {
+        int rotRand = 0;
+        if (this.gameObject.name == "ShipCollider_1")
+        {
+            rotRand = Random.Range(1, 4);
+            switch (rotRand)
+            {
+                case 1:
+                    GameManager.Instance().rotShip = Vector3.up;
+                    break;
+                case 2:
+                    GameManager.Instance().rotShip = Vector3.down;
+                    break;
+                case 3:
+                    GameManager.Instance().rotShip = Vector3.left;
+                    break;
+                case 4:
+                    GameManager.Instance().rotShip = Vector3.right;
+                    break;
+            }
+            GameManager.Instance().rotRate = 30;
+            GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
+        }
+        else if (this.gameObject.name == "ShipCollider_2")
+        {
+            GameManager.Instance().rotRate = 35;
+            GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
+        }
+        else if (this.gameObject.name == "ShipCollider_3")
+        {
+            GameManager.Instance().rotRate = 40;
+            GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
+        }
+        else if (this.gameObject.name == "ShipCollider_left")
+        {
+            Debug.Log("left");
+            GameManager.Instance().rotShip = Vector3.up;
+            GameManager.Instance().rotRate = 35;
+            GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
+        }
+        else if (this.gameObject.name == "ShipCollider_right")
+        {
+            Debug.Log("Right");
+            GameManager.Instance().rotShip = Vector3.down;
+            GameManager.Instance().rotRate = 35;
+            GameObject.Find("Ship").GetComponent<ShipTurningMove>().TrunShip();
+        }
+    }
 }

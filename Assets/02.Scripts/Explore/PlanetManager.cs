@@ -25,11 +25,11 @@ public class PlanetManager : MonoBehaviour
         Debug.Log(natureObj.Length);
         for (int i = 0; i < natureObj.Length; i++)
         {
-            Debug.Log(i +" "+ natureObj[i].transform.childCount);
+            Debug.Log(i + " " + natureObj[i].transform.childCount);
             for (int j = 0; j < natureObj[i].transform.childCount; j++)
             {
-                Debug.Log(j +" "+ natureObj[i].transform.GetChild(j).gameObject.name);
-                natureObj[i].transform.GetChild(j).gameObject.AddComponent<MeshCollider>().enabled =true;
+                Debug.Log(j + " " + natureObj[i].transform.GetChild(j).gameObject.name);
+                natureObj[i].transform.GetChild(j).gameObject.AddComponent<MeshCollider>().enabled = true;
             }
         }
 
@@ -45,6 +45,7 @@ public class PlanetManager : MonoBehaviour
             planetPool[i].SetActive(false);
         }
         loadPlanet();
+        loadStar();
     }
 
     void Update()
@@ -186,7 +187,7 @@ public class PlanetManager : MonoBehaviour
             }
         }
     }
-    
+
     public void planetChange(Vector3 spawnPoint)
     {
         int rand = GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().PlanetCreate();
@@ -202,7 +203,7 @@ public class PlanetManager : MonoBehaviour
         float tempY;
         float tempZ;
         int tempmat;
-        
+
         // 행성 오브젝트 생성 및 배치 
         GameObject obj = Instantiate(GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().D_PlanetList[rand]);
         obj.transform.position = spawnPoint;
@@ -255,7 +256,7 @@ public class PlanetManager : MonoBehaviour
                                      tempmat + "," +            //material  행성 스타일
                                      tempmFood + "," +          //lFood     식량 잔존량
                                      tempmTitanium + "," +      //lTitanium 티타늄 잔존량
-                                     "1";     
+                                     "1";
         InsertDB.Instance().Insert();
         GameObject.Find("GameManager").gameObject.GetComponent<ButtonController>().TransSceneToPlanet();
     }
@@ -274,12 +275,12 @@ public class PlanetManager : MonoBehaviour
 
         SelectDB.Instance().table = "managePlanetTable";
         SelectDB.Instance().column = "rowid, name, size, color, mat, locationX, locationY, locationZ, tree1, tree2, tree3, tree4, tree5, tree6";
-        Debug.Log(planetLoadCnt+","+SelectDB.Instance().planetCount);
+        Debug.Log(planetLoadCnt + "," + SelectDB.Instance().planetCount);
         for (; planetLoadCnt <= SelectDB.Instance().planetCount; planetLoadCnt++)
         {
             SelectDB.Instance().where = "WHERE rowid =" + planetLoadCnt;
             SelectDB.Instance().Select(3);
-            
+
             if (SelectDB.Instance().planetIndex != 0)
             {
                 int planetShape = (SelectDB.Instance().planetSize * 100) + (SelectDB.Instance().planetColor * 10) + SelectDB.Instance().planetMat;
@@ -297,12 +298,12 @@ public class PlanetManager : MonoBehaviour
                 obj.transform.FindChild("Ship").gameObject.SetActive(false);
                 obj.transform.FindChild("Ship_Neighbor").gameObject.SetActive(false);
                 obj.transform.FindChild("Zoo").gameObject.SetActive(false);
-                
+
                 //나무 표시 처리
-                for(int treeCnt = 1; treeCnt <= 6; treeCnt++)
+                for (int treeCnt = 1; treeCnt <= 6; treeCnt++)
                 {
                     string treeObj = "Tree_" + treeCnt;
-                    if(obj.transform.FindChild(treeObj) != null)
+                    if (obj.transform.FindChild(treeObj) != null)
                     {
                         string treeCntStr = "tree" + treeCnt;
 
@@ -343,16 +344,89 @@ public class PlanetManager : MonoBehaviour
                 }
             }
         }
-
         planetLoadCnt = 1;
+
+        //휴식 행성 로드
+        SelectDB.Instance().table = "garbageTable";
+        SelectDB.Instance().column = "rowid, Count(*)";
+        SelectDB.Instance().Select(0);
+
+        SelectDB.Instance().table = "garbageTable";
+        SelectDB.Instance().column = "rowid, name, size, color, mat, locationX, locationY, locationZ";
+        for (; planetLoadCnt <= SelectDB.Instance().planetCount; planetLoadCnt++)
+        {
+            SelectDB.Instance().where = "WHERE rowid =" + planetLoadCnt;
+            SelectDB.Instance().Select(3);
+            SelectDB.Instance().where = " ";
+            if (SelectDB.Instance().planetIndex != 0)
+            {
+                int planetShape = (SelectDB.Instance().planetSize * 100) + (SelectDB.Instance().planetColor * 10) + SelectDB.Instance().planetMat;
+                //쿼리 결과로 변수 초기화
+                Debug.Log(planetShape);
+                // 행성 오브젝트 생성 및 배치 
+
+                GameObject obj = Instantiate(GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().D_PlanetList[planetShape]);
+                obj.transform.position = SelectDB.Instance().starPosition;
+                obj.name = SelectDB.Instance().planetName;
+                obj.tag = "Planet";
+                //obj.GetComponent<SphereCollider>().isTrigger = false;
+                obj.transform.FindChild("PC").gameObject.SetActive(false);
+                obj.transform.FindChild("Neighbor").gameObject.SetActive(false);
+                obj.transform.FindChild("Ship").gameObject.SetActive(false);
+                obj.transform.FindChild("Ship_Neighbor").gameObject.SetActive(false);
+                obj.transform.FindChild("Zoo").gameObject.SetActive(false);
+                obj.transform.FindChild("Postbox").gameObject.SetActive(false);
+                obj.transform.FindChild("Spacestation").gameObject.SetActive(false); 
+
+                for (int treeCnt = 1; treeCnt <= 6; treeCnt++)
+                {
+                    string treeObj = "Tree_" + treeCnt;
+                    if (obj.transform.FindChild(treeObj) != null)
+                    {
+                        obj.transform.FindChild(treeObj).gameObject.SetActive(false);
+                    }
+                }
+            }
+        }
+        planetLoadCnt = 1;
+
     }
- 
+
+    void loadStar()
+    {
+        SelectDB.Instance().table = "zodiacTable";
+        SelectDB.Instance().column = "Count(*)";
+        SelectDB.Instance().Select(0);
+        for(int i=1; i<=SelectDB.Instance().starCount;i++)
+        {
+            SelectDB.Instance().table = "zodiacTable";
+            SelectDB.Instance().column = "rowid, open, find, active, zID";
+            SelectDB.Instance().where = "WHERE \"rowid\" =" + i;
+            SelectDB.Instance().Select(4);
+
+            if(SelectDB.Instance().starActive == 0)
+            {
+                Debug.Log("@@@" + GameObject.Find(SelectDB.Instance().zodiacName).name);
+                GameObject.Find(SelectDB.Instance().zodiacName).gameObject.GetComponent<SphereCollider>().enabled = true;
+                GameObject.Find(SelectDB.Instance().zodiacName).gameObject.GetComponent<SphereCollider>().isTrigger = true;
+            }
+            else if(SelectDB.Instance().starActive == 1)
+            {
+                Debug.Log("###" + GameObject.Find(SelectDB.Instance().zodiacName).name);
+                GameObject.Find(SelectDB.Instance().zodiacName).gameObject.GetComponent<SphereCollider>().enabled = false;
+                GameObject.Find(SelectDB.Instance().zodiacName).gameObject.GetComponent<MeshRenderer>().enabled = false;
+
+            }
+        }
+    }
+
     int treeCheck(string treeCntStr)
     {
-        if(treeCntStr == "tree1")
+        if (treeCntStr == "tree1")
         {
             return SelectDB.Instance().tree1;
-        }else if (treeCntStr == "tree2")
+        }
+        else if (treeCntStr == "tree2")
         {
             return SelectDB.Instance().tree2;
         }
@@ -363,7 +437,8 @@ public class PlanetManager : MonoBehaviour
         else if (treeCntStr == "tree4")
         {
             return SelectDB.Instance().tree4;
-        }else
+        }
+        else
         {
             return 0;
         }
@@ -371,4 +446,3 @@ public class PlanetManager : MonoBehaviour
 }
 
 
-    

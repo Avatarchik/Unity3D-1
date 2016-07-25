@@ -22,17 +22,17 @@ public class SelectDB : MonoBehaviour
     [Tooltip("Tablename\nEx)zodiacTable")]
     public string table = " ";
     [Tooltip("WHERE = 'column'\nEx)WHERE = 'rowid'")]
-    public string where =" ";
+    public string where = " ";
     string sqlQuery;
     string conn;
     string zID;
     float x;
     float y;
     float z;
-    
+
     int cntField;
     int cntTemp = 1;
-    
+
 
     ///////////////////////////////////////////////////
     //데이터 임시 저장 변수(column)
@@ -46,6 +46,10 @@ public class SelectDB : MonoBehaviour
     public int shipNum;
     public int planetCount;
     public int starCount;
+    public int starRowid;
+    public int starOpen;
+    public int starFind;
+    public int starActive;
     public string zodiacName;
     public string starName;
     public int tree1;
@@ -66,7 +70,7 @@ public class SelectDB : MonoBehaviour
     //type (1 : 별 위치 , 2 : 플레이어 정보, 3 : )
     public void Select(int type)
     {
-        
+
 #if UNITY_EDITOR
         m_ConnectionString = "URI=file:" + Application.streamingAssetsPath + "/" + m_SQLiteFileName;
         //m_ConnectionString = "URI=file:" + Application.dataPath + "/" + m_SQLiteFileName;
@@ -117,9 +121,9 @@ public class SelectDB : MonoBehaviour
         {
             conn = "URI=file:" + Application.streamingAssetsPath + "/CosmicDB.sqlite";
         } //Path to database Else
-        /////////////////////////////////////////////////////////////////[DB Path]
-        //Debug.Log(conn);
-        
+          /////////////////////////////////////////////////////////////////[DB Path]
+          //Debug.Log(conn);
+
         /////////////////////////////////////////////////////////////////[DB Connection]
         IDbConnection dbconn;
         dbconn = (IDbConnection)new SqliteConnection(conn);
@@ -137,7 +141,7 @@ public class SelectDB : MonoBehaviour
         //}
         //reader.Close();
         //reader = null;
-        sqlQuery = "SELECT " + column + " FROM " + table +" "+ where;
+        sqlQuery = "SELECT " + column + " FROM " + table + " " + where;
         Debug.Log(sqlQuery);
         dbcmd.CommandText = sqlQuery;
         IDataReader reader = dbcmd.ExecuteReader();
@@ -145,14 +149,14 @@ public class SelectDB : MonoBehaviour
 
 
         /////////////////////////////////////////////////////////////////[Data Read]
-        if(type == 0) // Count
+        if (type == 0) // Count
         {
             while (reader.Read())
             {
-                if(table == "managePlanetTable")
-                planetCount = reader.GetInt32(0);
+                if (table == "managePlanetTable")
+                    planetCount = reader.GetInt32(0);
                 else if (table == "zodiacTable")
-                starCount = reader.GetInt32(0);
+                    starCount = reader.GetInt32(0);
             }
             reader.Close();
             reader = null;
@@ -165,7 +169,7 @@ public class SelectDB : MonoBehaviour
                 x = reader.GetFloat(0);
                 y = reader.GetFloat(1);
                 z = reader.GetFloat(2);
-                if(reader.GetString(3) != null && reader.GetString(4) != null)
+                if (reader.GetString(3) != null && reader.GetString(4) != null)
                 {
                     starName = reader.GetString(3);
                     zodiacName = reader.GetString(4);
@@ -188,7 +192,7 @@ public class SelectDB : MonoBehaviour
         }
         if (type == 3) // 행성 로드
         {
-            if(reader.Read())
+            if (reader.Read())
             {
                 planetIndex = reader.GetInt16(0);
                 planetName = reader.GetString(1);
@@ -198,12 +202,15 @@ public class SelectDB : MonoBehaviour
                 x = reader.GetFloat(5);
                 y = reader.GetFloat(6);
                 z = reader.GetFloat(7);
-                tree1 = reader.GetInt16(8);
-                tree2 = reader.GetInt16(9);
-                tree3 = reader.GetInt16(10);
-                tree4 = reader.GetInt16(11);
-                tree5 = reader.GetInt16(12);
-                tree6 = reader.GetInt16(13);
+                if (reader.IsDBNull(8) == false)
+                {
+                    tree1 = reader.GetInt16(8);
+                    tree2 = reader.GetInt16(9);
+                    tree3 = reader.GetInt16(10);
+                    tree4 = reader.GetInt16(11);
+                    tree5 = reader.GetInt16(12);
+                    tree6 = reader.GetInt16(13);
+                }
                 starPosition = new Vector3(x, y, z);
             }
             else
@@ -211,11 +218,27 @@ public class SelectDB : MonoBehaviour
                 planetIndex = 0;
             }
             //Select 결과가 없을 경우 예외처리 필요
-         
+
             reader.Close();
             reader = null;
         }
-       
+        if (type == 4) // 별 정보 PlanetCollisionCheck line: 66 에서 사용 
+        {
+            while (reader.Read())
+            {
+                starRowid = reader.GetInt32(0);
+                starOpen = reader.GetInt32(1);
+                starFind = reader.GetInt32(2);
+                starActive = reader.GetInt32(3);
+                if(reader.IsDBNull(4) == false)
+                {
+                    zodiacName = reader.GetString(4);
+                }
+            }
+            reader.Close();
+            reader = null;
+        }
+
 
         /////////////////////////////////////////////////////////////////[Data Read]
 
@@ -237,5 +260,5 @@ public class SelectDB : MonoBehaviour
 
     }
 
-  
+
 }

@@ -245,8 +245,10 @@ public class ButtonController : MonoBehaviour {
     }
     // 메인화면
 
-    // 탐사화면
-    public void explore()
+    // 탐사화면 1: 미탐사행성, 2: 별
+
+    
+    public void explore(int type)
     {
         //관리중인 오브젝트 개수 체크
         //SelectDB.Instance().table = "managePlanetTable";
@@ -257,21 +259,30 @@ public class ButtonController : MonoBehaviour {
         //SelectDB.Instance().column = "Count(*)";
         //SelectDB.Instance().where = "WHERE open = 1 AND  find = 1 AND active = 0";
 
-        Debug.Log("행성을 탐사합니다!");
-        //Vector3 spawnPoint = GameManager.Instance().planetSpawnPoint;
+        if(type == 1)
+        {
+            Debug.Log("행성을 탐사합니다!");
+            //Vector3 spawnPoint = GameManager.Instance().planetSpawnPoint;
 
-        //충돌한 물음표 행성 비활성화
-        GameManager.Instance().tempPlanet.SetActive(false);
+            //충돌한 물음표 행성 비활성화
+            GameManager.Instance().tempPlanet.SetActive(false);
 
-        //행성 생성
-        Debug.Log("<b>SpawnPoint!!</b> " + GameManager.Instance().planetSpawnPoint);
-        PlanetManager script = GameObject.Find("PlanetManager").GetComponent<PlanetManager>();
-        script.planetChange(GameManager.Instance().planetSpawnPoint);
+            //행성 생성
+            Debug.Log("<b>SpawnPoint!!</b> " + GameManager.Instance().planetSpawnPoint);
+            PlanetManager script = GameObject.Find("PlanetManager").GetComponent<PlanetManager>();
+            script.planetChange(GameManager.Instance().planetSpawnPoint);
 
-        //탐사 UI 비활성화
-        GameManager.Instance().exploreUi.SetActive(false);
+            //탐사 UI 비활성화
+            GameManager.Instance().exploreUi.SetActive(false);
+            //Scene 전환(PlanetManager : 260 에서 동작함)
+        }else if (type == 2)
+        {
+           
+            GameObject.Find("OBJ").GetComponent<OBJScript>().rowid = SelectDB.Instance().starRowid;
+            DontDestroyOnLoad(GameObject.Find("OBJ"));
+            SceneManager.LoadScene("Star");
+        }
 
-        //Scene 전환 추가예정
     }
 
     public void pass(int type)
