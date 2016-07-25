@@ -87,6 +87,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
     public GameObject MoveBtn;
     public GameObject EnergyBtn;
     public GameObject notResText;
+    public GameObject SQLManager;
 
     public bool activeFusionPanal = false;
 
@@ -95,8 +96,8 @@ public class PlanetSceneSingleTon : MonoBehaviour {
 
     public List<GameObject> PlanetList = new List<GameObject>();
     public Dictionary<int, GameObject> D_PlanetList = new Dictionary<int, GameObject>();
+    public List<Sprite> EnergyIconList = new List<Sprite>();
 
-    public GameObject SQLManager;
     public float getCountFood;
     public float getCountTitanium;
     public float getCountE;
@@ -118,6 +119,13 @@ public class PlanetSceneSingleTon : MonoBehaviour {
     string tempString = "";
 
 
+
+    GameObject Pla;
+    public GameObject PlanetPosition;
+
+
+
+
     void Start()
     {
         treeCount = 0;
@@ -126,40 +134,240 @@ public class PlanetSceneSingleTon : MonoBehaviour {
     public void callPlanet()
     {
         int PlanetNum = color * 100 + size * 10 + mat;
-        UIobj.GetComponent<MainUIfromSQL>().setPlanet(PlanetNum);
+        setPlanet(PlanetNum);
 
     }
+    
+    public void setPlanet(int Num)
+    {
+        if (PlanetPosition.transform.childCount == 1)
+        {
+            Pla = Instantiate(D_PlanetList[Num], PlanetPosition.transform.position, PlanetPosition.transform.rotation) as GameObject;
+            Pla.name = "death_planet";
+            Pla.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
+            Pla.transform.parent = PlanetPosition.transform;
+            Camera.main.transform.parent = PlanetPosition.transform.FindChild("DragCamera").transform;
+            Destroy(Pla.GetComponent<Rigidbody>());
+            Destroy(Pla.GetComponent<SphereCollider>());
+        }
+    }
+
 
     public void callShip()
     {
-        UIobj.GetComponent<MainUIfromSQL>().setShip(shipNum);
+        setShip(shipNum);
 
     }
 
+    public void setShip(int num)
+    {
+        switch (num)
+        {
+            case 1:
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_1").gameObject.SetActive(true);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_2").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_3").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_4").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_5").gameObject.SetActive(false);
+
+                break;
+
+            case 2:
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_1").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_2").gameObject.SetActive(true);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_3").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_4").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_5").gameObject.SetActive(false);
+
+                break;
+
+            case 3:
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_1").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_2").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_3").gameObject.SetActive(true);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_4").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_5").gameObject.SetActive(false);
+
+                break;
+
+            case 4:
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_1").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_2").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_3").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_4").gameObject.SetActive(true);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_5").gameObject.SetActive(false);
+
+                break;
+
+            case 5:
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_1").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_2").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_3").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_4").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_5").gameObject.SetActive(true);
+
+                break;
+
+            default:
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_1").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_2").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_3").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_4").gameObject.SetActive(false);
+                GameObject.Find("PlanetPosition/death_planet/Ship/Ship_5").gameObject.SetActive(false);
+
+                break;
+        }
+
+
+    }
+    
     public void callTree()
     {
-        UIobj.GetComponent<MainUIfromSQL>().setTree(1, tree1);
-        UIobj.GetComponent<MainUIfromSQL>().setTree(2, tree2);
-        UIobj.GetComponent<MainUIfromSQL>().setTree(3, tree3);
-        UIobj.GetComponent<MainUIfromSQL>().setTree(4, tree4);
-        UIobj.GetComponent<MainUIfromSQL>().setTree(5, tree5);
-        UIobj.GetComponent<MainUIfromSQL>().setTree(6, tree5);
+        setTree(1, tree1);
+        setTree(2, tree2);
+        setTree(3, tree3);
+        setTree(4, tree4);
+        setTree(5, tree5);
+        setTree(6, tree6);
+    }
+
+    public void setTree(int TreeCount, int TreeNum)
+    {
+        string stringTree = "PlanetPosition/death_planet/Tree_" + TreeCount;
+
+        if (GameObject.Find(stringTree) == null)
+        {
+            return;
+
+        }
+        switch (TreeNum)
+        {
+            case 0:
+                GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
+                break;
+
+            case 1:
+                GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(true);
+                GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
+
+                break;
+
+            case 2:
+                GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(true);
+                GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
+
+                break;
+
+            case 3:
+                GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(true);
+                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(false);
+
+                break;
+
+            case 4:
+                GameObject.Find(stringTree + "/Pinetree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Springtree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Mapletree_" + TreeCount).gameObject.SetActive(false);
+                GameObject.Find(stringTree + "/Wintertree_" + TreeCount).gameObject.SetActive(true);
+
+                break;
+
+            default:
+                break;
+
+        }
 
     }
+
 
     public void callNeighber()
     {
-        UIobj.GetComponent<MainUIfromSQL>().setNeighber();
+        setNeighber();
+    }
+
+    public void setNeighber()
+    {
+        if (neighbor == 0)
+        {
+            GameObject.Find("PlanetPosition/death_planet/Ship_Neighbor").gameObject.SetActive(false);
+            GameObject.Find("PlanetPosition/death_planet/Neighbor").gameObject.SetActive(false);
+        }
+        else
+        {
+            GameObject.Find("PlanetPosition/death_planet/Ship_Neighbor").gameObject.SetActive(true);
+            GameObject.Find("PlanetPosition/death_planet/Neighbor").gameObject.SetActive(true);
+
+        }
     }
 
     public void callStation()
     {
-        UIobj.GetComponent<MainUIfromSQL>().setStation();
+        setStation();
+    }
+
+    public void setStation()
+    {
+        if (position_house)
+        {
+            GameObject.Find("PlanetPosition/death_planet/Spacestation").gameObject.SetActive(true);
+        }
+        else
+        {
+            GameObject.Find("PlanetPosition/death_planet/Spacestation").gameObject.SetActive(false);
+
+        }
+    }
+
+    public void callPostBox()
+    {
+        setPostBox();
     }
 
     public void setPostBox()
     {
-        UIobj.GetComponent<MainUIfromSQL>().setPostBox();
+        if (cPlanet == rowid)
+        {
+            GameObject.Find("PlanetPosition/death_planet/Postbox").gameObject.SetActive(true);
+        }
+        else
+        {
+            GameObject.Find("PlanetPosition/death_planet/Postbox").gameObject.SetActive(false);
+        }
+    }
+
+    public void setVisibleEnergyBtn()
+    {
+        if (lFood == 0 && lTitanium == 0)
+        {
+            EnergyBtn.gameObject.SetActive(false);
+            notResText.gameObject.SetActive(true);
+        }
+
+        if (!position_house)
+        {
+            EnergyBtn.gameObject.SetActive(false);
+        }
+    }
+
+    public void setVisibleMoveBtn()
+    {
+        if (cPlanet == rowid)
+        {
+            MoveBtn.gameObject.SetActive(false);
+        }
+        else
+        {
+            MoveBtn.gameObject.SetActive(true);
+        }
     }
 
     public void getFood(Vector3 textPos)
@@ -172,7 +380,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
         string Query = "";
         if (treeTouchT == "0")
         {
-            Query = "UPDATE managePlanetTable SET treeTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
+            Query = "UPDATE managePlanetTable SET treeTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1 " ;
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
             tempTex = Instantiate(getText, textPos, Quaternion.Euler(new Vector3(0f, 0f, 0f))) as GameObject;
@@ -183,7 +391,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
         if (cFood >= maxFood)
         {
             cFood = maxFood;
-            Query = "UPDATE managePlanetTable SET treeTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
+            Query = "UPDATE managePlanetTable SET treeTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1 ";
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
             tempTex = Instantiate(getText, textPos, Quaternion.Euler(new Vector3(0f, 0f, 0f))) as GameObject;
@@ -254,7 +462,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
             tempTex.GetComponent<getTextScript>().setText(tempString);
 
             string tempQuery1 = "UPDATE userTable SET cFood = " + cFood;
-            string tempQuery2 = "UPDATE managePlanetTable SET treeTouchT = \"" + treeTouchT + "\", lFood = " + lFood + " WHERE rowid = " + rowid;
+            string tempQuery2 = "UPDATE managePlanetTable SET treeTouchT = \"" + treeTouchT + "\", lFood = " + lFood + " WHERE User = 1 ";
             Debug.Log(tempQuery1);
             Debug.Log(tempQuery2);
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(tempQuery1);
@@ -271,11 +479,9 @@ public class PlanetSceneSingleTon : MonoBehaviour {
         else
         {
             treeTouchT = touchTime.ToString("yyyy-MM-dd HH:mm:ss");
-            Query = "UPDATE managePlanetTable SET treeTouchT = \"" + treeTouchT + "\" WHERE rowid = " + rowid;
+            Query = "UPDATE managePlanetTable SET treeTouchT = \"" + treeTouchT + "\" WHERE User = 1" ;
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
-
         }
-
     }
 
     int checkTree()
@@ -319,7 +525,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
 
         if (titaniumTouchT == "0")
         {
-            Query = "UPDATE managePlanetTable SET titaniumTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
+            Query = "UPDATE managePlanetTable SET titaniumTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1" ;
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
             tempTex = Instantiate(getText, textPos, Quaternion.Euler(new Vector3(0f, 0f, 0f))) as GameObject;
@@ -331,7 +537,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
         if (cTitanium >= maxTitanium)
         {
             cTitanium = maxTitanium;
-            Query = "UPDATE managePlanetTable SET treeTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
+            Query = "UPDATE managePlanetTable SET treeTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
             tempTex = Instantiate(getText, textPos, Quaternion.Euler(new Vector3(0f, 0f, 0f))) as GameObject;
@@ -402,7 +608,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
             titaniumTouchT = touchTime.ToString("yyyy-MM-dd HH:mm:ss");
 
             string tempQuery1 = "UPDATE userTable SET cTitanium = " + cTitanium;
-            string tempQuery2 = "UPDATE managePlanetTable SET titaniumTouchT = \"" + titaniumTouchT + "\", lTitanium = " + lTitanium + " WHERE rowid = " + rowid;
+            string tempQuery2 = "UPDATE managePlanetTable SET titaniumTouchT = \"" + titaniumTouchT + "\", lTitanium = " + lTitanium + " WHERE User = 1 ";
             Debug.Log(tempQuery1);
             Debug.Log(tempQuery2);
 
@@ -424,7 +630,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
         else
         {
             titaniumTouchT = touchTime.ToString("yyyy-MM-dd HH:mm:ss");
-            Query = "UPDATE managePlanetTable SET titaniumTouchT = \"" + titaniumTouchT + "\" WHERE rowid = " + rowid;
+            Query = "UPDATE managePlanetTable SET titaniumTouchT = \"" + titaniumTouchT + "\" WHERE user = 1";
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
         }
     }
@@ -435,7 +641,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
         string Query = "";
         if (planetTouchT == "0")
         {
-            Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
+            Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
             return;
         }
@@ -443,7 +649,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
 
         if (lFood == 0 && lTitanium == 0)
         {
-            Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
+            Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
             return;
         }
@@ -490,7 +696,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                     if (cBE >= maxE)
                     {
                         cBE = maxE;
-                        Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
+                        Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
                         SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
                         return;
                     }
@@ -513,7 +719,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                     planetTouchT = touchTime.ToString("yyyy-MM-dd HH:mm:ss");
 
                     tempQuery1 = "UPDATE userTable SET cBE = " + cBE;
-                    tempQuery2 = "UPDATE managePlanetTable SET planetTouchT = \"" + planetTouchT + "\" WHERE rowid = " + rowid;
+                    tempQuery2 = "UPDATE managePlanetTable SET planetTouchT = \"" + planetTouchT + "\" WHERE User = 1";
 
                     break;
 
@@ -521,7 +727,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                     if (cRE >= maxE)
                     {
                         cRE = maxE;
-                        Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
+                        Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
                         SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
                         return;
                     }
@@ -544,7 +750,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                     planetTouchT = touchTime.ToString("yyyy-MM-dd HH:mm:ss");
 
                     tempQuery1 = "UPDATE userTable SET cRE = " + cRE;
-                    tempQuery2 = "UPDATE managePlanetTable SET planetTouchT = \"" + planetTouchT + "\" WHERE rowid = " + rowid;
+                    tempQuery2 = "UPDATE managePlanetTable SET planetTouchT = \"" + planetTouchT + "\" WHERE User = 1";
 
                     break;
 
@@ -552,7 +758,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                     if (cYE >= maxE)
                     {
                         cYE = maxE;
-                        Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
+                        Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
                         SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
                         return;
                     }
@@ -575,7 +781,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                     planetTouchT = touchTime.ToString("yyyy-MM-dd HH:mm:ss");
 
                     tempQuery1 = "UPDATE userTable SET cYE = " + cYE;
-                    tempQuery2 = "UPDATE managePlanetTable SET planetTouchT = \"" + planetTouchT + "\" WHERE rowid = " + rowid;
+                    tempQuery2 = "UPDATE managePlanetTable SET planetTouchT = \"" + planetTouchT + "\" WHERE User = 1";
 
                     break;
 
@@ -583,7 +789,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                     if (cVE >= maxE)
                     {
                         cVE = maxE;
-                        Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
+                        Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
                         SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
                         return;
                     }
@@ -606,14 +812,14 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                     planetTouchT = touchTime.ToString("yyyy-MM-dd HH:mm:ss");
 
                     tempQuery1 = "UPDATE userTable SET cVE = " + cVE;
-                    tempQuery2 = "UPDATE managePlanetTable SET planetTouchT = \"" + planetTouchT + "\" WHERE rowid = " + rowid;
+                    tempQuery2 = "UPDATE managePlanetTable SET planetTouchT = \"" + planetTouchT + "\" WHERE User = 1";
                     break;
 
                 case 5: //g
                     if (cGE >= maxE)
                     {
                         cGE = maxE;
-                        Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
+                        Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
                         SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
                         return;
                     }
@@ -636,14 +842,14 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                     planetTouchT = touchTime.ToString("yyyy-MM-dd HH:mm:ss");
 
                     tempQuery1 = "UPDATE userTable SET cGE = " + cGE;
-                    tempQuery2 = "UPDATE managePlanetTable SET planetTouchT = \"" + planetTouchT + "\" WHERE rowid = " + rowid;
+                    tempQuery2 = "UPDATE managePlanetTable SET planetTouchT = \"" + planetTouchT + "\" WHERE User = 1";
                     break;
 
                 case 6: //o
                     if (cOE >= maxE)
                     {
                         cOE = maxE;
-                        Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE rowid = " + rowid;
+                        Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
                         SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
                         return;
                     }
@@ -666,7 +872,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                     planetTouchT = touchTime.ToString("yyyy-MM-dd HH:mm:ss");
 
                     tempQuery1 = "UPDATE userTable SET cOE = " + cOE;
-                    tempQuery2 = "UPDATE managePlanetTable SET planetTouchT = \"" + planetTouchT + "\" WHERE rowid = " + rowid;
+                    tempQuery2 = "UPDATE managePlanetTable SET planetTouchT = \"" + planetTouchT + "\" WHERE User = 1";
                     break;
 
                 default:
@@ -688,42 +894,21 @@ public class PlanetSceneSingleTon : MonoBehaviour {
         else
         {
             planetTouchT = touchTime.ToString("yyyy-MM-dd HH:mm:ss");
-            Query = "UPDATE managePlanetTable SET planetTouchT = \"" + planetTouchT + "\" WHERE rowid = " + rowid;
+            Query = "UPDATE managePlanetTable SET planetTouchT = \"" + planetTouchT + "\" WHERE User = 1";
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
         }
     }
 
-    public void setVisibleEnergyBtn()
-    {
-        if (lFood == 0 && lTitanium == 0)
-        {
-            EnergyBtn.gameObject.SetActive(false);
-            notResText.gameObject.SetActive(true);
-        }
 
-        if (!position_house)
-        {
-            EnergyBtn.gameObject.SetActive(false);
-        }
-    }
-
-    public void setVisibleMoveBtn()
-    {
-        if (cPlanet == rowid)
-        {
-            MoveBtn.gameObject.SetActive(false);
-        }
-    }
 
     void Update()
     {
-        UIobj.GetComponent<MainUIfromSQL>().setUIText();
+        UIobj.GetComponent<PlanetUIFromSQL>().setUIText();
         if (activeFusionPanal)
         {
             UIobj.GetComponent<FusionScript>().setText();
 
         }
     }
-
-
 }
+

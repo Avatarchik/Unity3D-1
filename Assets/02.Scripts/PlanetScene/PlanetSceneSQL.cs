@@ -96,17 +96,17 @@ public class PlanetSceneSQL : MonoBehaviour {
         while (reader.Read())
         {
 
-            MainSingleTon.Instance.cPlanet = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.cFood = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.cTitanium = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.cRE = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.cYE = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.cBE = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.cOE = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.cGE = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.cVE = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.cPE = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.shipNum = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.cPlanet = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.cFood = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.cTitanium = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.cRE = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.cYE = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.cBE = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.cOE = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.cGE = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.cVE = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.cPE = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.shipNum = reader.GetInt32(cnt++);
 
         }
         reader.Close();
@@ -118,60 +118,53 @@ public class PlanetSceneSQL : MonoBehaviour {
         cnt = 0;
         while (reader.Read())
         {
-            MainSingleTon.Instance.rowid = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.pName = reader.GetString(cnt++);
-            MainSingleTon.Instance.size = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.color = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.mat = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.mFood = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.mTitanium = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.locationX = reader.GetFloat(cnt++);
-            MainSingleTon.Instance.locationY = reader.GetFloat(cnt++);
-            MainSingleTon.Instance.locationZ = reader.GetFloat(cnt++);
-            MainSingleTon.Instance.le_persec = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.position_house = reader.GetBoolean(cnt++);
-            MainSingleTon.Instance.state = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.user = reader.GetBoolean(cnt++);
-            MainSingleTon.Instance.neighbor = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.lFood = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.lTitanium = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.rowid = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.pName = reader.GetString(cnt++);
+            PlanetSceneSingleTon.Instance.size = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.color = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.mat = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.mFood = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.mTitanium = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.locationX = reader.GetFloat(cnt++);
+            PlanetSceneSingleTon.Instance.locationY = reader.GetFloat(cnt++);
+            PlanetSceneSingleTon.Instance.locationZ = reader.GetFloat(cnt++);
+            PlanetSceneSingleTon.Instance.le_persec = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.position_house = reader.GetBoolean(cnt++);
+            PlanetSceneSingleTon.Instance.state = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.user = reader.GetBoolean(cnt++);
+            PlanetSceneSingleTon.Instance.neighbor = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.lFood = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.lTitanium = reader.GetInt32(cnt++);
 
-            MainSingleTon.Instance.planetTouchT = reader.GetString(cnt++);
-            MainSingleTon.Instance.titaniumTouchT = reader.GetString(cnt++);
-            MainSingleTon.Instance.treeTouchT = reader.GetString(cnt++);
-            MainSingleTon.Instance.breaktime = reader.GetString(cnt++);
+            PlanetSceneSingleTon.Instance.planetTouchT = reader.GetString(cnt++);
+            PlanetSceneSingleTon.Instance.titaniumTouchT = reader.GetString(cnt++);
+            PlanetSceneSingleTon.Instance.treeTouchT = reader.GetString(cnt++);
+            PlanetSceneSingleTon.Instance.breaktime = reader.GetString(cnt++);
 
-            MainSingleTon.Instance.tree1 = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.tree2 = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.tree3 = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.tree4 = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.tree5 = reader.GetInt32(cnt++);
-            MainSingleTon.Instance.tree6 = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.tree1 = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.tree2 = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.tree3 = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.tree4 = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.tree5 = reader.GetInt32(cnt++);
+            PlanetSceneSingleTon.Instance.tree6 = reader.GetInt32(cnt++);
 
         }
 
         reader.Close();
         reader = null;
         //dbClose();
-        MainSingleTon.Instance.callPlanet();
-        MainSingleTon.Instance.callShip();
-        MainSingleTon.Instance.callTree();
-        MainSingleTon.Instance.callNeighber();
-        MainSingleTon.Instance.callStation();
-        MainSingleTon.Instance.callPlanet();
-        MainSingleTon.Instance.setVisibleEnergyBtn();
-        MainSingleTon.Instance.setVisibleMoveBtn();
+        PlanetSceneSingleTon.Instance.callPlanet();
+        PlanetSceneSingleTon.Instance.callShip();
+        PlanetSceneSingleTon.Instance.callTree();
+        PlanetSceneSingleTon.Instance.callNeighber();
+        PlanetSceneSingleTon.Instance.callStation();
+        PlanetSceneSingleTon.Instance.callPlanet();
+        PlanetSceneSingleTon.Instance.callPostBox();
+        PlanetSceneSingleTon.Instance.setVisibleEnergyBtn();
+        PlanetSceneSingleTon.Instance.setVisibleMoveBtn();
     }
 
 
-    //public void UpdateEnergy(string EnergyQuery)
-    //{
-    //    dbcmd.CommandText = EnergyQuery;
-    //    dbcmd.ExecuteNonQuery();
-
-    //    settingInfo();
-
-    //}
 
     public void UpdateQuery(string ShipQuery)
     {
@@ -185,8 +178,8 @@ public class PlanetSceneSQL : MonoBehaviour {
     void dbClose()
     {
         ///////////////////////////////////////////////////////////////////[DB Connection Close]
-        reader.Close();
-        reader = null;
+//        reader.Close();
+ //       reader = null;
         dbcmd.Dispose();
         dbcmd = null;
         dbconn.Close();
