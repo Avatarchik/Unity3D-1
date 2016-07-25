@@ -47,6 +47,15 @@ public class ManagePlanetRay : MonoBehaviour {
                     if (hit.transform.GetComponent<MoveEachPlanet>().center && !(hit.transform.tag == "Stars"))
                     {
                         Debug.Log("hit~~~");
+
+
+
+
+
+
+
+                        //SQLManager.GetComponent<ManageSceneSQL>().dbClose();
+                        //SceneManager.LoadScene("Planet");
                     }
                 }
 
