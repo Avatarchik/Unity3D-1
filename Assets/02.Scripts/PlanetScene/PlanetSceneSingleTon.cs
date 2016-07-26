@@ -398,7 +398,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
             Query = "UPDATE managePlanetTable SET treeTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1 " ;
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
-            tempTex = Instantiate(getText, textPos, Quaternion.Euler(new Vector3(0f, 0f, 0f))) as GameObject;
+            tempTex = Instantiate(getText, textPos, GameObject.Find("PlanetPosition/DragCamera").transform.rotation) as GameObject;
             tempTex.GetComponent<getTextScript>().setText("생산시작");
             return;
         }
@@ -409,7 +409,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
             Query = "UPDATE managePlanetTable SET treeTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1 ";
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
-            tempTex = Instantiate(getText, textPos, Quaternion.Euler(new Vector3(0f, 0f, 0f))) as GameObject;
+            tempTex = Instantiate(getText, textPos, GameObject.Find("PlanetPosition/DragCamera").transform.rotation) as GameObject;
             tempTex.GetComponent<getTextScript>().setText("MAX");
 
             return;
@@ -473,7 +473,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
             treeTouchT = touchTime.ToString("yyyy-MM-dd HH:mm:ss");
 
 
-            tempTex = Instantiate(getText, textPos, Quaternion.Euler(new Vector3(0f, 0f, 0f))) as GameObject;
+            tempTex = Instantiate(getText, textPos, GameObject.Find("PlanetPosition/DragCamera").transform.rotation) as GameObject;
             tempTex.GetComponent<getTextScript>().setText(tempString);
 
             string tempQuery1 = "UPDATE userTable SET cFood = " + cFood;
@@ -543,7 +543,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
             Query = "UPDATE managePlanetTable SET titaniumTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1" ;
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
-            tempTex = Instantiate(getText, textPos, Quaternion.Euler(new Vector3(0f, 0f, 0f))) as GameObject;
+            tempTex = Instantiate(getText, textPos, GameObject.Find("PlanetPosition/DragCamera").transform.rotation) as GameObject;
             tempTex.GetComponent<getTextScript>().setText("생산시작");
 
             return;
@@ -555,7 +555,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
             Query = "UPDATE managePlanetTable SET treeTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
 
-            tempTex = Instantiate(getText, textPos, Quaternion.Euler(new Vector3(0f, 0f, 0f))) as GameObject;
+            tempTex = Instantiate(getText, textPos, GameObject.Find("PlanetPosition/DragCamera").transform.rotation) as GameObject;
             tempTex.GetComponent<getTextScript>().setText("MAX");
 
             return;
@@ -627,7 +627,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
             Debug.Log(tempQuery1);
             Debug.Log(tempQuery2);
 
-            tempTex = Instantiate(getText, textPos, Quaternion.Euler(new Vector3(0f, 0f, 0f))) as GameObject;
+            tempTex = Instantiate(getText, textPos, GameObject.Find("PlanetPosition/DragCamera").transform.rotation) as GameObject;
             tempTex.GetComponent<getTextScript>().setText(tempString);
 
 

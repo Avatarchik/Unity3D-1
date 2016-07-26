@@ -97,6 +97,7 @@ public class csInjection : MonoBehaviour {
         SQLManager.GetComponent<StarSceneSql>().UpdateQuery(Query);
         SQLManager.GetComponent<StarSceneSql>().UpdateQuery(Query2);
 
+        StarSingleTon.Instance.setPointlight();
         GameObject.Find("UI/Injection_PE").gameObject.SetActive(false);
     }
 
