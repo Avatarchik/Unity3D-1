@@ -45,8 +45,17 @@ public class FusionScript : MonoBehaviour {
 
     public List<Sprite> EnergyIcon = new List<Sprite>();
 
+    public GameObject resultPanal;
+    public GameObject resultImg;
+    public Text resultText;
+    public Text quantityText;
+
+
+
     int switchEnergy = 0;
     public int maxE = 20000;
+
+
 
 
     public void setText()
@@ -237,6 +246,7 @@ public class FusionScript : MonoBehaviour {
                 Query = "UPDATE userTable SET cPE = " + MainSingleTon.Instance.cPE
                     + ", cOE = " + MainSingleTon.Instance.cOE + ", cGE = " + MainSingleTon.Instance.cGE
                     + ", cVE = " + MainSingleTon.Instance.cVE + " WHERE cPE = " + (MainSingleTon.Instance.cPE - makeNum);
+                ResultOpen(0, makeNum);
                 break;
 
             case 2: // orange = red + yellow 1:1
@@ -249,6 +259,7 @@ public class FusionScript : MonoBehaviour {
                 Query = "UPDATE userTable SET cOE = " + MainSingleTon.Instance.cOE
                     + ", cRE = " + MainSingleTon.Instance.cRE + ", cYE = " + MainSingleTon.Instance.cYE
                     + " WHERE cOE = " + (MainSingleTon.Instance.cOE - makeNum);
+                ResultOpen(1, makeNum);
 
                 break;
 
@@ -261,6 +272,7 @@ public class FusionScript : MonoBehaviour {
                 Query = "UPDATE userTable SET cGE = " + MainSingleTon.Instance.cGE
                       + ", cYE = " + MainSingleTon.Instance.cYE + ", cBE = " + MainSingleTon.Instance.cBE
                         + " WHERE cGE = " + (MainSingleTon.Instance.cGE - makeNum);
+                ResultOpen(2, makeNum);
 
                 break;
 
@@ -273,6 +285,8 @@ public class FusionScript : MonoBehaviour {
                 Query = "UPDATE userTable SET cVE = " + MainSingleTon.Instance.cVE
                     + ", cRE = " + MainSingleTon.Instance.cRE + ", cBE = " + MainSingleTon.Instance.cBE
                     + " WHERE cVE = " + (MainSingleTon.Instance.cVE - makeNum);
+                ResultOpen(3, makeNum);
+
                 break;
 
             default:
@@ -308,5 +322,45 @@ public class FusionScript : MonoBehaviour {
         SubPanal2.SetActive(false);
 
     }
+
+    public void ResultOpen(int num, int makeNum)
+    {
+        resultPanal.gameObject.SetActive(true);
+        quantityText.text = makeNum.ToString();
+
+        switch (num)
+        {
+            case 0:
+                resultImg.GetComponent<Image>().sprite = EnergyIcon[num];
+                resultText.text = "플래티넘";
+                break;
+
+            case 1:
+                resultImg.GetComponent<Image>().sprite = EnergyIcon[num];
+                resultText.text = "오렌지";
+                break;
+
+            case 2:
+                resultImg.GetComponent<Image>().sprite = EnergyIcon[num];
+                resultText.text = "그린";
+                break;
+
+            case 3:
+                resultImg.GetComponent<Image>().sprite = EnergyIcon[num];
+                resultText.text = "바이올럿";
+                break;
+
+            default:
+                break;
+
+        }
+
+    }
+
+    public void ConfrimInResult()
+    {
+        resultPanal.gameObject.SetActive(false);
+    }
+
 
 }

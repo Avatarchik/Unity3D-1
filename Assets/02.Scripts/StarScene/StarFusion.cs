@@ -44,6 +44,12 @@ public class StarFusion : MonoBehaviour {
 
     public List<Sprite> EnergyIcon = new List<Sprite>();
 
+    public GameObject resultPanal;
+    public GameObject resultImg;
+    public Text resultText;
+    public Text quantityText;
+
+
     int switchEnergy = 0;
     public int maxE = 20000;
 
@@ -225,6 +231,7 @@ public class StarFusion : MonoBehaviour {
                 Query = "UPDATE userTable SET cPE = " + StarSingleTon.Instance.cPE
                     + ", cOE = " + StarSingleTon.Instance.cOE + ", cGE = " + StarSingleTon.Instance.cGE
                     + ", cVE = " + StarSingleTon.Instance.cVE + " WHERE cPE = " + (StarSingleTon.Instance.cPE - makeNum);
+                ResultOpen(0, makeNum);
                 break;
 
             case 2: // orange = red + yellow 1:1
@@ -237,6 +244,7 @@ public class StarFusion : MonoBehaviour {
                 Query = "UPDATE userTable SET cOE = " + StarSingleTon.Instance.cOE
                     + ", cRE = " + StarSingleTon.Instance.cRE + ", cYE = " + StarSingleTon.Instance.cYE
                     + " WHERE cOE = " + (StarSingleTon.Instance.cOE - makeNum);
+                ResultOpen(1, makeNum);
 
                 break;
 
@@ -249,6 +257,7 @@ public class StarFusion : MonoBehaviour {
                 Query = "UPDATE userTable SET cGE = " + StarSingleTon.Instance.cGE
                       + ", cYE = " + StarSingleTon.Instance.cYE + ", cBE = " + StarSingleTon.Instance.cBE
                         + " WHERE cGE = " + (StarSingleTon.Instance.cGE - makeNum);
+                ResultOpen(2, makeNum);
 
                 break;
 
@@ -261,6 +270,7 @@ public class StarFusion : MonoBehaviour {
                 Query = "UPDATE userTable SET cVE = " + StarSingleTon.Instance.cVE
                     + ", cRE = " + StarSingleTon.Instance.cRE + ", cBE = " + StarSingleTon.Instance.cBE
                     + " WHERE cVE = " + (StarSingleTon.Instance.cVE - makeNum);
+                ResultOpen(3, makeNum);
                 break;
 
             default:
@@ -299,5 +309,42 @@ public class StarFusion : MonoBehaviour {
 
     }
 
+    public void ResultOpen(int num, int makeNum)
+    {
+        resultPanal.gameObject.SetActive(true);
+        quantityText.text = makeNum.ToString();
 
+        switch (num)
+        {
+            case 0:
+                resultImg.GetComponent<Image>().sprite = EnergyIcon[num];
+                resultText.text = "플래티넘";
+                break;
+
+            case 1:
+                resultImg.GetComponent<Image>().sprite = EnergyIcon[num];
+                resultText.text = "오렌지";
+                break;
+
+            case 2:
+                resultImg.GetComponent<Image>().sprite = EnergyIcon[num];
+                resultText.text = "그린";
+                break;
+
+            case 3:
+                resultImg.GetComponent<Image>().sprite = EnergyIcon[num];
+                resultText.text = "바이올럿";
+                break;
+
+            default:
+                break;
+
+        }
+
+    }
+
+    public void ConfrimInResult()
+    {
+        resultPanal.gameObject.SetActive(false);
+    }
 }

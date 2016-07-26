@@ -22,7 +22,11 @@ public class csInjection : MonoBehaviour {
     public Text textMakeNum;
 
     public GameObject SQLManager;
-    
+
+    public GameObject ResultPanal;
+    public Text quantityText;
+
+
     public void setPanal()
     {
         havePE.text = StarSingleTon.Instance.cPE.ToString();
@@ -97,7 +101,8 @@ public class csInjection : MonoBehaviour {
         SQLManager.GetComponent<StarSceneSql>().UpdateQuery(Query);
         SQLManager.GetComponent<StarSceneSql>().UpdateQuery(Query2);
 
-        StarSingleTon.Instance.setPointlight();
+
+        openResult();
         GameObject.Find("UI/Injection_PE").gameObject.SetActive(false);
     }
 
@@ -106,6 +111,19 @@ public class csInjection : MonoBehaviour {
         slider.value = 0;
         GameObject.Find("UI/Injection_PE").gameObject.SetActive(false);
     }
+
+    public void openResult()
+    {
+        ResultPanal.gameObject.SetActive(true);
+        quantityText.text = StarSingleTon.Instance.cPE.ToString();
+    }
+
+    public void confirnInResult()
+    {
+        ResultPanal.gameObject.SetActive(false);
+        StarSingleTon.Instance.setPointlight();
+    }
+
 
 }
 

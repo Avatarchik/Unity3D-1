@@ -234,6 +234,10 @@ public class ButtonController : MonoBehaviour {
             GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;
         }
 
+        if (GameObject.Find("UI").gameObject.GetComponent<PlanetTouchRay>())
+        {
+            GameObject.Find("UI").gameObject.GetComponent<PlanetTouchRay>().enabled = false;
+        }
 
         GameObject.Find("UI").transform.FindChild("FusionPanel").gameObject.SetActive(true);
 
@@ -253,14 +257,7 @@ public class ButtonController : MonoBehaviour {
 
     }
 
-    //public void setVisibleFusionPanalInPlanet()
-    //{
-    //    if (GameObject.Find("UI").gameObject.GetComponent<PlanetTouchRay>())
-    //    {
-    //        GameObject.Find("UI").gameObject.GetComponent<PlanetTouchRay>().enabled = false;
-    //    }
-    //    //GameObject.Find("GameManager").trans
-    //}
+
 
     public void CancelInFusionPanal()
     {

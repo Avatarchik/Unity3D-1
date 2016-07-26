@@ -43,6 +43,13 @@ public class PlanetFusionScript : MonoBehaviour {
 
     public List<Sprite> EnergyIcon = new List<Sprite>();
 
+
+    public GameObject resultPanal;
+    public GameObject resultImg;
+    public Text resultText;
+    public Text quantityText;
+
+
     int switchEnergy = 0;
     public int maxE = 20000;
 
@@ -222,6 +229,8 @@ public class PlanetFusionScript : MonoBehaviour {
                 Query = "UPDATE userTable SET cPE = " + PlanetSceneSingleTon.Instance.cPE
                     + ", cOE = " + PlanetSceneSingleTon.Instance.cOE + ", cGE = " + PlanetSceneSingleTon.Instance.cGE
                     + ", cVE = " + PlanetSceneSingleTon.Instance.cVE + " WHERE cPE = " + (PlanetSceneSingleTon.Instance.cPE - makeNum);
+                ResultOpen(0, makeNum);
+
                 break;
 
             case 2: // orange = red + yellow 1:1
@@ -234,6 +243,7 @@ public class PlanetFusionScript : MonoBehaviour {
                 Query = "UPDATE userTable SET cOE = " + PlanetSceneSingleTon.Instance.cOE
                     + ", cRE = " + PlanetSceneSingleTon.Instance.cRE + ", cYE = " + PlanetSceneSingleTon.Instance.cYE
                     + " WHERE cOE = " + (PlanetSceneSingleTon.Instance.cOE - makeNum);
+                ResultOpen(1, makeNum);
 
                 break;
 
@@ -246,6 +256,7 @@ public class PlanetFusionScript : MonoBehaviour {
                 Query = "UPDATE userTable SET cGE = " + PlanetSceneSingleTon.Instance.cGE
                       + ", cYE = " + PlanetSceneSingleTon.Instance.cYE + ", cBE = " + PlanetSceneSingleTon.Instance.cBE
                         + " WHERE cGE = " + (PlanetSceneSingleTon.Instance.cGE - makeNum);
+                ResultOpen(2, makeNum);
 
                 break;
 
@@ -258,6 +269,7 @@ public class PlanetFusionScript : MonoBehaviour {
                 Query = "UPDATE userTable SET cVE = " + PlanetSceneSingleTon.Instance.cVE
                     + ", cRE = " + PlanetSceneSingleTon.Instance.cRE + ", cBE = " + PlanetSceneSingleTon.Instance.cBE
                     + " WHERE cVE = " + (PlanetSceneSingleTon.Instance.cVE - makeNum);
+                ResultOpen(3, makeNum);
                 break;
 
             default:
@@ -293,5 +305,46 @@ public class PlanetFusionScript : MonoBehaviour {
         SubPanal2.SetActive(false);
 
     }
+
+
+    public void ResultOpen(int num, int makeNum)
+    {
+        resultPanal.gameObject.SetActive(true);
+        quantityText.text = makeNum.ToString();
+
+        switch (num)
+        {
+            case 0:
+                resultImg.GetComponent<Image>().sprite = EnergyIcon[num];
+                resultText.text = "플래티넘";
+                break;
+
+            case 1:
+                resultImg.GetComponent<Image>().sprite = EnergyIcon[num];
+                resultText.text = "오렌지";
+                break;
+
+            case 2:
+                resultImg.GetComponent<Image>().sprite = EnergyIcon[num];
+                resultText.text = "그린";
+                break;
+
+            case 3:
+                resultImg.GetComponent<Image>().sprite = EnergyIcon[num];
+                resultText.text = "바이올럿";
+                break;
+
+            default:
+                break;
+
+        }
+
+    }
+
+    public void ConfrimInResult()
+    {
+        resultPanal.gameObject.SetActive(false);
+    }
+
 
 }
