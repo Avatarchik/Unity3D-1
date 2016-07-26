@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class getTextScript : MonoBehaviour {
 
@@ -18,12 +19,13 @@ public class getTextScript : MonoBehaviour {
         {
             count = 0;
             fontsize--;
-            this.GetComponent<TextMesh>().fontSize = fontsize;
-
-            if(fontsize ==0)
+            if (fontsize == 0)
             {
                 Destroy(this.gameObject);
             }
+            this.GetComponent<TextMesh>().fontSize = fontsize;
+
+
         }
 
     }

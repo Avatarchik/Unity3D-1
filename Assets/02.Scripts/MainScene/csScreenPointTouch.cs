@@ -33,7 +33,7 @@ public class csScreenPointTouch : MonoBehaviour
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    // Debug Mode
                 RaycastHit hit;                                                 // Debug Mode
-
+                Debug.Log(Input.mousePosition);
                 //foreach (Touch touch in Input.touches)                        // Build Mode
                 //{
                 //    Ray ray = Camera.main.ScreenPointToRay(touch.position);   // Build Mode
@@ -52,7 +52,8 @@ public class csScreenPointTouch : MonoBehaviour
                         if (hit.transform.tag.Equals("Food"))
                         {
                             Debug.Log("ray hit food") ;
-                        MainSingleTon.Instance.getFood(hit.point);
+                        //MainSingleTon.Instance.getFood(Input.mousePosition); //touch.point로 바꿔야함
+                        MainSingleTon.Instance.getFood(hit.transform.position);
 
 
                         }
@@ -85,5 +86,7 @@ public class csScreenPointTouch : MonoBehaviour
         rDrag = false;
 
     }
+
+
 }
 
