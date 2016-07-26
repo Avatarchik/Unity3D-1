@@ -258,6 +258,7 @@ public class PlanetManager : MonoBehaviour
                                      tempmTitanium + "," +      //lTitanium 티타늄 잔존량
                                      "1";
         InsertDB.Instance().Insert();
+        SoundManager.Instance().bgmType = 1;
         GameObject.Find("GameManager").gameObject.GetComponent<ButtonController>().TransSceneToPlanet();
     }
 
@@ -406,13 +407,12 @@ public class PlanetManager : MonoBehaviour
 
             if(SelectDB.Instance().starActive == 0)
             {
-                Debug.Log("@@@" + GameObject.Find(SelectDB.Instance().zodiacName).name);
+
                 GameObject.Find(SelectDB.Instance().zodiacName).gameObject.GetComponent<SphereCollider>().enabled = true;
                 GameObject.Find(SelectDB.Instance().zodiacName).gameObject.GetComponent<SphereCollider>().isTrigger = true;
             }
             else if(SelectDB.Instance().starActive == 1)
             {
-                Debug.Log("###" + GameObject.Find(SelectDB.Instance().zodiacName).name);
                 GameObject.Find(SelectDB.Instance().zodiacName).gameObject.GetComponent<SphereCollider>().enabled = false;
                 GameObject.Find(SelectDB.Instance().zodiacName).gameObject.GetComponent<MeshRenderer>().enabled = false;
 

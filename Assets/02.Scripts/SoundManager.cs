@@ -9,9 +9,12 @@ public class SoundManager : MonoBehaviour
     {
         return _instance;
     }
+    public int bgmType = 0; // 0: Default, 1 : Main, 2 : Explore 3: Change
 
     public AudioClip mainBGM = null;
     public AudioClip exploreBGM = null;
+    public AudioClip exploreFlying1 = null;
+    public AudioClip exploreFlying2 = null;
     public AudioClip uiTouch = null;
     public AudioClip SceneTran = null;
     public AudioClip planetTouch = null;
@@ -28,6 +31,9 @@ public class SoundManager : MonoBehaviour
     public AudioClip shipHumming = null;
     public AudioClip destroyPlanet = null;
 
+    public AudioSource bgm;
+    public AudioSource fx;
+    public AudioSource ship;
 
     void Awake()
     {
@@ -42,24 +48,88 @@ public class SoundManager : MonoBehaviour
 
             if (gameObject.scene.name != "Explore")
             {
-                GetComponent<AudioSource>().clip = mainBGM;
-                GetComponent<AudioSource>().loop = true;
-                GetComponent<AudioSource>().Play();
+                bgm.clip = mainBGM;
+                bgm.loop = true;
+                bgm.Play();
             }
             else
             {
-                GetComponent<AudioSource>().clip = exploreBGM;
-                GetComponent<AudioSource>().loop = true;
-                GetComponent<AudioSource>().Play();
+                bgm.clip = exploreBGM;
+                bgm.loop = true;
+                bgm.Play();
             }
         }
-        if(GameObject.Find("SoundManager_Active") != null && GameObject.Find("SoundManager") != null)
+
+        if (GameObject.Find("SoundManager_Active") != null && GameObject.Find("SoundManager") != null)
         {
             Destroy(GameObject.Find("SoundManager").gameObject);
         }
     }
+    void Update()
+    {
+        if (bgmType != 0)
+        {
+            if (bgm.volume != 0 && bgmType != 3)
+            {
+                bgm.volume -= 0.5f * Time.deltaTime;
+            }
+            else if (bgm.volume == 0 && bgmType != 3)
+            {
+                bgmChange();
+                bgmType = 3;
+            }
+            else if (bgmType == 3)
+            {
+                bgm.volume += 0.5f * Time.deltaTime;
+                if (bgm.volume == 1.0f)
+                {
+                    bgmType = 0;
+                }
+            }
+        }
+        if (bgm.clip.name == "BGM_Explore" && ship.isPlaying == false)
+        {
+            ship.clip = shipHumming;
+            ship.loop = true;
+            ship.Play();
+        }else if(bgm.clip.name != "BGM_Explore" && ship.isPlaying == true)
+        {
+            ship.Stop();
+        }
+
+        if (bgm.clip.name == "BGM_Explore" && fx.isPlaying == false)
+        {
+            int fxRand = Random.Range(1, 2);
+            if(fxRand == 1)
+            {
+                PlaySfx(exploreFlying1);
+            }else if (fxRand == 2)
+            {
+                PlaySfx(exploreFlying2);
+            }
+        }
+        
+        
+    }
     public void PlaySfx(AudioClip clip)
     {
-        GetComponent<AudioSource>().PlayOneShot(clip);
+        fx.PlayOneShot(clip);
     }
+
+    public void bgmChange()
+    {
+        if (bgmType == 1)
+        {
+            bgm.clip = mainBGM;
+            bgm.loop = true;
+            bgm.Play();
+        }
+        else if (bgmType == 2)
+        {
+            bgm.clip = exploreBGM;
+            bgm.loop = true;
+            bgm.Play();
+        }
+    }
+
 }
