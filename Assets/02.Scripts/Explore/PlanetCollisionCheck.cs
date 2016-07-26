@@ -68,8 +68,8 @@ public class PlanetCollisionCheck : MonoBehaviour
                 SelectDB.Instance().Select(4);
                 if (SelectDB.Instance().starOpen == 0 && SelectDB.Instance().starFind == 0 && SelectDB.Instance().starActive == 0)
                 {
-                    GameManager.Instance().exploreUi.SetActive(true);
-                    GameManager.Instance().exploreUi.transform.FindChild("Ok").GetComponent<Button>().onClick.AddListener(() => GameObject.Find("GameManager").GetComponent<ButtonController>().explore(2));
+                    GameManager.Instance().exploreUi_star.SetActive(true);
+                    GameManager.Instance().exploreUi_star.transform.FindChild("Ok").GetComponent<Button>().onClick.AddListener(() => GameObject.Find("GameManager").GetComponent<ButtonController>().explore(2));
                 }else
                 {
                     turnShip();
