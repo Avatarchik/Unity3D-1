@@ -77,7 +77,7 @@ public class csScreenPointTouch : MonoBehaviour
                         if (hit.transform.tag.Equals("PostBox"))
                         {
                             Debug.Log("Ray hit PostBOX");
-                        MainSingleTon.Instance.setPostPanal();
+//                        MainSingleTon.Instance.setPostPanal();
                         }
 
                     }

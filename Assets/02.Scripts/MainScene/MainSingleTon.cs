@@ -752,7 +752,7 @@ public class MainSingleTon : MonoBehaviour {
 
         //GameObject.Find("UI").GetComponent<csScreenPointTouch>().enabled = true;
 
-        GameObject.Find("GameManager").GetComponent<UnityAds>().ShowRewardedAd();
+//        GameObject.Find("GameManager").GetComponent<UnityAds>().ShowRewardedAd();
 
         PostPanalBefore.gameObject.SetActive(false);
         PostPanalAfter.gameObject.SetActive(true);
