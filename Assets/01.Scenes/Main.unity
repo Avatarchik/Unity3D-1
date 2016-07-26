@@ -16920,7 +16920,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7559ccdef7dd90f4aa112c0e25e7bf88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: -10
 --- !u!135 &1122134057
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -30829,8 +30828,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba722d7589285240be98856d90f123c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractor: {fileID: 1122134056}
-  myTransform: {fileID: 0}
 --- !u!114 &2132439660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30843,13 +30840,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce76c0689733004e9a6ed2268e3f678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movSpeed: 0.8
-  runSpeed: 2
-  rotSpeed: 0.5
-  animSpeed: 1.5
-  running: 1
-  movDir: {x: 0, y: 0, z: 0}
-  anim: {fileID: 113574424}
 --- !u!23 &2132439661
 MeshRenderer:
   m_ObjectHideFlags: 0
