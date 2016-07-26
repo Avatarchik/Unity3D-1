@@ -9,7 +9,7 @@ using UnityEngine.Advertisements;
 public class UnityAds : MonoBehaviour {
 
 
-/*I
+
     public void ShowRewardedAd()
     {
         if (Advertisement.IsReady())
@@ -43,6 +43,6 @@ public class UnityAds : MonoBehaviour {
                 break;
         }
     }
-    */
+
 
 }

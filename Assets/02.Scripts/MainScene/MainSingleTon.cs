@@ -751,11 +751,10 @@ public class MainSingleTon : MonoBehaviour {
     {
 
 
-//        GameObject.Find("GameManager").GetComponent<UnityAds>().ShowRewardedAd();
+        GameObject.Find("GameManager").GetComponent<UnityAds>().ShowRewardedAd();
 
         PostPanalBefore.gameObject.SetActive(false);
         PostPanalAfter.gameObject.SetActive(true);
-        //PostPanalBefore.gameObject.SetActive(false);
     }
 
     public void cancelInBeforePanal()
