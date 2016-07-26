@@ -61,10 +61,14 @@ public class StarSingleTon : MonoBehaviour {
     public Text textStarName;
     public Text textMainPE;
 
+    public GameObject leftPE;
+    public GameObject mainPointLight;
+    public Sprite notInjection;
+
+
     void Start()
     {
         rowid = GameObject.Find("OBJ").GetComponent<OBJScript>().rowid;
-
         StarSceneSql.StarStart();
 
 
@@ -80,5 +84,17 @@ public class StarSingleTon : MonoBehaviour {
 
     }
 
+    public void setPointlight()
+    {
+        if (needPE == nowPE)
+        {
+            leftPE.gameObject.SetActive(false);
+            GameObject.Find("UI/Button/InjectionBtn").GetComponent<Button>().enabled = false;
+            mainPointLight.gameObject.SetActive(true);
+            GameObject.Find("UI/Button/InjectionBtn").GetComponent<Image>().sprite = notInjection;
+
+            return;
+        }
+    }
 
 }

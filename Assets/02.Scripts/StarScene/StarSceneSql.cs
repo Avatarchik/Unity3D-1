@@ -110,6 +110,7 @@ public class StarSceneSql : MonoBehaviour
         reader = null;
 
         sqlQuery = "SELECT * FROM zodiacTable WHERE rowid =" + StarSingleTon.Instance.rowid;
+
         dbcmd.CommandText = sqlQuery;
         reader = dbcmd.ExecuteReader();
         while (reader.Read())
@@ -133,6 +134,7 @@ public class StarSceneSql : MonoBehaviour
         reader = null;
 
         StarSingleTon.Instance.setMainText();
+        StarSingleTon.Instance.setPointlight();
 
     }
 
