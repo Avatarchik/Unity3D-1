@@ -3790,6 +3790,7 @@ MonoBehaviour:
   maxTitanium: 20000
   maxE: 20000
   getText: {fileID: 119898, guid: afd1d29dfafcfd645a5b7ec7e7d053f2, type: 2}
+  getEnergyText: {fileID: 149338, guid: 6e603749a7561b14fbb3eb56cf5e5e08, type: 2}
   PostPanalBefore: {fileID: 584543484}
   PostPanalAfter: {fileID: 414244622}
 --- !u!114 &354346189
