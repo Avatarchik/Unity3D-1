@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class SoundManager : MonoBehaviour
 {
     static SoundManager _instance = null;
+    static bool bgmBegin = false;
     public static SoundManager Instance()
     {
         return _instance;
@@ -28,12 +29,35 @@ public class SoundManager : MonoBehaviour
     public AudioClip destroyPlanet = null;
 
 
-    void Start()
+    void Awake()
     {
         if (_instance == null)
             _instance = this;
-    }
 
+        if (!bgmBegin)
+        {
+            gameObject.name = "SoundManager_Active";
+            DontDestroyOnLoad(gameObject);
+            bgmBegin = true;
+
+            if (gameObject.scene.name != "Explore")
+            {
+                GetComponent<AudioSource>().clip = mainBGM;
+                GetComponent<AudioSource>().loop = true;
+                GetComponent<AudioSource>().Play();
+            }
+            else
+            {
+                GetComponent<AudioSource>().clip = exploreBGM;
+                GetComponent<AudioSource>().loop = true;
+                GetComponent<AudioSource>().Play();
+            }
+        }
+        if(GameObject.Find("SoundManager_Active") != null && GameObject.Find("SoundManager") != null)
+        {
+            Destroy(GameObject.Find("SoundManager").gameObject);
+        }
+    }
     public void PlaySfx(AudioClip clip)
     {
         GetComponent<AudioSource>().PlayOneShot(clip);

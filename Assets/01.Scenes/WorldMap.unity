@@ -14128,6 +14128,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   SQLManager: {fileID: 0}
+--- !u!81 &1717525356
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1717525353}
+  m_Enabled: 1
 --- !u!1001 &1725219797
 Prefab:
   m_ObjectHideFlags: 0

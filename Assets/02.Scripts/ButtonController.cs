@@ -32,6 +32,7 @@ public class ButtonController : MonoBehaviour {
 
     public void setVisibleStore()
     {
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
         GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;
         GameObject.Find("UI").transform.FindChild("StorePanal").gameObject.SetActive(true);
         GameObject.Find("UI/Main/Button/SettingBtn").gameObject.SetActive(false);
@@ -79,21 +80,22 @@ public class ButtonController : MonoBehaviour {
             Destroy(GameObject.Find("WorldMapFlag").gameObject);
             SceneManager.LoadScene("ManagePlanet");
         }
-        // 관리->월드맵 -> 관리 시 아래 조건이 성립하지 않아 오류출력됩니다.
-        // 확인부탁드려요
-        if (GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>())
-        {
-            GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().dbClose();
-        }
-        if (GameObject.Find("GameManager/SqlManager").GetComponent<PlanetSceneSQL>())
-        {
-            GameObject.Find("GameManager/SqlManager").GetComponent<PlanetSceneSQL>().dbClose();
-        }
-        if (GameObject.Find("GameManager/SqlManager").GetComponent<StarSceneSql>())
-        {
-            GameObject.Find("GameManager/SqlManager").GetComponent<StarSceneSql>().dbClose();
-        }
 
+        if (GameObject.Find("GameManager/SqlManager") != null)
+        {
+            if (GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>())
+            {
+                GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().dbClose();
+            }
+            if (GameObject.Find("GameManager/SqlManager").GetComponent<PlanetSceneSQL>())
+            {
+                GameObject.Find("GameManager/SqlManager").GetComponent<PlanetSceneSQL>().dbClose();
+            }
+            if (GameObject.Find("GameManager/SqlManager").GetComponent<StarSceneSql>())
+            {
+                GameObject.Find("GameManager/SqlManager").GetComponent<StarSceneSql>().dbClose();
+            }
+        }
         SceneManager.LoadScene("ManagePlanet");
     }
 
