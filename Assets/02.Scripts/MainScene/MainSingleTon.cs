@@ -120,6 +120,9 @@ public class MainSingleTon : MonoBehaviour {
 
     string tempString = "";
 
+    public GameObject PostPanalBefore;
+    public GameObject PostPanalAfter;
+
 
 
     void Start()
@@ -732,6 +735,30 @@ public class MainSingleTon : MonoBehaviour {
             UIobj.GetComponent<FusionScript>().setText();
 
         }
+    }
+
+    public void setPostPanal()
+    {
+        //GameObject.Find("UI").GetComponent<csScreenPointTouch>
+        PostPanalBefore.gameObject.SetActive(true);
+
+    }
+
+    public void confirmInBeforePanal()
+    {
+        //PostPanalBefore.gameObject.SetActive(false);
+    }
+
+    public void cancelInBeforePanal()
+    {
+        PostPanalBefore.gameObject.SetActive(false);
+
+    }
+
+    public void confirmInAfterPanal()
+    {
+        PostPanalAfter.gameObject.SetActive(false);
+
     }
 
 

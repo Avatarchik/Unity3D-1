@@ -124,8 +124,94 @@ public class MovePlanet : MonoBehaviour
         nowPlanet.name = "Myplanet";
         nowPlanet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         nowPlanet.transform.parent = GameObject.Find("CurrentPlanet").transform;
+
+        //setShip(shipNum);
         
     }
+
+
+    public void callShip()
+    {
+        GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_1").gameObject.SetActive(false);
+        GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_2").gameObject.SetActive(false);
+        GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_3").gameObject.SetActive(false);
+        GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_4").gameObject.SetActive(false);
+        GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_5").gameObject.SetActive(false);
+
+        setShip(shipNum);
+
+    }
+
+    public void setShip(int num)
+    {
+        switch (num)
+        {
+            case 1:
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_1").gameObject.SetActive(true);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_2").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_3").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_4").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_5").gameObject.SetActive(false);
+
+                break;
+
+            case 2:
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_1").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_2").gameObject.SetActive(true);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_3").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_4").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_5").gameObject.SetActive(false);
+
+                break;
+
+            case 3:
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_1").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_2").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_3").gameObject.SetActive(true);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_4").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_5").gameObject.SetActive(false);
+
+                break;
+
+            case 4:
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_1").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_2").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_3").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_4").gameObject.SetActive(true);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_5").gameObject.SetActive(false);
+
+                break;
+
+            case 5:
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_1").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_2").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_3").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_4").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_5").gameObject.SetActive(true);
+
+                break;
+
+            default:
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_1").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_2").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_3").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_4").gameObject.SetActive(false);
+                GameObject.Find("CurrentPlanet/Myplanet/Ship/Ship_5").gameObject.SetActive(false);
+
+                break;
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+
 
     public void setPlanets()
     {
@@ -147,7 +233,6 @@ public class MovePlanet : MonoBehaviour
         }
 
     }
-
 
     void Update()
     {

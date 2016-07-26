@@ -33,7 +33,7 @@ public class csScreenPointTouch : MonoBehaviour
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    // Debug Mode
                 RaycastHit hit;                                                 // Debug Mode
-                Debug.Log(Input.mousePosition);
+                //Debug.Log(Input.mousePosition);
                 //foreach (Touch touch in Input.touches)                        // Build Mode
                 //{
                 //    Ray ray = Camera.main.ScreenPointToRay(touch.position);   // Build Mode

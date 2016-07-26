@@ -301,6 +301,7 @@ public class ManageSceneSQL : MonoBehaviour {
 
             cnt = 0;
         }
+        MovePlanet.Instance.setShip(MovePlanet.Instance.shipNum);
 
         MovePlanet.Instance.setResource();
 
