@@ -42,7 +42,7 @@ public class StarNavigation : MonoBehaviour {
         deltaFuelTime += Time.deltaTime;
         if (deltaFuelTime < maxFuel && engineActive == true)
         {
-            Debug.Log(deltaFuelTime);
+            //Debug.Log(deltaFuelTime);
             
             fuelGauge.value = deltaFuelTime / maxFuel;
         }
@@ -62,9 +62,10 @@ public class StarNavigation : MonoBehaviour {
         }
 
         //목적지 네비게이션
-        Vector3 pPoint = GameManager.Instance().player.transform.position;
+        
         if (GameData.Instance().navOn == true)
         {
+            Vector3 pPoint = GameManager.Instance().player.transform.position;
             Vector3 dPoint = GameData.Instance().starPosition;
             GameObject.Find("Nav").GetComponent<LineRenderer>().SetPosition(0, pPoint);        //플레이어 현재 위치
             GameObject.Find("Nav").GetComponent<LineRenderer>().SetPosition(1, dPoint);        //목적지 위치
@@ -78,7 +79,9 @@ public class StarNavigation : MonoBehaviour {
 
     IEnumerator returnMain()
     {
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().endExplore);
         yield return new WaitForSeconds(5.0f);
+        SoundManager.Instance().bgmType = 1;
         GameObject.Find("GameManager").gameObject.GetComponent<ButtonController>().TransSceneToMain();
     }
 }

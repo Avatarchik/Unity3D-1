@@ -59,13 +59,13 @@ public class WorldMapManager : MonoBehaviour
 
             if (SelectDB.Instance().starActive == 0)
             {
-                Debug.Log("@@@" + GameObject.Find(SelectDB.Instance().zodiacName).name);
+
                 GameObject.Find(SelectDB.Instance().zodiacName).gameObject.GetComponent<SphereCollider>().enabled = true;
                 GameObject.Find(SelectDB.Instance().zodiacName).gameObject.GetComponent<SphereCollider>().isTrigger = true;
             }
             else if (SelectDB.Instance().starActive == 1)
             {
-                Debug.Log("###" + GameObject.Find(SelectDB.Instance().zodiacName).name);
+
                 GameObject.Find(SelectDB.Instance().zodiacName).gameObject.GetComponent<SphereCollider>().enabled = false;
                 GameObject.Find(SelectDB.Instance().zodiacName).gameObject.GetComponent<MeshRenderer>().enabled = false;
 

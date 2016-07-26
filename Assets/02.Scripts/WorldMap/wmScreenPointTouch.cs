@@ -24,7 +24,7 @@ public class wmScreenPointTouch : MonoBehaviour
                     {
                         if (hit.transform.tag.Equals("Stars"))
                         {
-
+                            SoundManager.Instance().PlaySfx(SoundManager.Instance().getFood);
                             SelectDB.Instance().column = "locationX,locationY,locationZ,name,zodiac";
                             SelectDB.Instance().table = "zodiacTable";
                             SelectDB.Instance().where = "WHERE zID= " + "'" + hit.transform.name + "'";

@@ -123,7 +123,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
     GameObject Pla;
     public GameObject PlanetPosition;
 
-
+    public GameObject MovePanal;
 
 
     void Start()
@@ -155,7 +155,13 @@ public class PlanetSceneSingleTon : MonoBehaviour {
 
     public void callShip()
     {
-        if(rowid != cPlanet)
+        GameObject.Find("PlanetPosition/death_planet/Ship/Ship_1").gameObject.SetActive(false);
+        GameObject.Find("PlanetPosition/death_planet/Ship/Ship_2").gameObject.SetActive(false);
+        GameObject.Find("PlanetPosition/death_planet/Ship/Ship_3").gameObject.SetActive(false);
+        GameObject.Find("PlanetPosition/death_planet/Ship/Ship_4").gameObject.SetActive(false);
+        GameObject.Find("PlanetPosition/death_planet/Ship/Ship_5").gameObject.SetActive(false);
+
+        if (rowid != cPlanet)
         {
             return;
         }
@@ -908,8 +914,6 @@ public class PlanetSceneSingleTon : MonoBehaviour {
         }
     }
 
-
-
     void Update()
     {
         UIobj.GetComponent<PlanetUIFromSQL>().setUIText();
@@ -919,5 +923,26 @@ public class PlanetSceneSingleTon : MonoBehaviour {
 
         }
     }
+
+
+    public void downMoveBtn()
+    {
+        GameObject.Find("UI").GetComponent<PlanetTouchRay>().enabled = false;
+        MovePanal.gameObject.SetActive(true);
+
+    }
+
+    public void downOKInMove()
+    {
+        GameObject.Find("UI").GetComponent<PlanetTouchRay>().enabled = true;
+        GameObject.Find("GameManager/UIManager").GetComponent<ButtonController>().Movebtn();
+    }
+
+    public void downNOInMove()
+    {
+        GameObject.Find("UI").GetComponent<PlanetTouchRay>().enabled = true;
+        MovePanal.gameObject.SetActive(false);
+    }
+
 }
 

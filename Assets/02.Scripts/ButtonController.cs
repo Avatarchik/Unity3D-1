@@ -13,7 +13,8 @@ public class ButtonController : MonoBehaviour {
         {
             Destroy(GameObject.Find("GameData").gameObject);
         }
-
+        //SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
         SceneManager.LoadScene("Main");
         Debug.Log("scene Trans to Main");
     }
@@ -24,7 +25,8 @@ public class ButtonController : MonoBehaviour {
         {
             Destroy(GameObject.Find("GameData").gameObject);
         }
-
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
         SceneManager.LoadScene("Planet");
         Debug.Log("scene Trans to Planet");
     }
@@ -32,6 +34,7 @@ public class ButtonController : MonoBehaviour {
 
     public void setVisibleStore()
     {
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
         GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;
         GameObject.Find("UI").transform.FindChild("StorePanal").gameObject.SetActive(true);
         GameObject.Find("UI/Main/Button/SettingBtn").gameObject.SetActive(false);
@@ -53,12 +56,16 @@ public class ButtonController : MonoBehaviour {
     {
         //SceneManager.LoadScene("Book");
         //DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
+        //SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
         Debug.Log("scne trans to Book");
     }
 
     //우주선 터치하여 월드맵으로 전환할때 (내비게이션 기능 활성화)
     public void TransSceneToMap()
     {
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
+        //SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
         SceneManager.LoadScene("WorldMap");
         DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
         Debug.Log("scene trans to WorldMap");
@@ -67,39 +74,45 @@ public class ButtonController : MonoBehaviour {
     // 행성관리 화면에서 전체맵 버튼으로 월드맵 전환할때 (내비게이션 기능 비활성화)
     public void TransSceneToWorldMap()
     {
-        //내비게이션 비활성화 조건 추가필요 
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
+        //SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
         SceneManager.LoadScene("WorldMap");
         DontDestroyOnLoad(GameObject.Find("WorldMapFlag"));
         Debug.Log("scene Trans to WorldMap");
     }
     public void TransSceneToManage()
     {
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
+        //SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
         if (GameObject.Find("WorldMapFlag") != null)
         {
             Destroy(GameObject.Find("WorldMapFlag").gameObject);
             SceneManager.LoadScene("ManagePlanet");
         }
-        // 관리->월드맵 -> 관리 시 아래 조건이 성립하지 않아 오류출력됩니다.
-        // 확인부탁드려요
-        if (GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>())
-        {
-            GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().dbClose();
-        }
-        if (GameObject.Find("GameManager/SqlManager").GetComponent<PlanetSceneSQL>())
-        {
-            GameObject.Find("GameManager/SqlManager").GetComponent<PlanetSceneSQL>().dbClose();
-        }
-        if (GameObject.Find("GameManager/SqlManager").GetComponent<StarSceneSql>())
-        {
-            GameObject.Find("GameManager/SqlManager").GetComponent<StarSceneSql>().dbClose();
-        }
 
+        if (GameObject.Find("GameManager/SqlManager") != null)
+        {
+            if (GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>())
+            {
+                GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().dbClose();
+            }
+            if (GameObject.Find("GameManager/SqlManager").GetComponent<PlanetSceneSQL>())
+            {
+                GameObject.Find("GameManager/SqlManager").GetComponent<PlanetSceneSQL>().dbClose();
+            }
+            if (GameObject.Find("GameManager/SqlManager").GetComponent<StarSceneSql>())
+            {
+                GameObject.Find("GameManager/SqlManager").GetComponent<StarSceneSql>().dbClose();
+            }
+        }
         SceneManager.LoadScene("ManagePlanet");
     }
 
     public void TransSceneToManageInStar()
     {
-        if(GameObject.Find("GameManager/SqlManager") != null)
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
+        //SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
+        if (GameObject.Find("GameManager/SqlManager") != null)
         {
             GameObject.Find("GameManager/SqlManager").GetComponent<StarSceneSql>().dbClose();
         }
@@ -109,12 +122,13 @@ public class ButtonController : MonoBehaviour {
 
     public void TransSceneToExplore()
     {
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().startExplore);
+        SoundManager.Instance().bgmType = 2;
         SceneManager.LoadScene("Explore");
         DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
         Debug.Log("scene Trans to Explore");
     }
-
-
+    
     public void VisibleSetting()
     {
         Debug.Log("set");
@@ -214,6 +228,7 @@ public class ButtonController : MonoBehaviour {
 
     public void setVisibleFusionPanal()
     {
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
         if (GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>())
         {
             GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = false;
@@ -277,7 +292,8 @@ public class ButtonController : MonoBehaviour {
     public void Movebtn()
     {
         Debug.Log("이주이주");
-
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().changePlanet);
         string Query = "UPDATE userTable SET cPlanet = " + PlanetSceneSingleTon.Instance.rowid;
 
         GameObject.Find("GameManager/SqlManager").GetComponent<PlanetSceneSQL>().UpdateQuery(Query);

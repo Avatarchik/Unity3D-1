@@ -35,6 +35,7 @@ public class PlanetCollisionCheck : MonoBehaviour
                 GameManager.Instance().planetSpawnPoint = other.gameObject.GetComponent<Transform>().position;
 
                 //탐사 UI 활성화
+                SoundManager.Instance().PlaySfx(SoundManager.Instance().getFood);
                 GameManager.Instance().exploreUi.transform.FindChild("Ok").GetComponent<Button>().onClick.AddListener(() => gameObject.GetComponent<ButtonController>().explore(1));
                 GameManager.Instance().exploreUi.SetActive(true);
 
@@ -50,6 +51,7 @@ public class PlanetCollisionCheck : MonoBehaviour
         }
         else if(other.tag == "Stars")
         {
+            SoundManager.Instance().PlaySfx(SoundManager.Instance().getFood);
             SelectDB.Instance().table = "zodiacTable";
             SelectDB.Instance().column = "Count(*)";
             SelectDB.Instance().where = "WHERE \"open\" = 1 AND  \"find\" = 1 AND \"active\" = 0";
@@ -66,8 +68,8 @@ public class PlanetCollisionCheck : MonoBehaviour
                 SelectDB.Instance().Select(4);
                 if (SelectDB.Instance().starOpen == 0 && SelectDB.Instance().starFind == 0 && SelectDB.Instance().starActive == 0)
                 {
-                    GameManager.Instance().exploreUi.SetActive(true);
-                    GameManager.Instance().exploreUi.transform.FindChild("Ok").GetComponent<Button>().onClick.AddListener(() => GameObject.Find("GameManager").GetComponent<ButtonController>().explore(2));
+                    GameManager.Instance().exploreUi_star.SetActive(true);
+                    GameManager.Instance().exploreUi_star.transform.FindChild("Ok").GetComponent<Button>().onClick.AddListener(() => GameObject.Find("GameManager").GetComponent<ButtonController>().explore(2));
                 }else
                 {
                     turnShip();

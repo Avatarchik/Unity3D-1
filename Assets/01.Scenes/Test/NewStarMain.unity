@@ -2076,7 +2076,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &881467717
 Light:
   m_ObjectHideFlags: 0
@@ -2329,7 +2329,6 @@ MonoBehaviour:
   _exposure: 1
   _saturation: 1
   _rCurve:
-    serializedVersion: 2
     m_Curve:
     - time: 0
       value: 0
@@ -2345,7 +2344,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _gCurve:
-    serializedVersion: 2
     m_Curve:
     - time: 0.0100334445
       value: -0.037037034
@@ -2361,7 +2359,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _bCurve:
-    serializedVersion: 2
     m_Curve:
     - time: 0.050167225
       value: 0.07407407
@@ -2382,7 +2379,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _cCurve:
-    serializedVersion: 2
     m_Curve:
     - time: 0
       value: 0
@@ -2409,6 +2405,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   _ditherMode: 0
   shader: {fileID: 4800000, guid: dc9775b65c52747e69fc4c854c00d696, type: 3}
+  _material: {fileID: 0}
+  _lutTexture: {fileID: 0}
 --- !u!114 &1098671413
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -76,7 +76,7 @@ public class csInjection : MonoBehaviour {
     {
         string Query;
         string Query2;
-
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().usePe);
         StarSingleTon.Instance.nowPE += System.Convert.ToInt32(textMakeNum.text);
         StarSingleTon.Instance.cPE -= System.Convert.ToInt32(textMakeNum.text);
 
@@ -85,6 +85,7 @@ public class csInjection : MonoBehaviour {
 
         if(StarSingleTon.Instance.needPE == StarSingleTon.Instance.nowPE)
         {
+            SoundManager.Instance().PlaySfx(SoundManager.Instance().activeStar);
             Query = "UPDATE zodiacTable SET nowPE = " + StarSingleTon.Instance.nowPE + ", active = " + 1 +  " WHERE rowid = " + StarSingleTon.Instance.rowid;
             Debug.Log(Query);
         }
