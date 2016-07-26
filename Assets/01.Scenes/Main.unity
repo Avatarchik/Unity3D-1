@@ -30830,6 +30830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attractor: {fileID: 1122134056}
+  myTransform: {fileID: 0}
 --- !u!114 &2132439660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30846,6 +30847,8 @@ MonoBehaviour:
   runSpeed: 2
   rotSpeed: 0.5
   animSpeed: 1.5
+  running: 1
+  movDir: {x: 0, y: 0, z: 0}
   anim: {fileID: 113574424}
 --- !u!23 &2132439661
 MeshRenderer:
