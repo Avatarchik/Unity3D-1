@@ -29,8 +29,11 @@ public class UnityAds : MonoBehaviour {
             case ShowResult.Finished:
                 Debug.Log("The ad was successfully shown.");
 
-                //your code to reward the gamer
-                //give coins etc
+                MainSingleTon.Instance.cPE += 20;
+                string Query1 = "UPDATE userTable SET cPE = " + MainSingleTon.Instance.cPE;
+
+                GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().UpdateQuery(Query1);
+
                 break;
             case ShowResult.Skipped:
                 Debug.Log("The ad was skipped before reaching the end.");

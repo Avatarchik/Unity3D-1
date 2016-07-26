@@ -739,24 +739,36 @@ public class MainSingleTon : MonoBehaviour {
 
     public void setPostPanal()
     {
-        //GameObject.Find("UI").GetComponent<csScreenPointTouch>
+        GameObject.Find("UI").GetComponent<csScreenPointTouch>().enabled = false;
+
+
         PostPanalBefore.gameObject.SetActive(true);
+        PostPanalAfter.gameObject.SetActive(false);
 
     }
 
     public void confirmInBeforePanal()
     {
+
+        //GameObject.Find("UI").GetComponent<csScreenPointTouch>().enabled = true;
+
+        GameObject.Find("GameManager").GetComponent<UnityAds>().ShowRewardedAd();
+
+        PostPanalBefore.gameObject.SetActive(false);
+        PostPanalAfter.gameObject.SetActive(true);
         //PostPanalBefore.gameObject.SetActive(false);
     }
 
     public void cancelInBeforePanal()
     {
+        GameObject.Find("UI").GetComponent<csScreenPointTouch>().enabled = true;
         PostPanalBefore.gameObject.SetActive(false);
 
     }
 
     public void confirmInAfterPanal()
     {
+        GameObject.Find("UI").GetComponent<csScreenPointTouch>().enabled = true;
         PostPanalAfter.gameObject.SetActive(false);
 
     }
