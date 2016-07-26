@@ -433,6 +433,7 @@ public class MainSingleTon : MonoBehaviour {
 
     public void getEnergy()
     {
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
         System.DateTime touchTime = System.DateTime.Now;
         string Query = "";
         if (planetTouchT == "0")

@@ -52,6 +52,7 @@ public class PlanetTouchRay : MonoBehaviour {
                     if (hit.transform.tag.Equals("Food"))
                     {
                         Debug.Log("ray hit food");
+                        SoundManager.Instance().PlaySfx(SoundManager.Instance().getFood);
                         PlanetSceneSingleTon.Instance.getFood(hit.point);
 
 
@@ -60,6 +61,7 @@ public class PlanetTouchRay : MonoBehaviour {
                     if (hit.transform.tag.Equals("Titanium"))
                     {
                         Debug.Log("ray hit titanium");
+                        SoundManager.Instance().PlaySfx(SoundManager.Instance().getFood);
                         PlanetSceneSingleTon.Instance.getTitanium(hit.point);
                     }
 

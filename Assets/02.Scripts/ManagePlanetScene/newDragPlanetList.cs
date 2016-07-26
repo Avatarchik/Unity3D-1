@@ -22,6 +22,7 @@ public class newDragPlanetList : MonoBehaviour, IBeginDragHandler, IDragHandler,
     public void OnBeginDrag(PointerEventData eventData)
     {
         //Debug.Log("OnBeginDrag");
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().dragPlanet);
     }
 
 

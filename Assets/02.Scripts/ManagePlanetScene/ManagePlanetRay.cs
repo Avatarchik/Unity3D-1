@@ -31,6 +31,7 @@ public class ManagePlanetRay : MonoBehaviour {
 
                 if(hit.transform.tag == "Stars")
                 {
+                    SoundManager.Instance().PlaySfx(SoundManager.Instance().planetTouch);
                     if (hit.transform.GetComponent<MoveEachPlanet>().center && hit.transform.GetComponent<StarInfo>())
                     {
                         Debug.Log("center");
@@ -44,6 +45,7 @@ public class ManagePlanetRay : MonoBehaviour {
 
                 if (!(hit.transform.name == "Myplanet"))
                 {
+                    SoundManager.Instance().PlaySfx(SoundManager.Instance().planetTouch);
                     if (hit.transform.GetComponent<MoveEachPlanet>().center && !(hit.transform.tag == "Stars"))
                     {
                         Debug.Log("hit~~~");

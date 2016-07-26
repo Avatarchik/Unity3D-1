@@ -48,6 +48,7 @@ public class StoreScript : MonoBehaviour {
     //버튼
     public void Exit()
     {
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
         GameObject.Find("UI").gameObject.GetComponent<csScreenPointTouch>().enabled = true;
         GameObject.Find("UI/Main/Button").transform.FindChild("SettingBtn").gameObject.SetActive(true);
         GameObject.Find("UI/StorePanal").gameObject.SetActive(false);
@@ -63,6 +64,7 @@ public class StoreScript : MonoBehaviour {
 
     public void activeBuildingPanal()
     {
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
         BuildingPanal.gameObject.SetActive(true);
         ShipPanal.gameObject.SetActive(false);
         CachePanal.gameObject.SetActive(false);
@@ -72,6 +74,7 @@ public class StoreScript : MonoBehaviour {
 
     public void activeShipPanal()
     {
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
         BuildingPanal.gameObject.SetActive(false);
         ShipPanal.gameObject.SetActive(true);
         CachePanal.gameObject.SetActive(false);
@@ -80,6 +83,7 @@ public class StoreScript : MonoBehaviour {
 
     public void activeCachePanal()
     {
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
         BuildingPanal.gameObject.SetActive(false);
         ShipPanal.gameObject.SetActive(false);
         CachePanal.gameObject.SetActive(true);
@@ -87,6 +91,7 @@ public class StoreScript : MonoBehaviour {
 
     public void getStation()
     {
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().buyTi);
         bool station = MainSingleTon.Instance.position_house;
         int cTitanium = MainSingleTon.Instance.cTitanium;
         string Query = "";
@@ -142,6 +147,7 @@ public class StoreScript : MonoBehaviour {
         if (tree1BtnText.text == "구매불가")
             return;
 
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().buyFood);
         int nowFood = MainSingleTon.Instance.cFood;
         int foodCost = System.Convert.ToInt32(tree1BtnText.text);
         string Query = "";
@@ -323,6 +329,7 @@ public class StoreScript : MonoBehaviour {
                 }
                 else
                 {
+                    SoundManager.Instance().PlaySfx(SoundManager.Instance().buyTi);
                     MainSingleTon.Instance.cTitanium -= 9999;
                     MainSingleTon.Instance.shipNum++;
 
@@ -339,6 +346,7 @@ public class StoreScript : MonoBehaviour {
                 }
                 else
                 {
+                    SoundManager.Instance().PlaySfx(SoundManager.Instance().buyTi);
                     MainSingleTon.Instance.cTitanium -= 12900;
                     MainSingleTon.Instance.shipNum++;
 
@@ -354,6 +362,7 @@ public class StoreScript : MonoBehaviour {
                 }
                 else
                 {
+                    SoundManager.Instance().PlaySfx(SoundManager.Instance().buyTi);
                     MainSingleTon.Instance.cTitanium -= 15900;
                     MainSingleTon.Instance.shipNum++;
 
@@ -369,6 +378,7 @@ public class StoreScript : MonoBehaviour {
                 }
                 else
                 {
+                    SoundManager.Instance().PlaySfx(SoundManager.Instance().buyTi);
                     MainSingleTon.Instance.cTitanium -= 20000;
                     MainSingleTon.Instance.shipNum++;
 

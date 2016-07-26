@@ -78,7 +78,8 @@ public class csPlanetPanalSet : MonoBehaviour {
     {
         string Query1;
         string Query2;
-
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().destroyPlanet);
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
         Query1 = "Insert into garbageTable select rowid, name, size, color, locationX, locationY, locationZ, mat from managePlanetTable where rowid = " + PlanetNum;
         Debug.Log(Query1);
 
@@ -90,7 +91,7 @@ public class csPlanetPanalSet : MonoBehaviour {
 
         SQLManager.GetComponent<ManageSceneSQL>().dbClose();
 
-
+        
         SceneManager.LoadScene("ManagePlanet");
 
 
