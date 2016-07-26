@@ -57,7 +57,7 @@ public class ButtonController : MonoBehaviour {
         //SceneManager.LoadScene("Book");
         //DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
         SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
-        SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
+        //SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
         Debug.Log("scne trans to Book");
     }
 
@@ -65,7 +65,7 @@ public class ButtonController : MonoBehaviour {
     public void TransSceneToMap()
     {
         SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
-        SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
+        //SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
         SceneManager.LoadScene("WorldMap");
         DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
         Debug.Log("scene trans to WorldMap");
@@ -111,7 +111,7 @@ public class ButtonController : MonoBehaviour {
     public void TransSceneToManageInStar()
     {
         SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
-        SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
+        //SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
         if (GameObject.Find("GameManager/SqlManager") != null)
         {
             GameObject.Find("GameManager/SqlManager").GetComponent<StarSceneSql>().dbClose();
@@ -123,6 +123,7 @@ public class ButtonController : MonoBehaviour {
     public void TransSceneToExplore()
     {
         SoundManager.Instance().PlaySfx(SoundManager.Instance().startExplore);
+        SoundManager.Instance().bgmType = 2;
         SceneManager.LoadScene("Explore");
         DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
         Debug.Log("scene Trans to Explore");
