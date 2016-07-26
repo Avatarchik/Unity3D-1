@@ -40,23 +40,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d58e9d248f29448b22d9b288059284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainBGM: {fileID: 0}
-  exploreBGM: {fileID: 0}
-  uiTouch: {fileID: 0}
-  SceneTran: {fileID: 0}
-  planetTouch: {fileID: 0}
-  dragPlanet: {fileID: 0}
-  getFood: {fileID: 0}
-  buyTi: {fileID: 0}
-  buyFood: {fileID: 0}
-  changePlanet: {fileID: 0}
-  usePe: {fileID: 0}
-  activeStar: {fileID: 0}
-  activeSign: {fileID: 0}
-  startExplore: {fileID: 0}
-  endExplore: {fileID: 0}
-  shipHumming: {fileID: 0}
-  destroyPlanet: {fileID: 0}
+  mainBGM: {fileID: 8300000, guid: 2065cd3eedeabb04b9686f5bffb4a786, type: 3}
+  exploreBGM: {fileID: 8300000, guid: 75f9bfa6da4ded242855f49ba8387aae, type: 3}
+  uiTouch: {fileID: 8300000, guid: a88f688e8d40d4b43b128658389a8b09, type: 3}
+  SceneTran: {fileID: 8300000, guid: d46bd330b4be26d4694ae57cd2589028, type: 3}
+  planetTouch: {fileID: 8300000, guid: 7c333280ef5a03840b5b1f8d35219371, type: 3}
+  dragPlanet: {fileID: 8300000, guid: 2f7769d6951018d4a81381e322ea61cd, type: 3}
+  getFood: {fileID: 8300000, guid: 0b150c35de2459e4092b6c10dc549ccb, type: 3}
+  buyTi: {fileID: 8300000, guid: 5760c6a677f0e9145ad65ec47c053fe5, type: 3}
+  buyFood: {fileID: 8300000, guid: 6bf90bda3983b6341b744adf084aad21, type: 3}
+  changePlanet: {fileID: 8300000, guid: f901f2a048dcbde4ea6bcdd3f5fbc38a, type: 3}
+  usePe: {fileID: 8300000, guid: 29813f807533a6840968c41be5841484, type: 3}
+  activeStar: {fileID: 8300000, guid: f0c0d395bae045043904b4cf4a479fcd, type: 3}
+  activeSign: {fileID: 8300000, guid: 698c77dc730960b49b152c7efd06e841, type: 3}
+  startExplore: {fileID: 8300000, guid: d49bc4640464d4a4e95d759dcfe88bd0, type: 3}
+  endExplore: {fileID: 8300000, guid: 5e94aad21fd43394c951d0c80348606c, type: 3}
+  shipHumming: {fileID: 8300000, guid: 0ac20492d97d5b14ab2c8b3af470e0f5, type: 3}
+  destroyPlanet: {fileID: 8300000, guid: a32756f22c761fa47b5b391503bdba53, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

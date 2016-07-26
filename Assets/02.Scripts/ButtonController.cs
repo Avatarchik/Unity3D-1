@@ -74,12 +74,16 @@ public class ButtonController : MonoBehaviour {
     }
     public void TransSceneToManage()
     {
-        if(GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>())
-        {
-            GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().dbClose();
-        }else if(GameObject.Find("WorldMapFlag") != null)
+        if (GameObject.Find("WorldMapFlag") != null)
         {
             Destroy(GameObject.Find("WorldMapFlag").gameObject);
+            SceneManager.LoadScene("ManagePlanet");
+        }
+        // 관리->월드맵 -> 관리 시 아래 조건이 성립하지 않아 오류출력됩니다.
+        // 확인부탁드려요
+        if (GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>())
+        {
+            GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().dbClose();
         }
         if (GameObject.Find("GameManager/SqlManager").GetComponent<PlanetSceneSQL>())
         {

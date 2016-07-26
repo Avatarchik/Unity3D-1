@@ -15,7 +15,7 @@ public class StarNavigation : MonoBehaviour {
         fuelGauge = GameObject.Find("FuelGauge").GetComponent<Slider>();
         GameObject.Find("PlayerController_ui").SetActive(true);
      
-        maxFuel = GameData.Instance().maxFuel;   // 우주선 업그레이드시 연료 값 변경되는 코드는 추가 예정
+        maxFuel = GameData.Instance().maxFuel;
         engineActive = true;
         
     }
@@ -42,7 +42,8 @@ public class StarNavigation : MonoBehaviour {
         deltaFuelTime += Time.deltaTime;
         if (deltaFuelTime < maxFuel && engineActive == true)
         {
-            //Debug.Log(deltaFuelTime);
+            Debug.Log(deltaFuelTime);
+            
             fuelGauge.value = deltaFuelTime / maxFuel;
         }
 
