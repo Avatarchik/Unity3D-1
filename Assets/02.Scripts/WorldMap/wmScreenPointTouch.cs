@@ -8,15 +8,15 @@ public class wmScreenPointTouch : MonoBehaviour
     {
         if (WorldMapManager.Instance().dragState == false)
         {
-            if (Input.GetButtonUp("Fire1"))                                     // Debug Mode
-            {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    // Debug Mode
-                RaycastHit hit;                                                 // Debug Mode
+            //if (Input.GetButtonUp("Fire1"))                                     // Debug Mode
+            //{
+            //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);    // Debug Mode
+            //    RaycastHit hit;                                                 // Debug Mode
 
-                //foreach (Touch touch in Input.touches)                        // Build Mode
-                //{
-                //    Ray ray = Camera.main.ScreenPointToRay(touch.position);   // Build Mode
-                //    RaycastHit hit;                                           // Build Mode
+            foreach (Touch touch in Input.touches)                        // Build Mode
+            {
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);   // Build Mode
+                RaycastHit hit;                                           // Build Mode
 
                 if (Physics.Raycast(ray, out hit))
                 {
@@ -70,8 +70,8 @@ public class wmScreenPointTouch : MonoBehaviour
                         //}
                     }
                 }
-                //}                                                             // Build Mode
-            }                                                                   // Debug Mode
+                }                                                             // Build Mode
+            //}                                                                   // Debug Mode
         }
         WorldMapManager.Instance().dragState = false;
     }

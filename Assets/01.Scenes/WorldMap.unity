@@ -11071,7 +11071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perspectiveZoomSpeed: 0.5
   orthoZoomSpeed: 0.5
-  camera: {fileID: 0}
+  camera: {fileID: 1717525363}
 --- !u!4 &1273011533 stripped
 Transform:
   m_PrefabParentObject: {fileID: 478804, guid: 9173beb08a95c1943b5d5c369b5a0642, type: 2}
@@ -18411,6 +18411,18 @@ MonoBehaviour:
   Notice: {fileID: 102155835}
   ChooseStar: {fileID: 1241691384}
   dragState: 0
+  zodiacCnt1: 0
+  zodiacCnt2: 0
+  zodiacCnt3: 0
+  zodiacCnt4: 0
+  zodiacCnt5: 0
+  zodiacCnt6: 0
+  zodiacCnt7: 0
+  zodiacCnt8: 0
+  zodiacCnt9: 0
+  zodiacCnt10: 0
+  zodiacCnt11: 0
+  zodiacCnt12: 0
 --- !u!114 &2046168193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18450,6 +18462,7 @@ MonoBehaviour:
   starOpen: 0
   starFind: 0
   starActive: 0
+  zodiacID: 
   zodiacName: 
   starName: 
   tree1: 0
