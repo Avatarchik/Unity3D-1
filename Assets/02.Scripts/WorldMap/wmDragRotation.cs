@@ -29,8 +29,8 @@ public class wmDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         {
             WorldMapManager.Instance().dragState = true;
         }
-        //if (Input.touchCount == 1)  //Build Mode
-        //{
+        if (Input.touchCount == 1)  //Build Mode
+        {
 
             //Debug.Log("OnDrag");
             newPos = new Vector2(eventData.position.x, eventData.position.y);
@@ -39,8 +39,8 @@ public class wmDragRotation : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             GameObject obj = GameObject.Find("DragCamera");
             obj.transform.Rotate(new Vector3(eventData.delta.y / dragRate, -eventData.delta.x / dragRate,0));
             //obj.transform.localRotation = 
-            
-        //}//Build Mode
+
+        }//Build Mode
 
     }
 

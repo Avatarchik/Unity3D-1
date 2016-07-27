@@ -36,7 +36,7 @@ public class PlanetCollisionCheck : MonoBehaviour
 
                 //탐사 UI 활성화
                 SoundManager.Instance().PlaySfx(SoundManager.Instance().getFood);
-                GameManager.Instance().exploreUi.transform.FindChild("Ok").GetComponent<Button>().onClick.AddListener(() => gameObject.GetComponent<ButtonController>().explore(1));
+                GameManager.Instance().exploreUi.transform.FindChild("Ok").GetComponent<Button>().onClick.AddListener(() => GameObject.Find("GameManager").gameObject.GetComponent<ButtonController>().explore(1));
                 GameManager.Instance().exploreUi.SetActive(true);
 
                 //물음표 행성 오브젝트 임시 저장

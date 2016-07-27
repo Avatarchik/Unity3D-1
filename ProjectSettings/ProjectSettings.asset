@@ -9,8 +9,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: sky
-  productName: swim
+  companyName: Space Whale
+  productName: Sign
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_ShowUnitySplashScreen: 1
@@ -157,10 +157,10 @@ PlayerSettings:
   iOSLaunchScreeniPadSize: 100
   iOSLaunchScreeniPadCustomXibPath: 
   iOSDeviceRequirements: []
-  AndroidTargetDevice: 0
+  AndroidTargetDevice: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/unity-work/Cosmic/skySign.keystore
+  AndroidKeystoreName: C:/Unity_bgb/Project/Cosmic/TestApk/skySign
   AndroidKeyaliasName: skysign
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
