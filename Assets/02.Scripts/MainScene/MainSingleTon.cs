@@ -756,9 +756,9 @@ public class MainSingleTon : MonoBehaviour {
                 default:
                     return;
             }
-            tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
-            tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
-            tempTex.GetComponent<getEnergyTextScript>().setText("+5");
+            //tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+            //tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
+            //tempTex.GetComponent<getEnergyTextScript>().setText("+5");
 
             Debug.Log(tempQuery1);
             Debug.Log(tempQuery2);
