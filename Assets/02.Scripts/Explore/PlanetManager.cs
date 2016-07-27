@@ -436,6 +436,7 @@ public class PlanetManager : MonoBehaviour
             {
                 GameObject.Find(SelectDB.Instance().zodiacID).gameObject.GetComponent<SphereCollider>().enabled = true;
                 GameObject.Find(SelectDB.Instance().zodiacID).gameObject.GetComponent<SphereCollider>().isTrigger = true;
+                GameObject.Find(SelectDB.Instance().zodiacID).gameObject.SetActive(false);
             }
             else if (SelectDB.Instance().starActive == 1)
             {
@@ -464,6 +465,7 @@ public class PlanetManager : MonoBehaviour
                     zodiacCnt11++;
                 else if (SelectDB.Instance().zodiacName == "Capricornus")
                     zodiacCnt12++;
+                GameObject.Find(SelectDB.Instance().zodiacID).gameObject.SetActive(true);
                 GameObject.Find(SelectDB.Instance().zodiacID).gameObject.GetComponent<SphereCollider>().enabled = false;
                 GameObject.Find(SelectDB.Instance().zodiacID).gameObject.GetComponent<MeshRenderer>().enabled = false;
             }
@@ -472,6 +474,7 @@ public class PlanetManager : MonoBehaviour
                 for (int cnt = 7; cnt < 17; cnt++)
                 {
                     Debug.Log(GameObject.Find("Aquarius").transform.FindChild("aqua_" + cnt).name);
+                    GameObject.Find("Aquarius").transform.FindChild("aqua_" + cnt).gameObject.SetActive(true);
                     GameObject.Find("Aquarius").transform.FindChild("aqua_" + cnt).gameObject.GetComponent<SphereCollider>().enabled = false;
                     GameObject.Find("Aquarius").transform.FindChild("aqua_" + cnt).gameObject.GetComponent<MeshRenderer>().enabled = false;
                 }
@@ -481,6 +484,7 @@ public class PlanetManager : MonoBehaviour
             {
                 for (int cnt = 6; cnt < 22; cnt++)
                 {
+                    GameObject.Find("Pisces").transform.FindChild("pis_" + cnt).gameObject.SetActive(true);
                     GameObject.Find("Pisces").transform.FindChild("pis_" + cnt).gameObject.GetComponent<SphereCollider>().enabled = false;
                     GameObject.Find("Pisces").transform.FindChild("pis_" + cnt).gameObject.GetComponent<MeshRenderer>().enabled = false;
                 }
@@ -495,6 +499,7 @@ public class PlanetManager : MonoBehaviour
             {
                 for (int cnt = 7; cnt < 20; cnt++)
                 {
+                    GameObject.Find("Taurus").transform.FindChild("tau_" + cnt).gameObject.SetActive(true);
                     GameObject.Find("Taurus").transform.FindChild("tau_" + cnt).gameObject.GetComponent<SphereCollider>().enabled = false;
                     GameObject.Find("Taurus").transform.FindChild("tau_" + cnt).gameObject.GetComponent<MeshRenderer>().enabled = false;
                 }
@@ -504,6 +509,7 @@ public class PlanetManager : MonoBehaviour
             {
                 for (int cnt = 6; cnt < 18; cnt++)
                 {
+                    GameObject.Find("Gemini").transform.FindChild("gem_" + cnt).gameObject.SetActive(true);
                     GameObject.Find("Gemini").transform.FindChild("gem_" + cnt).gameObject.GetComponent<SphereCollider>().enabled = false;
                     GameObject.Find("Gemini").transform.FindChild("gem_" + cnt).gameObject.GetComponent<MeshRenderer>().enabled = false;
                 }
@@ -513,6 +519,7 @@ public class PlanetManager : MonoBehaviour
             {
                 for (int cnt = 6; cnt < 8; cnt++)
                 {
+                    GameObject.Find("Cancer").transform.FindChild("can_" + cnt).gameObject.SetActive(true);
                     GameObject.Find("Cancer").transform.FindChild("can_" + cnt).gameObject.GetComponent<SphereCollider>().enabled = false;
                     GameObject.Find("Cancer").transform.FindChild("can_" + cnt).gameObject.GetComponent<MeshRenderer>().enabled = false;
                 }
@@ -522,6 +529,7 @@ public class PlanetManager : MonoBehaviour
             {
                 for (int cnt = 5; cnt < 17; cnt++)
                 {
+                    GameObject.Find("Leo").transform.FindChild("leo_" + cnt).gameObject.SetActive(true);
                     GameObject.Find("Leo").transform.FindChild("leo_" + cnt).gameObject.GetComponent<SphereCollider>().enabled = false;
                     GameObject.Find("Leo").transform.FindChild("leo_" + cnt).gameObject.GetComponent<MeshRenderer>().enabled = false;
                 }
@@ -531,6 +539,7 @@ public class PlanetManager : MonoBehaviour
             {
                 for (int cnt = 6; cnt < 16; cnt++)
                 {
+                    GameObject.Find("Virgo").transform.FindChild("vir_" + cnt).gameObject.SetActive(true);
                     GameObject.Find("Virgo").transform.FindChild("vir_" + cnt).gameObject.GetComponent<SphereCollider>().enabled = false;
                     GameObject.Find("Virgo").transform.FindChild("vir_" + cnt).gameObject.GetComponent<MeshRenderer>().enabled = false;
                 }
@@ -540,6 +549,7 @@ public class PlanetManager : MonoBehaviour
             {
                 for (int cnt = 6; cnt < 7; cnt++)
                 {
+                    GameObject.Find("Libra").transform.FindChild("lib_" + cnt).gameObject.SetActive(true);
                     GameObject.Find("Libra").transform.FindChild("lib_" + cnt).gameObject.GetComponent<SphereCollider>().enabled = false;
                     GameObject.Find("Libra").transform.FindChild("lib_" + cnt).gameObject.GetComponent<MeshRenderer>().enabled = false;
                 }
@@ -549,6 +559,7 @@ public class PlanetManager : MonoBehaviour
             {
                 for (int cnt = 7; cnt < 13; cnt++)
                 {
+                    GameObject.Find("Scorpius").transform.FindChild("sco_" + cnt).gameObject.SetActive(true);
                     GameObject.Find("Scorpius").transform.FindChild("sco_" + cnt).gameObject.GetComponent<SphereCollider>().enabled = false;
                     GameObject.Find("Scorpius").transform.FindChild("sco_" + cnt).gameObject.GetComponent<MeshRenderer>().enabled = false;
                 }
@@ -558,6 +569,7 @@ public class PlanetManager : MonoBehaviour
             {
                 for (int cnt = 7; cnt < 22; cnt++)
                 {
+                    GameObject.Find("Sagittarius").transform.FindChild("sag_" + cnt).gameObject.SetActive(true);
                     GameObject.Find("Sagittarius").transform.FindChild("sag_" + cnt).gameObject.GetComponent<SphereCollider>().enabled = false;
                     GameObject.Find("Sagittarius").transform.FindChild("sag_" + cnt).gameObject.GetComponent<MeshRenderer>().enabled = false;
                 }
@@ -567,6 +579,7 @@ public class PlanetManager : MonoBehaviour
             {
                 for (int cnt = 7; cnt < 13; cnt++)
                 {
+                    GameObject.Find("Capricornus").transform.FindChild("cap_" + cnt).gameObject.SetActive(true);
                     GameObject.Find("Capricornus").transform.FindChild("cap_" + cnt).gameObject.GetComponent<SphereCollider>().enabled = false;
                     GameObject.Find("Capricornus").transform.FindChild("cap_" + cnt).gameObject.GetComponent<MeshRenderer>().enabled = false;
                 }
