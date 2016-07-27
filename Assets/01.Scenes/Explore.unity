@@ -54559,7 +54559,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1701546077}
   - 114: {fileID: 1701546075}
-  - 114: {fileID: 1701546076}
   - 54: {fileID: 1701546080}
   - 65: {fileID: 1701546078}
   - 114: {fileID: 1701546081}
@@ -54632,45 +54631,6 @@ MonoBehaviour:
     Maneuverability: {x: 50, y: 50, z: -80}
     MaxBankAngleOnTurn: 45
     SpeedRange: {x: 17, y: 500}
---- !u!114 &1701546076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11431236, guid: 06f05c800e17f5a4bbdf61db441c1f5c,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1701546074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e19432c81193fb4fb1c2c0237595fd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_emitters: []
-  m_lensFlares:
-  - m_targetValue: 0.5
-    m_updateValueMode: 1
-    m_lensFlare: {fileID: 0}
-  - m_targetValue: 0.5
-    m_updateValueMode: 1
-    m_lensFlare: {fileID: 0}
-  - m_targetValue: 0.5
-    m_updateValueMode: 1
-    m_lensFlare: {fileID: 0}
-  - m_targetValue: 0.5
-    m_updateValueMode: 1
-    m_lensFlare: {fileID: 0}
-  - m_targetValue: 0.5
-    m_updateValueMode: 1
-    m_lensFlare: {fileID: 0}
-  - m_targetValue: 0.5
-    m_updateValueMode: 1
-    m_lensFlare: {fileID: 0}
-  - m_targetValue: 0.5
-    m_updateValueMode: 1
-    m_lensFlare: {fileID: 0}
-  - m_targetValue: 0.5
-    m_updateValueMode: 1
-    m_lensFlare: {fileID: 0}
-  m_spaceshipController: {fileID: 1701546075}
 --- !u!4 &1701546077
 Transform:
   m_ObjectHideFlags: 0
@@ -61755,6 +61715,18 @@ MonoBehaviour:
   - {fileID: 470887447}
   - {fileID: 147073891}
   spawnTime: 10
+  zodiacCnt1: 0
+  zodiacCnt2: 0
+  zodiacCnt3: 0
+  zodiacCnt4: 0
+  zodiacCnt5: 0
+  zodiacCnt6: 0
+  zodiacCnt7: 0
+  zodiacCnt8: 0
+  zodiacCnt9: 0
+  zodiacCnt10: 0
+  zodiacCnt11: 0
+  zodiacCnt12: 0
 --- !u!4 &1946166169
 Transform:
   m_ObjectHideFlags: 0
@@ -62267,6 +62239,7 @@ MonoBehaviour:
   starOpen: 0
   starFind: 0
   starActive: 0
+  zodiacID: 
   zodiacName: 
   starName: 
   tree1: 0

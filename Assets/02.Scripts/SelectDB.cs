@@ -50,6 +50,7 @@ public class SelectDB : MonoBehaviour
     public int starOpen;
     public int starFind;
     public int starActive;
+    public string zodiacID;
     public string zodiacName;
     public string starName;
     public int tree1;
@@ -232,7 +233,8 @@ public class SelectDB : MonoBehaviour
                 starActive = reader.GetInt32(3);
                 if(reader.IsDBNull(4) == false)
                 {
-                    zodiacName = reader.GetString(4);
+                    zodiacID = reader.GetString(4);
+                    zodiacName = reader.GetString(5);
                 }
             }
             reader.Close();
