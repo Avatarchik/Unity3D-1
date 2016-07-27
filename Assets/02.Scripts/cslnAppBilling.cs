@@ -3,7 +3,8 @@ using System.Collections;
 using System;
 using UnityEngine.Purchasing;
 
-public class cslnAppBilling : MonoBehaviour {
+public class cslnAppBilling : MonoBehaviour, IStoreListener
+{
 
     private static IStoreController storeController;
     private static IExtensionProvider extensionProvider;
@@ -66,7 +67,7 @@ public class cslnAppBilling : MonoBehaviour {
         //                { productId5, GooglePlay.Name },
         //            });
 
-        //UnityPurchasing.Initialize(this, builder);
+        UnityPurchasing.Initialize(this, builder);
     }
 
     public void BuyProduct1()
@@ -149,7 +150,25 @@ public class cslnAppBilling : MonoBehaviour {
         {
             case productId1:
 
+                int tempNum = 10000;
+                string Query;
                 // ex) gem 10개 지급
+                if (GameObject.Find("GameManager").GetComponent<MainSingleTon>())
+                {
+                    MainSingleTon.Instance.cPE += tempNum;
+                    Query = "UPDATE userTable SET cPE = " + MainSingleTon.Instance.cPE;
+                    GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().UpdateQuery(Query);
+
+                }
+                if (GameObject.Find("GameManager").GetComponent<PlanetSceneSingleTon>())
+                {
+                    PlanetSceneSingleTon.Instance.cPE += tempNum;
+                    Query = "UPDATE userTable SET cPE = " + PlanetSceneSingleTon.Instance.cPE;
+                    GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().UpdateQuery(Query);
+                }
+
+
+
 
                 break;
 

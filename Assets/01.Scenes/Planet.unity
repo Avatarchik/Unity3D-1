@@ -10455,6 +10455,7 @@ GameObject:
   - 222: {fileID: 1459077553}
   - 114: {fileID: 1459077552}
   - 114: {fileID: 1459077551}
+  - 114: {fileID: 1459077554}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -10519,7 +10520,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1459077552}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1459077554}
+        m_MethodName: BuyProduct1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1459077552
@@ -10555,6 +10567,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1459077549}
+--- !u!114 &1459077554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1459077549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e719e68f7dde9459f3bbdfacf92f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1461612521
 GameObject:
   m_ObjectHideFlags: 0
@@ -13878,7 +13901,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: bd71c827d895dfa448f1d84e50a38068, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3dc834fb0ef8b424fa41eab4d6766b7c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
