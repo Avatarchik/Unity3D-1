@@ -3,7 +3,8 @@ using System.Collections;
 using System;
 using UnityEngine.Purchasing;
 
-public class cslnAppBilling : MonoBehaviour {
+public class cslnAppBilling : MonoBehaviour, IStoreListener
+{
 
     private static IStoreController storeController;
     private static IExtensionProvider extensionProvider;
@@ -66,7 +67,7 @@ public class cslnAppBilling : MonoBehaviour {
         //                { productId5, GooglePlay.Name },
         //            });
 
-        //UnityPurchasing.Initialize(this, builder);
+        UnityPurchasing.Initialize(this, builder);
     }
 
     public void BuyProduct1()
