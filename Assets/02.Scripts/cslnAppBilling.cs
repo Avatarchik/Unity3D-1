@@ -150,7 +150,25 @@ public class cslnAppBilling : MonoBehaviour, IStoreListener
         {
             case productId1:
 
+                int tempNum = 10000;
+                string Query;
                 // ex) gem 10개 지급
+                if (GameObject.Find("GameManager").GetComponent<MainSingleTon>())
+                {
+                    MainSingleTon.Instance.cPE += tempNum;
+                    Query = "UPDATE userTable SET cPE = " + MainSingleTon.Instance.cPE;
+                    GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().UpdateQuery(Query);
+
+                }
+                if (GameObject.Find("GameManager").GetComponent<PlanetSceneSingleTon>())
+                {
+                    PlanetSceneSingleTon.Instance.cPE += tempNum;
+                    Query = "UPDATE userTable SET cPE = " + PlanetSceneSingleTon.Instance.cPE;
+                    GameObject.Find("GameManager/SqlManager").GetComponent<MainSceneSQL>().UpdateQuery(Query);
+                }
+
+
+
 
                 break;
 
