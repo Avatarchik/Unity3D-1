@@ -31,10 +31,12 @@ public class ManagePlanetRay : MonoBehaviour {
 
                 if(hit.transform.tag == "Stars")
                 {
+                    Debug.Log("sttt");
                     SoundManager.Instance().PlaySfx(SoundManager.Instance().planetTouch);
                     if (hit.transform.GetComponent<MoveEachPlanet>().center && hit.transform.GetComponent<StarInfo>())
+                    //if (hit.transform.GetComponent<MoveEachPlanet>().center)
                     {
-                        Debug.Log("center");
+                            Debug.Log("center");
                         GameObject.Find("OBJ").GetComponent<OBJScript>().rowid = hit.transform.GetComponent<StarInfo>().rowid;
                         DontDestroyOnLoad(GameObject.Find("OBJ").gameObject);
 
