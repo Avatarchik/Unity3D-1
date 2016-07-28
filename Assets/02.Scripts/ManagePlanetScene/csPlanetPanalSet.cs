@@ -80,7 +80,7 @@ public class csPlanetPanalSet : MonoBehaviour {
         string Query2;
         SoundManager.Instance().PlaySfx(SoundManager.Instance().destroyPlanet);
         SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
-        Query1 = "Insert into garbageTable select rowid, name, size, color, locationX, locationY, locationZ, mat from managePlanetTable where rowid = " + PlanetNum;
+        Query1 = "Insert into garbageTable select name, size, color, locationX, locationY, locationZ, mat from managePlanetTable where rowid = " + PlanetNum;
         Debug.Log(Query1);
 
         Query2 = "delete from managePlanetTable where rowid = " + PlanetNum;
