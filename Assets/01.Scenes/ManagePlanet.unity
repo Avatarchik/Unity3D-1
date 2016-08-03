@@ -260,7 +260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &23071770
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4021,6 +4021,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57471136bc7e2ae448cad780fe24b1fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlanetExPanal: {fileID: 23071769}
+  txt: {fileID: 135898770}
   deleteBtn: {fileID: 1951791357}
   warningPanal: {fileID: 134156233}
   PlanetNum: 0

@@ -199,8 +199,14 @@ public class MovePlanet : MonoBehaviour
 
 
     }
-
-
+    
+    public void setDrag()
+    {
+        if(planets.Count == 0 || planets.Count == 1)
+        {
+            GameObject.Find("UI/DragZone").gameObject.SetActive(false);
+        }
+    }
 
 
     public void setPlanets()

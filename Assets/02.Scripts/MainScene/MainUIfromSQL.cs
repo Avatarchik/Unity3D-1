@@ -198,8 +198,13 @@ public class MainUIfromSQL : MonoBehaviour
         if (MainSingleTon.Instance.cPlanet == MainSingleTon.Instance.rowid)
         {
             GameObject.Find("PlanetPosition/death_planet/Postbox").gameObject.SetActive(true);
-            GameObject.Find("PlanetPosition/death_planet/Postbox").AddComponent<BoxCollider>();
-            GameObject.Find("PlanetPosition/death_planet/Postbox").GetComponent<BoxCollider>().size = new Vector3(1f, 4f, 2f);
+            if (!GameObject.Find("PlanetPosition/death_planet/Postbox").GetComponent<BoxCollider>())
+            {
+                GameObject.Find("PlanetPosition/death_planet/Postbox").AddComponent<BoxCollider>();
+                GameObject.Find("PlanetPosition/death_planet/Postbox").GetComponent<BoxCollider>().size = new Vector3(0.5f, 2f, 1f);
+                GameObject.Find("PlanetPosition/death_planet/Postbox").GetComponent<BoxCollider>().center = new Vector3(0f, 1.5f, -0.5f);
+            }
+
         }
         else
         {

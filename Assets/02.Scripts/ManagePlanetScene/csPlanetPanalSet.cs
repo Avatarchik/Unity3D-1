@@ -10,8 +10,8 @@ public class csPlanetPanalSet : MonoBehaviour {
 
     public static int PlanetCount;
 
-    GameObject PlanetExPanal;
-    Text txt;
+    public GameObject PlanetExPanal;
+    public Text txt;
 
     public GameObject deleteBtn;
     public GameObject warningPanal;
@@ -22,10 +22,9 @@ public class csPlanetPanalSet : MonoBehaviour {
 
     void Start()
     {
-        PlanetExPanal = GameObject.Find("UI/PlanetEx");
-        txt = GameObject.Find("UI/PlanetEx/Text").GetComponent<Text>();
         PlanetCount = MovePlanet.Instance.planets.Count;
-        setPanalVisible();
+
+        //setPanalVisible();
     }
 
     void Update()

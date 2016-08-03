@@ -276,6 +276,8 @@ public class ManageSceneSQL : MonoBehaviour {
             cnt = 0;
         }
 
+
+
         reader.Close();
         reader = null;
 
@@ -310,6 +312,7 @@ public class ManageSceneSQL : MonoBehaviour {
 
 
         MovePlanet.Instance.setPlanets();
+        MovePlanet.Instance.setDrag();
 
     }
 
