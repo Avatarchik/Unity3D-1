@@ -39,10 +39,8 @@ public class MovePlanet : MonoBehaviour
 
     }
 
-    //public List<MoveEachPlanet> planets = new List<MoveEachPlanet>(); 
     public List<GameObject> planets = new List<GameObject>();
     
-       
     public List<Transform> orderdPoints = new List<Transform>();
     public List<Transform> points = new List<Transform>();
 
@@ -60,7 +58,6 @@ public class MovePlanet : MonoBehaviour
     public GameObject instantPosition;
     public GameObject myPosition;
 
-
     public GameObject prefStar;
 
     public int cPlanet;
@@ -74,7 +71,6 @@ public class MovePlanet : MonoBehaviour
     public int cVE;
     public int cPE;
     public int shipNum;
-
 
     public Text textFood;
     public Text textTitanium;
@@ -203,12 +199,6 @@ public class MovePlanet : MonoBehaviour
 
 
     }
-
-
-
-
-
-
 
 
 

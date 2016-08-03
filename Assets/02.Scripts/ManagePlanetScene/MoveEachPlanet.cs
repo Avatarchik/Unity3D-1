@@ -51,14 +51,29 @@ public class MoveEachPlanet : MonoBehaviour
 
     void Update()
     {
+        if (onMoving)
+        {
+            script.setPanalNotVisible();
+            return;
+        }
+
+        script.setPanalVisible();
         center = false;
         if (curPos == listCount)
         {
             center = true;
             if (this.gameObject.GetComponent<PlanetInfo>())
             {
+                if (this.gameObject.GetComponent<PlanetInfo>().rowid == MovePlanet.Instance.cPlanet)
+                {
+                    script.notVisibleBtn();
+                }
+                else
+                {
+                    script.setVisibleBtn();
+
+                }
                 script.ChangeText(this.gameObject.GetComponent<PlanetInfo>().pName);
-                script.setVisibleBtn();
                 script.PlanetNum = this.gameObject.GetComponent<PlanetInfo>().rowid;
 
 
@@ -112,7 +127,6 @@ public class MoveEachPlanet : MonoBehaviour
                 onMoving = true;
                 yield return StartCoroutine(MoveCoroutineMore5());
                 onMoving = false;
-
             }
         }
     }

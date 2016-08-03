@@ -206,11 +206,4 @@ public class PlanetInfo : MonoBehaviour {
 
     }
 
-
-
-
-    //public void setPostBox()
-    //{
-
-    //}
 }

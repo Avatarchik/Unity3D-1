@@ -21,7 +21,8 @@ public class newDragPlanetList : MonoBehaviour, IBeginDragHandler, IDragHandler,
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnBeginDrag");
+        GameObject.Find("Manager").GetComponent<ManagePlanetRay>().enabled = false;
+
         SoundManager.Instance().PlaySfx(SoundManager.Instance().dragPlanet);
     }
 
@@ -35,7 +36,7 @@ public class newDragPlanetList : MonoBehaviour, IBeginDragHandler, IDragHandler,
         if (!moving)
         {
             StartCoroutine(dragFlase());
-            script.setPanalNotVisible();
+
             if (deltaX > 0)
             {
                 //csPlanetPanalSet.nowPlanetNum++;
@@ -66,15 +67,16 @@ public class newDragPlanetList : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnDragEnd");
+        GameObject.Find("Manager").GetComponent<ManagePlanetRay>().enabled = true;
+
     }
 
     IEnumerator dragFlase()
     {
         moving = true;
-
+        //script.setPanalNotVisible();
         yield return new WaitForSeconds(0.4f);
-        script.setPanalVisible();
+        //script.setPanalVisible();
         //script.ChangeText();
 
 
