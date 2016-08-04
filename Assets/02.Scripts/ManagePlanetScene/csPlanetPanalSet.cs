@@ -90,12 +90,11 @@ public class csPlanetPanalSet : MonoBehaviour {
 
         SQLManager.GetComponent<ManageSceneSQL>().dbClose();
 
-        
+        //SoundManager.Instance().nextSceneName = "ManagePlanet";
         SceneManager.LoadScene("ManagePlanet");
 
-
     }
-
+    
     public void btnDownHome()
     {
         string Query1;

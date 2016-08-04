@@ -15,7 +15,8 @@ public class ButtonController : MonoBehaviour {
         }
         //SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
         SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
-        SceneManager.LoadScene("Main");
+        SoundManager.Instance().nextSceneName = "Main";
+        SceneManager.LoadScene("loading");
         Debug.Log("scene Trans to Main");
     }
 
@@ -27,7 +28,8 @@ public class ButtonController : MonoBehaviour {
         }
         SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
         SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
-        SceneManager.LoadScene("Planet");
+        SoundManager.Instance().nextSceneName = "Planet";
+        SceneManager.LoadScene("loading");
         Debug.Log("scene Trans to Planet");
     }
 
@@ -66,7 +68,8 @@ public class ButtonController : MonoBehaviour {
     {
         SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
         //SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
-        SceneManager.LoadScene("WorldMap");
+        SoundManager.Instance().nextSceneName = "WorldMap";
+        SceneManager.LoadScene("loading");
         DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
         Debug.Log("scene trans to WorldMap");
     }
@@ -76,18 +79,20 @@ public class ButtonController : MonoBehaviour {
     {
         SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
         //SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
-        SceneManager.LoadScene("WorldMap");
+        SoundManager.Instance().nextSceneName = "WorldMap";
+        SceneManager.LoadScene("loading");
         DontDestroyOnLoad(GameObject.Find("WorldMapFlag"));
         Debug.Log("scene Trans to WorldMap");
     }
     public void TransSceneToManage()
     {
+        SoundManager.Instance().nextSceneName = "ManagePlanet";
         SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
         //SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
         if (GameObject.Find("WorldMapFlag") != null)
         {
             Destroy(GameObject.Find("WorldMapFlag").gameObject);
-            SceneManager.LoadScene("ManagePlanet");
+            SceneManager.LoadScene("loading");
         }
 
         if (GameObject.Find("GameManager/SqlManager") != null)
@@ -105,7 +110,7 @@ public class ButtonController : MonoBehaviour {
                 GameObject.Find("GameManager/SqlManager").GetComponent<StarSceneSql>().dbClose();
             }
         }
-        SceneManager.LoadScene("ManagePlanet");
+        SceneManager.LoadScene("loading");
     }
 
     public void TransSceneToManageInStar()
@@ -116,8 +121,8 @@ public class ButtonController : MonoBehaviour {
         {
             GameObject.Find("GameManager/SqlManager").GetComponent<StarSceneSql>().dbClose();
         }
-
-        SceneManager.LoadScene("ManagePlanet");
+        SoundManager.Instance().nextSceneName = "ManagePlanet";
+        SceneManager.LoadScene("loading");
     }
 
     public void TransSceneToExplore()
@@ -125,7 +130,7 @@ public class ButtonController : MonoBehaviour {
         SoundManager.Instance().PlaySfx(SoundManager.Instance().startExplore);
         SoundManager.Instance().bgmType = 2;
         SoundManager.Instance().nextSceneName = "Explore";
-        SceneManager.LoadScene("loading_from_intro");
+        SceneManager.LoadScene("loading");
         DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
         Debug.Log("scene Trans to Explore");
     }
@@ -298,7 +303,8 @@ public class ButtonController : MonoBehaviour {
 
         GameObject.Find("GameManager/SqlManager").GetComponent<PlanetSceneSQL>().dbClose();
 
-        SceneManager.LoadScene("Main");
+        SoundManager.Instance().nextSceneName = "Main";
+        SceneManager.LoadScene("loading");
 
 
     }

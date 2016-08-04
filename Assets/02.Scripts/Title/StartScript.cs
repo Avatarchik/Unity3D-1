@@ -11,14 +11,14 @@ public class StartScript : MonoBehaviour {
         {
             //SceneManager.LoadScene("Main");
             SoundManager.Instance().nextSceneName = "main";
-            SceneManager.LoadScene("loading_from_intro");
+            SceneManager.LoadScene("loading");
         }
 
         if (Input.touchCount >= 1)
         {
             //SceneManager.LoadScene("Main");
             SoundManager.Instance().nextSceneName = "main";
-            SceneManager.LoadScene("loading_from_intro");
+            SceneManager.LoadScene("loading");
         }
     }
 

@@ -160,7 +160,7 @@ PlayerSettings:
   AndroidTargetDevice: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/unity-work/Cosmic/TestAPK/skySign
+  AndroidKeystoreName: C:/unity-work/Cosmic/skySign
   AndroidKeyaliasName: skysign
   AndroidTVCompatibility: 0
   AndroidIsGame: 1

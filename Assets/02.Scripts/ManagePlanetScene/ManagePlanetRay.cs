@@ -41,7 +41,8 @@ public class ManagePlanetRay : MonoBehaviour {
                         DontDestroyOnLoad(GameObject.Find("OBJ").gameObject);
 
                         SQLManager.GetComponent<ManageSceneSQL>().dbClose();
-                        SceneManager.LoadScene("Star");
+                        SoundManager.Instance().nextSceneName = "Star";
+                        SceneManager.LoadScene("loading");
                     }
                 }
 
@@ -62,7 +63,8 @@ public class ManagePlanetRay : MonoBehaviour {
                         SQLManager.GetComponent<ManageSceneSQL>().UpdateQuery1(Query2);
                         SQLManager.GetComponent<ManageSceneSQL>().dbClose();
 
-                        SceneManager.LoadScene("Planet");
+                        SoundManager.Instance().nextSceneName = "Planet";
+                        SceneManager.LoadScene("loading");
 
                     }
                 }

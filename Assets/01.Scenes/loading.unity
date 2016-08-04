@@ -117,7 +117,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 759e0938619f66f41831305257404389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomImg:
+  - {fileID: 21300000, guid: 14c1058721a30124a8e6855202326a55, type: 3}
+  - {fileID: 21300000, guid: 77edf804e6784ed4c87d1beda48f8033, type: 3}
+  - {fileID: 21300000, guid: 88e58ba1b4ea33f4d99dab3c372a57d0, type: 3}
+  - {fileID: 21300000, guid: ab7bcc9109bf22b469923f6e43a802e9, type: 3}
   progressLabel: {fileID: 1752928008}
+  background: {fileID: 1097422972}
 --- !u!114 &187137431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +261,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 14c1058721a30124a8e6855202326a55, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
