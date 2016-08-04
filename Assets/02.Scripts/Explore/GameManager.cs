@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour {
     public GameObject exploreUi;
     public GameObject exploreUi_star;
     public GameObject noMorePS;
+    public GameObject Warning_collision;
     public string PlanetName;
     public Vector3 rotShip;
     public int rotRate;
@@ -56,11 +57,13 @@ public class GameManager : MonoBehaviour {
         {
             Debug.Log(iTween.Count());
             GameObject.Find("MobileJoystick").GetComponent<Image>().enabled = false;
+            GameManager.Instance().Warning_collision.SetActive(true);
         }
         
         else if (itweenCnt == 0 && GameObject.Find("MobileJoystick").GetComponent<Image>().enabled == false)
         {
             GameObject.Find("MobileJoystick").GetComponent<Image>().enabled = true;
+            GameManager.Instance().Warning_collision.SetActive(false);
         }
     }
 }
