@@ -26,6 +26,7 @@ public class ButtonController : MonoBehaviour {
         {
             Destroy(GameObject.Find("GameData").gameObject);
         }
+        Time.timeScale = 1.0f;
         SoundManager.Instance().PlaySfx(SoundManager.Instance().uiTouch);
         SoundManager.Instance().PlaySfx(SoundManager.Instance().SceneTran);
         SoundManager.Instance().nextSceneName = "Planet";
@@ -345,7 +346,8 @@ public class ButtonController : MonoBehaviour {
            
             GameObject.Find("OBJ").GetComponent<OBJScript>().rowid = SelectDB.Instance().starRowid;
             DontDestroyOnLoad(GameObject.Find("OBJ"));
-            SceneManager.LoadScene("Star");
+            SoundManager.Instance().nextSceneName = "Star";
+            SceneManager.LoadScene("loading");
         }
 
     }
