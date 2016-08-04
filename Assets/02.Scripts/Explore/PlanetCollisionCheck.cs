@@ -14,6 +14,7 @@ public class PlanetCollisionCheck : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Planet_OnTriggerEnter");
+        Debug.Log(other.tag);
 
         //충돌 오브젝트 종류 체크
         if (other.tag == "PlanetSpawn")
@@ -79,7 +80,7 @@ public class PlanetCollisionCheck : MonoBehaviour
             Time.timeScale = 0;
 
         }
-        else if (other.name != "SpaceCheck")
+        else if (other.name != "SpaceCheck" && other.tag != "Missile")
         {
             turnShip();
         }

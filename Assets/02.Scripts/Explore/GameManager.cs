@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour {
     public GameObject noMorePS;
     public GameObject Warning_collision;
     public string PlanetName;
+    public int spentFuel;
     public Vector3 rotShip;
     public int rotRate;
     int itweenCnt;

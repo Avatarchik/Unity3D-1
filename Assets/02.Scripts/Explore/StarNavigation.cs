@@ -40,6 +40,7 @@ public class StarNavigation : MonoBehaviour {
 
         //연료 표시계
         deltaFuelTime += Time.deltaTime;
+        GameManager.Instance().spentFuel = (int)deltaFuelTime;
         if (deltaFuelTime < maxFuel && engineActive == true)
         {
             //Debug.Log(deltaFuelTime);
