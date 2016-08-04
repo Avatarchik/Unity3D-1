@@ -1,21 +1,26 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
-public class TouchFade : MonoBehaviour {
-
-
-    void Start()
-    {
-
-    }
-
+public class TouchFade : MonoBehaviour
+{
     void Update()
     {
-            Hashtable hash = new Hashtable();
-            hash.Add("y", -35);
-            hash.Add("looktime", 1.0f);
-            hash.Add("time", 5.0f);
+        touchText();
+    }
 
-            iTween.FadeTo(gameObject, hash);
+    void touchText()
+    {
+        //Debug.Log(gameObject.GetComponent<Image>().canvasRenderer.GetAlpha());
+
+        if (gameObject.GetComponent<Image>().canvasRenderer.GetAlpha() == 1)
+            gameObject.GetComponent<Image>().CrossFadeAlpha(0, 1.5f, false);
+
+        if(gameObject.GetComponent<Image>().canvasRenderer.GetAlpha() == 0)
+        {
+            gameObject.GetComponent<Image>().CrossFadeAlpha(1, 2.5f, true);
+        }
     }
 }
+
+
