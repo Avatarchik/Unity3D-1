@@ -16,6 +16,8 @@ TagManager:
   - PostBox
   - Zoo
   - ShipCollider
+  - Missile
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -14,12 +14,14 @@ public class PlanetCollisionCheck : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Planet_OnTriggerEnter");
+        Debug.Log(other.tag);
 
         //충돌 오브젝트 종류 체크
         if (other.tag == "PlanetSpawn")
         {
             SelectDB.Instance().table = "managePlanetTable";
             SelectDB.Instance().column = "Count(*)";
+            SelectDB.Instance().where = " ";
             SelectDB.Instance().Select(0);
 
             SelectDB.Instance().table = "zodiacTable";
@@ -27,9 +29,13 @@ public class PlanetCollisionCheck : MonoBehaviour
             SelectDB.Instance().where = "WHERE \"open\" = 1 AND  \"find\" = 1 AND \"active\" = 0";
             SelectDB.Instance().Select(0);
 
-            if (SelectDB.Instance().planetCount == 11 || SelectDB.Instance().starCount == 5)
+            Debug.Log(SelectDB.Instance().planetCount);
+
+            if (SelectDB.Instance().planetCount == 11)
             {
                 GameManager.Instance().noMorePS.SetActive(true);
+
+                GameManager.Instance().tempPlanet = other.gameObject;
             } else {
                 //충돌 행성 위치 저장
                 GameManager.Instance().planetSpawnPoint = other.gameObject.GetComponent<Transform>().position;
@@ -59,6 +65,7 @@ public class PlanetCollisionCheck : MonoBehaviour
             if (SelectDB.Instance().starCount == 5)
             {
                 GameManager.Instance().noMorePS.SetActive(true);
+                //별 충돌시 우회 기동, 예외처리 필요함
             }
             else
             {
@@ -79,7 +86,7 @@ public class PlanetCollisionCheck : MonoBehaviour
             Time.timeScale = 0;
 
         }
-        else if (other.name != "SpaceCheck")
+        else if (other.name != "SpaceCheck" && other.tag != "Missile")
         {
             turnShip();
         }

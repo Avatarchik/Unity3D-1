@@ -1020,6 +1020,7 @@ MonoBehaviour:
   bgm: {fileID: 232971880}
   fx: {fileID: 232971881}
   ship: {fileID: 232971879}
+  nextSceneName: 
 --- !u!4 &232971886
 Transform:
   m_ObjectHideFlags: 0

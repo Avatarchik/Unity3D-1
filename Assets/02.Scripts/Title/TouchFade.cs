@@ -14,7 +14,7 @@ public class TouchFade : MonoBehaviour
         //Debug.Log(gameObject.GetComponent<Image>().canvasRenderer.GetAlpha());
 
         if (gameObject.GetComponent<Image>().canvasRenderer.GetAlpha() == 1)
-            gameObject.GetComponent<Image>().CrossFadeAlpha(0, 1.5f, false);
+            gameObject.GetComponent<Image>().CrossFadeAlpha(0, 0.5f, false);
 
         if(gameObject.GetComponent<Image>().canvasRenderer.GetAlpha() == 0)
         {

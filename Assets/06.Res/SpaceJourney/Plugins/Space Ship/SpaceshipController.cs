@@ -218,8 +218,8 @@ public sealed class SpaceshipController : MonoBehaviour
 
             case InputMode.Joystick:
 
-                currentRawInput.x = CrossPlatformInputManager.GetAxis("Vertical") * -0.1f;
-                currentRawInput.y = CrossPlatformInputManager.GetAxis("Horizontal")* 0.1f;
+                currentRawInput.x = CrossPlatformInputManager.GetAxis("Vertical") * -0.5f;
+                currentRawInput.y = CrossPlatformInputManager.GetAxis("Horizontal")* 0.5f;
                 //Debug.Log(currentRawInput.x + "\n" + currentRawInput.y);
 
                 break;
