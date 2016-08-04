@@ -124,7 +124,8 @@ public class ButtonController : MonoBehaviour {
     {
         SoundManager.Instance().PlaySfx(SoundManager.Instance().startExplore);
         SoundManager.Instance().bgmType = 2;
-        SceneManager.LoadScene("Explore");
+        SoundManager.Instance().nextSceneName = "Explore";
+        SceneManager.LoadScene("loading_from_intro");
         DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
         Debug.Log("scene Trans to Explore");
     }

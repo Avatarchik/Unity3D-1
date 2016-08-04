@@ -10,12 +10,14 @@ public class StartScript : MonoBehaviour {
         if (Input.GetButtonDown("Fire1"))
         {
             //SceneManager.LoadScene("Main");
+            SoundManager.Instance().nextSceneName = "main";
             SceneManager.LoadScene("loading_from_intro");
         }
 
         if (Input.touchCount >= 1)
         {
             //SceneManager.LoadScene("Main");
+            SoundManager.Instance().nextSceneName = "main";
             SceneManager.LoadScene("loading_from_intro");
         }
     }

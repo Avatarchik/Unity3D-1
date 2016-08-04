@@ -35,6 +35,8 @@ public class SoundManager : MonoBehaviour
     public AudioSource fx;
     public AudioSource ship;
 
+    public string nextSceneName;
+
     void Awake()
     {
         if (_instance == null)
