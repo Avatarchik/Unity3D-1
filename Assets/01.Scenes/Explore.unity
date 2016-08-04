@@ -6786,7 +6786,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1225900976}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!114 &494273078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21705,7 +21705,6 @@ Transform:
   m_Children:
   - {fileID: 1701546077}
   - {fileID: 1464557935}
-  - {fileID: 1480311549}
   - {fileID: 494273077}
   - {fileID: 1243134561}
   m_Father: {fileID: 0}
@@ -21911,7 +21910,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1225900976}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!120 &1243134562
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -26694,48 +26693,6 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!1 &1480311548
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 142980, guid: 06f05c800e17f5a4bbdf61db441c1f5c, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1480311549}
-  - 114: {fileID: 1480311550}
-  m_Layer: 0
-  m_Name: Crosshair
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1480311549
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 403780, guid: 06f05c800e17f5a4bbdf61db441c1f5c, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1480311548}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1225900976}
-  m_RootOrder: 2
---- !u!114 &1480311550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11425978, guid: 06f05c800e17f5a4bbdf61db441c1f5c,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1480311548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b40f3efc5c0e3242ae898e44e7d16e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_cursorTexture: {fileID: 2800000, guid: 60aa3e566d36ac241bbe5371226979aa, type: 3}
 --- !u!1 &1488754997
 GameObject:
   m_ObjectHideFlags: 0

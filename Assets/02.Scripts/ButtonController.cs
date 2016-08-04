@@ -358,6 +358,8 @@ public class ButtonController : MonoBehaviour {
         }
         else if(type == 2)
         {
+            GameManager.Instance().tempPlanet.SetActive(false);
+
             GameManager.Instance().noMorePS.SetActive(false);
         }
     }
