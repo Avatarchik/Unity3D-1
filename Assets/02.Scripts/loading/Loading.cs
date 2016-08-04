@@ -16,7 +16,7 @@ public class Loading : MonoBehaviour {
 	
     IEnumerator Load()
     {
-        AsyncOperation async = SceneManager.LoadSceneAsync("main");
+        AsyncOperation async = SceneManager.LoadSceneAsync(SoundManager.Instance().nextSceneName);
 
         while (!async.isDone)
         {
