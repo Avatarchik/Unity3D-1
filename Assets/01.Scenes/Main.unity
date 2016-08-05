@@ -5299,6 +5299,7 @@ MonoBehaviour:
   bgm: {fileID: 417738992}
   fx: {fileID: 417738991}
   ship: {fileID: 417738993}
+  nextSceneName: 
 --- !u!4 &417738998
 Transform:
   m_ObjectHideFlags: 0
@@ -8699,10 +8700,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 684454351}
-  - 114: {fileID: 684454355}
   - 222: {fileID: 684454354}
   - 114: {fileID: 684454353}
   - 114: {fileID: 684454352}
+  - 114: {fileID: 684454355}
   m_Layer: 5
   m_Name: ScrollView
   m_TagString: Untagged
@@ -8782,7 +8783,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 684454350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1367256648, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: a8404574a2925fd4187b07c44fd6cc7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 15209990}
@@ -8796,10 +8797,10 @@ MonoBehaviour:
   m_Viewport: {fileID: 0}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
-  m_HorizontalScrollbarVisibility: 2
-  m_VerticalScrollbarVisibility: 2
-  m_HorizontalScrollbarSpacing: -3
-  m_VerticalScrollbarSpacing: -3
+  m_HorizontalScrollbarVisibility: 0
+  m_VerticalScrollbarVisibility: 0
+  m_HorizontalScrollbarSpacing: 0
+  m_VerticalScrollbarSpacing: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
