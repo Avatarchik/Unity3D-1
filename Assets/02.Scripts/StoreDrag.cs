@@ -17,6 +17,9 @@ public class StoreDrag : ScrollRect {
     Vector2 nowVec2 = new Vector2(0f, 0f);
 
 
+    int nowY;
+    int finY;
+
     protected override void Awake()
     {
         base.Awake();
@@ -76,6 +79,10 @@ public class StoreDrag : ScrollRect {
         // 페이지가 변경되지 않은 판정을 위한 마지막 스냅되어 있는 페이지를 기억
         prevPageIndex = pageIndex;
         sDrag = false;
+        finY = System.Convert.ToInt32(finVec2.y);
+        nowY = System.Convert.ToInt32(nowVec2.y);
+        finVec2.y = finY;
+        nowVec2.y = nowY;
 
     }
 
@@ -83,16 +90,32 @@ public class StoreDrag : ScrollRect {
 
     void Update()
     {
+        if (!sDrag)
+        {
+            if(finY != nowY)
+            {
+                if(nowY <finY)
+                {
+                    nowY = nowY +15;
+                    if (Mathf.Abs(nowY-finY) < 15)
+                    {
+                        nowY = finY;
+                    }
+                    content.anchoredPosition = new Vector2(0f, nowY);
 
-        //if (!sDrag && finVec2 != nowVec2)
-        //{
-        //    Debug.Log("check");
-        //    //Vector2.MoveTowards(content.anchoredPosition, finVec2, 0.5f);
-        //    Vector2 ingVec2 = 
-        //    //content.anchoredPosition = new Vector2()
-        //}
-        //a++;
-        //content.anchoredPosition = new Vector2(0f, a);
+                }
+                else
+                {
+                    nowY = nowY -15;
+                    if (Mathf.Abs(nowY - finY) < 15)
+                    {
+                        nowY = finY;
+                    }
+                    content.anchoredPosition = new Vector2(0f, nowY);
+                }
+            }
+        }
+
     }
 
 }
