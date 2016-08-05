@@ -9,7 +9,7 @@ public class PlanetManager : MonoBehaviour
     private GameObject player;
     private GameObject spaceChecker;
     public float spawnTime = 10.0f;
-
+    public float checkInterval = 20.0f;
     float deltaSpawnTime = 0.0f;
 
     int spawnCnt = 1;
@@ -112,14 +112,14 @@ public class PlanetManager : MonoBehaviour
                 Vector3 down = Vector3.down * Random.Range(1.0f, 5.0f);
                 int x = Random.Range(-5, 5);
 
-
+                
                 if (planetRandom == 1)
                 {
-                    spaceChecker.transform.position = player.transform.position + player.transform.forward * 10.0f + left;
+                    spaceChecker.transform.position = player.transform.position + player.transform.forward * checkInterval + left;
                     if (GameManager.Instance().spaceCollision == false && GameManager.Instance().scInit == true)
                     {
                         Debug.Log("false!");
-                        planetPool[i].transform.position = player.transform.position + player.transform.forward * 10.0f + left;
+                        planetPool[i].transform.position = player.transform.position + player.transform.forward * checkInterval + left;
 
                         planetPool[i].SetActive(true);
 
@@ -140,11 +140,11 @@ public class PlanetManager : MonoBehaviour
 
                 else if (planetRandom == 2)
                 {
-                    spaceChecker.transform.position = player.transform.position + player.transform.forward * 10.0f + right;
+                    spaceChecker.transform.position = player.transform.position + player.transform.forward * checkInterval + right;
                     if (GameManager.Instance().spaceCollision == false && GameManager.Instance().scInit == true)
                     {
                         Debug.Log("false!");
-                        planetPool[i].transform.position = player.transform.position + player.transform.forward * 10.0f + right;
+                        planetPool[i].transform.position = player.transform.position + player.transform.forward * checkInterval + right;
 
                         planetPool[i].SetActive(true);
 
@@ -164,11 +164,11 @@ public class PlanetManager : MonoBehaviour
                 }
                 else if (planetRandom == 3)
                 {
-                    spaceChecker.transform.position = player.transform.position + player.transform.forward * 10.0f + up;
+                    spaceChecker.transform.position = player.transform.position + player.transform.forward * checkInterval + up;
                     if (GameManager.Instance().spaceCollision == false && GameManager.Instance().scInit == true)
                     {
                         Debug.Log("false!");
-                        planetPool[i].transform.position = player.transform.position + player.transform.forward * 10.0f + up;
+                        planetPool[i].transform.position = player.transform.position + player.transform.forward * checkInterval + up;
 
                         planetPool[i].SetActive(true);
 
@@ -189,11 +189,11 @@ public class PlanetManager : MonoBehaviour
 
                 else if (planetRandom == 4)
                 {
-                    spaceChecker.transform.position = player.transform.position + player.transform.forward * 10.0f + down;
+                    spaceChecker.transform.position = player.transform.position + player.transform.forward * checkInterval + down;
                     if (GameManager.Instance().spaceCollision == false && GameManager.Instance().scInit == true)
                     {
                         Debug.Log("false!");
-                        planetPool[i].transform.position = player.transform.position + player.transform.forward * 10.0f + down;
+                        planetPool[i].transform.position = player.transform.position + player.transform.forward * checkInterval + down;
 
                         planetPool[i].SetActive(true);
 
@@ -286,6 +286,7 @@ public class PlanetManager : MonoBehaviour
                                      "1";
         InsertDB.Instance().Insert();
         SoundManager.Instance().bgmType = 1;
+        GameObject.Find("Nav").gameObject.GetComponent<StarNavigation>().spentFuel();  //연료 소모 DB반영
         GameObject.Find("GameManager").gameObject.GetComponent<ButtonController>().TransSceneToPlanet();
     }
 

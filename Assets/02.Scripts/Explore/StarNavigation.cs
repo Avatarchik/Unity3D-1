@@ -40,7 +40,10 @@ public class StarNavigation : MonoBehaviour {
 
         //연료 표시계
         deltaFuelTime += Time.deltaTime;
+
         GameManager.Instance().spentFuel = (int)deltaFuelTime;
+        
+
         if (deltaFuelTime < maxFuel && engineActive == true)
         {
             //Debug.Log(deltaFuelTime);
@@ -50,6 +53,7 @@ public class StarNavigation : MonoBehaviour {
 
         else if (deltaFuelTime > maxFuel && engineActive == true)
         {
+            spentFuel();
             GameManager.Instance().player.GetComponent<SpaceshipController>().m_spaceship.SpeedRange -= new Vector2(17, 0);
             GameManager.Instance().alertUi.SetActive(true);
             GameObject.Find("PlayerController_ui").SetActive(false);
@@ -77,7 +81,19 @@ public class StarNavigation : MonoBehaviour {
         }
 
     }
+    public void spentFuel()
+    {
+        SelectDB.Instance().table = "userTable";
+        SelectDB.Instance().column = "cFood, shipNum";
+        SelectDB.Instance().where = " ";
+        SelectDB.Instance().Select(2);
 
+        SelectDB.Instance().food = SelectDB.Instance().food - GameManager.Instance().spentFuel;
+
+        UpdateDB.Instance().table = "userTable";
+        UpdateDB.Instance().setColumn = "\"cFood\" = " + SelectDB.Instance().food.ToString();
+        UpdateDB.Instance().UpdateData();
+    }
     IEnumerator returnMain()
     {
         SoundManager.Instance().PlaySfx(SoundManager.Instance().endExplore);

@@ -17,7 +17,7 @@ public class FireManager : MonoBehaviour
     void Start()
     {
         //playerHealth = GetComponent<PlayerState>();
-        fireEffect = GameObject.FindWithTag("FireEffect").gameObject;
+        fireEffect = GameObject.Find("FireEffect").gameObject;
         fireEffect.SetActive(false);
     }
 
@@ -44,7 +44,7 @@ public class FireManager : MonoBehaviour
                 obj.transform.rotation = firePoint.transform.rotation;
                 //obj.GetComponent<Rigidbody>().velocity = cameraTransform.forward * power;
                 //obj.GetComponent<csMissile>().target = GameObject.Find("Enemy").gameObject.transform;
-                obj.GetComponent<csMissile>().target = GameObject.FindWithTag("Enemy").gameObject;
+                //obj.GetComponent<csMissile>().target = GameObject.FindWithTag("Enemy").gameObject;
 
                 //obj.transform.eulerAngles = new Vector3(90.0f, 0.0f, 0.0f);
 

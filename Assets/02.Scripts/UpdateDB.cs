@@ -16,12 +16,11 @@ public class UpdateDB : MonoBehaviour
     }
     string m_ConnectionString;
     string m_SQLiteFileName = "CosmicDB.sqlite";
-    [Tooltip("Columnname\nEx)zId,locationX")]
-    public string setColumn = " ";
     [Tooltip("Tablename\nEx)zodiacTable")]
     public string table = " ";
+    [Tooltip("Columnname\nEx)zId,locationX")]
+    public string setColumn = " ";
     public string where = " ";
-    public string value = " ";
     string sqlQuery;
     string conn;
 

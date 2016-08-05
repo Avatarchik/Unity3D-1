@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
     public GameObject tempPlanet;
     public Vector3 planetSpawnPoint;
     public GameObject spaceChecker;
-    public bool scInit = false;         //SpaceCollision Init
+    public bool scInit;         //SpaceCollision Init
     public bool spaceCollision = true;  
     public GameObject destination;
     public GameObject navUi_des;
@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour {
         if (_instance == null)
             _instance = this;
 
+        scInit = true;
         GameObject.Find("Ship").transform.FindChild("Ship_" + GameData.Instance().shipNum).gameObject.SetActive(true);
     }
 
