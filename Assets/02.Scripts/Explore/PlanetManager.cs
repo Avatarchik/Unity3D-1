@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -6,6 +7,12 @@ public class PlanetManager : MonoBehaviour
 {
     public GameObject udp;
     public GameObject[] natureObj;
+
+    [SerializeField]
+    GameObject[] loadedPlanets = new GameObject[11];
+    [SerializeField]
+    int loadedCnt = 0;
+
     private GameObject player;
     private GameObject spaceChecker;
     public float spawnTime = 10.0f;
@@ -19,7 +26,6 @@ public class PlanetManager : MonoBehaviour
     int poolSize = 20;
 
     int planetLoadCnt = 1;
-
 
     public int zodiacCnt1;
     public int zodiacCnt2;
@@ -103,14 +109,14 @@ public class PlanetManager : MonoBehaviour
 
                 //물음표 행성 랜덤 생성
 
-                int planetRandom = Random.Range(1, 4);
+                int planetRandom = UnityEngine.Random.Range(1, 4);
                 //Debug.Log("[SpawnDirection]\n1: left , 2: Right, 3: up, 4: down" + "\t<b>" +planetRandom +"</b>");
                 //Vector3 pcPosition = player.transform.localPosition;
-                Vector3 left = Vector3.left * Random.Range(1.0f, 5.0f);
-                Vector3 right = Vector3.right * Random.Range(1.0f, 5.0f);
-                Vector3 up = Vector3.up * Random.Range(1.0f, 5.0f);
-                Vector3 down = Vector3.down * Random.Range(1.0f, 5.0f);
-                int x = Random.Range(-5, 5);
+                Vector3 left = Vector3.left * UnityEngine.Random.Range(1.0f, 5.0f);
+                Vector3 right = Vector3.right * UnityEngine.Random.Range(1.0f, 5.0f);
+                Vector3 up = Vector3.up * UnityEngine.Random.Range(1.0f, 5.0f);
+                Vector3 down = Vector3.down * UnityEngine.Random.Range(1.0f, 5.0f);
+                int x = UnityEngine.Random.Range(-5, 5);
 
                 
                 if (planetRandom == 1)
@@ -255,8 +261,8 @@ public class PlanetManager : MonoBehaviour
 
         tempsize = GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().sizeT;
         tempcolor = GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().colorT;
-        tempmFood = Random.Range(tempsize * tempsize * 100, tempsize * 5 * 100);
-        tempmTitanium = Random.Range(tempsize * tempsize * 100, tempsize * 5 * 100);
+        tempmFood = UnityEngine.Random.Range(tempsize * tempsize * 100, tempsize * 5 * 100);
+        tempmTitanium = UnityEngine.Random.Range(tempsize * tempsize * 100, tempsize * 5 * 100);
         tempLepersec = tempsize;
         tempX = spawnPoint.x;
         tempY = spawnPoint.y;
@@ -307,6 +313,7 @@ public class PlanetManager : MonoBehaviour
         Debug.Log(planetLoadCnt + "," + SelectDB.Instance().planetCount);
         for (; planetLoadCnt <= SelectDB.Instance().planetCount; planetLoadCnt++)
         {
+            Debug.Log(planetLoadCnt);
             SelectDB.Instance().where = "WHERE rowid =" + planetLoadCnt;
             SelectDB.Instance().Select(3);
 
@@ -327,6 +334,15 @@ public class PlanetManager : MonoBehaviour
                 obj.transform.FindChild("Ship").gameObject.SetActive(false);
                 obj.transform.FindChild("Ship_Neighbor").gameObject.SetActive(false);
                 obj.transform.FindChild("Zoo").gameObject.SetActive(false);
+
+                //수비 씬을 위한 설정
+                obj.gameObject.AddComponent<PlanetRowid>();
+                obj.gameObject.GetComponent<PlanetRowid>().rowid = SelectDB.Instance().planetIndex;
+
+                
+                loadedPlanets[loadedCnt] = obj.gameObject;
+                loadedCnt++;
+                
 
                 //나무 표시 처리
                 for (int treeCnt = 1; treeCnt <= 6; treeCnt++)
@@ -373,6 +389,9 @@ public class PlanetManager : MonoBehaviour
                 }
             }
         }
+        //로드된 행성 배열 사이즈 조정
+        Array.Resize(ref loadedPlanets, loadedCnt);
+
         planetLoadCnt = 1;
 
         //휴식 행성 로드
@@ -579,6 +598,13 @@ public class PlanetManager : MonoBehaviour
 
         }
 
+    }
+
+    public void defensePlanet()
+    {
+        int rand = UnityEngine.Random.Range(0, loadedCnt);
+
+        loadedPlanets[rand].gameObject.GetComponent<PlanetRowid>().attacked = true;
     }
 
     int treeCheck(string treeCntStr)
