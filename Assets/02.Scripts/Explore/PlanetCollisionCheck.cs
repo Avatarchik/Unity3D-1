@@ -31,7 +31,7 @@ public class PlanetCollisionCheck : MonoBehaviour
 
             Debug.Log(SelectDB.Instance().planetCount);
 
-            if (SelectDB.Instance().planetCount == 11)
+            if (SelectDB.Instance().planetCount >= 11)
             {
                 GameManager.Instance().noMorePS.SetActive(true);
 

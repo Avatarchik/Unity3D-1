@@ -92,6 +92,7 @@ public class StarNavigation : MonoBehaviour {
 
         UpdateDB.Instance().table = "userTable";
         UpdateDB.Instance().setColumn = "\"cFood\" = " + SelectDB.Instance().food.ToString();
+        UpdateDB.Instance().where = " ";
         UpdateDB.Instance().UpdateData();
     }
     IEnumerator returnMain()
