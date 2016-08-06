@@ -39,10 +39,13 @@ public class csScreenPointTouch : MonoBehaviour
                 //    Ray ray = Camera.main.ScreenPointToRay(touch.position);   // Build Mode
                 //    RaycastHit hit;                                           // Build Mode
 
+
+
+
                 if (Physics.Raycast(ray, out hit))
                     {
-                    Debug.Log(hit.point);
-                    Debug.Log(hit.transform.position);
+                    //Debug.Log(hit.point);
+                    //Debug.Log(hit.transform.position);
 
                         if (hit.transform.tag.Equals("Finish"))
                         {
@@ -54,8 +57,6 @@ public class csScreenPointTouch : MonoBehaviour
                             Debug.Log("ray hit food") ;
                         //MainSingleTon.Instance.getFood(Input.mousePosition); //touch.point로 바꿔야함
                         MainSingleTon.Instance.getFood(hit.transform.position);
-
-
                         }
 
                         if (hit.transform.tag.Equals("Titanium"))
@@ -78,9 +79,15 @@ public class csScreenPointTouch : MonoBehaviour
                         {
                             Debug.Log("Ray hit PostBOX");
                         MainSingleTon.Instance.setPostPanal();
-                    }
+                        }
 
-                    }
+                        if (hit.transform.tag.Equals("Player"))
+                        {
+                          Debug.Log("player");
+                          GameObject.Find("GameManager/UIManager").GetComponent<TextScript>().Print();
+
+                        }
+                }
                 //}                                                             // Build mode
             }                                                                   // Debug mode 
         }

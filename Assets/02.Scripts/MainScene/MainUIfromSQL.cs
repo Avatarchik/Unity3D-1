@@ -43,6 +43,16 @@ public class MainUIfromSQL : MonoBehaviour
             Camera.main.transform.parent = PlanetPosition.transform.FindChild("DragCamera").transform;
             Destroy(Pla.GetComponent<Rigidbody>());
             Destroy(Pla.GetComponent<SphereCollider>());
+            Pla.transform.FindChild("PC/astronaut").gameObject.tag = "Player";
+            Pla.transform.FindChild("PC/astronaut").gameObject.transform.localPosition = new Vector3(0f, 0f, 0f);
+            //Pla.transform.FindChild("PC/astronaut").gameObject.transform.rotation( new Vector3(0f, 0f, 0f));
+            //Pla.transform.FindChild("PC/astronaut").gameObject.transform.position = new Vector3(0f, 0f, 0f);
+
+            Pla.transform.FindChild("PC/astronaut").gameObject.AddComponent<BoxCollider>();
+            Pla.transform.FindChild("PC/astronaut").gameObject.GetComponent<BoxCollider>().center = new Vector3(0.4f, 0.7f, 0f);
+            Pla.transform.FindChild("PC/astronaut").gameObject.GetComponent<BoxCollider>().size = new Vector3(0.9f, 1.5f, 1f);
+
+
         }
     }
 
