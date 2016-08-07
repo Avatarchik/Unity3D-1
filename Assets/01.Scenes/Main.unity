@@ -18594,6 +18594,7 @@ MonoBehaviour:
   PlanetList: {fileID: 0}
   PlanetPosition: {fileID: 412947685}
   getEnergyBtn: {fileID: 60646090}
+  cont: {fileID: 9100000, guid: 13d18fc37bcea664c9b053ece334b189, type: 2}
 --- !u!114 &1840778843
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -44,41 +44,45 @@ public class csScreenPointTouch : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                     {
-                    //Debug.Log(hit.point);
-                    //Debug.Log(hit.transform.position);
 
-                        if (hit.transform.tag.Equals("Finish"))
-                        {
-                            Debug.Log("panal");
-                        }
-
+                        
                         if (hit.transform.tag.Equals("Food"))
                         {
                             Debug.Log("ray hit food") ;
                         //MainSingleTon.Instance.getFood(Input.mousePosition); //touch.point로 바꿔야함
                         MainSingleTon.Instance.getFood(hit.transform.position);
+
+                        return;
                         }
 
                         if (hit.transform.tag.Equals("Titanium"))
                         {
                             Debug.Log("ray hit titanium");
                         MainSingleTon.Instance.getTitanium(hit.point);
+
+                        return;
                         }
 
                         if (hit.transform.tag.Equals("Ship"))
                         {
                             //ExploreState에 관련 로직 처리 
                             MainSingleTon.Instance.shipTouch = true;
+
+                        return;
                         }
                         if (hit.transform.tag.Equals("Energy"))
                         {
                             Debug.Log("Ray hit Energy");
                         MainSingleTon.Instance.getEnergy();
+
+                        return;
                         }
                         if (hit.transform.tag.Equals("PostBox"))
                         {
                             Debug.Log("Ray hit PostBOX");
                         MainSingleTon.Instance.setPostPanal();
+
+                        return;
                         }
 
                         if (hit.transform.tag.Equals("Player"))
@@ -86,7 +90,14 @@ public class csScreenPointTouch : MonoBehaviour
                           Debug.Log("player");
                           GameObject.Find("GameManager/UIManager").GetComponent<TextScript>().Print();
 
+                        return;
                         }
+
+
+                    //Debug.Log(hit.point);
+                    GameObject.Find("PlanetPosition/death_planet/PC").GetComponent<PlayerController>().getPointToMove(hit.point);
+
+
                 }
                 //}                                                             // Build mode
             }                                                                   // Debug mode 

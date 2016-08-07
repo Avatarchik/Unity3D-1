@@ -11283,7 +11283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50aed41fdec228544af06e0665e3edd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 0}
 --- !u!136 &713493748
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11507,7 +11506,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50aed41fdec228544af06e0665e3edd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 0}
 --- !u!1 &748883422
 GameObject:
   m_ObjectHideFlags: 0
@@ -14705,7 +14703,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50aed41fdec228544af06e0665e3edd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 0}
 --- !u!136 &840015684
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -22236,7 +22233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50aed41fdec228544af06e0665e3edd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 0}
 --- !u!1 &1272247350
 GameObject:
   m_ObjectHideFlags: 0
@@ -22432,7 +22428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1280786611
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27188,7 +27184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50aed41fdec228544af06e0665e3edd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 0}
 --- !u!136 &1543994488
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -28999,7 +28994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50aed41fdec228544af06e0665e3edd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 0}
 --- !u!1 &1679436907
 GameObject:
   m_ObjectHideFlags: 0
@@ -32733,23 +32727,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   udp: {fileID: 180886, guid: d5892b04e8e500744b8fbdf7666a99ab, type: 2}
-  natureObj:
-  - {fileID: 470887447}
-  - {fileID: 147073891}
+  planet: []
   spawnTime: 10
-  checkInterval: 20
-  zodiacCnt1: 0
-  zodiacCnt2: 0
-  zodiacCnt3: 0
-  zodiacCnt4: 0
-  zodiacCnt5: 0
-  zodiacCnt6: 0
-  zodiacCnt7: 0
-  zodiacCnt8: 0
-  zodiacCnt9: 0
-  zodiacCnt10: 0
-  zodiacCnt11: 0
-  zodiacCnt12: 0
 --- !u!4 &1946166169
 Transform:
   m_ObjectHideFlags: 0
@@ -33144,11 +33123,8 @@ MonoBehaviour:
   navUi_player: {fileID: 1035973078}
   alertUi: {fileID: 1558089656}
   exploreUi: {fileID: 1173042980}
-  exploreUi_star: {fileID: 755605061}
   noMorePS: {fileID: 565090502}
-  Warning_collision: {fileID: 1072791639}
   PlanetName: 
-  spentFuel: 0
   rotShip: {x: 0, y: 0, z: 0}
   rotRate: 0
 --- !u!114 &1974918001
@@ -33175,9 +33151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c688b39f88f41a419602a78695dc96e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  table: ' '
-  setColumn: ' '
-  where: ' '
 --- !u!114 &1974918003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33216,13 +33189,6 @@ MonoBehaviour:
   shipNum: 0
   planetCount: 0
   starCount: 0
-  starRowid: 0
-  starOpen: 0
-  starFind: 0
-  starActive: 0
-  zodiacID: 
-  zodiacName: 
-  starName: 
   tree1: 0
   tree2: 0
   tree3: 0
@@ -33919,7 +33885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50aed41fdec228544af06e0665e3edd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 0}
 --- !u!136 &2031073873
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -35426,6 +35391,47 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2127964348}
   m_Mesh: {fileID: 4300000, guid: 3e051e236f5d4114fb701b49d51ada9f, type: 3}
+--- !u!1 &2132187264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2132187266}
+  - 114: {fileID: 2132187265}
+  m_Layer: 0
+  m_Name: OBJ
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2132187265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2132187264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78934febe8a18134b91da500b48b2528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rowid: 0
+--- !u!4 &2132187266
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2132187264}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
 --- !u!1 &2135368569
 GameObject:
   m_ObjectHideFlags: 0
