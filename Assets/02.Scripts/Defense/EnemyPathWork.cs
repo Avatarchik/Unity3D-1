@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShipPathWork : MonoBehaviour {
+public class EnemyPathWork : MonoBehaviour {
 
     bool SceneInit = true;
 
@@ -11,16 +11,17 @@ public class ShipPathWork : MonoBehaviour {
         SceneInit = false;
     }
 
-	void Update () {
-        if(SceneInit == false)
+    void Update()
+    {
+        if (SceneInit == false)
         {
             Hashtable hash = new Hashtable();
 
-            hash.Add("path", iTweenPath.GetPath("ShipPath"));
+            hash.Add("path", iTweenPath.GetPath("EnemyPath"));
             hash.Add("movetopath", true);
             hash.Add("orienttopath", true);
             hash.Add("looktime", 3.0f);
-            hash.Add("time", 9.0f);
+            hash.Add("time", 12.0f);
             hash.Add("easetype", iTween.EaseType.easeOutExpo);
             hash.Add("looptype", iTween.LoopType.none);
 
@@ -51,8 +52,16 @@ public class ShipPathWork : MonoBehaviour {
     void ItweenComplete()
     {
         // itween을 이용하여 엔진 점점 줄어드는것으로 수정 필요
-        gameObject.transform.FindChild("Ship_" + GameData.Instance().shipNum).FindChild("Engines_" + GameData.Instance().shipNum).transform.localScale = new Vector3(1,1,0.5f);
-        
+        for(int i = 1; i<6;i++)
+        {
+            gameObject.transform.FindChild("AirFighter_" + i).FindChild("Engine").transform.localScale = new Vector3(1, 1, 0.5f);
+        }
+
+        Hashtable hash = new Hashtable();
+        hash.Add("y", 100);
+        iTween.MoveBy(GameObject.Find("Button").gameObject, hash);
+
+
         Debug.Log("Tween Complete : " + Time.realtimeSinceStartup);
     }
 }

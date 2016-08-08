@@ -1761,7 +1761,6 @@ GameObject:
   - 223: {fileID: 89869850}
   - 114: {fileID: 89869849}
   - 114: {fileID: 89869848}
-  - 114: {fileID: 89869847}
   m_Layer: 5
   m_Name: Defense
   m_TagString: Untagged
@@ -1788,17 +1787,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &89869847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 89869845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fb61cd9bbc854a4e9f0e04eb1812cff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &89869848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3212,6 +3200,7 @@ GameObject:
   - 222: {fileID: 194466262}
   - 114: {fileID: 194466261}
   - 114: {fileID: 194466260}
+  - 114: {fileID: 194466263}
   m_Layer: 5
   m_Name: home
   m_TagString: Untagged
@@ -3233,10 +3222,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1714914549}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -453.5, y: 381}
-  m_SizeDelta: {x: -540, y: -1200}
+  m_AnchorMin: {x: 0, y: 0.7643125}
+  m_AnchorMax: {x: 1, y: 0.82887506}
+  m_AnchoredPosition: {x: -454, y: 0}
+  m_SizeDelta: {x: -540, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &194466260
 MonoBehaviour:
@@ -3326,6 +3315,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 194466258}
+--- !u!114 &194466263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 194466258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb61cd9bbc854a4e9f0e04eb1812cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &197567439
 GameObject:
   m_ObjectHideFlags: 0
@@ -10162,6 +10162,7 @@ GameObject:
   - 222: {fileID: 617567473}
   - 114: {fileID: 617567472}
   - 114: {fileID: 617567471}
+  - 114: {fileID: 617567474}
   m_Layer: 5
   m_Name: Def
   m_TagString: Untagged
@@ -10183,10 +10184,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 89869846}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -453.5, y: 481}
-  m_SizeDelta: {x: -540, y: -1200}
+  m_AnchorMin: {x: 0, y: 0.8464376}
+  m_AnchorMax: {x: 1, y: 0.90743756}
+  m_AnchoredPosition: {x: -454, y: 0.99989986}
+  m_SizeDelta: {x: -540, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &617567471
 MonoBehaviour:
@@ -10276,6 +10277,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 617567469}
+--- !u!114 &617567474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 617567469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb61cd9bbc854a4e9f0e04eb1812cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &631487793
 GameObject:
   m_ObjectHideFlags: 0
@@ -22838,7 +22850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.153}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -30156,7 +30168,6 @@ GameObject:
   - 223: {fileID: 1714914553}
   - 114: {fileID: 1714914552}
   - 114: {fileID: 1714914551}
-  - 114: {fileID: 1714914550}
   m_Layer: 5
   m_Name: Return
   m_TagString: Untagged
@@ -30183,17 +30194,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1714914550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1714914548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fb61cd9bbc854a4e9f0e04eb1812cff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1714914551
 MonoBehaviour:
   m_ObjectHideFlags: 0
