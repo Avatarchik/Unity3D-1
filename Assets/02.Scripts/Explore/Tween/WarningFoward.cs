@@ -13,12 +13,12 @@ public class WarningFoward : MonoBehaviour {
     {
         //Debug.Log(gameObject.GetComponent<Image>().canvasRenderer.GetAlpha());
 
-        if (gameObject.GetComponent<Text>().canvasRenderer.GetAlpha() == 1)
-            gameObject.GetComponent<Text>().CrossFadeAlpha(0, 1.5f, false);
+        if (gameObject.GetComponent<Image>().canvasRenderer.GetAlpha() == 1)
+            gameObject.GetComponent<Image>().CrossFadeAlpha(0, 1.5f, false);
 
-        if (gameObject.GetComponent<Text>().canvasRenderer.GetAlpha() == 0)
+        if (gameObject.GetComponent<Image>().canvasRenderer.GetAlpha() == 0)
         {
-            gameObject.GetComponent<Text>().CrossFadeAlpha(1, 2.5f, true);
+            gameObject.GetComponent<Image>().CrossFadeAlpha(1, 2.5f, true);
         }
     }
 }

@@ -35,7 +35,9 @@ public class GameManager : MonoBehaviour {
     public int spentFuel;
     public Vector3 rotShip;
     public int rotRate;
+    
     int itweenCnt;
+   
     
     void Awake()
     {
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour {
 
     void Update()
     {
+        
         itweenCnt = iTween.Count();
         if (itweenCnt != 0 && GameObject.Find("MobileJoystick").GetComponent<Image>().enabled == true)
         {

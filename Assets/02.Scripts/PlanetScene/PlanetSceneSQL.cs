@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System;
 using System.Data;
@@ -112,7 +113,13 @@ public class PlanetSceneSQL : MonoBehaviour {
         reader.Close();
         reader = null;
 
-        sqlQuery = "select rowid, * from managePlanetTable where user = 1";
+        if (gameObject.scene.name == "Defense")
+        {
+            sqlQuery = "select rowid, * from managePlanetTable where rowid = " + GameObject.Find("OBJ").GetComponent<OBJScript>().rowid;
+        }
+        else {
+            sqlQuery = "select rowid, * from managePlanetTable where user = 1";
+        }
         dbcmd.CommandText = sqlQuery;
         reader = dbcmd.ExecuteReader();
         cnt = 0;

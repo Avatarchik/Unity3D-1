@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using System.Linq;
 using System.Collections;
@@ -975,11 +976,16 @@ public class PlanetSceneSingleTon : MonoBehaviour {
 
     void Update()
     {
-        UIobj.GetComponent<PlanetUIFromSQL>().setUIText();
-        if (activeFusionPanal)
+        if (gameObject.scene.name != "Defense")     //수비 씬 예외처리
         {
-            UIobj.GetComponent<PlanetFusionScript>().setText();
 
+
+            UIobj.GetComponent<PlanetUIFromSQL>().setUIText();
+            if (activeFusionPanal)
+            {
+                UIobj.GetComponent<PlanetFusionScript>().setText();
+
+            }
         }
     }
 
