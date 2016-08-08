@@ -260,7 +260,8 @@ public class MainSingleTon : MonoBehaviour {
 
             tempTex = Instantiate(getText, textPos, GameObject.Find("PlanetPosition/DragCamera").transform.rotation) as GameObject;
 
-            getText.GetComponent<TextMesh>().text = tempString;
+            //getText.GetComponent<TextMesh>().text = tempString;
+            tempTex.GetComponent<getTextScript>().setText(tempString);
 
             string tempQuery1 = "UPDATE userTable SET cFood = " + cFood ;
             string tempQuery2 = "UPDATE managePlanetTable SET treeTouchT = \"" + treeTouchT + "\", lFood = " + lFood + " WHERE rowid = " + rowid;
