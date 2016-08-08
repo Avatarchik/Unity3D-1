@@ -63,7 +63,6 @@ public class MainUIfromSQL : MonoBehaviour
             Pla.gameObject.AddComponent<GravityAttractor>();
             Pla.transform.FindChild("PC").gameObject.AddComponent<GravityBody>();
             Pla.transform.FindChild("PC").gameObject.GetComponent<GravityBody>().attractor = Pla.gameObject.GetComponent<GravityAttractor>();
-
             Pla.transform.FindChild("PC").gameObject.AddComponent<PlayerController>();
 
             Pla.transform.FindChild("PC").gameObject.GetComponent<Animator>().runtimeAnimatorController = cont;

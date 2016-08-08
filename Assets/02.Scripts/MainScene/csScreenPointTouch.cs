@@ -95,7 +95,7 @@ public class csScreenPointTouch : MonoBehaviour
 
 
                     //Debug.Log(hit.point);
-                    GameObject.Find("PlanetPosition/death_planet/PC").GetComponent<PlayerController>().getPointToMove(hit.point);
+                    //GameObject.Find("PlanetPosition/death_planet/PC").GetComponent<PlayerController2>().getPointToMove(hit.point);
 
 
                 }

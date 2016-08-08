@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour {
 
     public Vector3 posi = new Vector3(0.6f, 6.5f, 23f);
 
+    private Vector3 moveTo;
+
 
     void start()
 	{
@@ -51,6 +53,7 @@ public class PlayerController : MonoBehaviour {
         //else
         GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.TransformDirection(movDir * runSpeed * Time.deltaTime));
         //GetComponent<Rigidbody>().MovePosition(posi);
+
 
     }
 

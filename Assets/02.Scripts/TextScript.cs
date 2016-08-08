@@ -4,6 +4,8 @@ using System.IO;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
+
+
 public class TextScript : MonoBehaviour
 {
 
@@ -23,17 +25,32 @@ public class TextScript : MonoBehaviour
     private string s;
     private int lin;
 
+
+    public Text txt1;
+    public Text txt2;
+    public Text txt3;
+    public Text txt4;
+
     
     void Start()
     {
+        txt1 = GameObject.Find("UI/Main/txt1").GetComponent<Text>();
+        txt2 = GameObject.Find("UI/Main/txt2").GetComponent<Text>();
+        txt3 = GameObject.Find("UI/Main/txt3").GetComponent<Text>();
+        txt4 = GameObject.Find("UI/Main/txt4").GetComponent<Text>();
 
         standby = true;
 
         if (Application.platform == RuntimePlatform.Android)
         {
+            txt4.text = "aaaaa";
             lin = 0;
-            ta = Resources.Load<TextAsset>(Application.persistentDataPath + "/" + textFileName + ".txt");
+            txt3.text = (Application.persistentDataPath + "/" + textFileName + ".txt").ToString();
+            
+            ta = Resources.Load<TextAsset>(Application.persistentDataPath + "/" + textFileName + ".txt") as TextAsset;
             s = ta.text;
+            txt1.text = ta.ToString();
+            txt2.text = ta.text.ToString();
 
             //sr = new StreamReader
             //    (new FileStream(Application.persistentDataPath + "/" +  textFileName + ".txt", FileMode.Open));
@@ -49,6 +66,9 @@ public class TextScript : MonoBehaviour
             count = 0;
             prize = 0;
             readLine();
+            txt1.text = "bbbbb";
+            txt2.text = sr.ToString();
+            txt3.text = (Application.streamingAssetsPath + "/" + textFileName + ".txt").ToString();
         }
 
         TextPanal.SetActive(false);
