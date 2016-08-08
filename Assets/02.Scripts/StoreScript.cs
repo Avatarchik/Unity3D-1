@@ -451,4 +451,8 @@ public class StoreScript : MonoBehaviour {
 
     }
 
+    void Update()
+    {
+        setStoreText();
+    }
 }
