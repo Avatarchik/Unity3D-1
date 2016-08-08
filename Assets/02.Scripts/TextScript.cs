@@ -46,23 +46,26 @@ public class TextScript : MonoBehaviour
             txt4.text = "aaaaa";
             lin = 0;
             txt3.text = (Application.persistentDataPath + "/" + textFileName + ".txt").ToString();
-            
-            ta = Resources.Load<TextAsset>(Application.persistentDataPath + "/" + textFileName + ".txt") as TextAsset;
+
+            //ta = Resources.Load<TextAsset>(Application.persistentDataPath + "/" + textFileName ) as TextAsset;
+            //s = ta.text;
+            ta = Resources.Load<TextAsset>("06.Res/Text/" + textFileName + ".txt");
             s = ta.text;
+            //sr = new StreamReader
+            //    (new FileStream(Application.persistentDataPath + "/" + textFileName + ".txt", FileMode.Open));
+
             txt1.text = ta.ToString();
             txt2.text = ta.text.ToString();
 
-            //sr = new StreamReader
-            //    (new FileStream(Application.persistentDataPath + "/" +  textFileName + ".txt", FileMode.Open));
 
         }
         else
         {
-            //sr = new StreamReader
-            //    (new FileStream(Application.dataPath + "/06.Res/Text/" + textFileName + ".txt", FileMode.Open));
-
             sr = new StreamReader
-                (new FileStream(Application.streamingAssetsPath + "/" + textFileName + ".txt", FileMode.Open));
+                (new FileStream(Application.dataPath + "/06.Res/Text/" + textFileName + ".txt", FileMode.Open));
+
+            //sr = new StreamReader
+            //    (new FileStream(Application.streamingAssetsPath + "/" + textFileName + ".txt", FileMode.Open));
             count = 0;
             prize = 0;
             readLine();
