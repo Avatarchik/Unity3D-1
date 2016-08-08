@@ -12,8 +12,8 @@ public class ShipPathWork : MonoBehaviour {
             hash.Add("path", iTweenPath.GetPath("ShipPath"));
             hash.Add("movetopath", true);
             hash.Add("orienttopath", true);
-            hash.Add("looktime", 2.0f);
-            hash.Add("time", 6.0f);
+            hash.Add("looktime", 3.0f);
+            hash.Add("time", 9.0f);
             hash.Add("easetype", iTween.EaseType.easeOutExpo);
             hash.Add("looptype", iTween.LoopType.none);
 
