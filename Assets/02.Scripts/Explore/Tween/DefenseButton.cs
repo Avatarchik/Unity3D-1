@@ -6,7 +6,7 @@ public class DefenseButton : MonoBehaviour {
     bool initDef;
     bool initRet;
 
-    void Start()
+    void Awake()
     {
         initDef = false;
         initRet = false;
