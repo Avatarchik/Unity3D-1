@@ -11,21 +11,25 @@ public class getEnergyTextScript : MonoBehaviour {
     float count = 0;
     int fontsize = 60;
 
+    void Start()
+    {
+        this.gameObject.GetComponent<Text>().CrossFadeAlpha(-1, 5f, false);
+    }
     void Update()
     {
-        count += 0.5f;
-        if (count >= 1)
-        {
-            count = 0;
-            fontsize--;
-            if (fontsize <= 2)
-            {
-                Destroy(this.gameObject);
-            }
-            this.GetComponent<Text>().fontSize = fontsize;
+        //count += 0.5f;
+        //if (count >= 1)
+        //{
+        //    count = 0;
+        //    fontsize--;
+        //    if (fontsize <= 2)
+        //    {
+        //        Destroy(this.gameObject);
+        //    }
+        //    this.GetComponent<Text>().fontSize = fontsize;
 
 
-        }
+        //}
 
     }
 
