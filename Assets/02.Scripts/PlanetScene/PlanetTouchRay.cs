@@ -80,6 +80,13 @@ public class PlanetTouchRay : MonoBehaviour {
                         Debug.Log("Ray hit PostBOX");
                     }
 
+                    if (hit.transform.tag.Equals("Player"))
+                    {
+                        Debug.Log("player");
+                        GameObject.Find("GameManager/UIManager").GetComponent<TextCoroutine>().Print();
+
+                        return;
+                    }
                 }
                 //}                                                             // Build mode
             }                                                                   // Debug mode 

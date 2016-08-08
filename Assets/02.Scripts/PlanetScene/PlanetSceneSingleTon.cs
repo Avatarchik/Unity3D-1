@@ -128,6 +128,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
 
     public GameObject MovePanal;
 
+    public RuntimeAnimatorController cont;
 
     void Start()
     {
@@ -151,7 +152,36 @@ public class PlanetSceneSingleTon : MonoBehaviour {
             Pla.transform.parent = PlanetPosition.transform;
             Camera.main.transform.parent = PlanetPosition.transform.FindChild("DragCamera").transform;
             Destroy(Pla.GetComponent<Rigidbody>());
-            Destroy(Pla.GetComponent<SphereCollider>());
+            //Destroy(Pla.GetComponent<SphereCollider>());
+
+            Pla.gameObject.GetComponent<SphereCollider>().isTrigger = false;
+            Pla.transform.FindChild("PC/astronaut").gameObject.tag = "Player";
+            Pla.transform.FindChild("PC").gameObject.tag = "Player";
+
+            Pla.transform.FindChild("PC/astronaut").gameObject.transform.localPosition = new Vector3(0f, 0f, 0f);
+            //Pla.transform.FindChild("PC/astronaut").gameObject.transform.rotation( new Vector3(0f, 0f, 0f));
+            //Pla.transform.FindChild("PC/astronaut").gameObject.transform.position = new Vector3(0f, 0f, 0f);
+
+            Pla.transform.FindChild("PC/astronaut").gameObject.AddComponent<BoxCollider>();
+            Pla.transform.FindChild("PC/astronaut").gameObject.GetComponent<BoxCollider>().center = new Vector3(0f, 0.7f, 0f);
+            Pla.transform.FindChild("PC/astronaut").gameObject.GetComponent<BoxCollider>().size = new Vector3(0.9f, 1.5f, 1f);
+
+
+            Pla.gameObject.AddComponent<GravityAttractor>();
+            Pla.transform.FindChild("PC").gameObject.AddComponent<GravityBody>();
+            Pla.transform.FindChild("PC").gameObject.GetComponent<GravityBody>().attractor = Pla.gameObject.GetComponent<GravityAttractor>();
+            Pla.transform.FindChild("PC").gameObject.AddComponent<PlayerController>();
+
+            Pla.transform.FindChild("PC").gameObject.GetComponent<Animator>().runtimeAnimatorController = cont;
+            Pla.transform.FindChild("PC").gameObject.AddComponent<Rigidbody>();
+            Pla.transform.FindChild("PC").gameObject.AddComponent<CapsuleCollider>();
+            Pla.transform.FindChild("PC").gameObject.GetComponent<CapsuleCollider>().center = new Vector3(0f, 1f, 0f);
+            Pla.transform.FindChild("PC").gameObject.GetComponent<CapsuleCollider>().height = 2f;
+
+            //Pla.transform.FindChild("PC").gameObject.GetComponent<Rigidbody>().freezeRotation;
+
+            Pla.transform.FindChild("PC").gameObject.GetComponent<PlayerController>().anim = Pla.transform.FindChild("PC").gameObject.GetComponent<Animator>();
+
         }
     }
 
