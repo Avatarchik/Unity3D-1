@@ -130,6 +130,8 @@ public class PlanetSceneSingleTon : MonoBehaviour {
 
     public RuntimeAnimatorController cont;
 
+    public GameObject getEspawn;
+
     void Start()
     {
         treeCount = 0;
@@ -697,7 +699,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
         {
             Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
             SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
-            tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+            tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
             tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
             tempTex.GetComponent<getEnergyTextScript>().setText("생산시작");
             return;
@@ -755,7 +757,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                         cBE = maxE;
                         Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
                         SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("MAX");
                         return;
@@ -764,14 +766,14 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                     if (calculateEnergy <= maxStoreE)
                     {
                         cBE += calculateEnergy;
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("+" + calculateEnergy.ToString());
                     }
                     else
                     {
                         cBE += maxStoreE;
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("+" + maxStoreE.ToString());
                     }
@@ -795,7 +797,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                         cRE = maxE;
                         Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
                         SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("MAX");
                         return;
@@ -804,14 +806,14 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                     if (calculateEnergy <= maxStoreE)
                     {
                         cRE += calculateEnergy;
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("+" + calculateEnergy.ToString());
                     }
                     else
                     {
                         cRE += maxStoreE;
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("+" + maxStoreE.ToString());
                     }
@@ -835,7 +837,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                         cYE = maxE;
                         Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
                         SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("MAX");
                         return;
@@ -844,14 +846,14 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                     if (calculateEnergy <= maxStoreE)
                     {
                         cYE += calculateEnergy;
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("+" + calculateEnergy.ToString());
                     }
                     else
                     {
                         cYE += maxStoreE;
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("+" + maxStoreE.ToString());
                     }
@@ -875,7 +877,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                         cVE = maxE;
                         Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
                         SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("MAX");
                         return;
@@ -884,14 +886,14 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                     if (calculateEnergy <= maxStoreE)
                     {
                         cVE += calculateEnergy;
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("+" + calculateEnergy.ToString());
                     }
                     else
                     {
                         cVE += maxStoreE;
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("+" + maxStoreE.ToString());
                     }
@@ -914,7 +916,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                         cGE = maxE;
                         Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
                         SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("MAX");
                         return;
@@ -923,14 +925,14 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                     if (calculateEnergy <= maxStoreE)
                     {
                         cGE += calculateEnergy;
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("+" + calculateEnergy.ToString());
                     }
                     else
                     {
                         cGE += maxStoreE;
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("+" + maxStoreE.ToString());
                     }
@@ -953,7 +955,7 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                         cOE = maxE;
                         Query = "UPDATE managePlanetTable SET planetTouchT = \"" + touchTime.ToString("yyyy-MM-dd HH:mm:ss") + "\" WHERE User = 1";
                         SQLManager.GetComponent<PlanetSceneSQL>().UpdateQuery(Query);
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("MAX");
                         return;
@@ -962,14 +964,14 @@ public class PlanetSceneSingleTon : MonoBehaviour {
                     if (calculateEnergy <= maxStoreE)
                     {
                         cOE += calculateEnergy;
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("+" + calculateEnergy.ToString());
                     }
                     else
                     {
                         cOE += maxStoreE;
-                        tempTex = Instantiate(getEnergyText, Input.mousePosition, Quaternion.identity) as GameObject;
+                        tempTex = Instantiate(getEnergyText, getEspawn.transform.localPosition, Quaternion.identity) as GameObject;
                         tempTex.transform.SetParent(GameObject.Find("UI").transform, false);
                         tempTex.GetComponent<getEnergyTextScript>().setText("+" + maxStoreE.ToString());
                     }

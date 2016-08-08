@@ -2731,6 +2731,7 @@ MonoBehaviour:
   PlanetPosition: {fileID: 412947685}
   MovePanal: {fileID: 2113341003}
   cont: {fileID: 9100000, guid: 13d18fc37bcea664c9b053ece334b189, type: 2}
+  getEspawn: {fileID: 529482251}
 --- !u!1 &382336695
 GameObject:
   m_ObjectHideFlags: 0
@@ -3333,6 +3334,7 @@ RectTransform:
   - {fileID: 1716254518}
   - {fileID: 1353212634}
   - {fileID: 2047765348}
+  - {fileID: 529482252}
   m_Father: {fileID: 1888135149}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -4337,6 +4339,39 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 520231130}
+--- !u!1 &529482251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 529482252}
+  m_Layer: 5
+  m_Name: spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &529482252
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529482251}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 426518363}
+  m_RootOrder: 3
+  m_AnchorMin: {x: 0.30800003, y: 0.7386592}
+  m_AnchorMax: {x: 0.43755558, y: 0.80600005}
+  m_AnchoredPosition: {x: -5.500023, y: 2.4998255}
+  m_SizeDelta: {x: 7, y: 13}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &538717793
 GameObject:
   m_ObjectHideFlags: 0

@@ -2112,6 +2112,7 @@ RectTransform:
   - {fileID: 1789658332}
   - {fileID: 914781557}
   - {fileID: 119325426}
+  - {fileID: 1566202904}
   m_Father: {fileID: 1015395974}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -4085,6 +4086,7 @@ MonoBehaviour:
   getEnergyText: {fileID: 149338, guid: 6e603749a7561b14fbb3eb56cf5e5e08, type: 2}
   PostPanalBefore: {fileID: 584543484}
   PostPanalAfter: {fileID: 414244622}
+  getEspawn: {fileID: 1566202903}
 --- !u!114 &354346189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16513,6 +16515,39 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1558525102}
+--- !u!1 &1566202903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1566202904}
+  m_Layer: 5
+  m_Name: spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1566202904
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1566202903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 145752608}
+  m_RootOrder: 3
+  m_AnchorMin: {x: 0.30800003, y: 0.7386592}
+  m_AnchorMax: {x: 0.43755558, y: 0.80600005}
+  m_AnchoredPosition: {x: -5.5, y: 2.5}
+  m_SizeDelta: {x: 7, y: 13}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1566973411
 GameObject:
   m_ObjectHideFlags: 0
