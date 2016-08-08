@@ -9,6 +9,12 @@ public class ButtonController : MonoBehaviour {
     //씬 전환 기능
     public void TransSceneToMain()
     {
+        if(gameObject.scene.name == "Explore")
+        {
+            //SoundManager.Instance().PlaySfx(SoundManager.Instance().mainBGM);
+            SoundManager.Instance().bgmType = 1;
+            GameObject.Find("Nav").gameObject.GetComponent<StarNavigation>().spentFuel();  //연료 소모 DB반영
+        }
         if (GameObject.Find("GameData"))
         {
             Destroy(GameObject.Find("GameData").gameObject);

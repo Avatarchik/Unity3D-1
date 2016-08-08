@@ -3,20 +3,34 @@ using System.Collections;
 
 public class DefenseButton : MonoBehaviour {
 
-    bool init;
+    bool initDef;
+    bool initRet;
 
     void Start()
     {
-        init = false;
+        initDef = false;
+        initRet = false;
     }
 
     void Update()
     {
-        if (GameObject.Find("PlanetManager").GetComponent<PlanetManager>().attackStat == true && init == false)
+        if (initRet == false && gameObject.name == "Return")
         {
-            init = true;
+            initRet = true;
             Hashtable hash = new Hashtable();
-            hash.Add("x", 70);
+            hash.Add("x", 183);
+            //hash.Add("looktime", 1.0f);
+            hash.Add("time", 1.0f);
+            hash.Add("name", "return");
+            //hash.Add("easetype", iTween.EaseType.easeInOutExpo);
+
+            iTween.MoveBy(gameObject.transform.FindChild("home").gameObject, hash);
+        }
+        if (GameObject.Find("PlanetManager").GetComponent<PlanetManager>().attackStat == true && initDef == false && gameObject.name == "Defense")
+        {
+            initDef = true;
+            Hashtable hash = new Hashtable();
+            hash.Add("x", 183);
             //hash.Add("looktime", 1.0f);
             hash.Add("time", 1.0f);
             hash.Add("name", "defense");

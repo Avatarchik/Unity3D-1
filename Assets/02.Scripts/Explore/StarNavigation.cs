@@ -63,7 +63,6 @@ public class StarNavigation : MonoBehaviour {
             StartCoroutine(returnMain());
             Debug.Log("<b>연료 부족!</b>");
             
-            //탐사 종료(행성 귀환) 추가예정
         }
 
         //목적지 네비게이션
@@ -81,7 +80,7 @@ public class StarNavigation : MonoBehaviour {
         }
 
     }
-    public void spentFuel()
+    public void spentFuel()     //PlanetManage, StarNavigation, ButtonController(TransSceneToMain)에서 씬전환시 호출함
     {
         SelectDB.Instance().table = "userTable";
         SelectDB.Instance().column = "cFood, shipNum";
