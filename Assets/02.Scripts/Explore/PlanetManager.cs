@@ -12,7 +12,8 @@ public class PlanetManager : MonoBehaviour
     GameObject[] loadedPlanets = new GameObject[11];
     [SerializeField]
     int loadedCnt = 0;
-
+    public bool attackStat = false;
+    public GameObject attackedPlanet;
     private GameObject player;
     private GameObject spaceChecker;
     public float spawnTime = 10.0f;
@@ -79,6 +80,7 @@ public class PlanetManager : MonoBehaviour
         }
         loadPlanet();
         loadStar();
+        defensePlanet();
     }
 
     void Update()
@@ -605,6 +607,8 @@ public class PlanetManager : MonoBehaviour
         int rand = UnityEngine.Random.Range(0, loadedCnt);
 
         loadedPlanets[rand].gameObject.GetComponent<PlanetRowid>().attacked = true;
+        attackedPlanet = loadedPlanets[rand].gameObject;
+        attackStat = true;
     }
 
     int treeCheck(string treeCntStr)

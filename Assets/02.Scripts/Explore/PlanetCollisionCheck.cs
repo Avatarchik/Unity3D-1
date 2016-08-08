@@ -62,8 +62,11 @@ public class PlanetCollisionCheck : MonoBehaviour
             SelectDB.Instance().column = "Count(*)";
             SelectDB.Instance().where = "WHERE \"open\" = 1 AND  \"find\" = 1 AND \"active\" = 0";
             SelectDB.Instance().Select(0);
+            Debug.Log("starcnt" + SelectDB.Instance().starCount);
             if (SelectDB.Instance().starCount == 5)
             {
+                //게임 시간 정지
+                Time.timeScale = 0;
                 GameManager.Instance().noMorePS.SetActive(true);
                 //별 충돌시 우회 기동, 예외처리 필요함
             }
@@ -75,6 +78,8 @@ public class PlanetCollisionCheck : MonoBehaviour
                 SelectDB.Instance().Select(4);
                 if (SelectDB.Instance().starOpen == 0 && SelectDB.Instance().starFind == 0 && SelectDB.Instance().starActive == 0)
                 {
+                    //게임 시간 정지
+                    Time.timeScale = 0;
                     GameManager.Instance().exploreUi_star.SetActive(true);
                     GameManager.Instance().exploreUi_star.transform.FindChild("Ok").GetComponent<Button>().onClick.AddListener(() => GameObject.Find("GameManager").GetComponent<ButtonController>().explore(2));
                 }else
@@ -82,9 +87,6 @@ public class PlanetCollisionCheck : MonoBehaviour
                     turnShip();
                 }
             }
-            //게임 시간 정지
-            Time.timeScale = 0;
-
         }
         else if (other.name != "SpaceCheck" && other.tag != "Missile")
         {
@@ -92,7 +94,7 @@ public class PlanetCollisionCheck : MonoBehaviour
         }
     }
 
-    void turnShip()
+    public void turnShip()
     {
         int rotRand = 0;
         if (this.gameObject.name == "ShipCollider_1")

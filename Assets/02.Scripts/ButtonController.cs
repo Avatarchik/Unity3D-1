@@ -135,7 +135,19 @@ public class ButtonController : MonoBehaviour {
         DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
         Debug.Log("scene Trans to Explore");
     }
-    
+
+    public void TransSceneToDefense()
+    {
+        SoundManager.Instance().PlaySfx(SoundManager.Instance().startExplore);
+        SoundManager.Instance().bgmType = 2;
+        SoundManager.Instance().nextSceneName = "Defense";
+        SceneManager.LoadScene("loading");
+        GameObject.Find("OBJ").GetComponent<OBJScript>().rowid = GameObject.Find("PlanetManager").gameObject.GetComponent<PlanetManager>().attackedPlanet.GetComponent<PlanetRowid>().rowid;
+        DontDestroyOnLoad(GameObject.Find("GameData").gameObject);
+        DontDestroyOnLoad(GameObject.Find("OBJ").gameObject);
+        Debug.Log("scene Trans to Defense");
+    }
+
     public void VisibleSetting()
     {
         Debug.Log("set");
@@ -312,10 +324,9 @@ public class ButtonController : MonoBehaviour {
     // 메인화면
 
     // 탐사화면 1: 미탐사행성, 2: 별
-
-    
     public void explore(int type)
     {
+        Time.timeScale = 1;
         //관리중인 오브젝트 개수 체크
         //SelectDB.Instance().table = "managePlanetTable";
         //SelectDB.Instance().column = "Count(*)";
@@ -325,7 +336,7 @@ public class ButtonController : MonoBehaviour {
         //SelectDB.Instance().column = "Count(*)";
         //SelectDB.Instance().where = "WHERE open = 1 AND  find = 1 AND active = 0";
 
-        if(type == 1)
+        if (type == 1)
         {
             Debug.Log("행성을 탐사합니다!");
             //Vector3 spawnPoint = GameManager.Instance().planetSpawnPoint;
@@ -343,13 +354,16 @@ public class ButtonController : MonoBehaviour {
             //Scene 전환(PlanetManager : 260 에서 동작함)
         }else if (type == 2)
         {
-           
+            UpdateDB.Instance().table = "zodiacTable";
+            UpdateDB.Instance().setColumn = "\"open\" = 1, \"find\" = 1 ";
+            UpdateDB.Instance().where = "WHERE \"rowid\" = " + SelectDB.Instance().starRowid;
+            UpdateDB.Instance().UpdateData();
+
             GameObject.Find("OBJ").GetComponent<OBJScript>().rowid = SelectDB.Instance().starRowid;
             DontDestroyOnLoad(GameObject.Find("OBJ"));
             SoundManager.Instance().nextSceneName = "Star";
             SceneManager.LoadScene("loading");
         }
-
     }
 
     public void pass(int type)
@@ -366,9 +380,8 @@ public class ButtonController : MonoBehaviour {
         }
         else if(type == 2)
         {
-            GameManager.Instance().tempPlanet.SetActive(false);
-
             GameManager.Instance().noMorePS.SetActive(false);
+            GameObject.FindWithTag("ShipCollider").GetComponentInChildren<PlanetCollisionCheck>().turnShip();
         }
     }
 

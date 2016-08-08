@@ -27,3 +27,5 @@ EditorBuildSettings:
     path: Assets/01.Scenes/Test/SqliteTest.unity
   - enabled: 0
     path: Assets/01.Scenes/Star_old.unity
+  - enabled: 1
+    path: Assets/01.Scenes/Defense.unity
