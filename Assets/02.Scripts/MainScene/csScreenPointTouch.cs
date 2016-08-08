@@ -88,7 +88,7 @@ public class csScreenPointTouch : MonoBehaviour
                         if (hit.transform.tag.Equals("Player"))
                         {
                           Debug.Log("player");
-                          GameObject.Find("GameManager/UIManager").GetComponent<TextScript>().Print();
+                          GameObject.Find("GameManager/UIManager").GetComponent<TextCoroutine>().Print();
 
                         return;
                         }

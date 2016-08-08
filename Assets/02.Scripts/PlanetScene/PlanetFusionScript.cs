@@ -331,7 +331,7 @@ public class PlanetFusionScript : MonoBehaviour {
 
             case 3:
                 resultImg.GetComponent<Image>().sprite = EnergyIcon[num];
-                resultText.text = "바이올럿";
+                resultText.text = "바이올렛";
                 break;
 
             default:

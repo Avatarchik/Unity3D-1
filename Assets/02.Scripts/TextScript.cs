@@ -3,7 +3,7 @@ using System.Collections;
 using System.IO;
 using UnityEngine.UI;
 using System.Collections.Generic;
-
+using System.Text;
 
 
 public class TextScript : MonoBehaviour
@@ -43,29 +43,29 @@ public class TextScript : MonoBehaviour
 
         if (Application.platform == RuntimePlatform.Android)
         {
-            txt4.text = "aaaaa";
+            txt4.text = (Application.persistentDataPath + "/" + textFileName + ".txt").ToString();
             lin = 0;
-            txt3.text = (Application.persistentDataPath + "/" + textFileName + ".txt").ToString();
+            txt3.text = (Application.dataPath + "/" + textFileName + ".txt").ToString();
 
             //ta = Resources.Load<TextAsset>(Application.persistentDataPath + "/" + textFileName ) as TextAsset;
             //s = ta.text;
-            ta = Resources.Load<TextAsset>("06.Res/Text/" + textFileName + ".txt");
-            s = ta.text;
-            //sr = new StreamReader
-            //    (new FileStream(Application.persistentDataPath + "/" + textFileName + ".txt", FileMode.Open));
+            //ta = Resources.Load(textFileName, typeof(TextAsset)) as TextAsset;
+            //s = ta.text;
+            sr = new StreamReader
+                (new FileStream("URI=File:"+Application.persistentDataPath + "/" + textFileName + ".txt",FileMode.Open));
 
-            txt1.text = ta.ToString();
+            txt1.text = sr.ToString();
             txt2.text = ta.text.ToString();
 
 
         }
         else
         {
-            sr = new StreamReader
-                (new FileStream(Application.dataPath + "/06.Res/Text/" + textFileName + ".txt", FileMode.Open));
-
             //sr = new StreamReader
-            //    (new FileStream(Application.streamingAssetsPath + "/" + textFileName + ".txt", FileMode.Open));
+            //    (new FileStream(Application.dataPath + "/06.Res/Text/" + textFileName + ".txt", FileMode.Open));
+
+            sr = new StreamReader
+                (new FileStream(Application.streamingAssetsPath + "/" + textFileName + ".txt", FileMode.Open));
             count = 0;
             prize = 0;
             readLine();
@@ -73,6 +73,7 @@ public class TextScript : MonoBehaviour
             txt2.text = sr.ToString();
             txt3.text = (Application.streamingAssetsPath + "/" + textFileName + ".txt").ToString();
         }
+
 
         TextPanal.SetActive(false);
     }
@@ -134,6 +135,7 @@ public class TextScript : MonoBehaviour
                 yield return new WaitForSeconds(sec);
             }
         }
+
         StartCoroutine("textPanalFalse");
         //standby = true;
     }
