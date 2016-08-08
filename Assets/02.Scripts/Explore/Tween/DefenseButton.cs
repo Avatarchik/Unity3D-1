@@ -14,29 +14,27 @@ public class DefenseButton : MonoBehaviour {
 
     void Update()
     {
-        if (initRet == false && gameObject.name == "Return")
+        if (initRet == false && gameObject.name == "home")
         {
             initRet = true;
             Hashtable hash = new Hashtable();
-            hash.Add("x", 183);
+            hash.Add("x", 100);
             //hash.Add("looktime", 1.0f);
             hash.Add("time", 1.0f);
-            hash.Add("name", "return");
             //hash.Add("easetype", iTween.EaseType.easeInOutExpo);
 
-            iTween.MoveBy(gameObject.transform.FindChild("home").gameObject, hash);
+            iTween.MoveTo(gameObject, hash);
         }
-        if (GameObject.Find("PlanetManager").GetComponent<PlanetManager>().attackStat == true && initDef == false && gameObject.name == "Defense")
+        if (GameObject.Find("PlanetManager").GetComponent<PlanetManager>().attackStat == true && initDef == false && gameObject.name == "Def")
         {
             initDef = true;
             Hashtable hash = new Hashtable();
-            hash.Add("x", 183);
+            hash.Add("x", 100);
             //hash.Add("looktime", 1.0f);
             hash.Add("time", 1.0f);
-            hash.Add("name", "defense");
             //hash.Add("easetype", iTween.EaseType.easeInOutExpo);
 
-            iTween.MoveBy(gameObject.transform.FindChild("Def").gameObject, hash);
+            iTween.MoveTo(gameObject, hash);
         }
     }
 }
