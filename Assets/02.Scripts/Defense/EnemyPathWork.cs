@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class EnemyPathWork : MonoBehaviour {
 
     bool SceneInit = true;
-
+    bool endMove = true;
 
     void Awake()
     {
         SceneInit = false;
+        endMove = false;
     }
 
     void Update()
@@ -37,6 +39,17 @@ public class EnemyPathWork : MonoBehaviour {
             iTween.MoveTo(gameObject, hash);
             SceneInit = true;
         }
+        if (endMove == true)
+        {
+            Debug.Log("@#@#@");
+            Hashtable hash2 = new Hashtable();
+            hash2.Add("from", 0);
+            hash2.Add("to", 0.25f);
+            hash2.Add("time", 1.0f);
+            hash2.Add("onupdate", "ValueToUpdate");
+            iTween.ValueTo(GameObject.Find("GameCount").gameObject, hash2);
+            endMove = false;
+        }
     }
 
     void ItweenStart()
@@ -57,11 +70,21 @@ public class EnemyPathWork : MonoBehaviour {
             gameObject.transform.FindChild("AirFighter_" + i).FindChild("Engine").transform.localScale = new Vector3(1, 1, 0.5f);
         }
 
+        //UI 배치
         Hashtable hash = new Hashtable();
-        hash.Add("y", 100);
+        hash.Add("y", 80);
         iTween.MoveBy(GameObject.Find("Button").gameObject, hash);
 
+        Debug.Log("#####");
+
+        endMove = true;
 
         Debug.Log("Tween Complete : " + Time.realtimeSinceStartup);
+    }
+
+    void ValueToUpdate(float updateValue)
+    {
+        Debug.Log("@@@@"+updateValue);
+        GameObject.Find("GameCount").gameObject.GetComponent<Slider>().value = updateValue;
     }
 }
