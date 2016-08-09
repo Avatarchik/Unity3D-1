@@ -604,11 +604,22 @@ public class PlanetManager : MonoBehaviour
 
     public void defensePlanet()
     {
+        int Count = UnityEngine.Random.Range(1, 100);
+
+        if (Count % 2 == 0)
+            return;
+
+        if (loadedCnt <= 2)
+            return;
+
+
         int rand = UnityEngine.Random.Range(0, loadedCnt);
 
         loadedPlanets[rand].gameObject.GetComponent<PlanetRowid>().attacked = true;
         attackedPlanet = loadedPlanets[rand].gameObject;
         attackStat = true;
+
+
     }
 
     int treeCheck(string treeCntStr)
