@@ -436,5 +436,10 @@ public class PlanetStoreScript : MonoBehaviour {
 
     }
 
+    void Update()
+    {
+        setStoreText();
+    }
+
 }
 
