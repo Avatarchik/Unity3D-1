@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
     //Singleton Variable 
 
     //Planet Management
-    
+
 
     //Explore Scene
     public GameObject player;
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour {
     public Vector3 planetSpawnPoint;
     public GameObject spaceChecker;
     public bool scInit;         //SpaceCollision Init
-    public bool spaceCollision = true;  
+    public bool spaceCollision = true;
     public GameObject destination;
     public GameObject navUi_des;
     public GameObject navUi_player;
@@ -35,13 +35,13 @@ public class GameManager : MonoBehaviour {
     public int spentFuel;
     public Vector3 rotShip;
     public int rotRate;
-    
+
     int itweenCnt;
-   
-    
+
+
     void Awake()
     {
-      
+
     }
 
     void Start()
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour {
 
     void Update()
     {
-        
+
         itweenCnt = iTween.Count();
         if (itweenCnt != 0 && GameObject.Find("MobileJoystick").GetComponent<Image>().enabled == true)
         {
@@ -64,14 +64,14 @@ public class GameManager : MonoBehaviour {
             GameObject.Find("MobileJoystick").GetComponent<Image>().enabled = false;
             GameManager.Instance().Warning_collision.SetActive(true);
         }
-        
+
         else if (itweenCnt == 0 && GameObject.Find("MobileJoystick").GetComponent<Image>().enabled == false)
         {
             GameObject.Find("MobileJoystick").GetComponent<Image>().enabled = true;
             GameManager.Instance().Warning_collision.SetActive(false);
         }
 
-        if(exploreUi.activeSelf == true || exploreUi_star.activeSelf == true || noMorePS.activeSelf == true)
+        if (exploreUi.activeSelf == true || exploreUi_star.activeSelf == true || noMorePS.activeSelf == true)
         {
             GameObject.Find("Defense").transform.FindChild("Def").gameObject.SetActive(false);
             GameObject.Find("Return").transform.FindChild("home").gameObject.SetActive(false);
@@ -81,5 +81,15 @@ public class GameManager : MonoBehaviour {
             GameObject.Find("Defense").transform.FindChild("Def").gameObject.SetActive(true);
             GameObject.Find("Return").transform.FindChild("home").gameObject.SetActive(true);
         }
+        ShipEngine();
+    }
+
+    void ShipEngine()
+    {
+        float rand = Random.Range(0.7f, 1.0f);
+
+        GameObject.Find("Ship").transform.FindChild("Ship_" + GameData.Instance().shipNum).transform.FindChild("Engine").transform.localScale = new Vector3(1, 1, rand);
     }
 }
+
+

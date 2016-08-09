@@ -16,6 +16,8 @@ public class RPSScript : MonoBehaviour {
 
     public int lastResult;  // 0: 무승부, 1: 성공, 2: 실패
 
+    bool defenseEnd;
+
     [SerializeField]
     bool RoundState;
     [SerializeField]
@@ -27,6 +29,7 @@ public class RPSScript : MonoBehaviour {
 
     void Start()
     {
+        defenseEnd = false;
         lastResult = 0;
         RoundState = false;
         inputRPS = true;
@@ -46,13 +49,13 @@ public class RPSScript : MonoBehaviour {
         {
             inputRPS = false;
         }
-        if(round == 5)
+        if(round == 5 && defenseEnd == false)
         {
             GameObject.Find("Main").transform.FindChild("Notice_Result").transform.FindChild("Success").GetComponent<Text>().text = winCount.ToString();
             GameObject.Find("Main").transform.FindChild("Notice_Result").transform.FindChild("Fail").GetComponent<Text>().text = loseCount.ToString();
             GameObject.Find("Main").transform.FindChild("Notice_Result").transform.FindChild("Draw").GetComponent<Text>().text = drawCount.ToString();
 
-            GameObject.Find("btn_round").gameObject.SetActive(false);
+            GameObject.Find("Round").transform.FindChild("btn_round").gameObject.SetActive(false);
             GameObject.Find("Main").transform.FindChild("Notice_Result").gameObject.SetActive(true);
             //UI 배치
             Hashtable hash = new Hashtable();
@@ -61,6 +64,7 @@ public class RPSScript : MonoBehaviour {
             hash.Add("z", 1);
             hash.Add("time", 0.5);
             iTween.ScaleTo(GameObject.Find("Main").transform.FindChild("Notice_Result").gameObject, hash);
+            defenseEnd = true;
         }
     }
 
@@ -109,23 +113,43 @@ public class RPSScript : MonoBehaviour {
         {
             return;
         }
+        
         switch (myRPS[round])
         {
             case 1:
                 ScissorsCnt--;
+                GameObject.Find("Round_result").transform.FindChild("Player").transform.FindChild("Scissors").gameObject.SetActive(true);
                 GameObject.Find("ScissorsCnt").gameObject.GetComponent<Text>().text = ScissorsCnt.ToString();
                 break;
             case 2:
                 RockCnt--;
+                GameObject.Find("Round_result").transform.FindChild("Player").transform.FindChild("Rock").gameObject.SetActive(true);
                 GameObject.Find("RockCnt").gameObject.GetComponent<Text>().text = RockCnt.ToString();
                 break;
             case 3:
                 PaperCnt--;
+                GameObject.Find("Round_result").transform.FindChild("Player").transform.FindChild("Paper").gameObject.SetActive(true);
                 GameObject.Find("PaperCnt").gameObject.GetComponent<Text>().text = PaperCnt.ToString();
                 break;
             default:
                 break;
         }
+
+        switch (comRPS[round])
+        {
+            case 1:
+                GameObject.Find("Round_result").transform.FindChild("Enemy").transform.FindChild("Scissors").gameObject.SetActive(true);
+                break;
+            case 2:
+                GameObject.Find("Round_result").transform.FindChild("Enemy").transform.FindChild("Rock").gameObject.SetActive(true);
+                break;
+            case 3:
+                GameObject.Find("Round_result").transform.FindChild("Enemy").transform.FindChild("Paper").gameObject.SetActive(true);
+                break;
+            default:
+                break;
+        }
+
         if (myRPS[round] == comRPS[round])
         {
             //비김
@@ -247,6 +271,12 @@ public class RPSScript : MonoBehaviour {
         {
             compare();
             RoundState = false;
+            if(round != 5)
+            StartCoroutine(continueRound());
+            else
+            {
+                GameObject.Find("Round").transform.FindChild("btn_round").gameObject.SetActive(false);
+            }
         }
     }
 
@@ -255,5 +285,22 @@ public class RPSScript : MonoBehaviour {
         yield return new WaitForSeconds(2.4f);
         GameObject.Find("Round").transform.FindChild("WaringText").gameObject.SetActive(false);
         GameObject.Find("Round").transform.FindChild("ResultText").gameObject.SetActive(false);
+    }
+
+    IEnumerator continueRound()
+    {
+        GameObject.Find("btn_round").gameObject.SetActive(false);
+        yield return new WaitForSeconds(2.5f);
+        GameObject.Find("Round").transform.FindChild("btn_round").gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        GameObject.Find("Round_result").transform.FindChild("Player").transform.FindChild("Scissors").gameObject.SetActive(false);
+        GameObject.Find("Round_result").transform.FindChild("Player").transform.FindChild("Rock").gameObject.SetActive(false);
+        GameObject.Find("Round_result").transform.FindChild("Player").transform.FindChild("Paper").gameObject.SetActive(false);
+
+        GameObject.Find("Round_result").transform.FindChild("Enemy").transform.FindChild("Scissors").gameObject.SetActive(false);
+        GameObject.Find("Round_result").transform.FindChild("Enemy").transform.FindChild("Rock").gameObject.SetActive(false);
+        GameObject.Find("Round_result").transform.FindChild("Enemy").transform.FindChild("Paper").gameObject.SetActive(false);
+
+
     }
 }

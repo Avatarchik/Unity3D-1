@@ -15,6 +15,11 @@ public class ButtonController : MonoBehaviour {
             SoundManager.Instance().bgmType = 1;
             GameObject.Find("Nav").gameObject.GetComponent<StarNavigation>().spentFuel();  //연료 소모 DB반영
         }
+        if (gameObject.scene.name == "Defense")
+        {
+            //SoundManager.Instance().PlaySfx(SoundManager.Instance().mainBGM);
+            SoundManager.Instance().bgmType = 1;
+        }
         if (GameObject.Find("GameData"))
         {
             Destroy(GameObject.Find("GameData").gameObject);

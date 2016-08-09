@@ -78,21 +78,27 @@ public class EnemyPathWork : MonoBehaviour {
 
         //UI 배치
         Hashtable hash = new Hashtable();
-        hash.Add("y", 160);
-        iTween.MoveBy(GameObject.Find("Button").gameObject, hash);
+        hash.Add("x", 1.0f);
+        hash.Add("y", 1.0f);
+        hash.Add("z", 1.0f);
+        hash.Add("time", 1.5f);
+        iTween.ScaleTo(GameObject.Find("Button").gameObject, hash);
 
         //UI 배치
         Hashtable hash2 = new Hashtable();
-        hash2.Add("y", -110);
-        iTween.MoveBy(GameObject.Find("GameCount").gameObject, hash2);
+        hash2.Add("x", 1.0f);
+        hash2.Add("y", 1.0f);
+        hash2.Add("z", 1.0f);
+        hash2.Add("time", 1.5f);
+        iTween.ScaleTo(GameObject.Find("GameCount").gameObject, hash2);
 
 
         //UI 배치
         Hashtable hash3 = new Hashtable();
-        hash3.Add("x", 1);
-        hash3.Add("y", 1);
-        hash3.Add("z", 1);
-        hash3.Add("time", 0.5);
+        hash3.Add("x", 1.0f);
+        hash3.Add("y", 1.0f);
+        hash3.Add("z", 1.0f);
+        hash3.Add("time", 0.5f);
         iTween.ScaleTo(notice_Select, hash3);
 
         StartCoroutine(disableNotice());
