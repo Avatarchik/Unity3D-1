@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
@@ -27,24 +28,28 @@ public class PlayerController : MonoBehaviour {
 	}
 	void Update () 
 	{
+        if (gameObject.scene.name != "Defense")
+        {
 
-        //posi = this.gameObject.transform.position;
 
-        float speed = Input.GetAxis("Vertical");
-        //Debug.Log(speed);
-        float turn = Input.GetAxis("Horizontal");
+            //posi = this.gameObject.transform.position;
 
-        // GetAxis -> -1~1
+            float speed = Input.GetAxis("Vertical");
+            //Debug.Log(speed);
+            float turn = Input.GetAxis("Horizontal");
 
-		//running = Input.GetKey (KeyCode.LeftShift);
-		anim.SetBool ("running", running);
+            // GetAxis -> -1~1
 
-		movDir = new Vector3 (0, 0, Input.GetAxisRaw ("Vertical")).normalized;
-		transform.Rotate (new Vector3(0, turn*rotSpeed, 0));
-//		transform.rotation = new Quaternion (turn, transform.rotation.y, transform.rotation.z, transform.rotation.w);
-//		float speed = Input.GetAxis("Vertical");
-		anim.SetFloat ("speed", speed);
-	}
+            //running = Input.GetKey (KeyCode.LeftShift);
+            anim.SetBool("running", running);
+
+            movDir = new Vector3(0, 0, Input.GetAxisRaw("Vertical")).normalized;
+            transform.Rotate(new Vector3(0, turn * rotSpeed, 0));
+            //		transform.rotation = new Quaternion (turn, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+            //		float speed = Input.GetAxis("Vertical");
+            anim.SetFloat("speed", speed);
+        }
+    }
 
 	void FixedUpdate()
 	{
