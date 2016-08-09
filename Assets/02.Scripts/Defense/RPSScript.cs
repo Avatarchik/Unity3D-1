@@ -84,25 +84,25 @@ public class RPSScript : MonoBehaviour {
         round++;
     }
 
-
-    public void inputRock()
+    public void inputScissors()
     {
         myRPS.Add(1);
         compare();
     }
 
-    public void inputPaper()
+    public void inputRock()
     {
         myRPS.Add(2);
         compare();
-
     }
 
-    public void inputScissors()
+    public void inputPaper()
     {
         myRPS.Add(3);
         compare();
+
     }
+
 
 
 
