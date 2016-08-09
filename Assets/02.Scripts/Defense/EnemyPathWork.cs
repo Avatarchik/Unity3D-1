@@ -4,13 +4,24 @@ using System.Collections;
 
 public class EnemyPathWork : MonoBehaviour {
 
-    bool SceneInit = true;
-    bool endMove = true;
+    public GameObject slider;
+    public GameObject sliderFill;
+    public GameObject notice_Select;
 
+    bool SceneInit = true;
+    public bool endMove = true;
+    float changedGauge;
     void Awake()
     {
         SceneInit = false;
         endMove = false;
+    }
+
+    void Start()
+    {
+        slider.GetComponent<Slider>().onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+        
+
     }
 
     void Update()
@@ -39,17 +50,12 @@ public class EnemyPathWork : MonoBehaviour {
             iTween.MoveTo(gameObject, hash);
             SceneInit = true;
         }
-        if (endMove == true)
+        
+        if(sliderFill.activeSelf == true)
         {
-            Debug.Log("@#@#@");
-            Hashtable hash2 = new Hashtable();
-            hash2.Add("from", 0);
-            hash2.Add("to", 0.25f);
-            hash2.Add("time", 1.0f);
-            hash2.Add("onupdate", "ValueToUpdate");
-            iTween.ValueTo(GameObject.Find("GameCount").gameObject, hash2);
-            endMove = false;
+            GaugeInit(); 
         }
+        
     }
 
     void ItweenStart()
@@ -75,16 +81,51 @@ public class EnemyPathWork : MonoBehaviour {
         hash.Add("y", 80);
         iTween.MoveBy(GameObject.Find("Button").gameObject, hash);
 
-        Debug.Log("#####");
+        //UI 배치
+        Hashtable hash2 = new Hashtable();
+        hash2.Add("y", -40);
+        iTween.MoveBy(GameObject.Find("GameCount").gameObject, hash2);
 
+
+        //UI 배치
+        Hashtable hash3 = new Hashtable();
+        hash3.Add("x", 1);
+        hash3.Add("y", 1);
+        hash3.Add("z", 1);
+        hash3.Add("time", 0.5);
+        iTween.ScaleTo(notice_Select, hash3);
+
+        StartCoroutine(disableNotice());
+
+        sliderFill.SetActive(true);
         endMove = true;
 
         Debug.Log("Tween Complete : " + Time.realtimeSinceStartup);
     }
 
-    void ValueToUpdate(float updateValue)
+    void ValueChangeCheck()
     {
-        Debug.Log("@@@@"+updateValue);
-        GameObject.Find("GameCount").gameObject.GetComponent<Slider>().value = updateValue;
+        changedGauge = slider.GetComponent<Slider>().value;
+    }
+
+    void GaugeInit()
+    {
+        //Debug.Log("changedGauge"+changedGauge);
+        if(changedGauge <= (0.20f* GameObject.Find("GameManager").GetComponent<RPSScript>().round))
+        {
+            slider.GetComponent<Slider>().value += 0.01f;
+        }
+    }
+
+    IEnumerator disableNotice()
+    {
+        Debug.Log("!!");
+        yield return new WaitForSeconds(4.0f);
+        noticeFalse();
+    }
+
+    void noticeFalse()
+    {
+        notice_Select.SetActive(false);
     }
 }

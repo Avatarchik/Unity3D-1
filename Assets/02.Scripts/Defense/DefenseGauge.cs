@@ -22,7 +22,7 @@ public class DefenseGauge : MonoBehaviour {
 
             hash.Add("from", 60.0f);
             hash.Add("to", 255.0f);
-            hash.Add("time", 2.0f);
+            hash.Add("time", 1.0f);
             hash.Add("looptype", "loop");
             hash.Add("onupdate", "ValueToUpdate");
 
