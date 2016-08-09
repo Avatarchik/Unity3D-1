@@ -197,9 +197,11 @@ public class RPSScript : MonoBehaviour {
 
     public void StartRound()
     {
+        RoundState = true;
         if (inputRPS == false && RoundState == true)
         {
             compare();
+            RoundState = false;
         }
     }
 
