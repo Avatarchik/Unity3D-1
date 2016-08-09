@@ -70,5 +70,16 @@ public class GameManager : MonoBehaviour {
             GameObject.Find("MobileJoystick").GetComponent<Image>().enabled = true;
             GameManager.Instance().Warning_collision.SetActive(false);
         }
+
+        if(exploreUi.activeSelf == true || exploreUi_star.activeSelf == true || noMorePS.activeSelf == true)
+        {
+            GameObject.Find("Defense").transform.FindChild("Def").gameObject.SetActive(false);
+            GameObject.Find("Return").transform.FindChild("home").gameObject.SetActive(false);
+        }
+        else
+        {
+            GameObject.Find("Defense").transform.FindChild("Def").gameObject.SetActive(true);
+            GameObject.Find("Return").transform.FindChild("home").gameObject.SetActive(true);
+        }
     }
 }

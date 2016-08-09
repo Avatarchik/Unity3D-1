@@ -14,6 +14,8 @@ public class RPSScript : MonoBehaviour {
     public int loseCount;
     public int drawCount;
 
+    public int lastResult;  // 0: 무승부, 1: 성공, 2: 실패
+
     [SerializeField]
     bool RoundState;
     [SerializeField]
@@ -25,6 +27,7 @@ public class RPSScript : MonoBehaviour {
 
     void Start()
     {
+        lastResult = 0;
         RoundState = false;
         inputRPS = true;
         inputCnt = 0;
@@ -32,7 +35,7 @@ public class RPSScript : MonoBehaviour {
         ScissorsCnt = 0;
         PaperCnt = 0;
         
-        round = 1;
+        round = 0;
         winCount = 0;
         enemyRPS();
     }
@@ -43,8 +46,22 @@ public class RPSScript : MonoBehaviour {
         {
             inputRPS = false;
         }
+        if(round == 5)
+        {
+            GameObject.Find("Main").transform.FindChild("Notice_Result").transform.FindChild("Success").GetComponent<Text>().text = winCount.ToString();
+            GameObject.Find("Main").transform.FindChild("Notice_Result").transform.FindChild("Fail").GetComponent<Text>().text = loseCount.ToString();
+            GameObject.Find("Main").transform.FindChild("Notice_Result").transform.FindChild("Draw").GetComponent<Text>().text = drawCount.ToString();
 
-        
+            GameObject.Find("btn_round").gameObject.SetActive(false);
+            GameObject.Find("Main").transform.FindChild("Notice_Result").gameObject.SetActive(true);
+            //UI 배치
+            Hashtable hash = new Hashtable();
+            hash.Add("x", 1);
+            hash.Add("y", 1);
+            hash.Add("z", 1);
+            hash.Add("time", 0.5);
+            iTween.ScaleTo(GameObject.Find("Main").transform.FindChild("Notice_Result").gameObject, hash);
+        }
     }
 
     public void enemyRPS()
@@ -96,12 +113,15 @@ public class RPSScript : MonoBehaviour {
         {
             case 1:
                 ScissorsCnt--;
+                GameObject.Find("ScissorsCnt").gameObject.GetComponent<Text>().text = ScissorsCnt.ToString();
                 break;
             case 2:
                 RockCnt--;
+                GameObject.Find("RockCnt").gameObject.GetComponent<Text>().text = RockCnt.ToString();
                 break;
             case 3:
                 PaperCnt--;
+                GameObject.Find("PaperCnt").gameObject.GetComponent<Text>().text = PaperCnt.ToString();
                 break;
             default:
                 break;
@@ -110,16 +130,31 @@ public class RPSScript : MonoBehaviour {
         {
             //비김
             drawCount++;
+            lastResult = 0;
+            GameObject.Find("Round").transform.FindChild("ResultText").gameObject.SetActive(true);
+            GameObject.Find("Round").transform.FindChild("ResultText").gameObject.GetComponent<Text>().text = "무승부!";
+            GameObject.Find("Round").transform.FindChild("ResultText").gameObject.GetComponent<Text>().color = Color.yellow;
+            StartCoroutine(warningEnd());
         }
         else if ((myRPS[round] == 1 && comRPS[round] == 2) || (myRPS[round] == 2 && comRPS[round] == 3) || (myRPS[round] == 1 && comRPS[round] == 1))
         {
             //패배
             loseCount++;
+            lastResult = 2;
+            GameObject.Find("Round").transform.FindChild("ResultText").gameObject.SetActive(true);
+            GameObject.Find("Round").transform.FindChild("ResultText").gameObject.GetComponent<Text>().text = "방어 실패!";
+            GameObject.Find("Round").transform.FindChild("ResultText").gameObject.GetComponent<Text>().color = Color.red;
+            StartCoroutine(warningEnd());
         }
         else
         {
             //승리
             winCount++;
+            lastResult = 3;
+            GameObject.Find("Round").transform.FindChild("ResultText").gameObject.SetActive(true);
+            GameObject.Find("Round").transform.FindChild("ResultText").gameObject.GetComponent<Text>().text = "방어 성공!";
+            GameObject.Find("Round").transform.FindChild("ResultText").gameObject.GetComponent<Text>().color = Color.green;
+            StartCoroutine(warningEnd());
         }
         round++;
     }
@@ -128,8 +163,11 @@ public class RPSScript : MonoBehaviour {
     {
         if (ScissorsCnt == 2)
         {
-            GameObject.Find("Round").transform.FindChild("WaringText").gameObject.SetActive(true);
-            StartCoroutine(warningEnd());
+            if (inputRPS == true)
+            {
+                GameObject.Find("Round").transform.FindChild("WaringText").gameObject.SetActive(true);
+                StartCoroutine(warningEnd());
+            }
         }
 
         if (myRPS.Count <= 4 && inputRPS == true && ScissorsCnt < 2)
@@ -152,8 +190,11 @@ public class RPSScript : MonoBehaviour {
     {
         if (RockCnt == 2)
         {
-            GameObject.Find("Round").transform.FindChild("WaringText").gameObject.SetActive(true);
-            StartCoroutine(warningEnd());
+            if (inputRPS == true)
+            {
+                GameObject.Find("Round").transform.FindChild("WaringText").gameObject.SetActive(true);
+                StartCoroutine(warningEnd());
+            }
         }
 
 
@@ -176,8 +217,12 @@ public class RPSScript : MonoBehaviour {
     {
         if (PaperCnt == 2)
         {
-            GameObject.Find("Round").transform.FindChild("WaringText").gameObject.SetActive(true);
-            StartCoroutine(warningEnd());
+            if(inputRPS == true)
+            {
+                GameObject.Find("Round").transform.FindChild("WaringText").gameObject.SetActive(true);
+                StartCoroutine(warningEnd());
+            }
+            
         }
 
 
@@ -197,9 +242,11 @@ public class RPSScript : MonoBehaviour {
 
     public void StartRound()
     {
+        RoundState = true;
         if (inputRPS == false && RoundState == true)
         {
             compare();
+            RoundState = false;
         }
     }
 
@@ -207,5 +254,6 @@ public class RPSScript : MonoBehaviour {
     {
         yield return new WaitForSeconds(2.4f);
         GameObject.Find("Round").transform.FindChild("WaringText").gameObject.SetActive(false);
+        GameObject.Find("Round").transform.FindChild("ResultText").gameObject.SetActive(false);
     }
 }

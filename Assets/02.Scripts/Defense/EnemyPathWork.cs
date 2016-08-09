@@ -78,12 +78,12 @@ public class EnemyPathWork : MonoBehaviour {
 
         //UI 배치
         Hashtable hash = new Hashtable();
-        hash.Add("y", 80);
+        hash.Add("y", 160);
         iTween.MoveBy(GameObject.Find("Button").gameObject, hash);
 
         //UI 배치
         Hashtable hash2 = new Hashtable();
-        hash2.Add("y", -40);
+        hash2.Add("y", -110);
         iTween.MoveBy(GameObject.Find("GameCount").gameObject, hash2);
 
 
@@ -111,7 +111,7 @@ public class EnemyPathWork : MonoBehaviour {
     void GaugeInit()
     {
         //Debug.Log("changedGauge"+changedGauge);
-        if(changedGauge <= (0.20f* GameObject.Find("GameManager").GetComponent<RPSScript>().round))
+        if(changedGauge <= (0.20f* (GameObject.Find("GameManager").GetComponent<RPSScript>().round)))
         {
             slider.GetComponent<Slider>().value += 0.01f;
         }

@@ -9336,7 +9336,7 @@ GameObject:
   - 114: {fileID: 565090503}
   m_Layer: 5
   m_Name: Warning_NoMorePlanet
-  m_TagString: Untagged
+  m_TagString: popup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12233,7 +12233,7 @@ GameObject:
   - 114: {fileID: 755605062}
   m_Layer: 5
   m_Name: Notice_NewStar
-  m_TagString: Untagged
+  m_TagString: popup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21547,7 +21547,7 @@ GameObject:
   - 114: {fileID: 1173042982}
   m_Layer: 5
   m_Name: Notice_NewPlanet
-  m_TagString: Untagged
+  m_TagString: popup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

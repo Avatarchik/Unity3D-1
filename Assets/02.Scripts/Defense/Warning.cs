@@ -12,7 +12,7 @@ public class Warning : MonoBehaviour {
     void touchText()
     {
         //Debug.Log(gameObject.GetComponent<Text>().canvasRenderer.GetAlpha());
-
+        
         if (gameObject.GetComponent<Text>().canvasRenderer.GetAlpha() == 1)
             gameObject.GetComponent<Text>().CrossFadeAlpha(0, 1.5f, false);
 

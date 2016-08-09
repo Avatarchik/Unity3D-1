@@ -19,6 +19,7 @@ TagManager:
   - Missile
   - Enemy
   - FireArea
+  - popup
   layers:
   - Default
   - TransparentFX
