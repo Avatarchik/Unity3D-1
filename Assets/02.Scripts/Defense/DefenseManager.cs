@@ -29,7 +29,7 @@ public class DefenseManager : MonoBehaviour {
 
     void Update()
     {
-        if (EnemyPathWork.gameObject.GetComponent<EnemyPathWork>().endMove == true && roundInit == false && gameObject.GetComponent<RPSScript>().inputCnt == 5)
+        if (EnemyPathWork.gameObject.GetComponent<EnemyPathWork>().endMove == true && roundInit == false && gameObject.GetComponent<RPSScript>().inputCnt == 5 && EnemyPathWork.gameObject.GetComponent<EnemyPathWork>().nt_sel == false)
         {
             Hashtable hash = new Hashtable();
             hash.Add("x", 1);

@@ -263,8 +263,8 @@ public class PlanetManager : MonoBehaviour
 
         tempsize = GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().sizeT;
         tempcolor = GameObject.Find("PlanetManager").gameObject.GetComponent<RandPlanet>().colorT;
-        tempmFood = UnityEngine.Random.Range(tempsize * tempsize * 100, tempsize * 5 * 100);
-        tempmTitanium = UnityEngine.Random.Range(tempsize * tempsize * 100, tempsize * 5 * 100);
+        tempmFood = UnityEngine.Random.Range(tempsize * tempsize * 100, tempsize * 5 * 100) + 1500;
+        tempmTitanium = UnityEngine.Random.Range(tempsize * tempsize * 100, tempsize * 5 * 100) + 2500;
         tempLepersec = tempsize;
         tempX = spawnPoint.x;
         tempY = spawnPoint.y;

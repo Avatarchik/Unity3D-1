@@ -7,7 +7,7 @@ public class EnemyPathWork : MonoBehaviour {
     public GameObject slider;
     public GameObject sliderFill;
     public GameObject notice_Select;
-
+    public bool nt_sel;
     bool SceneInit = true;
     public bool endMove = true;
     float changedGauge;
@@ -20,7 +20,7 @@ public class EnemyPathWork : MonoBehaviour {
     void Start()
     {
         slider.GetComponent<Slider>().onValueChanged.AddListener(delegate { ValueChangeCheck(); });
-        
+        nt_sel = true;
 
     }
 
@@ -133,5 +133,6 @@ public class EnemyPathWork : MonoBehaviour {
     void noticeFalse()
     {
         notice_Select.SetActive(false);
+        nt_sel = false;
     }
 }

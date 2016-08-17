@@ -51,12 +51,13 @@ public class RPSScript : MonoBehaviour {
         }
         if(round == 5 && defenseEnd == false)
         {
+            
             GameObject.Find("Main").transform.FindChild("Notice_Result").transform.FindChild("Success").GetComponent<Text>().text = winCount.ToString();
             GameObject.Find("Main").transform.FindChild("Notice_Result").transform.FindChild("Fail").GetComponent<Text>().text = loseCount.ToString();
             GameObject.Find("Main").transform.FindChild("Notice_Result").transform.FindChild("Draw").GetComponent<Text>().text = drawCount.ToString();
 
             GameObject.Find("Round").transform.FindChild("btn_round").gameObject.SetActive(false);
-            GameObject.Find("Main").transform.FindChild("Notice_Result").gameObject.SetActive(true);
+            StartCoroutine(delayResult());
             //UI 배치
             Hashtable hash = new Hashtable();
             hash.Add("x", 1);
@@ -160,7 +161,7 @@ public class RPSScript : MonoBehaviour {
             GameObject.Find("Round").transform.FindChild("ResultText").gameObject.GetComponent<Text>().color = Color.yellow;
             StartCoroutine(warningEnd());
         }
-        else if ((myRPS[round] == 1 && comRPS[round] == 2) || (myRPS[round] == 2 && comRPS[round] == 3) || (myRPS[round] == 1 && comRPS[round] == 1))
+        else if ((myRPS[round] == 1 && comRPS[round] == 2) || (myRPS[round] == 2 && comRPS[round] == 3) || (myRPS[round] == 3 && comRPS[round] == 1))
         {
             //패배
             loseCount++;
@@ -279,7 +280,19 @@ public class RPSScript : MonoBehaviour {
             }
         }
     }
+    IEnumerator delayResult()
+    {
+        yield return new WaitForSeconds(3.0f);
+        GameObject.Find("Round_result").transform.FindChild("Player").transform.FindChild("Scissors").gameObject.SetActive(false);
+        GameObject.Find("Round_result").transform.FindChild("Player").transform.FindChild("Rock").gameObject.SetActive(false);
+        GameObject.Find("Round_result").transform.FindChild("Player").transform.FindChild("Paper").gameObject.SetActive(false);
 
+        GameObject.Find("Round_result").transform.FindChild("Enemy").transform.FindChild("Scissors").gameObject.SetActive(false);
+        GameObject.Find("Round_result").transform.FindChild("Enemy").transform.FindChild("Rock").gameObject.SetActive(false);
+        GameObject.Find("Round_result").transform.FindChild("Enemy").transform.FindChild("Paper").gameObject.SetActive(false);
+
+        GameObject.Find("Main").transform.FindChild("Notice_Result").gameObject.SetActive(true);
+    }
     IEnumerator warningEnd()
     {
         yield return new WaitForSeconds(2.4f);
@@ -290,9 +303,7 @@ public class RPSScript : MonoBehaviour {
     IEnumerator continueRound()
     {
         GameObject.Find("btn_round").gameObject.SetActive(false);
-        yield return new WaitForSeconds(2.5f);
-        GameObject.Find("Round").transform.FindChild("btn_round").gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(3.5f);
         GameObject.Find("Round_result").transform.FindChild("Player").transform.FindChild("Scissors").gameObject.SetActive(false);
         GameObject.Find("Round_result").transform.FindChild("Player").transform.FindChild("Rock").gameObject.SetActive(false);
         GameObject.Find("Round_result").transform.FindChild("Player").transform.FindChild("Paper").gameObject.SetActive(false);
@@ -301,6 +312,7 @@ public class RPSScript : MonoBehaviour {
         GameObject.Find("Round_result").transform.FindChild("Enemy").transform.FindChild("Rock").gameObject.SetActive(false);
         GameObject.Find("Round_result").transform.FindChild("Enemy").transform.FindChild("Paper").gameObject.SetActive(false);
 
-
+        yield return new WaitForSeconds(0.5f);
+        GameObject.Find("Round").transform.FindChild("btn_round").gameObject.SetActive(true);
     }
 }
